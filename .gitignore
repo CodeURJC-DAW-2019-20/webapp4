@@ -26,3 +26,5 @@ hs_err_pid*
 .idea/vcs.xml
 .idea/webapp4.iml
 .idea/workspace.xml
+
+.idea/
