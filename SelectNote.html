@@ -15,6 +15,8 @@
     <!-- Custom styles for this template -->
     <link href="src/business-frontpage.css" rel="stylesheet">
 
+    <link href="SelectNote.css" rel="stylesheet" type="text/css" media="screen">
+
 </head>
 <body>
     <!-- Navigation -->
@@ -42,11 +44,61 @@
         </div>
     </nav>
     <!-- Search -->
-    <form class="form-inline md-form form-sm active-purple-2 mt-2">
-        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Carrera, asignatura..."
+    <form class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto" id="searching bar">
+        <input class="form-control form-control-sm mr-3 w-50" type="text" placeholder="Carrera, asignatura..."
                aria-label="Search">
         <i class="fas fa-search" aria-hidden="true"></i>
     </form>
+
+
+
+    <div class="row" id="padre">
+        <div class="col-md-8 row">
+
+            <div class="col-md-4">
+                <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5" >
+                <a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
+            </div>
+            <ul class="list-group list-group-flush" id="list1">
+                <li class="list-group-item">
+                    Título:
+                </li>
+                <li class="list-group-item">
+                    Asignatura:
+                </li >
+                <li class="list-group-item">
+                    Carrera:
+                </li>
+                <li class="list-group-item">
+                    Autor:
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-md-4 bg-light col-xs ">
+            <ul class="list-group list-group-flush" id="list2">
+                <li class="list-group-item">
+                    <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo2" class="mb-5" >
+                    <div id="title">Título</div>
+                </li>
+                <li class="list-group-item">
+                    <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo2" class="mb-5" >
+                    <div id="title">Título</div>
+                </li >
+                <li class="list-group-item">
+                    <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo2" class="mb-5" >
+                    <div id="title">Título</div>
+                </li>
+                <li class="list-group-item">
+                    <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo2" class="mb-5" >
+                    <div id="title">Título</div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
 
 
 </body>
