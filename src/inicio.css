@@ -1,4 +1,8 @@
-.container {
-    border: 10%;
-    align-content: center;
+.mainCont{
+    text-align: center;
+}
+
+#cajita{
+    padding-top: 0.75%;
+    margin-left: 35%;
 }
