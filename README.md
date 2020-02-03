@@ -56,18 +56,47 @@ Users will obtain a score obtained from the average of the scores of their notes
 
 ### Home page
 ![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/inicio.jpeg)
+A first look of our web where the guests users can search in order to look if a note from a specific subject is available.
+Users can search for a specific degree, which will show all subjects of that degree, or a specific subject.
 
 ### Register page
 ![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/sign%20up.jpeg)
+Page for the sign up of the new users.
 
 ### Login page
 ![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/login.jpeg)
+Page for the sign in of previously registered users.
 
+### Subject list page
+![Subject list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20asignaturas.jpeg)
+This page will show a list with the subjects resulting from the search. Selecting a subject will show all the existing notes of that subject.
 
-
-### Notes List
+### Notes List page
 ![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20apuntes.jpeg)
-In this page, after a search, topic relative notes will be shown in a list
+In this page, after a search, topic relative notes will be shown in a list. Selecting a note will show the info about that note.
 
+### Note selected page
+![Note selected page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/apuntes%20seleccionado.jpeg)
+This page will show all the info about the selected note, and loged users will be capable of downloading it.
+
+### Profile page
+![Profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/perfil.jpeg)
+This page will show all the info about a loged user, including the notes he has uploaded, and there will be a button to allow him to modify that info.
+
+### Edit profile page
+![Edit profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/editar%20perfil.jpeg)
+This page will alow the users to modify their profiles.
+
+### Upload notes page
+![Upload notes page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/subir%20apuntes.jpeg)
+At this page loged users will be able to select a file and fill the form in order to upload the note to the platform.
+
+### Admin page
+![Admin page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/admin.jpg)
+Admin users will use this page with the purpose of creating new degrees and subjects for the platform, that will be available for the users of the platform.
+
+### Ranking page
+![Ranking page]()
+This page will show a sorted list of the users with the highest scores of the platform.
 
 ## Diagramas de navegación
