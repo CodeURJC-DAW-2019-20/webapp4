@@ -55,7 +55,8 @@ Users will obtain a score obtained from the average of the scores of their notes
 ## Capturas de pantalla
 
 ### Home page
-![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/inicio.jpeg) 
-A first look of our page where the guests users can search in order to look if they are available.
 
+### Notes List
+![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20apuntes.jpeg)
+In this page, after a search, topic relative notes will be shown in a list
 ## Diagramas de navegación
