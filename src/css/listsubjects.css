@@ -1,8 +1,6 @@
-#divsearch{
-    height: 400px;
-}
+
 #photo2{
-   height: 80px;
+    height: 80px;
     width: 100px;
     float: left;
     margin-right: 2em;
@@ -27,8 +25,4 @@
 }
 #subscribe{
     float: right;
-}
-
-.list-group-item > a:link, a:visited, a:active {
-    text-decoration:none;
 }
