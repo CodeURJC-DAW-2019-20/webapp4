@@ -40,6 +40,7 @@ Two of the four entities previously mentioned will have images.
 - Users
 
 ## Plots
+Each note page will contain a grapich that shows the downloads of a note within a period of time.
 
 ## Technology
 The users will have the possibility to subscribe to a subject and they will recieve an email when somebody upload a note related with this subject.
@@ -52,6 +53,8 @@ Users will obtain a score obtained from the average of the scores of their notes
 # Fase 1
 
 ## Capturas de pantalla
+
+### Home page
 
 
 ## Diagramas de navegación
