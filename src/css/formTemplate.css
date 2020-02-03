@@ -9,6 +9,7 @@ body {
 
 .col-photo{
     width: 50%;
+    margin: auto;
 }
 
 .card-signup {
