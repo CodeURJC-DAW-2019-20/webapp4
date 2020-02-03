@@ -96,7 +96,8 @@ At this page loged users will be able to select a file and fill the form in orde
 Admin users will use this page with the purpose of creating new degrees and subjects for the platform, that will be available for the users of the platform.
 
 ### Ranking page
-![Ranking page]()
+![Ranking page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/ranking.png)
 This page will show a sorted list of the users with the highest scores of the platform.
 
-## Diagramas de navegación
+## Navigation diagram
+![Navigation diagram]()
