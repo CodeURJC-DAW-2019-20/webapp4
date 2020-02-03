@@ -25,6 +25,10 @@
 #information{
     margin-left: 12%;
 }
+#subscribe{
+    float: right;
+}
+
 .list-group-item > a:link, a:visited, a:active {
     text-decoration:none;
 }
