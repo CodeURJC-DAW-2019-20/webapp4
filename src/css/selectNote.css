@@ -1,0 +1,27 @@
+#padre{
+    display: flex;
+}
+#photo1{
+    width: 14em;
+    height: 14em;
+    display: flex;
+    margin: 10% ;
+    border-radius:2% ;
+}
+#boton1{
+    width: 9em;
+    height: 2em;
+    margin: 10%;
+    text-align: center;
+}
+#list1{
+    margin-left: 10%;
+    margin-top:5% ;
+}
+
+#title{
+    margin-top: 10%;
+}
+#list2{
+    margin: 10%;
+}

@@ -1,0 +1,28 @@
+
+#photo2{
+    height: 80px;
+    width: 100px;
+    float: left;
+    margin-right: 2em;
+
+}
+#father{
+    text-align:left;
+}
+#son{
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+#title{
+    margin-left: 12%;
+}
+#description{
+    margin-left: 12%;
+}
+#information{
+    margin-left: 12%;
+}
+#subscribe{
+    float: right;
+}
