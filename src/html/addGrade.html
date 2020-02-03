@@ -6,7 +6,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/addGrade.css" rel="stylesheet">
 
     <title>URJC.share</title>
 </head>
@@ -36,10 +36,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="myprofile.html">Perfil</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="addGrade.html">Administración</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="login.html">Iniciar sesión
                         <span class="sr-only">(current)</span>
                     </a>
@@ -57,32 +57,30 @@
     <div class="row justify-content-center">
         <div class="col-6 card card-signin justify-content-center">
             <div class="card-body">
-                <h5 class="card-title text-center text-primary">Iniciar sesión</h5>
+                <h5 class="card-title text-center text-primary">Añadir grado y asignaturas</h5>
                 <form class="form-signin">
-                    <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
-                               autofocus>
-                        <label for="inputEmail">Correo electrónico</label>
+                    <div class="form-group">
+                        <label for="grados">Grados</label>
+                        <select class="form-control" id="grados">
+                            <option value="">Grado Ing.Software</option>
+                            <option value="">Doble grado Ing.Software y matematicas</option>
+                        </select>
                     </div>
-
-                    <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Contraseña</label>
+                    <div class="form-group">
+                        <label for="asiganturas">Asignaturas</label>
+                        <select class="form-control" id="asiganturas">
+                            <option value="">Procesos Software</option>
+                            <option value="">Estructura de datos</option>
+                        </select>
                     </div>
-
-                  <div class="text-center">
-                    <button class="btn btn-primary  text-uppercase" type="submit">Iniciar Sesión</button>
-                  </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                    </div>
                 </form>
-                <hr>
-                <div id="formFooter" class="text-center">
-                    <a class="underlineHover" href="#">¿No tienes cuenta? Registrate</a>
-                </div>
             </div>
-          </form>
-          <hr>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 
 <!-- Footer -->
