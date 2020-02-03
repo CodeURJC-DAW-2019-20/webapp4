@@ -17,13 +17,41 @@ Admin users will manage the different degrees and subjects in order to avoid dup
 | -- | -- | -- |
 | David Tejero Bravo | d.tejero.2017@alumnos.urjc.es | davidtb10 |
 | Alejandro Domingo Cornás | a.domingoc.2017@alumnos.urjc.es | AlexDC8 |
-| Miguel Rodríguez Álvarez|  | m.rodriguezalva@alumnos.urjc.es | miguelrod21 |
+| Miguel Rodríguez Álvarez | m.rodriguezalva@alumnos.urjc.es | miguelrod21 |
 | Diego Almansa Cantero| d.almansa.2017@alumnos.urjc.es | almansad |
 | Álvaro García Velasco| a.garciav.2017@alumnos.urjc.es | Alvarogv96 |
 
 ## Entities
 The data base will contain 4 different entities:
--Notes
--Users
--Degrees
--Subjects
+- Notes
+- Users
+- Degrees
+- Subjects
+
+## User permissions
+There will be three types of users with different permissions over the content of the platform.
+- Guests users: They will be able to search notes but they wouldn't be able to upload or download them.
+- Logged users: They are capable of upload and download all the available files and rate them.
+- Admin users: They will manage the fidderent degrees and subjects in order to avoid duplications.
+
+## Entities with images
+Two of the four entities previously mentioned will have images.
+- Notes
+- Users
+
+## Plots
+
+## Technology
+The users will have the possibility to subscribe to a subject and they will recieve an email when somebody upload a note related with this subject.
+
+## Algorithm
+The users will be able to rate each note in a range of 1 to 5. 
+Users will obtain a score obtained from the average of the scores of their notes.
+
+
+# Fase 1
+
+## Capturas de pantalla
+
+
+## Diagramas de navegación
