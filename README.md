@@ -100,4 +100,4 @@ Admin users will use this page with the purpose of creating new degrees and subj
 This page will show a sorted list of the users with the highest scores of the platform.
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagrama%20de%20navegacion.png)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagrama%20de%20navegacion.jpg)
