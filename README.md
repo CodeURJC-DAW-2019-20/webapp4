@@ -55,8 +55,19 @@ Users will obtain a score obtained from the average of the scores of their notes
 ## Capturas de pantalla
 
 ### Home page
+![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/inicio.jpeg)
+
+### Register page
+![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/sign%20up.jpeg)
+
+### Login page
+![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/login.jpeg)
+
+
 
 ### Notes List
 ![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20apuntes.jpeg)
 In this page, after a search, topic relative notes will be shown in a list
+
+
 ## Diagramas de navegación
