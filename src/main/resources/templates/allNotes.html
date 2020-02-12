@@ -4,21 +4,22 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../css/register.css" rel="stylesheet">
+    <link href="../static/css/register.css" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>URJC.share</title>
+
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/business-frontpage.css" rel="stylesheet">
+    <link href="css/business-frontpage.css" rel="stylesheet">
 
-    <link href="../css/SelectNote.css" rel="stylesheet" type="text/css" media="screen">
-    <title>URJC.share</title>
+    <link href="css/allNotes.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
@@ -68,47 +69,42 @@
         <div class="col-12 card card-signup justify-content-center">
             <div class="card-body">
                 <h5 class="card-title text-center text-primary"></h5>
+
                 <!-- Search -->
-                <form class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto" id="searching bar">
-                    <input class="form-control form-control-sm mr-3 w-50" type="text"
-                           placeholder="Carrera, asignatura..."
-                           aria-label="Search">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </form>
+                <div class=" w-100">
 
-
-                <div class="row" id="padre">
-                    <div class="col-md-8 row">
-
-                        <div class="col-md-4">
-                            <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1"
-                                 class="mb-5">
-                            <a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
-                        </div>
-                        <ul class="list-group list-group-flush" id="list1">
-                            <li class="list-group-item">
-                                Título:
-                            </li>
-                            <li class="list-group-item">
-                                Asignatura:
-                            </li>
-                            <li class="list-group-item">
-                                Carrera:
-                            </li>
-                            <li class="list-group-item">
-                                Profesor:
-                            </li>
-                        </ul>
-
-                    </div>
+                    <form class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto" id="searching bar">
+                        <input class="form-control form-control-sm mr-3 w-50" type="text" placeholder="Carrera, asignatura..."
+                               aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </form>
 
                 </div>
-
+                <div>
+                    <h2>Lista de apuntes encontrados:</h2>
+                </div>
+                <!-- List of notes -->
+                <div class="ml-3" id="father">
+                    <div class="" id="son">
+                        <ul class="list-group list-group-flush" id="list2">
+                            <li class="list-group-item">
+                                <a href="selectNote.html">
+                                    <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo2" class="" >
+                                    <div id="asignatura">{{apunte.asignatura}} | Grado</div>
+                                    <div id="nombre">{{apunte.nombre}}</div>
+                                    <div id="comentario">{{apunte.comentario}}</div><!-- Number of pages, date of upload -->
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+
+
 <!-- Footer -->
 <footer class="py-3 bg-dark fixed-bottom">
     <div class="container">
@@ -116,7 +112,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
 
 </body>
 
