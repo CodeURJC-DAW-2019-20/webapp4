@@ -23,6 +23,6 @@ public class Note_Controller {
     }
     @RequestMapping("/subir_apunte")
     public String noteController() {
-        return "subirApunte";
+        return "uploadNote";
     }
 }
