@@ -1,15 +1,15 @@
 package es.urjc.daw.urjc_share;
 
-public class Apunte {
+public class Note {
     private String name;
     private String subject;
     private String professor;
     private String degree;
 
-    public Apunte() {
+    public Note() {
     }
 
-    public Apunte(String name, String subject, String professor, String degree) {
+    public Note(String name, String subject, String professor, String degree) {
         this.name = name;
         this.subject = subject;
         this.professor = professor;
