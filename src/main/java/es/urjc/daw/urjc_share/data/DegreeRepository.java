@@ -1,11 +1,11 @@
 package es.urjc.daw.urjc_share.data;
 
 import java.util.List;
+
+import es.urjc.daw.urjc_share.model.Degree;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.urjc.daw.urjc_share.model.User;
 
-public interface UserRepository extends JpaRepository<User, Long>  {
+public interface DegreeRepository extends JpaRepository<Degree, Long>  {
 
-	
 }

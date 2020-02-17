@@ -1,9 +1,7 @@
 package es.urjc.daw.urjc_share.model;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -18,7 +16,8 @@ public class User {
 	private String user;
 	private String email;
 	private Integer number;
-	private List<Note> notes;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Note> notes = new ArrayList<>();
 	
 	public User() {
 		

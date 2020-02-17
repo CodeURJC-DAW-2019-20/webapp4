@@ -1,11 +1,9 @@
 package es.urjc.daw.urjc_share.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Degree {
@@ -15,7 +13,8 @@ public class Degree {
 	private long id;
 	
     private String name;
-    private List<Note> notes;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Note> notes=new ArrayList<>();
 
     public Degree() {
 
