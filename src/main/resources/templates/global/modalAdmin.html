@@ -1,0 +1,47 @@
+<!--Modal-->
+<div class="modal fade" id="modalAdmin" tabindex="-1" role="dialog" aria-labelledby="modalAdmin"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadFileModalLabel">Administración</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container pt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 justify-content-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-primary">Añadir grado y asignaturas</h5>
+                                <form class="form-signin">
+                                    <div class="form-group">
+                                        <label for="grados">Grados</label>
+                                        <select class="form-control" id="grados">
+                                            <option value="">Grado Ing.Software</option>
+                                            <option value="">Doble grado Ing.Software y matematicas</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="asiganturas">Asignaturas</label>
+                                        <select class="form-control" id="asiganturas">
+                                            <option value="">Procesos Software</option>
+                                            <option value="">Estructura de datos</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
