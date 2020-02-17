@@ -1,7 +1,17 @@
 package es.urjc.daw.urjc_share.model;
-import java.awt.List;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
 	private String name;
 	private String pass;
 	private String degree;
