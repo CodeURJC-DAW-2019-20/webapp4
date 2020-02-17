@@ -2,49 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e50aa60-19c7-4252-ab6f-3978b4280ed2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/css/business-frontpage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/css/inicio.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/addGrade.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/addGrade.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/allNotes.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/allNotes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/business-frontpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/business-frontpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/formTemplate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/formTemplate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/inicio.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/inicio.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/listsubjects.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/listsubjects.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/ranking.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/ranking.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/selectNote.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/selectNote.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/templateProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/css/templateProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/addGrade.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/addGrade.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/allNotes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/allNotes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/editProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/editProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/listsubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/listsubjects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/myprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/ranking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/selectNote.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/selectNote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/templateBase.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/templateBase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/html/uploadFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Diagramanavegacion.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/Diagramanavegacion.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/admin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/admin.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/apuntes seleccionado.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/apuntes seleccionado.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/editar perfil.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/editar perfil.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/inicio.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/inicio.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/lista apuntes.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/lista apuntes.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/lista asignaturas.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/lista asignaturas.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/login.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/login.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/perfil.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/perfil.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/profile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/profile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/ranking.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/ranking.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/sign up.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/sign up.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/subir apuntes.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/oldProyect/images/subir apuntes.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/addGrade.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/addGrade.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/allNotes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/allNotes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/editProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/editProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/listsubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/listsubjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/myprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/ranking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/selectNote.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/selectNote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/templateBase.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/templateBase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/uploadFile.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,6 +25,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1720912185">
@@ -86,30 +72,37 @@
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="html" value="1" />
+          <entry key="html" value="2" />
+          <entry key="java" value="4" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="1" />
+          <entry key="HTML" value="2" />
+          <entry key="JAVA" value="4" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5" />
+          <entry key="java" value="7" />
           <entry key="properties" value="4" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="7" />
+          <entry key="PLAIN_TEXT" value="13" />
           <entry key="Properties" value="4" />
         </counts>
       </usages-collector>
@@ -117,53 +110,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-1258">
+                <caret line="3" selection-start-line="3" selection-end-line="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state relative-caret-position="85">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-            </state>
+            <state relative-caret-position="-520" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/css/login.css">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/inicio.html">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/UrjcShareApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/init_template.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/init.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -179,6 +175,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/init.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Apunte_Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/inicioController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java" />
       </list>
     </option>
   </component>
@@ -224,11 +224,28 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="webapp4" type="58d84e3e:PackageViewProjectNode" />
+              <item name="urjc_share" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="58d84e3e:PackageViewProjectNode" />
+              <item name="urjc_share" type="616d4139:PackageViewModuleNode" />
+              <item name="es.urjc.daw.urjc_share" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,7 +269,48 @@
               <item name="webapp4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="urjc_share" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="urjc_share" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp4" type="b2602c69:ProjectViewProjectNode" />
@@ -266,8 +324,34 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="webapp4" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Apuntes\Tercero\Segundo cuatri\DAW\webapp4" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Apuntes\Tercero\Segundo cuatri\DAW\webapp4" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Apuntes\Tercero\Segundo cuatri\DAW\webapp4" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="webapp4" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Apuntes\Tercero\Segundo cuatri\DAW\webapp4" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="html" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,22 +361,23 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581452560429" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581954728568" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\oldProyect" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates" />
+      <recent name="D:\Estudios\UNI\año2\urjc_share\src\main\resources\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="es.urjc.daw.urjc_share.controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates" />
-      <recent name="D:\Estudios\UNI\año2\urjc_share\src\main\resources\templates" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\static" />
+      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\oldProyect" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -311,6 +396,16 @@
     <configuration name="UrjcShareApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="urjc_share" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="es.urjc.daw.urjc_share.UrjcShareApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="server.port" />
+          <option name="value" value="4200" />
+        </param>
+      </additionalParameters>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -329,16 +424,18 @@
       <workItem from="1581418476727" duration="382000" />
       <workItem from="1581419255891" duration="2192000" />
       <workItem from="1581504560227" duration="987000" />
+      <workItem from="1581952303464" duration="2198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3561000" />
+    <option name="totallyTimeSpent" value="8270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2624811" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -348,7 +445,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36988544" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.12274959" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -359,18 +456,37 @@
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15201586" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.328877" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -379,10 +495,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/css/login.css" />
     <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/UrjcShareApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -390,9 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/init_template.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/init_template.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -400,17 +511,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/init.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/init.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/inicio.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/inicioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Apunte_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1258">
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
