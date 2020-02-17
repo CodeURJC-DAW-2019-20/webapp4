@@ -16,15 +16,14 @@ public class DataBaseController implements CommandLineRunner {
 
 	@Autowired
 	private UserRepository userrepository;
-	private List<Note>notes = new ArrayList<>();
 	
 	@Override
 	public void run(String... args) throws Exception {
 		
 		 // save a couple of customers
-		userrepository.save(new User("paco","1234","Matematicas","pacomer","pacopacon@gmail.com",56789, 898989));
-		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, 234567));
-		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, 2345));
+		userrepository.save(new User("paco","1234","Matematicas","pacomer","pacopacon@gmail.com",56789,null));
+		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, null));
+		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, null));
        
         // fetch all customers
         List<User> users = userrepository.findAll();
