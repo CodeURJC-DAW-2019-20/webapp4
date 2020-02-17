@@ -4,7 +4,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../oldProyect/css/register.css" rel="stylesheet">
+    <link href="../css/register.css" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,12 +12,15 @@
     <meta name="author" content="">
 
     <!-- Bootstrap core CSS -->
-    <link href="../oldProyect/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../oldProyect/css/business-frontpage.css" rel="stylesheet">
+
 
     <link href="../css/SelectNote.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="https://kit.fontawesome.com/fa64bf418c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/selectNote.js"></script>
     <title>URJC.share</title>
 </head>
 
@@ -80,9 +83,31 @@
                 <div class="row" id="padre">
                     <div class="col-md-8 row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <img src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1"
                                  class="mb-5">
+                            <section class='rating-widget'>
+                                <!-- Rating Stars Box -->
+                                <div class='rating-stars text-center'>
+                                    <ul class="" id='stars'>
+                                        <li class='star' title="Nada útil" data-value='1'>
+                                            <i class='fa fa-star fa-fw fa-xs'></i>
+                                        </li>
+                                        <li class='star' title='Poco útil' data-value='2'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title="Útil" data-value='3'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Muy útil' data-value='4'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Excelente' data-value='5'>
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
                             <a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
                         </div>
                         <ul class="list-group list-group-flush" id="list1">
