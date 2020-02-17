@@ -14,7 +14,7 @@ public class Note_Controller {
 
     private Map<Integer, Note> notes = new ConcurrentHashMap<>();
     private AtomicInteger id = new AtomicInteger();
-    @RequestMapping("/apuntes")
+    @RequestMapping("/notes")
     public String saveNote(Model model, Note apunte) {
         notes.put(id.getAndIncrement(), apunte);
         model.addAttribute("notes", notes.values());
@@ -23,6 +23,6 @@ public class Note_Controller {
     }
     @RequestMapping("/subir_apunte")
     public String noteController() {
-        return "uploadNote";
+        return "allNotes";
     }
 }
