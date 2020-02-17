@@ -1,4 +1,4 @@
-package es.urjc.daw.urjc_share;
+package es.urjc.daw.urjc_share.model;
 
 public class Note {
     private String name;
