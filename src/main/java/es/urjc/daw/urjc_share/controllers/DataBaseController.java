@@ -21,9 +21,9 @@ public class DataBaseController implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		 // save a couple of customers
-		userrepository.save(new User("paco","1234","Matematicas","pacomer","pacopacon@gmail.com",56789,null));
-		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, null));
-		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, null));
+		userrepository.save(new User("paco","1234","Matematicas","pacomer","pacopacon@gmail.com",56789,null,false));
+		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, null,false));
+		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, null, false));
        
         // fetch all customers
         List<User> users = userrepository.findAll();

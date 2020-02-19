@@ -1,0 +1,72 @@
+<!--Modal-->
+<div class="modal fade" id="modalEditProfile" tabindex="-1" role="dialog" aria-labelledby="modalEditProfileLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditProfileLabel">Editar Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container pt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 justify-content-center">
+                            <h5 class="card-title text-center text-primary">Editar Perfil</h5>
+                            <div class="col-photo">
+                                <div class="profile-img">
+                                    <img src="../images/profile.png" alt=""/>
+                                    <div class="file btn btn-lg btn-primary">
+                                        Change Photo
+                                        <input type="file" name="file"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form-signup" action="/usuario/guardar"method="post"enctype="multipart/form-data">
+
+                                <div class="form-label-group">
+                                    <input type="text" id="inputUser" class="form-control" placeholder="Usuario">
+                                    <label for="inputUser">Usuario</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico">
+                                    <label for="inputEmail">Correo electrónico</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña">
+                                    <label for="inputPassword">Contraseña</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" id="inputName" class="form-control" placeholder="Nombre">
+                                    <label for="inputName">Nombre</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" id="inputDegree" class="form-control" placeholder="Grado matriculado">
+                                    <label for="inputDegree">Grado matriculado</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                    <label for="inputPhoneNumber">Número de teléfono</label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-primary  text-uppercase" type="submit">Guardar</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
