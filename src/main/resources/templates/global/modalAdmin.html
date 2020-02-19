@@ -15,20 +15,25 @@
                         <div class="col-12 justify-content-center">
                             <div class="card-body">
                                 <h5 class="card-title text-center text-primary">Añadir grado y asignaturas</h5>
-                                <form class="form-signin">
+                                <form class="form-signin" action="/created" method="post">
                                     <div class="form-group">
                                         <label for="grados">Grados</label>
-                                        <select class="form-control" id="grados">
+                                        <input type="text" class="form-control" id="grados" name="grados">
+                                        <!--  <select class="form-control" id="grados">
                                             <option value="">Grado Ing.Software</option>
                                             <option value="">Doble grado Ing.Software y matematicas</option>
                                         </select>
+                                        -->
                                     </div>
                                     <div class="form-group">
-                                        <label for="asiganturas">Asignaturas</label>
+                                        <label for="asiganturas">Asignaturas (en blanco para crear un grado)</label>
+                                        <input type="text" class="form-control" id="asignaturas" name="asignaturas">
+                                        <!--  
                                         <select class="form-control" id="asiganturas">
                                             <option value="">Procesos Software</option>
                                             <option value="">Estructura de datos</option>
                                         </select>
+                                        -->
                                     </div>
                                     <div class="text-center">
                                         <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
