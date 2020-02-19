@@ -1,8 +1,10 @@
 <html>
 
 <head>
+
+
 <!-- Custom styles for this template -->
-<link href="../static/css/allNotes.css" rel="stylesheet">
+<link href="../css/register.css" rel="stylesheet">
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -13,19 +15,20 @@
 <title>URJC.share</title>
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/business-frontpage.css" rel="stylesheet">
+<link href="../css/business-frontpage.css" rel="stylesheet">
 
-<link href="css/allNotes.css" rel="stylesheet" type="text/css"
+<link href="../css/listsubjects.css" rel="stylesheet" type="text/css"
 	media="screen">
+
+<title>URJC.share</title>
 </head>
 
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
 <body class="h-100 bg-light">
-	<!-- Navigation -->
 
 	{{> global/nav}}
 
@@ -34,10 +37,11 @@
 		<div class="row justify-content-center">
 			<div class="col-12 card card-signup justify-content-center">
 				<div class="card-body">
-					<h5 class="card-title text-center text-primary">Lista de apuntes encontrados para la asignatura :</h5>
+					<h5 class="card-title text-center text-primary">Lista de
+						asignaturas encontradas para el grado {{textSearched}}:</h5>
 
 					<!-- Search -->
-					<div class=" w-100">
+					<div class=" w-100" id="divsearch">
 
 						<form
 							class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto"
@@ -47,23 +51,19 @@
 						</form>
 
 					</div>
-					<div>
-						<h2></h2>
-					</div>
 					<!-- List of notes -->
-
 					<div class="ml-3" id="father">
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
-								{{#notes}}
-								<li class="border list-group-item"><a href="selectNote.html">
-										<img
-										src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg"
-										id="photo2" class="">
-										<div id="subject">{{subject}} | {{degree}}</div>
-										<div id="name">{{name}}</div>
-										<div id="professor">{{professor}}</div>
-								</a></li> {{/notes}}
+								{{#subjects}}
+								<li class="border list-group-item" action="/search/subject" method="post">
+									<div id="title">Asignatura: {{name}} | Grado: {{degree}}</div>
+									<div id="information">Información</div> <!-- Number of pages, date of upload -->
+									<div id="subscribe">
+										<button class="btn btn-primary btn-block " type="submit">Subscribirse</button>
+									</div>
+								</li> 
+								{{/subjects}}
 							</ul>
 						</div>
 					</div>
@@ -73,7 +73,6 @@
 	</div>
 	</div>
 
-
 	<!-- Footer -->
 	<footer class="py-3 bg-dark fixed-bottom">
 		<div class="container">
@@ -82,6 +81,7 @@
 		</div>
 		<!-- /.container -->
 	</footer>
+
 
 </body>
 
