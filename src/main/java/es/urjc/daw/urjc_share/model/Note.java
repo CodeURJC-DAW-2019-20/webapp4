@@ -1,9 +1,6 @@
 package es.urjc.daw.urjc_share.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Note {
@@ -13,35 +10,37 @@ public class Note {
 	private long id;
 	
     private String name;
-    private String subject;
     private String professor;
-    private String degree;
+    
+    @ManyToOne
+    private Subject subject;
+    
+    @ManyToOne
+    private Degree degree;
+    
+    @ManyToOne
+    private User user;
+   
 
     public Note() {
     }
 
-    public Note(String name, String subject, String professor, String degree) {
+    public Note(String name, Subject subject, String professor, Degree degree){
         this.name = name;
         this.subject = subject;
         this.professor = professor;
         this.degree = degree;
     }
 
-    public String getDegree() {
-        return degree;
-    }
+   
 
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
+
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
+
 
     public void setProfessor(String professor) {
         this.professor = professor;
@@ -51,11 +50,33 @@ public class Note {
         return name;
     }
 
-    public String getSubject() {
-        return subject;
-    }
 
-    public String getProfessor() {
+
+    public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+
+	public Degree getDegree() {
+		return degree;
+	}
+
+	public void setDegree(Degree degree) {
+		this.degree = degree;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getProfessor() {
         return professor;
     }
 }

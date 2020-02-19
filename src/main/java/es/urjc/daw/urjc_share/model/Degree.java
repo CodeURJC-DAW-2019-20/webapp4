@@ -13,8 +13,17 @@ public class Degree {
 	private long id;
 	
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Note> notes=new ArrayList<>();
+    
+    @OneToMany(mappedBy="degree")
+	private List<Note> notes =new ArrayList<>() ;
+    
+    @OneToMany(mappedBy="degree")
+    private List<User> users = new ArrayList<>();
+
+    @OneToMany(mappedBy="degree")
+    private List<Subject> subjects = new ArrayList<>();
+    
+
 
     public Degree() {
 

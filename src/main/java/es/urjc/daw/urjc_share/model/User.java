@@ -16,7 +16,8 @@ public class User {
 	private String user;
 	private String email;
 	private Integer number;
-	@OneToMany(cascade = CascadeType.ALL)
+	
+	@OneToMany(mappedBy="user")
 	private List<Note> notes=new ArrayList<>() ;
 	
 	public User() {
