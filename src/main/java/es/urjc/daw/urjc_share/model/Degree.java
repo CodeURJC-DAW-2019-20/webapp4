@@ -29,24 +29,24 @@ public class Degree {
 
     }
 
-    public Degree(String name, List<Note> notes) {
+    public Degree(String name, List<Subject> subjects) {
         this.name = name;
-        this.notes = notes;
+        this.subjects = subjects;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
+    public void setNotes(List<Subject> notes) {
+        this.subjects = subjects;
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Note> getNotes() {
-        return notes;
+    public List<Subject> getNotes() {
+        return subjects;
     }
 }
