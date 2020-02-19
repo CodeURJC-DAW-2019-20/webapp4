@@ -1,5 +1,6 @@
 package es.urjc.daw.urjc_share.controllers;
 
+import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 
@@ -39,7 +40,7 @@ public class NavController {
         return "register";
     }
     
-    @PostMapping("/search")
+    @PostMapping("/searched")
     public String searchInformation(Model model, @RequestParam String searchType, @RequestParam String textSearched) {
     	model.addAttribute("textSearched",textSearched);
     	if(searchType.equals("Grado")) {
@@ -49,7 +50,7 @@ public class NavController {
     	}
     }
     
-    @PostMapping("/search/subject")
+    @PostMapping("/searched/subject")
     public String selectSubject(Model model, @RequestParam String name) {
     	//TO DO
     	//Subject must be searched in the database
@@ -57,5 +58,18 @@ public class NavController {
     	//model.addAttribute("subject",subject);
     	return "allNotes";
     }
+    
+    @PostMapping("/created")
+    public String createDegreeOrSubject(@RequestParam String grados, @RequestParam String asignaturas) {
+    	Degree degree = new Degree(grados);
+    	if(!asignaturas.equals("")) {
+    		Subject subject = new Subject(asignaturas, degree);
+    		degree.getSubjects().add(subject);
+    	}
+    	//TO DO
+    	//Degree and subjects must be stored into db
+    	return "index";
+    }
+    
     
 }

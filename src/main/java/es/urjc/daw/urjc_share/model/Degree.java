@@ -33,6 +33,10 @@ public class Degree {
         this.name = name;
         this.notes = notes;
     }
+    
+    public Degree(String name) {
+    	this.name = name;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -49,4 +53,14 @@ public class Degree {
     public List<Note> getNotes() {
         return notes;
     }
+
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
+    
+    
 }
