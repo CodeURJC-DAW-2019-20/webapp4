@@ -1,10 +1,9 @@
 package es.urjc.daw.urjc_share.model;
 
-import java.util.List;
-import java.util.ArrayList;
-
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Subject {
@@ -15,20 +14,13 @@ public class Subject {
 
 	
 	private String name;
-	
-	@ManyToOne
-    private Degree degree;
-    
-    @OneToMany(mappedBy="subject")
-	private List<Note> notes=new ArrayList<>() ;
-    
-    
-    
+    private String degree;
+
     public Subject() {
 
     }
 
-    public Subject(String name, Degree degree) {
+    public Subject(String name, String degree) {
         this.name = name;
         this.degree = degree;
     }
@@ -37,26 +29,15 @@ public class Subject {
         return name;
     }
 
-  
+    public String getDegree() {
+        return degree;
+    }
 
-    public Degree getDegree() {
-		return degree;
-	}
-
-	public void setDegree(Degree degree) {
-		this.degree = degree;
-	}
-
-	public List<Note> getNotes() {
-		return notes;
-	}
-
-	public void setNotes(List<Note> notes) {
-		this.notes = notes;
-	}
-
-	public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
 }
