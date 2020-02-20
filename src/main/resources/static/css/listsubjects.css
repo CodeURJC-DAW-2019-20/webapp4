@@ -26,3 +26,13 @@
 #subscribe{
     float: right;
 }
+
+#cajita{
+	display: flex;
+	flex-direction:column;
+}
+
+.showrow{
+	display: flex;
+	flex-direction: row;
+}
