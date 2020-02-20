@@ -67,10 +67,10 @@ public class NavController {
     }
     
     @PostMapping("/created")
-    public String createDegreeOrSubject(@RequestParam String grados, @RequestParam String asignaturas) {
+    public String createDegreeOrSubject(@RequestParam String grados, @RequestParam String asignaturas, @RequestParam String proffesor) {
     	Degree degree = new Degree(grados);
     	if(!asignaturas.equals("")) {
-    		Subject subject = new Subject(asignaturas, degree);
+    		Subject subject = new Subject(asignaturas, degree,proffesor);
     		degree.getSubjects().add(subject);
     	}
     	//TO DO
