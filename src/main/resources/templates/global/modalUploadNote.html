@@ -22,11 +22,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <form class="form-signup" action="/notes" method="post">
-                                <div class="form-label-group">
-                                    <input type="text" name="degree"id="inputDegree" class="form-control" placeholder="Grado" autofocus>
-                                    <label for="inputDegree">Grado</label>
-                                </div>
+                            <form class="form-signup"  action="/usuario/guardar"method="post"enctype="multipart/form-data">
+                                <label>Grado:</label>
+                                <form action="/grados" method="post">
+                                    <select id="alldegrees" for="alldegrees">
+                                        {{#alldegrees}}
+                                        <option value="">{{name}}</option>
+                                        {{/alldegrees}}
+                                    </select>
+                                </form>
 
                                 <div class="form-label-group">
                                     <input type="text" name="subject"id="inputSubject" class="form-control" placeholder="Asignatura" autofocus>

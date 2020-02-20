@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import es.urjc.daw.urjc_share.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long>  {
-
 	
 }

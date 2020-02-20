@@ -32,7 +32,7 @@ public class Note {
         this.degree = degree;
     }
 
-   
+
 
 
 
