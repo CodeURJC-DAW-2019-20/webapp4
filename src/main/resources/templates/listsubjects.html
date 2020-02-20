@@ -43,12 +43,25 @@
 					<!-- Search -->
 					<div class=" w-100" id="divsearch">
 
-						<form
-							class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto"
-							id="searching bar">
-							<input class="form-control form-control-sm mr-3 w-50" type="text"
-								placeholder="Carrera, asignatura..." aria-label="Search">
+						<form class="form-inline mt-4" id="cajita" action="/searched"
+							method="post">
+							<p>Elige por que desea buscar:</p>
+							<div class="showrow">
+								<input type="radio" id="radioSearch" name="searchType"
+									value="Grado" checked> <label for="radioSearch">Grado</label>
+							</div>
+							<div class="showrow">
+								<input type="radio" id="radioSearch" name="searchType"
+									value="Asignatura"> <label for="radioSearch">Asignatura</label>
+							</div>
+							<br> <input class="form-control form-control-sm w-50"
+								type="text" name="textSearched"
+								placeholder="Carrera, asignatura..."
+								aria-label="Carrera, asignatura..."> <br>
+							<button class="btn btn-primary  text-uppercase" type="submit">Buscar</button>
+
 						</form>
+
 
 					</div>
 					<!-- List of notes -->
@@ -56,14 +69,14 @@
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
 								{{#subjects}}
-								<li class="border list-group-item" action="/searched/subject" method="post">
+								<li class="border list-group-item" action="/searched/subject"
+									method="post">
 									<div id="title">Asignatura: {{name}} | Grado: {{degree}}</div>
 									<div id="information">Información</div> <!-- Number of pages, date of upload -->
 									<div id="subscribe">
 										<button class="btn btn-primary btn-block " type="submit">Subscribirse</button>
 									</div>
-								</li> 
-								{{/subjects}}
+								</li> {{/subjects}}
 							</ul>
 						</div>
 					</div>
