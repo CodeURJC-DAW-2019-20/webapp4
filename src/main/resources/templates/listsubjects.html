@@ -69,14 +69,15 @@
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
 								{{#subjects}}
-								<li class="border list-group-item" action="/searched/subject"
-									method="post">
-									<div id="title">Asignatura: {{name}} | Grado: {{degree}}</div>
-									<div id="information">Información</div> <!-- Number of pages, date of upload -->
+								<li class="border list-group-item">
+									<div class="w-75" id="name">Asignatura:</div>
+									<div class="w-75" id="degree">Grado:</div>
+									<div class="w-75" id="professor">Profesor:</div>
 									<div id="subscribe">
 										<button class="btn btn-primary btn-block " type="submit">Subscribirse</button>
 									</div>
-								</li> {{/subjects}}
+								</li>
+								{{/subjects}}
 							</ul>
 						</div>
 					</div>
