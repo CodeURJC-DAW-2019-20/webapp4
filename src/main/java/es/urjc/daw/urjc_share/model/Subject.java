@@ -20,17 +20,34 @@ public class Subject {
     
     @OneToMany(mappedBy="subject")
 	private List<Note> notes=new ArrayList<>() ;
-
+	private String professor;
     public Subject() {
 
     }
 
-    public Subject(String name, Degree degree) {
+    public Subject(String name, Degree degree, String professor) {
         this.name = name;
         this.degree = degree;
+        this.professor=professor;
     }
 
-    public String getName() {
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(String professor) {
+		this.professor = professor;
+	}
+
+	public String getName() {
         return name;
     }
 

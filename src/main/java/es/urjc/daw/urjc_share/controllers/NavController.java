@@ -1,9 +1,11 @@
 package es.urjc.daw.urjc_share.controllers;
 
+import es.urjc.daw.urjc_share.data.DegreeRepository;
 import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 
 @Controller
 public class NavController {
-
+    @Autowired
+    private DegreeRepository degreeRepository;
     @GetMapping("/")
     public String goToIndex(Model model) {
         return "index";
@@ -36,7 +41,9 @@ public class NavController {
     }
     
     @GetMapping("/join")
-    public String goToMySignup(Model model) {
+    public String goToMySignup(Model model){
+        List<Degree> degrees = degreeRepository.findAll();
+        model.addAttribute("alldegrees",degrees);
         return "register";
     }
     

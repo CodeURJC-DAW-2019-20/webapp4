@@ -10,10 +10,7 @@ import es.urjc.daw.urjc_share.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -24,6 +21,7 @@ public class UserController {
 
     @Autowired
     private ImageService imgService;
+
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
@@ -42,7 +40,7 @@ public class UserController {
         user.setImage(true);
         repository.save(user);
         imgService.saveImage("usuarios", user.getId(), imagenFile);
-        return "user_saved";
+        return "index";
     }
 
     @GetMapping("/usuario/{id}")
