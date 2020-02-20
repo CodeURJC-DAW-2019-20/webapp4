@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.controllers;
 
 
+import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -26,18 +28,23 @@ public class Note_Controller {
     @Autowired
     private UserRepository repository;
     @Autowired
-    ImageService imgService;
+    private NoteRepository noteRepository;
 
     @RequestMapping("/notes")
-    public String saveNote(Model model, Note apunte) {
-        notes.put(id.getAndIncrement(), apunte);
-        model.addAttribute("notes", notes.values());
+    public String saveNote(Model model) {
+        List<Note> notes = noteRepository.findAll();
+        model.addAttribute("usuarios", notes);
 
         return "allNotes";
     }
-
+    @PostMapping("/apunte_guardado")
+    public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
+        noteRepository.save(note);
+        return "index";
+    }
     @RequestMapping("/subir_apunte")
-    public String noteController() {
+    public String noteController(Note note) {
+        noteRepository.save(note);
         return "allNotes";
     }
 

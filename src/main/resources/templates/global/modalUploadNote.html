@@ -14,31 +14,38 @@
                     <div class="row justify-content-center">
                         <div class="col-12 justify-content-center">
                             <div class="col-photo">
+
+                            </div>
+                            <form class="form-signup" action="/apunte_guardado" method="post" enctype="multipart/form-data">
                                 <div class="profile-img">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/000/421/699/non_2x/vector-documents-icon.jpg" alt=""/>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/000/421/699/non_2x/vector-documents-icon.jpg"
+                                         alt=""/>
                                     <div class="file btn btn-lg btn-primary">
                                         Examinar
                                         <input type="file" name="file"/>
                                     </div>
                                 </div>
-                            </div>
-                            <form class="form-signup"  action="/usuario/guardar"method="post"enctype="multipart/form-data">
                                 <label>Grado:</label>
-                                <form action="/grados" method="post">
-                                    <select id="alldegrees" for="alldegrees">
+                                <div class="form-label-group">
+
+                                    <select id="alldegrees" for="alldegrees" name="degree">
                                         {{#alldegrees}}
-                                        <option value="">{{name}}</option>
+                                        <option value={{id}}>{{name}}</option>
                                         {{/alldegrees}}
                                     </select>
-                                </form>
-
-                                <div class="form-label-group">
-                                    <input type="text" name="subject"id="inputSubject" class="form-control" placeholder="Asignatura" autofocus>
-                                    <label for="inputName">Asignatura</label>
                                 </div>
-
+                                <label>Asignatura:</label>
                                 <div class="form-label-group">
-                                    <input type="text" name="name" id="inputName" class="form-control" placeholder="Nombre" autofocus>
+
+                                    <select id="allsubjects" for="allsubjects" name="subject">
+                                        {{#allsubjects}}
+                                        <option value={{id}} >{{name}}</option>
+                                        {{/allsubjects}}
+                                    </select>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="text" name="name" id="inputName" class="form-control"
+                                           placeholder="Nombre" autofocus>
                                     <label for="inputName">Nombre</label>
                                 </div>
 
@@ -49,11 +56,14 @@
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="text" name="professor" id="inputProf" class="form-control" placeholder="Profesor" autofocus>
+                                    <input type="text" name="professor" id="inputProf" class="form-control"
+                                           placeholder="Profesor" autofocus>
                                     <label for="inputProf">Profesor</label>
                                 </div>
 
-                                <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit">Subir</button>
+                                <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit">
+                                    Subir
+                                </button>
                             </form>
                             <hr>
 

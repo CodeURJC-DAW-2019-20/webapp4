@@ -35,7 +35,7 @@ public class UserController {
         return "new_user";
     }
 
-    @PostMapping("/usuario/guardar")
+    @PostMapping("/")
     public String nuevoAnuncio(Model model, User user, @RequestParam MultipartFile imagenFile) throws IOException {
         user.setImage(true);
         repository.save(user);
