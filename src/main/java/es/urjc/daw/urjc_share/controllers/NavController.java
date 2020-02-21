@@ -35,7 +35,7 @@ public class NavController {
 
     @GetMapping("/mail")
     public String sendMail(Model model) {
-        mailSender.sendEmail("alex.domingo97@gmail.com", "sospitchoso", "por favor funciona por favor te lo pido por fa vor");
+        mailSender.sendEmail("mail@mail.com", "subject", "body mail content");
         return "index";
     }
 
