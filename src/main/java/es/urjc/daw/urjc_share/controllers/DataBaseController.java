@@ -33,7 +33,12 @@ public class DataBaseController implements CommandLineRunner {
 		// save a couple of users
 		userrepository.save(new User("paco","1234","Matematicas","pacomer","pacopacon@gmail.com",56789,null,false, "ROLE_USER"));
 		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, null,false,"ROLE_USER"));
-		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("David","passdaw","Ingenieria del Software","DavidDaw","d.tejero.207@alumnos.urjc.es",0, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("Miguel","passdaw","Ingenieria del Software","MiguelDaw","m.rodrigez@alumnos.urjc.es",0, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("Alex","passdaw","Ingenieria del Software","AlexDaw","a.domingoc.2017@alumnos.urjc.es",0, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("Diego","passdaw","Ingenieria del Software","DiegoDaw","d.almansa.2017@alumnos.urjc.es",0, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("Alvaro","passdaw","Ingenieria del Software","AlvaroDaw","a.garciav.2017@alumnos.urjc.es",0, null, false, "ROLE_ADMIN"));
+		
 		//save a couple of subjects
 
 		//save a couple of degrees

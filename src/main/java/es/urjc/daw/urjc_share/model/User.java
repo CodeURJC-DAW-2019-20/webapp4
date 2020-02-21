@@ -25,7 +25,7 @@ public class User {
     private String name;
     private String passwordHash; 
     private String degree;
-    private String user;
+    private String nickname;
     private String email;
     private Integer number;
     private boolean image;
@@ -41,11 +41,11 @@ public class User {
     }
 
 
-    public User(String name, String password, String degree, String user, String email, Integer number, List<Note> notes, boolean image,String... roles ) {
+    public User(String name, String password, String degree, String nickname, String email, Integer number, List<Note> notes, boolean image,String... roles ) {
         this.name = name;
         this.passwordHash = new BCryptPasswordEncoder().encode(password);
         this.degree = degree;
-        this.user = user;
+        this.nickname = nickname;
         this.email = email;
         this.number = number;
         this.notes = notes;
@@ -107,15 +107,17 @@ public class User {
         this.degree = degree;
     }
 
-    public String getUser() {
-        return user;
-    }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
 
-    public String getEmail() {
+    public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getEmail() {
         return email;
     }
 
