@@ -10,6 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
+	String[] resources = new String[]{
+            "/include/*","/css/","/icons/","/img/","/js/","/layer/*"
+    };
+	
+	
 	/*@Autowired
     public UserRepositoryAuthenticationProvider authenticationProvider;*/
 
@@ -18,12 +23,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		// Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/loginerror").permitAll();
-        http.authorizeRequests().antMatchers("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/ranking").permitAll();
+        http.authorizeRequests().antMatchers("/profile").permitAll();
+        http.authorizeRequests().antMatchers("/searched/subject").permitAll();
+        http.authorizeRequests().antMatchers("/searched").permitAll();
+        http.authorizeRequests().antMatchers("/index").permitAll();
+        http.authorizeRequests().antMatchers("/notes").permitAll();
+        http.authorizeRequests().antMatchers("/listsubjects").permitAll();
+        http.authorizeRequests().antMatchers("/register").permitAll();
+        http.authorizeRequests().antMatchers(resources).permitAll();
+        http.authorizeRequests().antMatchers("/usuario/nuevo").permitAll();       
 
         // Private pages (all other pages)
-        http.authorizeRequests().antMatchers("/index").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/usuarios").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/usuario/{id}").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/created").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/addGrade").hasAnyRole("ADMIN");
+        
 
         // Login form
         http.formLogin().loginPage("/login");
