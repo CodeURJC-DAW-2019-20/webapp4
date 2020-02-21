@@ -6,6 +6,7 @@ import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 
+import es.urjc.daw.urjc_share.services.sendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 
@@ -23,12 +25,20 @@ public class NavController {
     private DegreeRepository degreeRepository;
     @Autowired
     private SubjectRepository subjectRepository;
+    @Autowired
+    private sendMailService mailSender;
 
     @GetMapping("/")
     public String goToIndex(Model model) {
         return "index";
     }
-    
+
+    @GetMapping("/mail")
+    public String sendMail(Model model) {
+        mailSender.sendEmail("alex.domingo97@gmail.com", "sospitchoso", "por favor funciona por favor te lo pido por fa vor");
+        return "index";
+    }
+
     @GetMapping("/ranking")
     public String goToRanking(Model model) {
         return "ranking";
