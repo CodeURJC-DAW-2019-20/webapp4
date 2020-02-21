@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
+
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
@@ -15,13 +16,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     };
 	
 	
-	/*@Autowired
-    public UserRepositoryAuthenticationProvider authenticationProvider;*/
+	@Autowired
+    public UserRepositoryAuthenticationProvider authenticationProvider;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// Public pages
-        http.authorizeRequests().antMatchers("/").permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/ranking").permitAll();
         http.authorizeRequests().antMatchers("/profile").permitAll();
@@ -32,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.authorizeRequests().antMatchers("/listsubjects").permitAll();
         http.authorizeRequests().antMatchers("/register").permitAll();
         http.authorizeRequests().antMatchers(resources).permitAll();
-        http.authorizeRequests().antMatchers("/usuario/nuevo").permitAll();       
+        http.authorizeRequests().antMatchers("/usuario/nuevo").permitAll();    
 
         // Private pages (all other pages)
         http.authorizeRequests().antMatchers("/usuarios").hasAnyRole("USER");
@@ -60,6 +61,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
     	// Database authentication provider
-        //auth.authenticationProvider(authenticationProvider);
+        auth.authenticationProvider(authenticationProvider);
 	}
 }

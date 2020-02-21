@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
-        List<User> users = repository.findAll();
+        List<User> users = (List<User>) repository.findAll();
         model.addAttribute("usuarios", users);
         return "users";
     }
