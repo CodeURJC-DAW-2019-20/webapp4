@@ -6,6 +6,7 @@ import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
+import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,12 +38,18 @@ public class Note_Controller {
 
         return "allNotes";
     }
+    @Autowired
+    private UploadFileService uploadFileService;
     @PostMapping("/apunte_guardado")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
+        if(!file.isEmpty()){
+            uploadFileService.saveFile(file);
+        }
+        note.setRuta(file.getOriginalFilename());
         noteRepository.save(note);
         return "index";
     }
-    @RequestMapping("/subir_apunte")
+    @PostMapping("/subir_apunte")
     public String noteController(Note note) {
         noteRepository.save(note);
         return "allNotes";
