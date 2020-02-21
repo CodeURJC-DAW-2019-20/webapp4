@@ -18,8 +18,9 @@ public class Subject {
 	@ManyToOne
     private Degree degree;
     
-    @OneToMany(mappedBy="subject")
+    @OneToMany(mappedBy="subjects")
 	private List<Note> notes=new ArrayList<>() ;
+    
 	private String professor;
     public Subject() {
 
@@ -51,11 +52,13 @@ public class Subject {
         return name;
     }
 
-  
-
+ 
     public void setName(String name) {
         this.name = name;
     }
+
+
+
 
 	public Degree getDegree() {
 		return degree;

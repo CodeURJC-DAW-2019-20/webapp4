@@ -35,8 +35,7 @@ public class DataBaseController implements CommandLineRunner {
 		userrepository.save(new User("Marcos","5677","Software","MArcos01","marcosos@gmail.com",4567, null,false));
 		userrepository.save(new User("Ramons","0987","Informatica","YoSiOle","RamonHUeleAPelos@gmail.com",45678, null, false));
 		//save a couple of subjects
-		subjectRepository.save(new Subject("Investigación Operativa",degreeRepository.findByName("Ingeniería del Software"),"Antonio"));
-		subjectRepository.save(new Subject("DAW",degreeRepository.findByName("Ingeniería del Software"),"Micael"));
+
 		//save a couple of degrees
 		degreeRepository.save(new Degree("Ingeniería del Software",null));
 		degreeRepository.save((new Degree("Magisterio",null)));
