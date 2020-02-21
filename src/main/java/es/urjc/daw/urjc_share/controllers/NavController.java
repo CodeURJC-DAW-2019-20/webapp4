@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.controllers;
 
 import es.urjc.daw.urjc_share.data.DegreeRepository;
+import es.urjc.daw.urjc_share.data.SubjectRepository;
 import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
@@ -20,6 +21,9 @@ import java.util.List;
 public class NavController {
     @Autowired
     private DegreeRepository degreeRepository;
+    @Autowired
+    private SubjectRepository subjectRepository;
+
     @GetMapping("/")
     public String goToIndex(Model model) {
         return "index";
@@ -44,6 +48,8 @@ public class NavController {
     public String goToMySignup(Model model){
         List<Degree> degrees = degreeRepository.findAll();
         model.addAttribute("alldegrees",degrees);
+        List<Subject> subjects = subjectRepository.findAll();
+        model.addAttribute("allsubjects",subjects);
         return "register";
     }
     
