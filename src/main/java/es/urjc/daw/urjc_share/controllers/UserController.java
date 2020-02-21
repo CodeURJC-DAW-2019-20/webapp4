@@ -1,6 +1,8 @@
 package es.urjc.daw.urjc_share.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,13 +36,15 @@ public class UserController {
     public String nuevoAnuncioForm() {
         return "new_user";
     }
+   
 
-    @PostMapping("/")
-    public String nuevoAnuncio(Model model, User user, @RequestParam MultipartFile imagenFile) throws IOException {
+    @PostMapping("/createUser")
+    public String newUser(User user, @RequestParam MultipartFile imagenFile) throws IOException {
         user.setImage(true);
+        user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
         repository.save(user);
         imgService.saveImage("usuarios", user.getId(), imagenFile);
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/usuario/{id}")
