@@ -21,15 +21,15 @@
 			<div class="col-6 card card-signin justify-content-center">
 				<div class="card-body">
 					<h5 class="card-title text-center text-primary">Iniciar sesión</h5>
-					<form class="form-signin" action="/login" method="post">
+					<form class="form-signin" action="/loginUser" method="post">
 						<div class="form-label-group">
-							<input type="email" id="inputEmail" name="email" class="form-control"
-								placeholder="Email address" required autofocus> <label
-								for="inputEmail">Correo electrónico</label>
+							<input type="text" name="nickname" id="inputNickname" class="form-control"
+								placeholder="User" required autofocus> <label
+								for="inputNickname">Usuario</label>
 						</div>
 
 						<div class="form-label-group">
-							<input type="password" id="inputPassword" name="password" class="form-control"
+							<input type="password" name="password" id="inputPassword" class="form-control"
 								placeholder="Password" required> <label
 								for="inputPassword">Contraseña</label>
 						</div>

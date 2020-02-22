@@ -13,10 +13,8 @@ public class Note {
     private String professor;
     
     @ManyToOne
-    private Subject subject;
+    private Subject subjects;
     
-    @ManyToOne
-    private Degree degree;
     
     @ManyToOne
     private User user;
@@ -24,11 +22,10 @@ public class Note {
     private String ruta;
 
     public Note() {}
-    public Note(String name, Subject subject, String professor, Degree degree, String ruta){
+    public Note(String name, Subject subject, String professor, String ruta){
         this.name = name;
-        this.subject = subject;
+        this.subjects = subject;
         this.professor = professor;
-        this.degree = degree;
         this.ruta=ruta;
     }
     public String getRuta() {
@@ -52,20 +49,13 @@ public class Note {
     }
 
     public Subject getSubject() {
-		return subject;
+		return subjects;
 	}
 
 	public void setSubject(Subject subject) {
-		this.subject = subject;
+		this.subjects = subject;
 	}
 
-	public Degree getDegree() {
-		return degree;
-	}
-
-	public void setDegree(Degree degree) {
-		this.degree = degree;
-	}
 
 	public User getUser() {
 		return user;

@@ -1,11 +1,52 @@
 package es.urjc.daw.urjc_share.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.*;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private String name;
+    private String passwordHash; 
+    private String degree;
+    private String nickname;
+    private String email;
+    private Integer number;
+    private boolean image;
+    
+    @OneToMany(mappedBy = "user")
+    private List<Note> notes = new ArrayList<>();
+    
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+    
+    @ManyToMany
+    private  List<Subject> subjects;
+
+    public User() {
+
+    }
+
+
+    public User(String name, String password, String degree, String nickname, String email, Integer number, List<Note> notes, boolean image,String... roles ) {
+        this.name = name;
+        this.passwordHash = new BCryptPasswordEncoder().encode(password);
+        this.degree = degree;
+        this.nickname = nickname;
+        this.email = email;
+        this.number = number;
+        this.notes = notes;
+        this.image=image;
+        this.roles = new ArrayList<>(Arrays.asList(roles));
+    }
 
     public long getId() {
         return id;
@@ -14,39 +55,16 @@ public class User {
     public void setId(long id) {
         this.id = id;
     }
+    
+    public List<String> getRoles() {
+		return roles;
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
 
-    private String name;
-    private String pass;
-    private String degree;
-    private String user;
-    private String email;
-    private Integer number;
-    private boolean image;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Note> notes = new ArrayList<>();
-
-    public User() {
-
-    }
-
-
-    public User(String name, String pass, String degree, String user, String email, Integer number, List<Note> notes, boolean image) {
-        this.name = name;
-        this.pass = pass;
-        this.degree = degree;
-        this.user = user;
-        this.email = email;
-        this.number = number;
-        this.notes = notes;
-        this.image=image;
-    }
-
-
-    public List<Note> getNotes() {
+	public List<Note> getNotes() {
         return notes;
     }
 
@@ -74,15 +92,16 @@ public class User {
         this.name = name;
     }
 
-    public String getPass() {
-        return pass;
-    }
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
+    public String getPasswordHash() {
+		return passwordHash;
+	}
 
-    public String getDegree() {
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public String getDegree() {
         return degree;
     }
 
@@ -90,15 +109,17 @@ public class User {
         this.degree = degree;
     }
 
-    public String getUser() {
-        return user;
-    }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
 
-    public String getEmail() {
+    public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getEmail() {
         return email;
     }
 

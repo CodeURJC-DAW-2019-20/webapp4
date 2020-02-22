@@ -72,17 +72,5 @@ public class NavController {
     	return "allNotes";
     }
     
-    @PostMapping("/created")
-    public String createDegreeOrSubject(@RequestParam String grados, @RequestParam String asignaturas, @RequestParam String proffesor) {
-    	Degree degree = new Degree(grados);
-    	if(!asignaturas.equals("")) {
-    		Subject subject = new Subject(asignaturas, degree,proffesor);
-    		degree.getSubjects().add(subject);
-    	}
-    	//TO DO
-    	//Degree and subjects must be stored into db
-    	return "index";
-    }
-    
     
 }
