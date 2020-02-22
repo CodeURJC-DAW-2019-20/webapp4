@@ -20,7 +20,7 @@
         <div class="col-6 card card-signup justify-content-center">
             <div class="card-body">
                 <h5 class="card-title text-center text-primary">Registrarse</h5>
-                <form class="form-signup" action="/" method="post" enctype="multipart/form-data">
+                <form class="form-signup" action="/createUser" method="post" enctype="multipart/form-data">
                     <div class="profile-img">
                         <img src="/images/profile.png" alt=""/>
                         <div class="file btn btn-lg btn-primary">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-label-group">
-                        <input type="text" name="user" id="inputUser" class="form-control"
+                        <input type="text" name="nickname" id="inputUser" class="form-control"
                                placeholder="Usuario" required autofocus> <label
                             for="inputUser">Usuario*</label>
                     </div>
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-label-group">
-                        <input type="password" name="pass" id="inputPassword" class="form-control"
+                        <input type="password" name="passwordHash" id="inputPassword" class="form-control"
                                placeholder="Contraseña" required autofocus> <label
                             for="inputPassword">Contraseña*</label>
                     </div>
