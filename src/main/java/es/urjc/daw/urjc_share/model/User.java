@@ -10,14 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Entity
 public class User {
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -53,7 +45,14 @@ public class User {
         this.roles = new ArrayList<>(Arrays.asList(roles));
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public List<String> getRoles() {
 		return roles;
 	}

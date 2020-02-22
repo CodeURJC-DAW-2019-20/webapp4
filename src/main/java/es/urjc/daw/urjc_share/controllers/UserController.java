@@ -46,6 +46,11 @@ public class UserController {
         imgService.saveImage("usuarios", user.getId(), imagenFile);
         return "redirect:/";
     }
+    
+    @PostMapping("/loginUser")
+    public String loginUser(){
+    	return "login";
+    }
 
     @GetMapping("/usuario/{id}")
     public String seeUser(Model model, @PathVariable long id) {
