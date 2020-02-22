@@ -35,6 +35,9 @@ public class User {
     
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
+    
+    @ManyToMany
+    private  List<Subject> subjects;
 
     public User() {
 
