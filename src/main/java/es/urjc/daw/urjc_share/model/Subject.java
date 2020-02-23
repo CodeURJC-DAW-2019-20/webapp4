@@ -18,7 +18,7 @@ public class Subject {
 	@ManyToOne
     private Degree degree;
     
-    @OneToMany(mappedBy="subjects")
+    @OneToMany(mappedBy="subject")
 	private List<Note> notes=new ArrayList<>() ;
     
     @ManyToMany(mappedBy = "subjects")
