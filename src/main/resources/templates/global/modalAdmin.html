@@ -23,10 +23,10 @@
                         <div class="col-12 justify-content-center">
                             <div class="card-body">
                                 <h5 class="card-title text-center text-primary">Añadir grado</h5>
-                                <form class="form-signin" action="/created" method="post">
+                                <form class="form-signin" action="/createDegree" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="textDegree">Grado</label>                                    
-                                        <input type="text" class="form-control" id="textDegree" name="degrees">
+                                        <input type="text" class="form-control" id="textDegree" name="name">
                                     </div>
                                     <div class="text-center">
                                         <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
@@ -43,17 +43,16 @@
                         <div class="col-12 justify-content-center">
                             <div class="card-body">
                                 <h5 class="card-title text-center text-primary">Añadir asignatura</h5>
-                                <form class="form-signin" action="/created" method="post">
+                                <form class="form-signin" action="/addSubject" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="subjects">Grado</label>
-                                        <select class="form-control" id="subjects">
-                                            <option value="">Grado Ing.Software</option>
-                                            <option value="">Doble grado Ing.Software y matematicas</option>
-                                        </select>
+                                  	  	{{#alldegrees}}
+                                        <option value={{id}}>{{name}}</option>
+                                        {{/alldegrees}}
                                     </div>
                                     <div class="form-group">
                                         <label for="textSubject">Asignatura</label>
-                                        <input type="text" class="form-control" id="textSubject" name="subjects">
+                                        <input type="text" class="form-control" id="textSubject" name="name">
                                     </div>
                                     <div class="text-center">
                                         <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
