@@ -13,7 +13,7 @@ public class Note {
     private String professor;
     
     @ManyToOne
-    private Subject subjects;
+    private Subject subject;
     
     
     @ManyToOne
@@ -24,7 +24,7 @@ public class Note {
     public Note() {}
     public Note(String name, Subject subject, String professor, String ruta){
         this.name = name;
-        this.subjects = subject;
+        this.subject = subject;
         this.professor = professor;
         this.ruta=ruta;
     }
@@ -49,11 +49,11 @@ public class Note {
     }
 
     public Subject getSubject() {
-		return subjects;
+		return subject;
 	}
 
 	public void setSubject(Subject subject) {
-		this.subjects = subject;
+		this.subject = subject;
 	}
 
 
