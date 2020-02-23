@@ -25,17 +25,9 @@ public class NavController {
     private DegreeRepository degreeRepository;
     @Autowired
     private SubjectRepository subjectRepository;
-    @Autowired
-    private sendMailService mailSender;
 
     @GetMapping("/")
     public String goToIndex(Model model) {
-        return "index";
-    }
-
-    @GetMapping("/mail")
-    public String sendMail(Model model) {
-        mailSender.sendEmail("mail@mail.com", "subject", "body mail content");
         return "index";
     }
 
