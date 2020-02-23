@@ -21,10 +21,8 @@ public class Subject {
     @OneToMany(mappedBy="subject")
 	private List<Note> notes=new ArrayList<>() ;
     
-    @ManyToMany(mappedBy = "subjects")
-    private List<User> users;
-    
 	private String professor;
+	
     public Subject() {
 
     }
