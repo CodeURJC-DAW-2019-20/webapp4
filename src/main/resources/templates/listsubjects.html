@@ -38,46 +38,24 @@
 			<div class="col-12 card card-signup justify-content-center">
 				<div class="card-body">
 					<h5 class="card-title text-center text-primary">Lista de
-						asignaturas encontradas para el grado {{textSearched}}:</h5>
+						asignaturas encontradas para: {{textTittle}}</h5>
 
-					<!-- Search -->
-					<div class=" w-100" id="divsearch">
-
-						<form class="form-inline mt-4" id="cajita" action="/searched"
-							method="post">
-							<p>Elige por que desea buscar:</p>
-							<div class="showrow">
-								<input type="radio" id="radioSearch" name="searchType"
-									value="Grado" checked> <label for="radioSearch">Grado</label>
-							</div>
-							<div class="showrow">
-								<input type="radio" id="radioSearch" name="searchType"
-									value="Asignatura"> <label for="radioSearch">Asignatura</label>
-							</div>
-							<br> <input class="form-control form-control-sm w-50"
-								type="text" name="textSearched"
-								placeholder="Carrera, asignatura..."
-								aria-label="Carrera, asignatura..."> <br>
-							<button class="btn btn-primary  text-uppercase" type="submit">Buscar</button>
-
-						</form>
-
-
-					</div>
-					<!-- List of notes -->
+					<!-- List of subjects -->
 					<div class="ml-3" id="father">
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
-								{{#subjects}}
-								<li class="border list-group-item">
-									<div class="w-75" id="name">Asignatura:</div>
-									<div class="w-75" id="degree">Grado:</div>
-									<div class="w-75" id="professor">Profesor:</div>
-									<div id="subscribe">
+								{{#subjectSearched}}
+								<li class="border list-group-item rounded"><a href="/search/subject/{{id}}" class="w-100 d-inline-flex text-decoration-none">
+									<div class="w-75">
+										<div id="name">Asignatura: {{name}}</div>
+										<div id="degree">Grado: {{degree.name}}</div>
+										<div id="professor">Profesor: {{professor}}</div>
+									</div>
+									<div class="w-25">
 										<button class="btn btn-primary btn-block " type="submit">Subscribirse</button>
 									</div>
-								</li>
-								{{/subjects}}
+								</a></li> 
+								{{/subjectSearched}}
 							</ul>
 						</div>
 					</div>
