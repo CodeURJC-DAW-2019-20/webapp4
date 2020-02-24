@@ -61,10 +61,9 @@ public class UserController {
 
     @GetMapping("/usuario/{id}")
     public String seeUser(Model model, @PathVariable long id) {
-        Optional<User> user = repository.findById(id);
-        if (user.isPresent()) {
-            model.addAttribute("usuario", user.get());
-        }
+        User user = repository.findById(id);
+        model.addAttribute("usuario", user);
+        
         return "myprofile";
     }
 }

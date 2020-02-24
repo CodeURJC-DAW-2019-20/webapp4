@@ -33,13 +33,18 @@
 					<div class="ml-3" id="father">
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
-								{{#notesSearched}}
-								<li class="border list-group-item rounded"><a href="/notes/{{id}}" class="w-100 text-decoration-none">
-										<div id="name">Nombre: {{name}}</div>
-										<div id="subject">Asignatura: {{subject.name}}</div>
-										<div id="professor">Profesor: {{professor}}</div>
-								</a></li> 
-								{{/notesSearched}}
+								{{#emptyResult}} 
+									<h3 class="text-center">No se ha encontrado ningún apunte.</h3>
+								{{/emptyResult}}
+								{{^emptyResult}}
+									{{#notesSearched}}
+									<li class="border list-group-item rounded"><a href="/notes/{{id}}" class="w-100 text-decoration-none">
+											<div id="name">Nombre: {{name}}</div>
+											<div id="subject">Asignatura: {{subject.name}}</div>
+											<div id="professor">Profesor: {{professor}}</div>
+									</a></li> 
+									{{/notesSearched}}
+								{{/emptyResult}}
 							</ul>
 						</div>
 					</div>
