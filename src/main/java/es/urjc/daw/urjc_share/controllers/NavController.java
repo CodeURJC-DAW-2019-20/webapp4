@@ -50,6 +50,8 @@ public class NavController {
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
 		model.addAttribute("usuario",currentUser.getEntityUser());
+		model.addAttribute("notesUser", noteRepository.findAllByUser(currentUser.getEntityUser()));
+
 		this.configNav(model, "profile");
 		return "myprofile";
 	}
@@ -114,6 +116,8 @@ public class NavController {
 	@GetMapping("/notes/{noteID}")
 	public String selectNote(Model model, @PathVariable long noteID) {
 		Note note = noteRepository.findById(noteID);
+		String [] image = note.getRuta().split("\\.");
+		model.addAttribute("nameImage", image[image.length-1]+".png");
 		model.addAttribute("noteSelected", note);
 		return "selectNote";
 	}

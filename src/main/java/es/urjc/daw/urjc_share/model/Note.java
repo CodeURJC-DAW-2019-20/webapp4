@@ -34,14 +34,24 @@ public class Note {
     private User user;
 
     private String ruta;
-
+    private String extension;
     public Note() {}
-    public Note(String name, Subject subject, String professor, String ruta){
+    public Note(String name, Subject subject, String professor, String ruta, String extension){
         this.name = name;
         this.subject = subject;
         this.professor = professor;
         this.ruta=ruta;
+        this.extension=extension;
     }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
+
     public String getRuta() {
         return ruta;
     }

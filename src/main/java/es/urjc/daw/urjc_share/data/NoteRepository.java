@@ -11,5 +11,6 @@ import es.urjc.daw.urjc_share.model.User;
 
 public interface NoteRepository extends JpaRepository<Note, Long>  {
 	List<Note> findAllBySubject(Subject subject);
+	List<Note> findAllByUser(User user);
 	Note findById(long id);
 }

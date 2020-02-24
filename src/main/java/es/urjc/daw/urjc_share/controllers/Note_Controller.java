@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.controllers;
 
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Note;
@@ -27,7 +28,8 @@ public class Note_Controller {
     private UserRepository repository;
     @Autowired
     private NoteRepository noteRepository;
-
+    @Autowired
+    private UserComponent currentUser;
     @RequestMapping("/notes")
     public String saveNote(Model model) {
         List<Note> notes = noteRepository.findAll();
@@ -39,12 +41,14 @@ public class Note_Controller {
     private UploadFileService uploadFileService;
     @PostMapping("/apunte_guardado")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
+        note.setUser(currentUser.getEntityUser());
         noteRepository.save(note);
         if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
             uploadFileService.saveFile(file,note.getId());
         }
         String [] s = file.getOriginalFilename().split("\\.");
         note.setRuta(note.getId()+"."+s[s.length-1]);
+        note.setExtension(s[s.length-1]);
         noteRepository.save(note);
         return "index";
     }
