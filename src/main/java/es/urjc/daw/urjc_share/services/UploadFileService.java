@@ -12,12 +12,14 @@ import java.nio.file.Paths;
 @Controller
 public class UploadFileService {
 
-    private String upload_folder = ".//src//main//resources//files_users//";
-    public void saveFile(MultipartFile file) throws IOException{
-        if(!file.isEmpty()){
+    private String upload_folder = ".//src//main//resources//static//files_users//";
+    public void saveFile(MultipartFile file, long id) throws IOException {
+        if (!file.isEmpty()) {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(upload_folder + file.getOriginalFilename());
-            Files.write(path,bytes);
+            String[] s = file.getOriginalFilename().split("\\.");
+            String ruta = upload_folder + id +"."+s[s.length-1];
+            Path path = Paths.get(ruta);
+            Files.write(path, bytes);
         }
     }
 }

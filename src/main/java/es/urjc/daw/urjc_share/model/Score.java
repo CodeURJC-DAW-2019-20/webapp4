@@ -20,7 +20,9 @@ public class Score {
 	
 	@ManyToOne
     private Note note;
-	
+
+	public Score() {
+	}
 
 	public Score(long id, int score, User user, Note note) {
 		super();

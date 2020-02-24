@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	String[] resources = new String[]{
-            "/include/*","/css/","/icons/","/img/","/js/","/layer/*"
+            "/include/*","/css/","/icons/","/img/","/js/","/layer/*","/png/"
     };
 	
 	

@@ -85,11 +85,10 @@
         </form>
         <h4>Documentos subidos</h4>
         <hr>
-        <hr>
-        {{#usuario.notes}}
+        {{#notesUser}}
         <div class="col-md-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/300x200"
+                <img class="card-img-profile" src="/img/{{extension}}.png"
                      alt="">
                 <div class="card-body">
                     <h4 class="card-title">{{name}}</h4>
@@ -97,11 +96,11 @@
                     <p class="card-text">{{professor}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="selectNote.html" class="btn btn-primary">Ver más</a>
+                    <a href="/notes/{{id}}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
         </div>
-        {{/usuario.notes}}
+        {{/notesUser}}
     </div>
 </div>
 {{/usuario}}

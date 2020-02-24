@@ -29,7 +29,12 @@
     right: 0;
     top: 0;
 }
-
+.card-img-profile{
+    width: 176px;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    margin: 3px auto;
+}
 .proile-rating{
     margin-top: 20%;
 }

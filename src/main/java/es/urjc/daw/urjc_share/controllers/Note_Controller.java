@@ -1,11 +1,10 @@
 package es.urjc.daw.urjc_share.controllers;
 
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Note;
-import es.urjc.daw.urjc_share.model.User;
-import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +22,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 public class Note_Controller {
-
     private Map<Integer, Note> notes = new ConcurrentHashMap<>();
     private AtomicInteger id = new AtomicInteger();
     @Autowired
     private UserRepository repository;
     @Autowired
     private NoteRepository noteRepository;
-
+    @Autowired
+    private UserComponent currentUser;
     @RequestMapping("/notes")
     public String saveNote(Model model) {
         List<Note> notes = noteRepository.findAll();
@@ -42,13 +41,18 @@ public class Note_Controller {
     private UploadFileService uploadFileService;
     @PostMapping("/apunte_guardado")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
-        if(!file.isEmpty()){
-            uploadFileService.saveFile(file);
-        }
-        note.setRuta(file.getOriginalFilename());
+        note.setUser(currentUser.getEntityUser());
         noteRepository.save(note);
-        return "index";
+        if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
+            uploadFileService.saveFile(file,note.getId());
+        }
+        String [] s = file.getOriginalFilename().split("\\.");
+        note.setRuta(note.getId()+"."+s[s.length-1]);
+        note.setExtension(s[s.length-1]);
+        noteRepository.save(note);
+        return "redirect:/";
     }
+
     @PostMapping("/subir_apunte")
     public String noteController(Note note) {
         noteRepository.save(note);

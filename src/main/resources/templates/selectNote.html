@@ -32,9 +32,7 @@
 						<div class="col-md-8 row">
 
 							<div class="col-md-6">
-								<!--  <img
-									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5">-->
-								<img src="" id="photo1" class="mb-5">
+								<img src="/img/{{nameImage}}" id="photo1" class="mb-5" alt="">
 								<section class='rating-widget'>
 									<!-- Rating Stars Box -->
 									<div class='rating-stars text-center'>
@@ -58,6 +56,7 @@
 								<li class="list-group-item">Título: {{noteSelected.name}}</li>
 								<li class="list-group-item">Asignatura: {{noteSelected.subject.name}}</li>
 								<li class="list-group-item">Profesor: {{noteSelected.professor}}</li>
+								<a class="list-group-item" href="/files_users/{{noteSelected.ruta}}">Descargar Apuntes</a>
 							</ul>
 
 						</div>
