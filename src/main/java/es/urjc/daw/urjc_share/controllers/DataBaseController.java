@@ -31,6 +31,7 @@ public class DataBaseController implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		/*
 		// save a couple of users
 		userrepository.save(new User("paco", "1234", "Matematicas", "pacomer", "pacopacon@gmail.com", 56789, null,
 				false, "ROLE_USER"));
