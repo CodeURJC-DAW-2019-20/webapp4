@@ -2,7 +2,7 @@
 
 <head>
 <!-- Custom styles for this template -->
-<link href="../css/allNotes.css" rel="stylesheet">
+<link href="../static/css/error.css" rel="stylesheet">
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -12,10 +12,17 @@
 
 <title>URJC.share</title>
 
-<link href="css/allNotes.css" rel="stylesheet" type="text/css"
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/business-frontpage.css" rel="stylesheet">
+
+<link href="css/error.css" rel="stylesheet" type="text/css"
 	media="screen">
 </head>
 
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
 <body class="h-100 bg-light">
 	<!-- Navigation -->
@@ -27,22 +34,10 @@
 		<div class="row justify-content-center">
 			<div class="col-12 card card-signup justify-content-center">
 				<div class="card-body">
-					<h5 class="card-title text-center text-primary">Lista de apuntes encontrados para: {{textTittle}}</h5>
-					<!-- List of notes -->
+					<h1>¡Ha ocurrido algo inesperado!</h1>
 
-					<div class="ml-3" id="father">
-						<div class="" id="son">
-							<ul class="list-group list-group-flush" id="list2">
-								{{#notesSearched}}
-								<li class="border list-group-item rounded"><a href="/notes/{{id}}" class="w-100 text-decoration-none">
-										<div id="name">Nombre: {{name}}</div>
-										<div id="subject">Asignatura: {{subject.name}}</div>
-										<div id="professor">Profesor: {{professor}}</div>
-								</a></li> 
-								{{/notesSearched}}
-							</ul>
-						</div>
-					</div>
+					Click <a href="/" >aqui</a> para volver a la pantalla de inicio.
+					
 				</div>
 			</div>
 		</div>

@@ -1,9 +1,8 @@
 <html>
 
 <head>
-
-
 <!-- Custom styles for this template -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="../css/register.css" rel="stylesheet">
 
 <meta charset="utf-8">
@@ -12,8 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="../css/SelectNote.css" rel="stylesheet" type="text/css"
-	media="screen">
+<link href="../css/selectNote.css" rel="stylesheet" type="text/css" media="screen">
 <script type="text/javascript" src="../js/selectNote.js"></script>
 <title>URJC.share</title>
 </head>
@@ -29,23 +27,14 @@
 			<div class="col-12 card card-signup justify-content-center">
 				<div class="card-body">
 					<h5 class="card-title text-center text-primary"></h5>
-					<!-- Search -->
-					<form
-						class="form-inline md-form form-sm active-purple-2 mt-2 col-md-auto"
-						id="searching bar">
-						<input class="form-control form-control-sm mr-3 w-50" type="text"
-							placeholder="Carrera, asignatura..." aria-label="Search">
-						<i class="fas fa-search" aria-hidden="true"></i>
-					</form>
-
 
 					<div class="row" id="padre">
 						<div class="col-md-8 row">
 
 							<div class="col-md-6">
-								<img
-									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg"
-									id="photo1" class="mb-5">
+								<!--  <img
+									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5">-->
+								<img src="" id="photo1" class="mb-5">
 								<section class='rating-widget'>
 									<!-- Rating Stars Box -->
 									<div class='rating-stars text-center'>
@@ -66,10 +55,9 @@
 								<a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
 							</div>
 							<ul class="list-group list-group-flush" id="list1">
-								<li class="list-group-item">Título:</li>
-								<li class="list-group-item">Asignatura:</li>
-								<li class="list-group-item">Carrera:</li>
-								<li class="list-group-item">Profesor:</li>
+								<li class="list-group-item">Título: {{noteSelected.name}}</li>
+								<li class="list-group-item">Asignatura: {{noteSelected.subject.name}}</li>
+								<li class="list-group-item">Profesor: {{noteSelected.professor}}</li>
 							</ul>
 
 						</div>

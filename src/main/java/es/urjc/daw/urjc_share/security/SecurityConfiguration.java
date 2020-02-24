@@ -47,7 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.formLogin().usernameParameter("nickname");
         http.formLogin().passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/");
-        //http.formLogin().failureUrl("/loginerror");
+        http.formLogin().failureUrl("/loginerror");
 
         // Logout
         http.logout().logoutUrl("/logout");
@@ -55,12 +55,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         
         // Disable CSRF at the moment
         http.csrf().disable();
+        
+        
+        http.exceptionHandling().accessDeniedPage("/error.html");
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
     	// Database authentication provider
-        auth.authenticationProvider(authenticationProvider);
+       // auth.authenticationProvider(authenticationProvider);
 	}
+	
 }
