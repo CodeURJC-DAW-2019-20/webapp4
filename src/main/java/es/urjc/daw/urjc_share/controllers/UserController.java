@@ -9,7 +9,7 @@ import java.util.Optional;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
-import es.urjc.daw.urjc_share.services.sendMailService;
+import es.urjc.daw.urjc_share.services.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,7 @@ public class UserController {
     private ImageService imgService;
 
     @Autowired
-    private sendMailService mailSender;
+    private SendMailService mailSender;
    
 
     @PostMapping("/createUser")
