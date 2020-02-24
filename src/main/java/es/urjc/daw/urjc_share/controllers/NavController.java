@@ -49,6 +49,7 @@ public class NavController {
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
+		model.addAttribute("usuario",currentUser.getEntityUser());
 		this.configNav(model, "profile");
 		return "myprofile";
 	}
