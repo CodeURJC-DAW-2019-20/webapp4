@@ -59,6 +59,13 @@ public class NavController {
 		this.configNav(model, "login");
 		return "login";
 	}
+	@GetMapping("/logout")
+	public String goToSigOut(Model model) {
+		this.configNav(model, "ini");
+		this.currentUser.setEntityUser(null);
+		return "index";
+	}
+
 
 	@GetMapping("/join")
 	public String goToMySignup(Model model) {
