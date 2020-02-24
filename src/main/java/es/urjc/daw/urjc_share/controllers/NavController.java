@@ -79,22 +79,24 @@ public class NavController {
 		if (searchType.equals("Grado")) {
 			List<Degree> degrees = degreeRepository.findAllByName(textSearched);
 			model.addAttribute("degreeSearched", degrees);
+			model.addAttribute("emptyResult", degrees.isEmpty());
 			return "listDegrees";
 		} else {
 			List<Subject> subjects = subjectRepository.findAllByName(textSearched);
 			model.addAttribute("subjectSearched", subjects);
+			model.addAttribute("emptyResult", subjects.isEmpty());
 			return "listsubjects";
 		}
 	}
 
 	@GetMapping("/search/degree/{degreeID}")
 	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
-		Optional<Degree> degree = degreeRepository.findById(degreeID);
-		if (degree.isPresent()) {
-			model.addAttribute("textTittle", degree.get().getName());
-		}
-		Optional<List<Subject>> subjects = subjectRepository.findAllByDegree(degree.get());
-		model.addAttribute("subjectSearched", subjects.get());
+		Degree degree = degreeRepository.findById(degreeID);
+		model.addAttribute("textTittle", degree.getName());
+		
+		List<Subject> subjects = subjectRepository.findAllByDegree(degree);
+		model.addAttribute("subjectSearched", subjects);
+		model.addAttribute("emptyResult", subjects.isEmpty());
 		return "listsubjects";
 	}
 
@@ -105,6 +107,7 @@ public class NavController {
 
 		List<Note> notes = noteRepository.findAllBySubject(subject);
 		model.addAttribute("notesSearched", notes);
+		model.addAttribute("emptyResult", notes.isEmpty());
 		return "allNotes";
 	}
 

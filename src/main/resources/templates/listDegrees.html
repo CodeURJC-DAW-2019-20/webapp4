@@ -39,12 +39,18 @@
 					<div class="ml-3" id="father">
 						<div class="" id="son">
 							<ul class="list-group list-group-flush" id="list2">
+								{{#emptyResult}} 
+									<h3 class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
+								{{/emptyResult}} 
+								{{^emptyResult}}
 								{{#degreeSearched}}
-								<li class="border list-group-item rounded"><a href="/search/degree/{{id}}" class="w-100 text-decoration-none">
-										<div id="name">ID: {{id}}</div>
-										<div id="degree">Grado: {{name}}</div>
-								</a></li> 
-								{{/degreeSearched}}
+									<li class="border list-group-item rounded"><a
+										href="/search/degree/{{id}}" class="w-100 text-decoration-none">
+											<div id="name">ID: {{id}}</div>
+											<div id="degree">Grado: {{name}}</div>
+									</a></li> {{/degreeSearched}} 
+								{{/emptyResult}}
+
 							</ul>
 						</div>
 					</div>

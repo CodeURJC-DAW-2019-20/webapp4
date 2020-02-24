@@ -61,12 +61,12 @@ public class DataBaseController implements CommandLineRunner {
 		// save a couple of notes
 		noteRepository.save(new Note("Tema 1", calidad, "Garzás", "rutaDePrueba"));
 		
-		List<User> users = (List<User>) userrepository.findAll();
+		/*List<User> users = (List<User>) userrepository.findAll();
 		System.out.println("User found with findAll():");
 		System.out.println("-------------------------------");
 		for (User user : users) {
 			System.out.println(users);
-		}
+		}*/
 
 	}
 }

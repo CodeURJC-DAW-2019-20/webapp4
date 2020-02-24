@@ -7,5 +7,6 @@ import es.urjc.daw.urjc_share.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long>  {
 	User findByName(String name);
+	User findById(long id);
 	User findByNickname(String nickname);
 }
