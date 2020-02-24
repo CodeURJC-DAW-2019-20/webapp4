@@ -1,47 +1,79 @@
 <!-- Navigation -->
-{{> global/modalUploadNote}} {{> global/modalAdmin}}
+{{#ROLE_USER}}
+{{> global/modalUploadNote}}
+{{/ROLE_USER}}
+{{#ROLE_ADMIN}}
+{{> global/modalAdmin}}
+{{/ROLE_ADMIN}}
 <head>
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/formTemplate.css" rel="stylesheet">
-
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-	crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/fa64bf418c.js"
-	crossorigin="anonymous"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/formTemplate.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fa64bf418c.js"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="/">URJC.share</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="/">Inicio
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a type="button" class="nav-link"
-						data-toggle="modal" data-target="#modalUploadNote">Subir
-							Documento</a></li>
-					<li class="nav-item"><a class="nav-link" href="/ranking">Ranking</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="/profile">Perfil</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" class="nav-link"
-						data-toggle="modal" data-target="#modalAdmin">Administración</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="/login">Iniciar
-							sesión</a></li>
-					<li class="nav-item"><a class="nav-link" href="/join">Registrarse</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">URJC.share</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {{#ini}}<li class="nav-item active">{{/ini}}
+                {{^ini}}<li class="nav-item">{{/ini}}
+                    <a class="nav-link" href="/">
+                        Inicio
+                        {{#ini}}<span class="sr-only">(current)</span>{{/ini}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ranking">
+                        Ranking
+                    </a>
+                </li>
+                {{#ROLE_USER}}
+                <li class="nav-item">
+                    <a type="button" class="nav-link" data-toggle="modal" data-target="#modalUploadNote">
+                        Subir Documento
+                    </a>
+                </li>
+                {{#profile}}<li class="nav-item active">{{/profile}}
+                {{^profile}}<li class="nav-item">{{/profile}}
+                    <a class="nav-link" href="/profile">
+                        Perfil
+                        {{#profile}}<span class="sr-only">(current)</span>{{/profile}}
+                    </a>
+                </li>
+                {{/ROLE_USER}}
+                {{#ROLE_ADMIN}}
+                <li class="nav-item"><a class="nav-link" class="nav-link"
+                                        data-toggle="modal" data-target="#modalAdmin">Administración</a>
+                </li>
+                {{/ROLE_ADMIN}}
+                {{#ROLE_ANONY}}
+                {{#login}}<li class="nav-item active">{{/login}}
+                {{^login}}<li class="nav-item">{{/login}}
+                    <a class="nav-link" href="/login">
+                        Iniciar sesión
+                        {{#login}}<span class="sr-only">(current)</span>{{/login}}
+                    </a>
+                </li>
+                {{#join}}<li class="nav-item active">{{/join}}
+                {{^join}}<li class="nav-item">{{/join}}
+                    <a class="nav-link" href="/join">Registrarse</a>
+                </li>
+                {{/ROLE_ANONY}}
+            </ul>
+        </div>
+    </div>
+</nav>
 </body>

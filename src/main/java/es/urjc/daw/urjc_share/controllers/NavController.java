@@ -1,5 +1,6 @@
 package es.urjc.daw.urjc_share.controllers;
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.DegreeRepository;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.SubjectRepository;
@@ -7,6 +8,7 @@ import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 
+import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import java.util.Optional;
 
 @Controller
 public class NavController {
+	// Repositorys
 	@Autowired
 	private DegreeRepository degreeRepository;
 	@Autowired
@@ -26,8 +29,14 @@ public class NavController {
 	@Autowired
 	private NoteRepository noteRepository;
 
+	// Components
+	@Autowired
+	private UserComponent currentUser;
+
+
 	@GetMapping("/")
 	public String goToIndex(Model model) {
+		this.configNav(model, "ini");
 		return "index";
 	}
 
@@ -38,18 +47,19 @@ public class NavController {
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
+		this.configNav(model, "profile");
 		return "myprofile";
 	}
 
 	@GetMapping("/login")
 	public String goToSignin(Model model) {
+		this.configNav(model, "login");
 		return "login";
 	}
 
 	@GetMapping("/join")
 	public String goToMySignup(Model model) {
-		List<Degree> degrees = degreeRepository.findAll();
-		model.addAttribute("alldegrees", degrees);
+		this.configNav(model, "join");
 		List<Subject> subjects = subjectRepository.findAll();
 		model.addAttribute("allsubjects", subjects);
 		return "register";
@@ -95,6 +105,34 @@ public class NavController {
 		Note note = noteRepository.findById(noteID);
 		model.addAttribute("noteSelected", note);
 		return "selectNote";
+	}
+
+	// Methos
+	private void configNav(Model model, String rute) {
+		User userEnty = currentUser.getEntityUser();
+		// Data ROLE
+		if(userEnty != null){
+			model.addAttribute("ROLE_ADMIN", userEnty.getRoles().contains("ROLE_ADMIN"));
+			model.addAttribute("ROLE_USER", userEnty.getRoles().contains("ROLE_USER"));
+			model.addAttribute("ROLE_ANONY", false);
+			if(userEnty.getRoles().contains("ROLE_ADMIN")){
+				List<Degree> degrees = degreeRepository.findAll();
+				model.addAttribute("alldegrees", degrees);
+				List<Subject> subjects = subjectRepository.findAll();
+				model.addAttribute("allsubjects", subjects);
+
+			}
+		} else {
+			model.addAttribute("ROLE_ADMIN", false);
+			model.addAttribute("ROLE_USER", false);
+			model.addAttribute("ROLE_ANONY", true);
+		}
+
+		// Data RUTE
+		model.addAttribute("ini", rute == "ini");
+		model.addAttribute("profile", rute == "profile");
+		model.addAttribute("login", rute == "login");
+		model.addAttribute("join", rute == "join");
 	}
 
 }

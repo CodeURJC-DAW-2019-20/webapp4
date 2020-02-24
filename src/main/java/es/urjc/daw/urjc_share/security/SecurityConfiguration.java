@@ -64,7 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
     	// Database authentication provider
-       // auth.authenticationProvider(authenticationProvider);
+        auth.authenticationProvider(authenticationProvider);
 	}
 	
 }
