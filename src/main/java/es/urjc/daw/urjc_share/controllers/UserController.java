@@ -27,19 +27,6 @@ public class UserController {
 
     @Autowired
     private sendMailService mailSender;
-
-
-    @GetMapping("/usuarios")
-    public String usuarios(Model model) {
-        List<User> users = (List<User>) repository.findAll();
-        model.addAttribute("usuarios", users);
-        return "users";
-    }
-
-    @GetMapping("/usuario/nuevo")
-    public String nuevoAnuncioForm() {
-        return "new_user";
-    }
    
 
     @PostMapping("/createUser")
