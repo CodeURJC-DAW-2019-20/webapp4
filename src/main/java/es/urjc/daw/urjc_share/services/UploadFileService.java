@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 @Controller
 public class UploadFileService {
 
-    private String upload_folder = ".//src//main//resources//";
+    private String upload_folder = ".//src//main//resources//files_users//";
     public void saveFile(MultipartFile file) throws IOException{
         if(!file.isEmpty()){
             byte[] bytes = file.getBytes();
