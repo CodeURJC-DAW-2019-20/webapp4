@@ -41,10 +41,8 @@ public class DegreeController {
 
 	@GetMapping("/degree/{id}")
 	public String seeDegree(Model model, @PathVariable long id) {
-		Optional<Degree> degree = repository.findById(id);
-		if (degree.isPresent()) {
-			model.addAttribute("degree", degree.get());
-		}
+		Degree degree = repository.findById(id);
+		model.addAttribute("degree", degree);
 		return "myprofile";
 	}
 

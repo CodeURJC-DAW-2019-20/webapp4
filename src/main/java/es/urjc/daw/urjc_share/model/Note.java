@@ -1,5 +1,8 @@
 package es.urjc.daw.urjc_share.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +25,9 @@ public class Note {
     
     @ManyToOne
     private Subject subject;
+    
+    @OneToMany(mappedBy = "note")
+    private List<Score> scores = new ArrayList<>();
     
     
     @ManyToOne
