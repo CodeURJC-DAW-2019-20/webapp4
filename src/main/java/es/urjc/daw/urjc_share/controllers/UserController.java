@@ -27,19 +27,6 @@ public class UserController {
 
     @Autowired
     private sendMailService mailSender;
-
-
-    @GetMapping("/usuarios")
-    public String usuarios(Model model) {
-        List<User> users = (List<User>) repository.findAll();
-        model.addAttribute("usuarios", users);
-        return "users";
-    }
-
-    @GetMapping("/usuario/nuevo")
-    public String nuevoAnuncioForm() {
-        return "new_user";
-    }
    
 
     @PostMapping("/createUser")
@@ -61,10 +48,9 @@ public class UserController {
 
     @GetMapping("/usuario/{id}")
     public String seeUser(Model model, @PathVariable long id) {
-        Optional<User> user = repository.findById(id);
-        if (user.isPresent()) {
-            model.addAttribute("usuario", user.get());
-        }
+        User user = repository.findById(id);
+        model.addAttribute("usuario", user);
+        
         return "myprofile";
     }
 }

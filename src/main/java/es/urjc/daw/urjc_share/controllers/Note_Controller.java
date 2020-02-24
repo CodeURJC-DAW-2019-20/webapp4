@@ -4,8 +4,6 @@ package es.urjc.daw.urjc_share.controllers;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Note;
-import es.urjc.daw.urjc_share.model.User;
-import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +21,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 public class Note_Controller {
-
     private Map<Integer, Note> notes = new ConcurrentHashMap<>();
     private AtomicInteger id = new AtomicInteger();
     @Autowired
@@ -42,13 +39,16 @@ public class Note_Controller {
     private UploadFileService uploadFileService;
     @PostMapping("/apunte_guardado")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
-        if(!file.isEmpty()){
-            uploadFileService.saveFile(file);
+        noteRepository.save(note);
+        if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
+            uploadFileService.saveFile(file,note.getId());
         }
-        note.setRuta(file.getOriginalFilename());
+        String [] s = file.getOriginalFilename().split("\\.");
+        note.setRuta(note.getId()+"."+s[s.length-1]);
         noteRepository.save(note);
         return "index";
     }
+
     @PostMapping("/subir_apunte")
     public String noteController(Note note) {
         noteRepository.save(note);
