@@ -57,9 +57,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.csrf().disable();
         
         
-        http.exceptionHandling().accessDeniedPage("/error.html");
+        http.exceptionHandling().accessDeniedPage("/error.hmtl");
+        
 	}
-	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
