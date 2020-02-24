@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e50aa60-19c7-4252-ab6f-3978b4280ed2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/Note_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/model/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/services/UploadFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/services/UploadFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/selectNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/selectNote.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/selectNote.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/selectNote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +257,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/UserController.java</url>
-          <line>46</line>
+          <line>33</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -40,10 +40,10 @@ Two of the four entities previously mentioned will have images.
 - Users
 
 ## Plots
-Each note page will contain a grapich that shows the downloads of a note within a period of time.
+Each note page will contain a graphic that shows the downloads of a note within a period of time.
 
 ## Technology
-The users will have the possibility to subscribe to a subject and they will recieve an email when somebody upload a note related with this subject.
+Users will receive a welcome mail with their nickname.
 
 ## Algorithm
 The users will be able to rate each note in a range of 1 to 5. 
@@ -101,3 +101,23 @@ This page will show a sorted list of the users with the highest scores of the pl
 
 ## Navigation diagram
 ![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
+
+# Fase 2
+## Navigation
+
+## Development instructions
+# Code repository
+All the code will be able in this repo: 
+[DAW/webapp4](https://github.com/CodeURJC-DAW-2019-20/webapp4)
+
+# Development tools
+In this application we used technologies as Moustache templates, Springboot and a mySQL database.
+
+To run this app, at first you will need to clone this repository on your computer.
+Then you will need to import the project as Maven Project into your favorite IDE that supports maven and springboot  (as Springtool or IntelliJ).
+Next you will need to run the database, we did it in mySQL, creating a schema named "urjc_share". The credentials used are user:"root" and pass: "pass"
+Once you did all those steps, you can run the project with springboot running configuration.
+The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
+## Database diagrams
+
+## Class diagrams and templates

@@ -54,9 +54,9 @@ public class DataBaseController implements CommandLineRunner {
 		degreeRepository.save(magisterio);
 
 		// save a couple of subjects
-		Subject calidad = new Subject("Calidad", software, "Garzás"); 
+		Subject calidad = new Subject("Calidad", software); 
 		subjectRepository.save(calidad);
-		subjectRepository.save(new Subject("Seguridad informática", software, "Enrique"));
+		subjectRepository.save(new Subject("Seguridad informática", software));
 
 		// save a couple of notes
 		noteRepository.save(new Note("Tema 1", calidad, "Garzás", "jancojnd.pdf", ".pdf"));

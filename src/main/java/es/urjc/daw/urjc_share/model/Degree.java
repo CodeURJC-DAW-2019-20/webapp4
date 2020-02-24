@@ -27,7 +27,17 @@ public class Degree {
         this.subjects = subjects;
     }
     
-    public Degree(String name) {
+    
+    
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Degree(String name) {
     	this.name = name;
     }
 
