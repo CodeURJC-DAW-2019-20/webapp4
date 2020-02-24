@@ -50,7 +50,7 @@ public class Note_Controller {
         note.setRuta(note.getId()+"."+s[s.length-1]);
         note.setExtension(s[s.length-1]);
         noteRepository.save(note);
-        return "index";
+        return "redirect:/";
     }
 
     @PostMapping("/subir_apunte")
