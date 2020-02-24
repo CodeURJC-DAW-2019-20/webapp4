@@ -31,7 +31,7 @@ public class DataBaseController implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*
+
 		// save a couple of users
 		userrepository.save(new User("paco", "1234", "Matematicas", "pacomer", "pacopacon@gmail.com", 56789, null,
 				false, "ROLE_USER"));
@@ -62,12 +62,12 @@ public class DataBaseController implements CommandLineRunner {
 		// save a couple of notes
 		noteRepository.save(new Note("Tema 1", calidad, "Garzás", "jancojnd.pdf", ".pdf"));
 		
-		/*List<User> users = (List<User>) userrepository.findAll();
+		List<User> users = (List<User>) userrepository.findAll();
 		System.out.println("User found with findAll():");
 		System.out.println("-------------------------------");
 		for (User user : users) {
 			System.out.println(users);
-		}*/
+		}
 
 	}
 }
