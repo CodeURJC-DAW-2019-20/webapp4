@@ -33,13 +33,13 @@ public class Note_Controller {
     @RequestMapping("/notes")
     public String saveNote(Model model) {
         List<Note> notes = noteRepository.findAll();
-        model.addAttribute("usuarios", notes);
+        model.addAttribute("user", notes);
 
         return "allNotes";
     }
     @Autowired
     private UploadFileService uploadFileService;
-    @PostMapping("/apunte_guardado")
+    @PostMapping("/note_save")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
         note.setUser(currentUser.getEntityUser());
         noteRepository.save(note);

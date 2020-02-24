@@ -28,7 +28,7 @@ public class DegreeController {
 		return "degrees";
 	}
 
-	@GetMapping("/grado/nuevo")
+	@GetMapping("/degree/new")
 	public String nuevoAnuncioForm() {
 		return "newdegree";
 	}

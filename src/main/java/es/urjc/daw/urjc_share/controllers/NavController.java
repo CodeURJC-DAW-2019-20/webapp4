@@ -49,7 +49,7 @@ public class NavController {
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
-		model.addAttribute("usuario",currentUser.getEntityUser());
+		model.addAttribute("user",currentUser.getEntityUser());
 		model.addAttribute("notesUser", noteRepository.findAllByUser(currentUser.getEntityUser()));
 
 		this.configNav(model, "profile");
@@ -78,7 +78,7 @@ public class NavController {
 	@GetMapping("/search")
 	public String searchFromIndex(Model model, @RequestParam String searchType, @RequestParam String textSearched) {
 		model.addAttribute("textTittle", textSearched);
-		if (searchType.equals("Grado")) {
+		if (searchType.equals("Degree")) {
 			List<Degree> degrees = degreeRepository.findAllByName(textSearched);
 			model.addAttribute("degreeSearched", degrees);
 			model.addAttribute("emptyResult", degrees.isEmpty());

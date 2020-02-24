@@ -34,7 +34,7 @@ public class UserController {
         user.setImage(true);
         user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
         repository.save(user);
-        imgService.saveImage("usuarios", user.getId(), imagenFile);
+        imgService.saveImage("users", user.getId(), imagenFile);
         mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
                 "Hola "+user.getNickname()+"\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
 
@@ -46,10 +46,10 @@ public class UserController {
     	return "login";
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/user/{id}")
     public String seeUser(Model model, @PathVariable long id) {
         User user = repository.findById(id);
-        model.addAttribute("usuario", user);
+        model.addAttribute("user", user);
         
         return "myprofile";
     }
