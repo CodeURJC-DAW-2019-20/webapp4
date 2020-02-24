@@ -11,6 +11,7 @@ import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.sendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,11 +47,13 @@ public class UserController {
     	return "login";
     }
 
-    @GetMapping("/usuario/{id}")
-    public String seeUser(Model model, @PathVariable long id) {
-        User user = repository.findById(id);
-        model.addAttribute("usuario", user);
+
+    @PostMapping("/updateUser/{id}")
+    @Modifying(clearAutomatically = true)
+    public String updateUser(User user, @PathVariable long id) throws IOException{
+        user.setId(id);
+        repository.saveAndFlush(user);
         
-        return "myprofile";
+        return "redirect:/";
     }
 }

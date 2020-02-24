@@ -23,35 +23,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <form class="form-signup" action="/usuario/guardar"method="post"enctype="multipart/form-data">
+                            {{#usuario}}
+                            <form class="form-signup" action="/updateUser/{{id}}" method="post"enctype="multipart/form-data">
 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputUser" class="form-control" placeholder="Usuario">
+                                    <input type="text" name="nickname" id="inputUser" class="form-control" placeholder="Usuario" value="{{nickname}}">
                                     <label for="inputUser">Usuario</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico">
+                                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" value="{{email}}">
                                     <label for="inputEmail">Correo electrónico</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña">
+                                    <input type="password" name="passwordHash"id="inputPassword" class="form-control" placeholder="Contraseña" value="{{passwordHash}}" >
                                     <label for="inputPassword">Contraseña</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputName" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="name"id="inputName" class="form-control" placeholder="Nombre" value="{{name}}">
                                     <label for="inputName">Nombre</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputDegree" class="form-control" placeholder="Grado matriculado">
+                                    <input type="text" name="degree"id="inputDegree" class="form-control" placeholder="Grado matriculado" value="{{degree}}">
                                     <label for="inputDegree">Grado matriculado</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                    <input type="tel" name="number" id="inputPhoneNumber" class="form-control" placeholder="Número de teléfono" value="{{number}}">
                                     <label for="inputPhoneNumber">Número de teléfono</label>
                                 </div>
 
@@ -59,7 +60,7 @@
                                     <button class="btn btn-primary  text-uppercase" type="submit">Guardar</button>
                                 </div>
                             </form>
-
+                            {{/usuario}}
                         </div>
                     </div>
                 </div>
