@@ -3,6 +3,7 @@ package es.urjc.daw.urjc_share.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -22,6 +23,8 @@ import es.urjc.daw.urjc_share.model.User;
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider{
 	@Autowired
 	private UserRepository userRepository;
+    @Autowired
+    private UserComponent currentUser;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -38,6 +41,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		for (String role : user.getRoles()) {
 			roles.add(new SimpleGrantedAuthority(role));
 		}
+		currentUser.setEntityUser(user);
 		return new UsernamePasswordAuthenticationToken(user.getNickname(), password, roles);
 	}
 
