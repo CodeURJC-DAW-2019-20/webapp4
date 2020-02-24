@@ -45,16 +45,16 @@
                                 <h5 class="card-title text-center text-primary">Añadir asignatura</h5>
                                 <form class="form-signin" action="/addSubject" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="subjects">Grado</label>
-                                        <select id="subjects">
+                                        <label for="degree">Grado</label>
+                                        <select id="degree">
                                   	  	{{#alldegrees}}
-                                        <option value={{id}} na>{{name}}</option>
+                                        <option value={{id}} name="degree" >{{name}}</option>
                                         {{/alldegrees}}
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="textSubject">Asignatura</label>
-                                        <input type="text" class="form-control" id="textSubject" name="name">
+                                        <input type="text" class="form-control" id="textSubject" name="subject">
                                     </div>
                                     <div class="text-center">
                                         <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
