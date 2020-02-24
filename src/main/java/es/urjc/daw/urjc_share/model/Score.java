@@ -24,9 +24,8 @@ public class Score {
 	public Score() {
 	}
 
-	public Score(long id, int score, User user, Note note) {
+	public Score(int score, User user, Note note) {
 		super();
-		this.id = id;
 		this.score = score;
 		this.user = user;
 		this.note = note;

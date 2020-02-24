@@ -21,6 +21,7 @@ public class User {
     private String email;
     private Integer number;
     private boolean image;
+    private float media;
     
     @OneToMany(mappedBy = "user")
     private List<Note> notes = new ArrayList<>();
@@ -46,6 +47,14 @@ public class User {
         this.notes = notes;
         this.image=image;
         this.roles = new ArrayList<>(Arrays.asList(roles));
+    }
+
+    public float getMedia() {
+        return media;
+    }
+
+    public void setMedia(float media) {
+        this.media = media;
     }
 
     public long getId() {

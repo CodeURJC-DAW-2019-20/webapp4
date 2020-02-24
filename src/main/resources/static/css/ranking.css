@@ -1,0 +1,12 @@
+#ranking > div:nth-child(odd) {
+    background-color: #007bff;
+}
+
+#ranking > div:nth-child(event) {
+    background-color: rgba(59, 136, 196, 0.32);
+}
+p.text-dark {
+    color: black;
+    font-weight: bold;
+    margin: 15px auto;
+}

@@ -1,14 +1,9 @@
 package es.urjc.daw.urjc_share.controllers;
 
 import es.urjc.daw.urjc_share.component.UserComponent;
-import es.urjc.daw.urjc_share.data.DegreeRepository;
-import es.urjc.daw.urjc_share.data.NoteRepository;
-import es.urjc.daw.urjc_share.data.SubjectRepository;
-import es.urjc.daw.urjc_share.model.Degree;
-import es.urjc.daw.urjc_share.model.Note;
-import es.urjc.daw.urjc_share.model.Subject;
+import es.urjc.daw.urjc_share.data.*;
+import es.urjc.daw.urjc_share.model.*;
 
-import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +26,10 @@ public class NavController {
 	private SubjectRepository subjectRepository;
 	@Autowired
 	private NoteRepository noteRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ScoreRepository scoreRepository;
 
 	// Components
 	@Autowired
@@ -43,7 +44,34 @@ public class NavController {
 
 	@GetMapping("/ranking")
 	public String goToRanking(Model model) {
+        List<Note> noteByUser;
+        List<Score> scoreByNote;
+        float auxMedia = 0;
+        int numScores = 0;
 		this.configNav(model,"ranking");
+		List <User> listUsers = userRepository.findAll();
+        for (User userAux:listUsers){
+            noteByUser = noteRepository.findAllByUser(userAux);
+            for (Note auxNote:noteByUser) {
+                scoreByNote = scoreRepository.findAllByNote(auxNote);
+                for (Score auxScore:scoreByNote) {
+                    auxMedia += auxScore.getScore();
+                }
+                numScores += scoreByNote.size();
+            }
+            if(numScores != 0){
+				userAux.setMedia(auxMedia/numScores);
+			}
+            auxMedia = 0;
+            numScores = 0;
+        }
+        model.addAttribute("users",listUsers);
+        this.configNav(model, "ranking");
+		Collections.sort(listUsers, (o1, o2) -> {
+			User u1 = o1;
+			User u2 = o2;
+			return Float.compare(u2.getMedia(), u1.getMedia());
+		});
 		return "ranking";
 	}
 
@@ -78,6 +106,7 @@ public class NavController {
 	@GetMapping("/search")
 	public String searchFromIndex(Model model, @RequestParam String searchType, @RequestParam String textSearched) {
 		model.addAttribute("textTittle", textSearched);
+		configNav(model, "");
 		if (searchType.equals("Grado")) {
 			List<Degree> degrees = degreeRepository.findAllByName(textSearched);
 			model.addAttribute("degreeSearched", degrees);
@@ -93,6 +122,7 @@ public class NavController {
 
 	@GetMapping("/search/degree/{degreeID}")
 	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
+		configNav(model, "");
 		Degree degree = degreeRepository.findById(degreeID);
 		model.addAttribute("textTittle", degree.getName());
 		
@@ -104,6 +134,7 @@ public class NavController {
 
 	@GetMapping("/search/subject/{subjectID}")
 	public String searchNotesFromSubject(Model model, @PathVariable long subjectID) {
+		configNav(model, "");
 		Subject subject = subjectRepository.findById(subjectID);
 		model.addAttribute("textTittle", subject.getName());
 
@@ -115,6 +146,7 @@ public class NavController {
 
 	@GetMapping("/notes/{noteID}")
 	public String selectNote(Model model, @PathVariable long noteID) {
+		configNav(model, "");
 		Note note = noteRepository.findById(noteID);
 		String [] image = note.getRuta().split("\\.");
 		model.addAttribute("nameImage", image[image.length-1]+".png");
@@ -123,7 +155,7 @@ public class NavController {
 	}
 
 	// Methos
-	private void configNav(Model model, String rute) {
+	public void configNav(Model model, String rute) {
 		User userEnty = currentUser.getEntityUser();
 		// Data ROLE
 		if(userEnty != null){
@@ -148,6 +180,7 @@ public class NavController {
 		model.addAttribute("profile", rute == "profile");
 		model.addAttribute("login", rute == "login");
 		model.addAttribute("join", rute == "join");
+		model.addAttribute("ranking", rute == "ranking");
 	}
 
 }

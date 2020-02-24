@@ -32,24 +32,28 @@
 						<div class="col-md-8 row">
 
 							<div class="col-md-6">
-								<img src="/img/{{nameImage}}" id="photo1" class="mb-5" alt="">
+								<!--  <img
+									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5">-->
+								<img src="" id="photo1" class="mb-5">
+								{{#ROLE_USER}}
 								<section class='rating-widget'>
 									<!-- Rating Stars Box -->
 									<div class='rating-stars text-center'>
 										<ul class="" id='stars'>
-											<li class='star' title="Nada útil" data-value='1'><i
-												class='fa fa-star fa-fw fa-xs'></i></li>
-											<li class='star' title='Poco útil' data-value='2'><i
-												class='fa fa-star fa-fw'></i></li>
-											<li class='star' title="Útil" data-value='3'><i
-												class='fa fa-star fa-fw'></i></li>
-											<li class='star' title='Muy útil' data-value='4'><i
-												class='fa fa-star fa-fw'></i></li>
-											<li class='star' title='Excelente' data-value='5'><i
-												class='fa fa-star fa-fw'></i></li>
+											<li class='star' title="Nada útil" data-value='1' onclick="setScore(1)" >
+												<i class='fa fa-star fa-fw fa-xs'></i></li>
+											<li class='star' title='Poco útil' data-value='2' onclick="setScore(2)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title="Útil" data-value='3' onclick="setScore(3)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title='Muy útil' data-value='4' onclick="setScore(4)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title='Excelente' data-value='5' onclick="setScore(5)">
+												<i class='fa fa-star fa-fw'></i></li>
 										</ul>
 									</div>
 								</section>
+								{{/ROLE_USER}}
 								<a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
 							</div>
 							<ul class="list-group list-group-flush" id="list1">
@@ -76,8 +80,12 @@
 		</div>
 		<!-- /.container -->
 	</footer>
-
-
+	<script>
+        function setScore(value){
+            var data = {value: value}
+            $.ajax({url: document.location.href + "/addScoreNote", type: "POST", data:data});
+        }
+	</script>
 </body>
 
 </html>

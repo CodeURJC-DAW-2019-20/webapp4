@@ -43,6 +43,14 @@ public class Note {
         this.ruta=ruta;
         this.extension=extension;
     }
+    public Note(String name, Subject subject, String professor, String ruta, String extension,User user){
+        this.name = name;
+        this.subject = subject;
+        this.professor = professor;
+        this.ruta=ruta;
+        this.extension=extension;
+        this.user = user;
+    }
 
     public String getExtension() {
         return extension;

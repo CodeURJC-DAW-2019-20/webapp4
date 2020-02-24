@@ -50,7 +50,6 @@ public class UserController {
     public String seeUser(Model model, @PathVariable long id) {
         User user = repository.findById(id);
         model.addAttribute("usuario", user);
-        
         return "myprofile";
     }
 }
