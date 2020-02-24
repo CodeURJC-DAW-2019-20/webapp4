@@ -26,10 +26,9 @@ public class Subject {
 
     }
 
-    public Subject(String name, Degree degree, String professor) {
+    public Subject(String name, Degree degree) {
         this.name = name;
-        this.degree = degree;
-        
+        this.degree = degree; 
     }
 
 	public long getId() {

@@ -46,15 +46,15 @@
                                 <form class="form-signin" action="/addSubject" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="degree">Grado</label>
-                                        <select id="degree">
+                                        <select id="degree" name="idDegree">
                                   	  	{{#alldegrees}}
-                                        <option value={{id}} name="degree" >{{name}}</option>
+                                        <option value={{id}}>{{name}}</option>
                                         {{/alldegrees}}
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="textSubject">Asignatura</label>
-                                        <input type="text" class="form-control" id="textSubject" name="subject">
+                                        <input type="text" class="form-control" id="textSubject" name="nameSubject">
                                     </div>
                                     <div class="text-center">
                                         <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>

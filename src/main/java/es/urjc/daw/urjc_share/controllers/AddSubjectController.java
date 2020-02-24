@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.daw.urjc_share.data.DegreeRepository;
 import es.urjc.daw.urjc_share.data.SubjectRepository;
@@ -16,16 +17,16 @@ public class AddSubjectController {
 	@Autowired
 	private SubjectRepository subjectrepository;
 	
+	@Autowired
+	private DegreeRepository degreeRepository;
+	
 
 	
 	@PostMapping("/addSubject")
-	private  String newSubject(Model model, Subject subject, Degree degree) {
-		
-		
-		long id = degree.getId();
-		subject.setId(id);
-		subjectrepository.save(subject);
-		return "/";
+	private  String newSubject(Model model, @RequestParam String nameSubject, @RequestParam long idDegree) {
+		Degree degree = degreeRepository.findById(idDegree);
+		subjectrepository.save(new Subject(nameSubject, degree));
+		return "redirect:/";
 		
 	}
 }
