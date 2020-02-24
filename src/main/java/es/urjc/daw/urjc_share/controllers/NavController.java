@@ -43,11 +43,13 @@ public class NavController {
 
 	@GetMapping("/ranking")
 	public String goToRanking(Model model) {
+		this.configNav(model,"ranking");
 		return "ranking";
 	}
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
+		model.addAttribute("usuario",currentUser.getEntityUser());
 		this.configNav(model, "profile");
 		return "myprofile";
 	}
@@ -68,8 +70,6 @@ public class NavController {
 	@GetMapping("/join")
 	public String goToMySignup(Model model) {
 		this.configNav(model, "join");
-		List<Subject> subjects = subjectRepository.findAll();
-		model.addAttribute("allsubjects", subjects);
 		return "register";
 	}
 
@@ -123,7 +123,7 @@ public class NavController {
 			model.addAttribute("ROLE_ADMIN", userEnty.getRoles().contains("ROLE_ADMIN"));
 			model.addAttribute("ROLE_USER", userEnty.getRoles().contains("ROLE_USER"));
 			model.addAttribute("ROLE_ANONY", false);
-			if(userEnty.getRoles().contains("ROLE_ADMIN")){
+			if(userEnty.getRoles().contains("ROLE_ADMIN") || userEnty.getRoles().contains("ROLE_USER")){
 				List<Degree> degrees = degreeRepository.findAll();
 				model.addAttribute("alldegrees", degrees);
 				List<Subject> subjects = subjectRepository.findAll();
