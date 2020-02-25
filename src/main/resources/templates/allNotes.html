@@ -1,0 +1,69 @@
+<html>
+
+<head>
+<!-- Custom styles for this template -->
+<link href="../css/allNotes.css" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>URJC.share</title>
+
+<link href="css/allNotes.css" rel="stylesheet" type="text/css"
+	media="screen">
+</head>
+
+
+<body class="h-100 bg-light">
+	<!-- Navigation -->
+
+	{{> global/nav}}
+
+	<!-- Login Content -->
+	<div class="container pt-3">
+		<div class="row justify-content-center">
+			<div class="col-12 card card-signup justify-content-center">
+				<div class="card-body">
+					<h5 class="card-title text-center text-primary">Lista de apuntes encontrados para: {{textTittle}}</h5>
+					<!-- List of notes -->
+
+					<div class="ml-3" id="father">
+						<div class="" id="son">
+							<ul class="list-group list-group-flush" id="list2">
+								{{#emptyResult}} 
+									<h3 class="text-center">No se ha encontrado ningún apunte.</h3>
+								{{/emptyResult}}
+								{{^emptyResult}}
+									{{#notesSearched}}
+									<li class="border list-group-item rounded"><a href="/notes/{{id}}" class="w-100 text-decoration-none">
+											<div id="name">Nombre: {{name}}</div>
+											<div id="subject">Asignatura: {{subject.name}}</div>
+											<div id="professor">Profesor: {{professor}}</div>
+									</a></li> 
+									{{/notesSearched}}
+								{{/emptyResult}}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="py-3 bg-dark fixed-bottom">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; URJC.share
+				2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+</body>
+
+</html>
