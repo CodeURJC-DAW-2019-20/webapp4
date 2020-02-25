@@ -141,11 +141,11 @@ We've decided to put the model relations in a separated diagram to make it more 
 - BBDD definitiva                   914e9d7e6780740aee10807b56491481a1ac6dfa.
 
 #### Tasks:
-- I implement the H2 DDBB and MySQL DDBB.
-- I implement the error control.
+- I implemented the H2 DDBB and MySQL DDBB.
+- I implemented the error control.
 - I have organized the DDBB tables.
-- I implements the user roles.
-- I implement the record upload in DDBB.
+- I implemented the user roles.
+- I implemented the record upload in DDBB.
 
 #### Files:
 - DataBaseController.
@@ -217,7 +217,7 @@ We've decided to put the model relations in a separated diagram to make it more 
  
  - Server creation with spring.
  - CSS style arrangements.
- - Creacion componentes html global para todas las ventanas.
+ - Created html global components for all the pages
  - Differentiation by roles according to user in session.
  - Algorithm of classification according to punctuation of notes.
  
@@ -243,7 +243,7 @@ We've decided to put the model relations in a separated diagram to make it more 
   
   - Mail sending    
   - Readme
-  - Diagrams
+  - E/R and class diagrams
   - Documentation
   - Bugfixing
   
