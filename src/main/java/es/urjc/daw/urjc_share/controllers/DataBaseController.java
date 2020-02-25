@@ -12,19 +12,19 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class DataBaseController implements CommandLineRunner {
 
-	@Autowired
-	private UserRepository userrepository;
-	@Autowired
-	private DegreeRepository degreeRepository;
-	@Autowired
-	private SubjectRepository subjectRepository;
-	@Autowired
-	private NoteRepository noteRepository;
-	@Autowired
-	private ScoreRepository scoreRepository;
+    @Autowired
+    private UserRepository userrepository;
+    @Autowired
+    private DegreeRepository degreeRepository;
+    @Autowired
+    private SubjectRepository subjectRepository;
+    @Autowired
+    private NoteRepository noteRepository;
+    @Autowired
+    private ScoreRepository scoreRepository;
 
-//	@Override
-//	public void run(String... args) throws Exception {
+    @Override
+    public void run(String... args) throws Exception {
 //
 //		// save a couple of users
 //		User useraux = new User("paco", "1234", "Matematicas", "pacomer", "pacopacon@gmail.com", 56789, null,
@@ -74,5 +74,5 @@ public class DataBaseController implements CommandLineRunner {
 //			System.out.println(users);
 //		}
 //
-//	}
+    }
 }
