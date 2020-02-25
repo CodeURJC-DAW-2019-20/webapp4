@@ -238,7 +238,7 @@ We've decided to put the model relations in a separated diagram to make it more 
   - Welcome mail                                   bf91322f737cf34e13414411873907e23e3ebc62
   - Update readme                                  fd21d7345320b938caf1ff5c6384ca8a81d2b50b
   - Login bugfix                                   7b3f0bea502bc13441675d080709da1f242e59ec
-  - Readme diagrams and doc.                      
+  - Readme diagrams and doc.                       9f6b5d28e7e438089d2ded763c5897ea077fdb52
   #### Tasks
   
   - Mail sending    
