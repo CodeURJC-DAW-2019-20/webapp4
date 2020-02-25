@@ -122,9 +122,13 @@ Next you will need to run the database, we did it in mySQL, creating a schema na
 Once you did all those steps, you can run the project with springboot running configuration.
 The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
 ## Database diagrams
+![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model1.png)
 
 ## Class diagrams and templates
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramaClasesDAW.jpg)
+![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
 
+We've decided to put the model relations in a separated diagram to make it more clear
 ## Participation
 
 ### Alvaro García
@@ -226,3 +230,27 @@ The port used to run this app is 8443, so to have access you will need to type o
  - login.html
  - register.html
  
+ ### Alejandro Domingo Cornás   
+  
+  #### Commits
+  
+  - Mail dependencies and service added            f92ccd664f31e0ebc9470cf1c65d07684b874cf1
+  - Welcome mail                                   bf91322f737cf34e13414411873907e23e3ebc62
+  - Update readme                                  fd21d7345320b938caf1ff5c6384ca8a81d2b50b
+  - Login bugfix                                   7b3f0bea502bc13441675d080709da1f242e59ec
+  - Readme diagrams and doc.                       9f6b5d28e7e438089d2ded763c5897ea077fdb52
+  #### Tasks
+  
+  - Mail sending    
+  - Readme
+  - Diagrams
+  - Documentation
+  - Bugfixing
+  
+  #### Files
+  
+  - sendMailService.java
+  - application.properties 
+  - UserController.java
+  - README.md
+  - User.java 
