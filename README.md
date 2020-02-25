@@ -199,5 +199,30 @@ BBDD definitiva                   914e9d7e6780740aee10807b56491481a1ac6dfa.
  - listDegrees.html
  - listsubjects.html
  - login.html
+ - register.html 
+ ### Diego Almansa Cantero
+ 
+ #### Commits
+ 
+ - Servidor Spring                                2f51b8886f0ea9721a637fe7317fc04518af0fde
+ - Componentes html globales nav,modal            daf4d8599ac01410ef6b48723e8439f0421c7b5b
+ - HTPPS                                          6dbf42a8f0b6d029e39e9c5e3fb6034a612c8990
+ - Configuration nav and userSesion               24b084bac42a0984aaa10ba3e129c483102f2378
+ - Page ranking and vote note                     717fd0f64ab874eee57ac10ec040f1f6258c73c2
+ #### Tasks
+ 
+ - Server creation with spring.
+ - CSS style arrangements.
+ - Creacion componentes html global para todas las ventanas.
+ - Differentiation by roles according to user in session.
+ - Algorithm of classification according to punctuation of notes.
+ 
+ #### Files
+ 
+ - NavController
+ - nav.html
+ - ranking.html
+ - Score.java
+ - login.html
  - register.html
  
