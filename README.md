@@ -219,10 +219,10 @@ The port used to run this app is 8443, so to have access you will need to type o
  
  #### Files
  
- - NavController
+ - NavController.java
  - nav.html
  - ranking.html
  - Score.java
- - login.html
- - register.html
+ - selectNote.html
+ - UserComponent.java
  
