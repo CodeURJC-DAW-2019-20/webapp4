@@ -105,6 +105,9 @@ This page will show a sorted list of the users with the highest scores of the pl
 # Fase 2
 ## Navigation
 
+## Navigation diagram
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DNFAse2.png)
+
 ## Development instructions
 # Code repository
 All the code will be able in this repo: 
