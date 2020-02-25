@@ -1,0 +1,79 @@
+<!--Modal-->
+<div class="modal fade" id="modalUploadNote" tabindex="-1" role="dialog" aria-labelledby="modalUploadNote"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadFileModalLabel">Subir documento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container pt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 justify-content-center">
+                            <div class="col-photo">
+
+                            </div>
+                            <form class="form-signup" action="/note_save" method="post" enctype="multipart/form-data">
+                                <div class="profile-img">
+                                    <img src="/img/vector-documents-icon.webp"
+                                         alt=""/>
+                                    <div class="file btn btn-lg btn-primary">
+                                        Examinar
+                                        <input type="file" name="file"/>
+                                    </div>
+                                </div>
+                                <label>Grado:</label>
+                                <div class="form-label-group">
+
+                                    <select id="alldegrees" for="alldegrees" name="degree">
+                                        {{#alldegrees}}
+                                        <option value={{id}}>{{name}}</option>
+                                        {{/alldegrees}}
+                                    </select>
+                                </div>
+                                <label>Asignatura:</label>
+                                <div class="form-label-group">
+
+                                    <select id="allsubjects" for="allsubjects" name="subject">
+	                                        {{#allsubjects}}
+	                                        <option value={{id}} degree={{degree.id}} >{{name}}</option>
+                                        {{/allsubjects}}
+                                    </select>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="text" name="name" id="inputName" class="form-control"
+                                           placeholder="Nombre" autofocus>
+                                    <label for="inputName">Nombre</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" id="inputTag" class="form-control" placeholder="Etiqueta">
+                                    <label for="inputTag">Etiqueta</label>
+
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" name="professor" id="inputProf" class="form-control"
+                                           placeholder="Profesor" autofocus>
+                                    <label for="inputProf">Profesor</label>
+                                </div>
+
+                                <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit">
+                                    Subir
+                                </button>
+                            </form>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
