@@ -26,15 +26,15 @@
 		<div class="row justify-content-center">
 			<div class="col-12 card card-signup justify-content-center">
 				<div class="card-body">
-					<h5 class="card-title text-center text-primary"></h5>
+					<h5 class="card-title text-center text-primary">{{noteSelected.subject.name}} - {{noteSelected.name}}</h5>
 
 					<div class="row" id="padre">
-						<div class="col-md-8 row">
+						<div class="col-md-12 row">
 
-							<div class="col-md-6">
+							<div class="col-6">
 								<!--  <img
 									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5">-->
-								<img src="" id="photo1" class="mb-5">
+								<img src="" id="photo1">
 								{{#ROLE_USER}}
 								<section class='rating-widget'>
 									<!-- Rating Stars Box -->
@@ -54,13 +54,12 @@
 									</div>
 								</section>
 								{{/ROLE_USER}}
-								<a class="btn btn-primary btn-lg " href="#" id="boton1">Descargar</a>
-							</div>
+								<a class="btn btn-primary btn-lg" href="/files_users/{{noteSelected.ruta}}" id="boton1" download>Descargar Apuntes</a>							</div>
 							<ul class="list-group list-group-flush" id="list1">
 								<li class="list-group-item">Título: {{noteSelected.name}}</li>
 								<li class="list-group-item">Asignatura: {{noteSelected.subject.name}}</li>
 								<li class="list-group-item">Profesor: {{noteSelected.professor}}</li>
-								<a class="list-group-item" href="/files_users/{{noteSelected.ruta}}">Descargar Apuntes</a>
+								<a class="list-group-item" href="/files_users/{{noteSelected.ruta}}" download>Descargar Apuntes</a>
 							</ul>
 
 						</div>

@@ -11,21 +11,21 @@
 <!-- Navigation -->
 {{> global/nav}}
 {{> global/modalEditProfile}}
-{{#usuario}}
+{{#user}}
 <div class="row-1">
     <div class="container emp-profile">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
-                    {{#usuario.image}}
+                    {{#user.image}}
                     <div class="profile-img">
                         <img src='/images/usuarios/image-{{id}}.jpg'/>
                     </div>
-                    {{/usuario.image}}
+                    {{/user.image}}
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h2>{{usuario.name}}</h2>
+                        <h2>{{user.name}}</h2>
                         <p class="proile-rating">
                             VALORACIÓN : <span>8/10</span>
                         </p>
@@ -41,7 +41,7 @@
                         <a link href="https://www.urjc.es/">Universidad Rey Juan
                             Carlos</a><br/>
                         <p>Estudios</p>
-                        <a href="">{{usuario.degree}}</a><br/>
+                        <a href="">{{user.degree}}</a><br/>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -52,7 +52,7 @@
                             <label>Usuario</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{usuario.nickname}}</p>
+                            <p>{{user.nickname}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -60,7 +60,7 @@
                             <label>Nombre</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{usuario.name}}</p>
+                            <p>{{user.name}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -68,7 +68,7 @@
                             <label>Correo electrónico</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{usuario.email}}</p>
+                            <p>{{user.email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -76,7 +76,7 @@
                             <label>Teléfono</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{usuario.number}}</p>
+                            <p>{{user.number}}</p>
                         </div>
                     </div>
                 </div>
@@ -85,9 +85,9 @@
         </form>
         <h4>Documentos subidos</h4>
         <hr>
-        {{#notesUser}}
-        <div class="col-md-4">
-            <div class="card h-100">
+        <div id="list-notes">
+            {{#notesUser}}
+            <div class="card">
                 <img class="card-img-profile" src="/img/{{extension}}.png"
                      alt="">
                 <div class="card-body">
@@ -99,11 +99,11 @@
                     <a href="/notes/{{id}}" class="btn btn-primary">Ver más</a>
                 </div>
             </div>
+            {{/notesUser}}
         </div>
-        {{/notesUser}}
     </div>
 </div>
-{{/usuario}}
+{{/user}}
 <hr>
 <hr>
 <!-- Footer -->

@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -50,15 +48,16 @@ public class NoteController {
     @RequestMapping("/notes")
     public String saveNote(Model model) {
         List<Note> notes = noteRepository.findAll();
-        model.addAttribute("usuarios", notes);
+        model.addAttribute("user", notes);
 
         return "allNotes";
     }
 
-    @PostMapping("/apunte_guardado")
+    @PostMapping("/note_save")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
         note.setUser(currentUser.getEntityUser());
-        if(!file.isEmpty()){
+        noteRepository.save(note);
+        if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
             uploadFileService.saveFile(file,note.getId());
         }
         String [] s = file.getOriginalFilename().split("\\.");
@@ -72,4 +71,6 @@ public class NoteController {
             scoreRepository.save(new Score(value,currentUser.getEntityUser(),noteRepository.findById(noteID)));
         return "redirect:/notes/"+noteID;
     }
+
+
 }

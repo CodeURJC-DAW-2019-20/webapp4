@@ -9,7 +9,7 @@ import java.util.Optional;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
-import es.urjc.daw.urjc_share.services.sendMailService;
+import es.urjc.daw.urjc_share.services.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,7 @@ public class UserController {
     private ImageService imgService;
 
     @Autowired
-    private sendMailService mailSender;
+    private SendMailService mailSender;
    
 
     @PostMapping("/createUser")
@@ -34,7 +34,7 @@ public class UserController {
         user.setImage(true);
         user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
         repository.save(user);
-        imgService.saveImage("usuarios", user.getId(), imagenFile);
+        imgService.saveImage("users", user.getId(), imagenFile);
         mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
                 "Hola "+user.getNickname()+"\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
 
@@ -46,10 +46,11 @@ public class UserController {
     	return "login";
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/user/{id}")
     public String seeUser(Model model, @PathVariable long id) {
         User user = repository.findById(id);
-        model.addAttribute("usuario", user);
+        model.addAttribute("user", user);
+        
         return "myprofile";
     }
 }
