@@ -106,7 +106,7 @@ This page will show a sorted list of the users with the highest scores of the pl
 ## Navigation
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DNFAse2.png)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DiagramadeNavegacionFase2.jpg)
 
 ## Development instructions
 # Code repository
