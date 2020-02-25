@@ -122,9 +122,13 @@ Next you will need to run the database, we did it in mySQL, creating a schema na
 Once you did all those steps, you can run the project with springboot running configuration.
 The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
 ## Database diagrams
+![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model.png)
 
 ## Class diagrams and templates
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
+![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
 
+We've decided to put the model relations in a separated diagram to make it more clear
 ## Participation
 
 ### Alvaro García
