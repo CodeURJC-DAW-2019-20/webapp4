@@ -125,7 +125,7 @@ The port used to run this app is 8443, so to have access you will need to type o
 ![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model.png)
 
 ## Class diagrams and templates
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramaClasesDAW.jpg)
 ![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
 
 We've decided to put the model relations in a separated diagram to make it more clear
