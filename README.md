@@ -142,4 +142,18 @@ BBDD definitiva                   914e9d7e6780740aee10807b56491481a1ac6dfa.
   -SecurityConfiguration.
   -DegreeController.
   -SubjectController.
+  
+  
+ ### Miguel Rodriguez
+ Descargar archivo fbd28795c7651da8215c10920023a50013ae2086
+ subir apunte funciona 58cefd69ca8b7dbbecf20a882f76b1e2834edc9f
+ insert notes 3b8ee668a2cb67745bfa015a5abafdccdb89e999
+ springdata repositories 3ee77a96909a862a5f98d28d9ebb14d9dc7191ea
+ Lista de apuntes con Controller 03cb79515305a80fd45c171cd03cc66577d11f2d
  
+ ### Tasks:
+ -I implemented  the NoteController class which allows upload notes to the WebApp
+ -I implemented the ImageService class to permit the user select a photo
+ -I implemented the UploadFileService class to upload files to the WebApp
+ -I implemented the file myprofile.html in which the users can see their data
+ -I implemented the Modal files like UploadModalFile with the forms for de user.
