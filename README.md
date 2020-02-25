@@ -226,3 +226,27 @@ The port used to run this app is 8443, so to have access you will need to type o
  - login.html
  - register.html
  
+ ### Alejandro Domingo Cornás   
+  
+  #### Commits
+  
+  - Mail dependencies and service added            f92ccd664f31e0ebc9470cf1c65d07684b874cf1
+  - Welcome mail                                   bf91322f737cf34e13414411873907e23e3ebc62
+  - Update readme                                  fd21d7345320b938caf1ff5c6384ca8a81d2b50b
+  - Login bugfix                                   7b3f0bea502bc13441675d080709da1f242e59ec
+  - Readme diagrams and doc.                      
+  #### Tasks
+  
+  - Mail sending    
+  - Readme
+  - Diagrams
+  - Documentation
+  - Bugfixing
+  
+  #### Files
+  
+  - sendMailService.java
+  - application.properties 
+  - UserController.java
+  - README.md
+  - User.java 
