@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8e50aa60-19c7-4252-ab6f-3978b4280ed2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/NavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/NavController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/inicio.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/inicio.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/allNotes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/allNotes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/listsubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/listsubjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/DataBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/controllers/DataBaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/services/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/urjc/daw/urjc_share/services/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/myprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +73,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -88,37 +86,26 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates\global" />
-      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates" />
-      <recent name="D:\Estudios\UNI\año2\urjc_share\src\main\resources\templates" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="es.urjc.daw.urjc_share.controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources" />
       <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\java\es\urjc\daw\urjc_share" />
       <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\static" />
       <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\oldProyect" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="es.urjc.daw.urjc_share.controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates\global" />
+      <recent name="D:\Estudios\UNI\año2\Daw\webapp4\src\main\resources\templates" />
+      <recent name="D:\Estudios\UNI\año2\urjc_share\src\main\resources\templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="UrjcShareApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -168,49 +155,63 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="137" y="18" width="1100" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583176232520">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="18" width="1100" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583176232520" />
     <state x="170" y="290" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582013726427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="170" y="290" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1582013726427" />
-    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.0.bottom" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.0.center" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1582014045579">
+    <state width="1323" height="222" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.0.left" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582014045579" />
-    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.0.right" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.1.bottom" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.1.bottom" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.1.center" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.1.center" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.1.left" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.1.left" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
-    <state width="1323" height="176" key="GridCell.Tab.1.right" timestamp="1582014045595">
+    <state width="1323" height="222" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state width="1323" height="222" key="GridCell.Tab.1.right" timestamp="1583176053018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="176" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1582014045595" />
+    <state width="1323" height="222" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583176053018" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1583176184530">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583176184530" />
+    <state x="341" y="68" key="VCS.ChangeListViewerDialog" timestamp="1583174681216">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="341" y="68" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1583174681216" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
