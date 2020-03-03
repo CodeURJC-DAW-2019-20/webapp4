@@ -10,6 +10,7 @@ import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.SendMailService;
+import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,24 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
 
     @Autowired
-    private UserRepository repository;
-
-    @Autowired
-    private ImageService imgService;
-
-    @Autowired
-    private SendMailService mailSender;
-   
+    private UserService userService;
 
     @PostMapping("/createUser")
     public String newUser(User user, @RequestParam MultipartFile imagenFile) throws IOException {
-        user.setImage(true);
-        user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
-        repository.save(user);
-        imgService.saveImage("users", user.getId(), imagenFile);
-        mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
-                "Hola "+user.getNickname()+"\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
-
+        userService.createUser(user, imagenFile);
         return "redirect:/";
     }
     
@@ -48,9 +36,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public String seeUser(Model model, @PathVariable long id) {
-        User user = repository.findById(id);
-        model.addAttribute("user", user);
-        
+        model.addAttribute("user", userService.getUser(id));
         return "myprofile";
     }
 }
