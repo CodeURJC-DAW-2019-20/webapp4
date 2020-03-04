@@ -22,10 +22,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private ImageService imageService;
     @PostMapping("/createUser")
     public String newUser(User user, @RequestParam MultipartFile imagenFile) throws IOException {
-        userService.createUser(user, imagenFile);
+        userService.createUser(user);
+        imageService.saveImage("users", user.getId(), imagenFile);
         return "redirect:/";
     }
     

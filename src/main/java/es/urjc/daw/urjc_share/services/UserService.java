@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Configuration
@@ -28,11 +29,10 @@ public class UserService {
         return repository.findAll();
     }
 
-    public boolean createUser(User user, MultipartFile imagenFile) throws IOException {
+    public boolean createUser(User user) throws IOException {
         user.setImage(true);
         user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
         repository.save(user);
-        imgService.saveImage("users", user.getId(), imagenFile);
         mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
                 "Hola " + user.getNickname() + "\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
 
