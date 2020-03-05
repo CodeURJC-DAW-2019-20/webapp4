@@ -12,4 +12,5 @@ public interface SubjectRepository extends JpaRepository<Subject, Long>  {
 	List<Subject> findAllByName(String name);
 	List<Subject> findAllByDegree(Degree degree);
 	Subject findById(long id);
+	List<Subject> deleteByDegree(Degree degree);
 }

@@ -1,5 +1,7 @@
 package es.urjc.daw.urjc_share.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +10,18 @@ import javax.persistence.*;
 @Entity
 public class Degree {
 
+    public interface BasicView {}
+
+    @JsonView(BasicView.class)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @JsonView(BasicView.class)
     private String name;
 
-    @OneToMany(mappedBy = "degree")
+    @JsonView(BasicView.class)
+    @OneToMany(mappedBy = "degree", fetch=FetchType.EAGER)
     private List<Subject> subjects = new ArrayList<>();
 
 

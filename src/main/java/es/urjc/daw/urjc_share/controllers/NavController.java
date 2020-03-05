@@ -4,6 +4,7 @@ import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.*;
 import es.urjc.daw.urjc_share.model.*;
 
+import es.urjc.daw.urjc_share.services.DegreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class NavController {
 	// Repositorys
 	@Autowired
-	private DegreeRepository degreeRepository;
+	private DegreeService degreeService;
 	@Autowired
 	private SubjectRepository subjectRepository;
 	@Autowired
@@ -108,7 +109,7 @@ public class NavController {
 		model.addAttribute("textTittle", textSearched);
 		configNav(model, "");
 		if (searchType.equals("Degree")) {
-			List<Degree> degrees = degreeRepository.findAllByName(textSearched);
+			List<Degree> degrees = degreeService.findDegreesByName(textSearched);
 			model.addAttribute("degreeSearched", degrees);
 			model.addAttribute("emptyResult", degrees.isEmpty());
 			return "listDegrees";
@@ -123,7 +124,7 @@ public class NavController {
 	@GetMapping("/search/degree/{degreeID}")
 	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
 		configNav(model, "");
-		Degree degree = degreeRepository.findById(degreeID);
+		Degree degree = degreeService.findDegreeById(degreeID);
 		model.addAttribute("textTittle", degree.getName());
 		
 		List<Subject> subjects = subjectRepository.findAllByDegree(degree);
@@ -163,7 +164,7 @@ public class NavController {
 			model.addAttribute("ROLE_USER", userEnty.getRoles().contains("ROLE_USER"));
 			model.addAttribute("ROLE_ANONY", false);
 			if(userEnty.getRoles().contains("ROLE_ADMIN") || userEnty.getRoles().contains("ROLE_USER")){
-				List<Degree> degrees = degreeRepository.findAll();
+				List<Degree> degrees = degreeService.findDegrees();
 				model.addAttribute("alldegrees", degrees);
 				List<Subject> subjects = subjectRepository.findAll();
 				model.addAttribute("allsubjects", subjects);

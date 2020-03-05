@@ -1,20 +1,23 @@
 package es.urjc.daw.urjc_share.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import java.util.List;
 import java.util.ArrayList;
-
 import javax.persistence.*;
 
 @Entity
 public class Subject {
-  
+
+	public interface BasicView {}
+
+	@JsonView(BasicView.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	
+	@JsonView(BasicView.class)
 	private String name;
-	
+
 	@ManyToOne
     private Degree degree;
 
