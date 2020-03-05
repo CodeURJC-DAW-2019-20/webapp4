@@ -5,6 +5,7 @@ import es.urjc.daw.urjc_share.data.*;
 import es.urjc.daw.urjc_share.model.*;
 
 import es.urjc.daw.urjc_share.services.DegreeService;
+import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +29,9 @@ public class NavController {
 	@Autowired
 	private NoteRepository noteRepository;
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private ScoreRepository scoreRepository;
-
+	@Autowired
+	private UserService userService;
 	// Components
 	@Autowired
 	private UserComponent currentUser;
@@ -50,7 +50,7 @@ public class NavController {
         float auxMedia = 0;
         int numScores = 0;
 		this.configNav(model,"ranking");
-		List <User> listUsers = userRepository.findAll();
+		List <User> listUsers = userService.users();
         for (User userAux:listUsers){
             noteByUser = noteRepository.findAllByUser(userAux);
             for (Note auxNote:noteByUser) {
