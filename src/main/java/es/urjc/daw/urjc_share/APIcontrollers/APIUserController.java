@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.APIcontrollers;
 
 import es.urjc.daw.urjc_share.data.UserRepository;
+import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UserService;
@@ -57,7 +58,7 @@ public class APIUserController {
     public ResponseEntity<User> putUser(@PathVariable long id, @RequestBody User userUpdated) {
         User user = userService.getUser(id);
         if (user != null) {
-            userService.editUser(user,userUpdated);
+            userService.editUser(user, userUpdated);
             return new ResponseEntity<>(userUpdated, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -93,6 +94,10 @@ public class APIUserController {
     public ResponseEntity<User> deleteUser(@PathVariable long id) {
         User user = userService.getUser(id);
         if (user != null) {
+            List<Note> notes = user.getNotes();
+            for (Note note : notes) {
+                user.getNotes().remove(note);
+            }
             userService.deleteUser(id);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
