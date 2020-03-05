@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>URJC.share</title>
+
+
+<!-- Custom styles for this template -->
+<link href="../css/business-frontpage.css" rel="stylesheet">
+
+<link href="../css/listDegrees.css" rel="stylesheet" type="text/css"
+	media="screen">
+
+<title>URJC.share</title>
+</head>
+
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<body class="h-100 bg-light">
+
+	{{> global/nav}}
+
+	<!-- Login Content -->
+	<div class="container pt-3">
+		<div class="row justify-content-center">
+			<div class="col-12 card card-signup justify-content-center">
+				<div class="card-body">
+					<h5 class="card-title text-center text-primary">Lista de
+						grados encontrados para: {{textTittle}}</h5>
+
+					<!-- List of notes -->
+
+					<div class="ml-3" id="father">
+						<div class="" id="son">
+							<ul class="list-group list-group-flush" id="list2">
+								{{#emptyResult}} 
+									<h3 class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
+								{{/emptyResult}} 
+								{{^emptyResult}}
+								{{#degreeSearched}}
+									<li class="border list-group-item rounded"><a
+										href="/search/degree/{{id}}" class="w-100 text-decoration-none">
+											<div id="name">ID: {{id}}</div>
+											<div id="degree">Grado: {{name}}</div>
+									</a></li> {{/degreeSearched}} 
+								{{/emptyResult}}
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="py-3 bg-dark fixed-bottom">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; URJC.share
+				2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+
+</body>
+
+</html>

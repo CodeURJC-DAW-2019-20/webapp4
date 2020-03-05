@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+
+<!-- Custom styles for this template -->
+<link href="../css/ranking.css" rel="stylesheet">
+<title>URJC.share</title>
+</head>
+
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<body class="h-100 bg-light">
+	{{> global/nav}}
+
+	<!-- Content -->
+	<div class="container pt-3">
+		<div class="row justify-content-center">
+			<div class="col-12 card card-signup justify-content-center h-100">
+				<div class="card-body ">
+					<h5 class="card-title text-center text-primary">Ranking</h5>
+					<div class="container" id="ranking">
+						{{#users}}
+						<div class="row text-light text-center rounded text-secundario">
+							<div class="col-4 position"><p class="text-dark">Posición </p></div>
+							<div class="col-4"><p class="text-dark">{{name}}</p></div>
+							<div class="col-4"><p class="text-dark">{{media}}</p></div>
+						</div>
+						{{/users}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		window.onload = function () {
+			var divs = document.querySelectorAll("div.position")
+            for (var i = 0; i < divs.length; i++) {
+				divs[i].querySelector("p").innerHTML += i+1
+            }
+		}
+	</script>
+	<footer class="py-3 bg-dark fixed-bottom">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; URJC.share
+				2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+</body>
+
+</html>

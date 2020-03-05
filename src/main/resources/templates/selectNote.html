@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<!-- Custom styles for this template -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="../css/register.css" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link href="../css/selectNote.css" rel="stylesheet" type="text/css" media="screen">
+<script type="text/javascript" src="../js/selectNote.js"></script>
+<title>URJC.share</title>
+</head>
+
+
+<body class="h-100 bg-light">
+
+	{{> global/nav}}
+
+	<!-- Login Content -->
+	<div class="container pt-3">
+		<div class="row justify-content-center">
+			<div class="col-12 card card-signup justify-content-center">
+				<div class="card-body">
+					<h5 class="card-title text-center text-primary">{{noteSelected.subject.name}} - {{noteSelected.name}}</h5>
+
+					<div class="row" id="padre">
+						<div class="col-md-12 row">
+
+							<div class="col-6">
+								<!--  <img
+									src="http://eugenioyrosa.tk/wp-content/uploads/2015/06/matematicas.jpg" id="photo1" class="mb-5">-->
+								<img src="/img/{{nameImage}}" id="photo1" >
+								{{#ROLE_USER}}
+								<section class='rating-widget'>
+									<!-- Rating Stars Box -->
+									<div class='rating-stars text-center'>
+										<ul class="" id='stars'>
+											<li class='star' title="Nada útil" data-value='1' onclick="setScore(1)" >
+												<i class='fa fa-star fa-fw fa-xs'></i></li>
+											<li class='star' title='Poco útil' data-value='2' onclick="setScore(2)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title="Útil" data-value='3' onclick="setScore(3)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title='Muy útil' data-value='4' onclick="setScore(4)">
+												<i class='fa fa-star fa-fw'></i></li>
+											<li class='star' title='Excelente' data-value='5' onclick="setScore(5)">
+												<i class='fa fa-star fa-fw'></i></li>
+										</ul>
+									</div>
+								</section>
+								{{/ROLE_USER}}
+								<a class="btn btn-primary btn-lg" href="/files_users/{{noteSelected.ruta}}" id="boton1" download>Descargar Apuntes</a>							</div>
+							<ul class="list-group list-group-flush" id="list1">
+								<li class="list-group-item">Título: {{noteSelected.name}}</li>
+								<li class="list-group-item">Asignatura: {{noteSelected.subject.name}}</li>
+								<li class="list-group-item">Profesor: {{noteSelected.professor}}</li>
+								<!--<a class="list-group-item" href="/files_users/{{noteSelected.ruta}}" download>Descargar Apuntes</a>-->
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- Footer -->
+	<footer class="py-3 bg-dark fixed-bottom">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; URJC.share
+				2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+	<script>
+        function setScore(value){
+            var data = {value: value}
+            $.ajax({url: document.location.href + "/addScoreNote", type: "POST", data:data});
+        }
+	</script>
+</body>
+
+</html>
