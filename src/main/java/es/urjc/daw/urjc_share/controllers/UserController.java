@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
@@ -24,16 +25,27 @@ public class UserController {
     private UserService userService;
     @Autowired
     private ImageService imageService;
+    @Autowired
+    private UserComponent userComponent;
+
     @PostMapping("/createUser")
     public String newUser(User user, @RequestParam MultipartFile imagenFile) throws IOException {
         userService.createUser(user);
         imageService.saveImage("users", user.getId(), imagenFile);
         return "redirect:/";
     }
-    
+
+    @PostMapping("/editProfile")
+    public String editProfile(User userUpdated, @RequestParam MultipartFile imagenFile) throws IOException {
+        User user = userComponent.getEntityUser();
+        imageService.saveImage("users",user.getId(),imagenFile);
+        userService.editUser(user,userUpdated);
+        return "redirect:/";
+    }
+
     @PostMapping("/loginUser")
-    public String loginUser(){
-    	return "login";
+    public String loginUser() {
+        return "login";
     }
 
     @GetMapping("/user/{id}")

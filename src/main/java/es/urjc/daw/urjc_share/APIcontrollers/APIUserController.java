@@ -27,7 +27,7 @@ public class APIUserController {
     private AtomicLong lastId = new AtomicLong();
 
     @GetMapping("/")
-    public List<User> Users() {
+    public List<User> getUsers() {
         return userService.users();
     }
 
@@ -40,8 +40,8 @@ public class APIUserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/image")
-    public ResponseEntity<User> newImageUser(@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
+    @PutMapping("/{id}/image")
+    public ResponseEntity<User> putImage(@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
         if (user.isPresent()) {
             user.get().setImage(true);
@@ -53,11 +53,11 @@ public class APIUserController {
         }
     }
 
-    @PutMapping("/{id}/")
-    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdated) {
+    @PutMapping("/{id}")
+    public ResponseEntity<User> putUser(@PathVariable long id, @RequestBody User userUpdated) {
         User user = userService.getUser(id);
         if (user != null) {
-            userService.updateUser(id, userUpdated);
+            userService.editUser(user,userUpdated);
             return new ResponseEntity<>(userUpdated, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -90,7 +90,7 @@ public class APIUserController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<User> borraItem(@PathVariable long id) {
+    public ResponseEntity<User> deleteUser(@PathVariable long id) {
         User user = userService.getUser(id);
         if (user != null) {
             userService.deleteUser(id);

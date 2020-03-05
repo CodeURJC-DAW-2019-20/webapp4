@@ -9,49 +9,55 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            {{#user}}
             <div class="modal-body">
                 <div class="container pt-3">
                     <div class="row justify-content-center">
                         <div class="col-12 justify-content-center">
                             <h5 class="card-title text-center text-primary">Editar Perfil</h5>
-                            <div class="col-photo">
-                                <div class="profile-img">
-                                    <img src="../images/profile.png" alt=""/>
-                                    <div class="file btn btn-lg btn-primary">
-                                        Change Photo
-                                        <input type="file" name="file"/>
+                            <form class="form-signup" action="/editProfile" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="col-photo">
+                                    <div class="profile-img">
+                                        <img src='/images/users/image-{{id}}.jpg' alt=""/>
+                                        <div class="file btn btn-lg btn-primary">
+                                            Change Photo
+                                            <input type="file" name="imagenFile"/>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <form class="form-signup" action="/user/save"method="post"enctype="multipart/form-data">
-
                                 <div class="form-label-group">
-                                    <input type="text" id="inputUser" class="form-control" placeholder="Usuario">
+                                    <input type="text" name="nickname" id="inputUser" class="form-control"
+                                           placeholder="Usuario" value="{{nickname}}">
                                     <label for="inputUser">Usuario</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico">
+                                    <input type="email" name="email" id="inputEmail" class="form-control"
+                                           placeholder="Correo electrónico" value="{{email}}">
                                     <label for="inputEmail">Correo electrónico</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña">
+                                    <input type="password" name="passwordHash" id="inputPassword" class="form-control"
+                                           placeholder="Contraseña" value="">
                                     <label for="inputPassword">Contraseña</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputName" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="name" id="inputName" value="{{name}}" class="form-control" placeholder="Nombre">
                                     <label for="inputName">Nombre</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputDegree" class="form-control" placeholder="Grado matriculado">
+                                    <input type="text" name="degree" value="{{degree}}" id="inputDegree" class="form-control"
+                                           placeholder="Grado matriculado">
                                     <label for="inputDegree">Grado matriculado</label>
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="Número de teléfono">
+                                    <input type="tel" name="number" value="{{number}}" id="inputPhoneNumber" class="form-control"
+                                           placeholder="Número de teléfono">
                                     <label for="inputPhoneNumber">Número de teléfono</label>
                                 </div>
 
@@ -64,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            {{/user}}
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>

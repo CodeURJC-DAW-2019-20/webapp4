@@ -17,31 +17,29 @@
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
-                    {{#user.image}}
                     <div class="profile-img">
                         <img src='/images/users/image-{{id}}.jpg' alt=""/>
                     </div>
-                    {{/user.image}}
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h2>{{user.name}}</h2>
+                        <h2>{{name}}</h2>
                         <p class="proile-rating">
                             VALORACIÓN : <span>8/10</span>
                         </p>
                     </div>
                 </div>
-                <!--<a class="btn btn-primary" type="button"
-                   data-toggle="modal" data-target="#modalEditProfile">Editar mi perfil</a>-->
+                <button class="btn btn-primary" type="button"
+                   data-toggle="modal" data-target="#modalEditProfile">Editar mi perfil</button>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
                         <p>Universidad</p>
-                        <a link href="https://www.urjc.es/">Universidad Rey Juan
+                        <a href="https://www.urjc.es/">Universidad Rey Juan
                             Carlos</a><br/>
                         <p>Estudios</p>
-                        <a href="">{{user.degree}}</a><br/>
+                        <a href="">{{degree}}</a><br/>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -52,7 +50,7 @@
                             <label>Usuario</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.nickname}}</p>
+                            <p>{{nickname}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -60,7 +58,7 @@
                             <label>Nombre</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.name}}</p>
+                            <p>{{name}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -68,7 +66,7 @@
                             <label>Correo electrónico</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.email}}</p>
+                            <p>{{email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -76,7 +74,7 @@
                             <label>Teléfono</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.number}}</p>
+                            <p>{{number}}</p>
                         </div>
                     </div>
                 </div>

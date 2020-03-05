@@ -51,4 +51,10 @@ public class UserService {
         repository.save(userUpdated);
         userUpdated.setId(id);
     }
+
+    public void editUser(User user, User userUpdated) {
+        userUpdated.setId(user.getId());
+        userUpdated.setRoles(user.getRoles());
+        repository.saveAndFlush(userUpdated);
+    }
 }
