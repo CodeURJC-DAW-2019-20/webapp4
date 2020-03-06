@@ -4,6 +4,8 @@ import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +27,11 @@ public class UserService {
     @Autowired
     private SendMailService mailSender;
 
-    public List<User> users() {
+    public Page<User> getUsers(Pageable page) {
+        return repository.findAll(page);
+    }
+
+    public List<User> getUsers() {
         return repository.findAll();
     }
 

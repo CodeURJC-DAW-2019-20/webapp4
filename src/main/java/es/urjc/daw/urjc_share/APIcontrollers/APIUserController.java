@@ -6,6 +6,8 @@ import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +29,17 @@ public class APIUserController {
     private ImageService imageService;
     private AtomicLong lastId = new AtomicLong();
 
-    @GetMapping("/")
-    public List<User> getUsers() {
-        return userService.users();
+    @GetMapping("")
+    public ResponseEntity<List<User>> getUsers(Pageable page) {
+        Page<User> usersPage = userService.getUsers(page);
+        if(!usersPage.isEmpty()){
+            return new ResponseEntity<>(usersPage.getContent(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> newUser(@RequestBody User user) throws IOException {
         if (!userService.createUser(user)) {
