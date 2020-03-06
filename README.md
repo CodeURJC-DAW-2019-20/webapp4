@@ -103,17 +103,16 @@ This page will show a sorted list of the users with the highest scores of the pl
 ![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
 
 # Fase 2
-## Navigation
 
 ## Navigation diagram
 ![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DiagramadeNavegacionFase2.jpg)
 
 ## Development instructions
-# Code repository
+### Code repository
 All the code will be able in this repo: 
 [DAW/webapp4](https://github.com/CodeURJC-DAW-2019-20/webapp4)
 
-# Development tools
+### Development tools
 In this application we used technologies as Moustache templates, Springboot and a mySQL database.
 
 To run this app, at first you will need to clone this repository on your computer.
@@ -121,6 +120,7 @@ Then you will need to import the project as Maven Project into your favorite IDE
 Next you will need to run the database, we did it in mySQL, creating a schema named "urjc_share". The credentials used are user:"root" and pass: "pass"
 Once you did all those steps, you can run the project with springboot running configuration.
 The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
+
 ## Database diagrams
 ![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model1.png)
 
@@ -129,6 +129,7 @@ The port used to run this app is 8443, so to have access you will need to type o
 ![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
 
 We've decided to put the model relations in a separated diagram to make it more clear
+
 ## Participation
 
 ### Alvaro García
@@ -254,3 +255,25 @@ We've decided to put the model relations in a separated diagram to make it more 
   - UserController.java
   - README.md
   - User.java 
+
+# Fase 3
+
+## API REST Documentation
+
+## Updated class diagrams
+
+## Instructions for executing the dockerized application
+
+## Development environment preparation
+
+## Participation
+
+### Álvaro García Velasco
+
+### Miguel Rodriguez Alvarez
+
+### David Tejero Bravo
+
+### Diego Almansa Cantero
+
+### Alejandro Domingo Cornás
