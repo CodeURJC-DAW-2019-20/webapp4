@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class NavController {
@@ -50,7 +48,7 @@ public class NavController {
         float auxMedia = 0;
         int numScores = 0;
 		this.configNav(model,"ranking");
-		List <User> listUsers = userService.users();
+		List <User> listUsers = userService.getUsers();
         for (User userAux:listUsers){
             noteByUser = noteRepository.findAllByUser(userAux);
             for (Note auxNote:noteByUser) {
