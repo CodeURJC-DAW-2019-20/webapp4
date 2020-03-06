@@ -260,6 +260,8 @@ We've decided to put the model relations in a separated diagram to make it more 
 
 ## API REST Documentation
 
+The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/API.md)
+
 ## Updated class diagrams
 
 ## Instructions for executing the dockerized application
