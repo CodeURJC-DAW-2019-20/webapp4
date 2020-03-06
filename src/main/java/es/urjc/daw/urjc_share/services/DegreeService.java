@@ -8,6 +8,8 @@ import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +25,16 @@ public class DegreeService {
     @Autowired
     private NoteRepository noteRepository;
 
+    public Page<Degree> findDegrees(Pageable page){
+        return degreeRepository.findAll(page);
+    }
+
     public List<Degree> findDegrees(){
         return degreeRepository.findAll();
+    }
+
+    public Page<Degree> findDegreesByName(String name, Pageable page){
+        return degreeRepository.findAllByName(name, page);
     }
 
     public List<Degree> findDegreesByName(String name){

@@ -5,6 +5,8 @@ import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Subject;
 import es.urjc.daw.urjc_share.services.DegreeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,16 +25,16 @@ public class APIDegreeController {
 
     @JsonView(DegreesView.class)
     @GetMapping("")
-    public ResponseEntity<List<Degree>>  getDegree(@RequestParam Optional<String> name){
-        List<Degree> degrees;
+    public ResponseEntity<List<Degree>>  getDegree(@RequestParam Optional<String> name, Pageable page){
+        Page<Degree> degreesPage;
 
         if(name.isPresent()){
-             degrees = service.findDegreesByName(name.get().replace("+"," "));
+             degreesPage = service.findDegreesByName(name.get().replace("+"," "), page);
         }else{
-             degrees = service.findDegrees();
+             degreesPage = service.findDegrees(page);
         }
-        if(!degrees.isEmpty()){
-            return new ResponseEntity<>(degrees, HttpStatus.OK);
+        if(!degreesPage.isEmpty()){
+            return new ResponseEntity<>(degreesPage.getContent(), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -40,7 +42,7 @@ public class APIDegreeController {
 
     @JsonView(DegreesView.class)
     @GetMapping("/{id}")
-    public ResponseEntity<Degree>  getDegree(@PathVariable long id){
+    public ResponseEntity<Degree>  getDegree(@PathVariable long id, Pageable page){
         Degree degree = service.findDegreeById(id);
         if(degree != null){
             return new ResponseEntity<>(degree, HttpStatus.OK);
