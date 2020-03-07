@@ -33,6 +33,10 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
     
 	private void configureUrlAuthorization(HttpSecurity http) throws Exception{
 		
+		http.antMatcher("/api/**");
+		
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
+		
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/user/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/subjects/**").hasRole("ADMIN");
