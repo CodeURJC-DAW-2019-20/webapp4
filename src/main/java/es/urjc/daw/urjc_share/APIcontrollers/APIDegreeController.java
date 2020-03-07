@@ -30,13 +30,18 @@ public class APIDegreeController {
 
         if(name.isPresent()){
              degreesPage = service.findDegreesByName(name.get().replace("+"," "), page);
+            if(!degreesPage.isEmpty()){
+                return new ResponseEntity<>(degreesPage.getContent(), HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }else{
              degreesPage = service.findDegrees(page);
-        }
-        if(!degreesPage.isEmpty()){
-            return new ResponseEntity<>(degreesPage.getContent(), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            if(!degreesPage.isEmpty()){
+                return new ResponseEntity<>(degreesPage.getContent(), HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
         }
     }
 
@@ -51,7 +56,7 @@ public class APIDegreeController {
         }
     }
 
-
+    @JsonView(DegreesView.class)
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public Degree postDegree(@RequestBody Degree degree){
@@ -61,6 +66,7 @@ public class APIDegreeController {
 
     //Changes in subjects are not saved
     //It must be done with the subject's URL
+    @JsonView(DegreesView.class)
     @PutMapping("/{id}")
     public ResponseEntity<Degree> putDegree(@PathVariable long id, @RequestBody Degree newDegree){
         if(service.findDegreeById(id) != null){
@@ -72,6 +78,7 @@ public class APIDegreeController {
         }
     }
 
+    @JsonView(DegreesView.class)
     @DeleteMapping("/{id}")
     public ResponseEntity<Degree> deleteDegree(@PathVariable long id){
         Degree degree = service.findDegreeById(id);

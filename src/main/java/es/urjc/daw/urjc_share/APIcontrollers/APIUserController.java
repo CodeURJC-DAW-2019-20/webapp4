@@ -82,7 +82,7 @@ public class APIUserController {
         }
     }
 
-    @GetMapping("/{id}/imagen")
+    @GetMapping("/{id}/image")
     public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
         if (user.isPresent()) {
