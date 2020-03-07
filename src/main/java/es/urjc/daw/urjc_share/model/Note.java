@@ -1,5 +1,7 @@
 package es.urjc.daw.urjc_share.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +9,11 @@ import javax.persistence.*;
 
 @Entity
 public class Note {
-	
-	@Id
+    public interface BasicViewSubject {}
+
+    @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonView(BasicViewSubject.class)
 	private long id;
 
     public long getId() {
@@ -20,6 +24,7 @@ public class Note {
         this.id = id;
     }
 
+    @JsonView(BasicViewSubject.class)
     private String name;
     private String professor;
     

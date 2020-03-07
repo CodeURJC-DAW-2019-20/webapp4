@@ -3,6 +3,7 @@ package es.urjc.daw.urjc_share.services;
 import es.urjc.daw.urjc_share.data.DegreeRepository;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.SubjectRepository;
+import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,8 @@ public class SubjectService {
         return subject;
     }
 
+    public Subject updateSubject(Subject subject){
+        subjectRepository.saveAndFlush(subject);
+        return subject;
+    }
 }

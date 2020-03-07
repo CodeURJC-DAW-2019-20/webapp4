@@ -8,20 +8,23 @@ import javax.persistence.*;
 @Entity
 public class Subject {
 
-	public interface BasicView {}
+	public interface BasicViewDegree {}
+	public interface BasicViewSubject {}
 
-	@JsonView(BasicView.class)
+	@JsonView({BasicViewDegree.class, BasicViewSubject.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@JsonView(BasicView.class)
+	@JsonView({BasicViewDegree.class, BasicViewSubject.class})
 	private String name;
 
 	@ManyToOne
-    private Degree degree;
+	@JsonView(BasicViewSubject.class)
+	private Degree degree;
 
     @OneToMany(mappedBy="subject")
+	@JsonView(BasicViewSubject.class)
 	private List<Note> notes=new ArrayList<>() ;
     
 	

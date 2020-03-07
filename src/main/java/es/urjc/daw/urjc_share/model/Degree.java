@@ -11,13 +11,14 @@ import javax.persistence.*;
 public class Degree {
 
     public interface BasicView {}
+    public interface BasicViewSubject{}
 
     @JsonView(BasicView.class)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @JsonView(BasicView.class)
+    @JsonView({BasicView.class, BasicViewSubject.class})
     private String name;
 
     @JsonView(BasicView.class)
