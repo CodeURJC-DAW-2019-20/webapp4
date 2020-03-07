@@ -30,7 +30,7 @@ The following operations will be preceded by **/degrees**.
 
 * URL:
 
-  </>
+  `</>`
   
 * Success response:
 
@@ -56,14 +56,172 @@ The following operations will be preceded by **/degrees**.
   Code: 200 OK
   
 * Error response:
-  Code: 
 
+  Code: 204 NO CONTENT
+
+#### Show degrees filtered by name
+
+* URL:
+
+  `</?name=*>`
+  
+  **Example**: */api/degrees?name=Ingeniería+del+Sofware*
+  
+  Name words must be concatenated by **+**.
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 36,
+        "name": "Ingeniería del Sofware",
+        "subjects": [
+            {
+                "id": 37,
+                "name": "Calidad"
+            }
+        ]
+    }
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
+
+#### Show a specific degree by ID
+
+* URL:
+
+  `</id>`
+  
+  **Example**: */api/degrees/36*
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 36,
+        "name": "Ingeniería del Sofware",
+        "subjects": [
+            {
+                "id": 37,
+                "name": "Calidad"
+            }
+        ]
+    }
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
 
 ### POST
 
+#### Create a degree without subjects
+
+* URL:
+
+  `</>`
+  
+* Body:
+
+  A JSON degree.
+  
+  Example:
+  
+  ```
+  {
+    "name": "Filosofía",
+    "subjects": []
+  }
+  ```
+  
+  
+* Success response:
+
+  ```
+  {
+    "id": 39,
+    "name": "Filosofía",
+    "subjects": []
+  }
+  ```
+  Code: 200 OK
+  
+
 ### PUT
 
+#### Update an existing degree
+
+* URL:
+
+  `</id>`
+  
+  **Example**: */api/degrees/39*
+  
+* Body:
+
+  An existing JSON degree with the new values.
+  
+  Example:
+  
+  ```
+  {
+    "name": "Ingeniería de Materiales",
+    "subjects": []
+  }
+  ```
+  
+  
+* Success response:
+
+  ```
+  {
+    "id": 39,
+    "name": "Ingeniería de Materiales",
+    "subjects": []
+  }
+  ```
+  Code: 200 OK
+ 
+* Error response:
+
+  Code: 404 NOT FOUND
+  
+  When the id of the degree doesn't exist.
+
 ### DELETE
+
+#### Delete an existing degree
+
+* URL:
+
+  `</id>`
+  
+  **Example**: */api/degrees/39*  
+  
+* Success response:
+
+  ```
+  {
+    "id": 39,
+    "name": "Ingeniería de Materiales",
+    "subjects": []
+  }
+  ```
+  Code: 200 OK
+ 
+* Error response:
+
+  Code: 404 NOT FOUND
+  
+  When the id of the degree doesn't exist.
 
 ## SUBJECTS operations
 
@@ -87,9 +245,163 @@ The following operations will be preceded by **/degrees**.
 
 ## USERS operations
 
+The following operations will be preceded by **/users**.
+
 ### GET
 
+#### Show all degrees
+
+* URL:
+
+  `</>`
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 2,
+        "name": "Marcos",
+        "passwordHash": "$2a$10$1zTx781KCk7s0ROcKlhgHOwbHP/CFG5MUZmEtkAr1uf8RKEyFlCKC",
+        "degree": "Software",
+        "nickname": "MArcos01",
+        "email": "marcosos@gmail.com",
+        "number": 4567,
+        "image": false,
+        "media": 0.0,
+        "notes": [],
+        "roles": [
+            "ROLE_USER"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "David",
+        "passwordHash": "$2a$10$oGjljIZJbjVRbdtfP.GTiuWisaXu.vX1CjqN.hc26JP4EW6INQNx6",
+        "degree": "Ingenieria del Software",
+        "nickname": "DavidDaw",
+        "email": "d.tejero.207@alumnos.urjc.es",
+        "number": 0,
+        "image": false,
+        "media": 0.0,
+        "notes": [],
+        "roles": [
+            "ROLE_ADMIN"
+        ]
+    }
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 204 NO CONTENT
+  
+#### Show a specific user by ID
+
+* URL:
+
+  `</id>`
+  
+  **Example**: */api/degrees/3*
+  
+* Success response:
+
+  ```
+  {
+    "id": 3,
+    "name": "David",
+    "passwordHash": "$2a$10$oGjljIZJbjVRbdtfP.GTiuWisaXu.vX1CjqN.hc26JP4EW6INQNx6",
+    "degree": "Ingenieria del Software",
+    "nickname": "DavidDaw",
+    "email": "d.tejero.207@alumnos.urjc.es",
+    "number": 0,
+    "image": false,
+    "media": 0.0,
+    "notes": [],
+    "roles": [
+        "ROLE_ADMIN"
+    ]
+  }
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
+ 
+#### Search the image of a user
+
+* URL:
+
+  `</id/image>`
+  
+  **Example**: */api/degrees/40/image*
+  
+* Success response:
+
+  *Imagen*
+ 
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
+
 ### POST
+
+#### Create a new user without image
+
+* URL:
+
+  `</>`
+  
+* Body:
+
+  A JSON user.
+  
+  Example:
+  
+  ```
+  {
+    "name": "Juan Lopez",
+    "passwordHash": "juanpass",
+    "degree": "Matemáticas",
+    "nickname": "juanito",
+    "email": "juan@juan.com",
+    "number": 123456,
+    "image": false,
+    "roles": [
+        "ROLE_USER"
+    ]
+  }
+  ```
+  
+  
+* Success response:
+
+  ```
+  {
+    "id": 41,
+    "name": "Juan Lopez",
+    "passwordHash": "$2a$10$QD86jCv2QFzb4FlwzUgsi.UChMGYAwHWTASvhkoW2bFGxWuS3KE56",
+    "degree": "Matemáticas",
+    "nickname": "juanito",
+    "email": "juan@juan.com",
+    "number": 123456,
+    "image": true,
+    "media": 0.0,
+    "notes": [],
+    "roles": [
+        "ROLE_USER"
+    ]
+  }
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 500 INTERNAL SERVER ERROR
 
 ### PUT
 
