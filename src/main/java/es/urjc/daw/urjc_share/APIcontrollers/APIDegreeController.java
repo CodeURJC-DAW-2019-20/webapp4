@@ -21,9 +21,9 @@ public class APIDegreeController {
     @Autowired
     private DegreeService service;
 
-    interface DegreesViewDegree extends Degree.BasicView, Subject.BasicViewDegree { }
+    interface DegreesView extends Degree.BasicView, Subject.BasicViewDegree { }
 
-    @JsonView(DegreesViewDegree.class)
+    @JsonView(DegreesView.class)
     @GetMapping("")
     public ResponseEntity<List<Degree>>  getDegree(@RequestParam Optional<String> name, Pageable page){
         Page<Degree> degreesPage;
@@ -45,7 +45,7 @@ public class APIDegreeController {
         }
     }
 
-    @JsonView(DegreesViewDegree.class)
+    @JsonView(DegreesView.class)
     @GetMapping("/{id}")
     public ResponseEntity<Degree>  getDegree(@PathVariable long id, Pageable page){
         Degree degree = service.findDegreeById(id);
