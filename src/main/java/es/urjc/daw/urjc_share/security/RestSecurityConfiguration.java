@@ -11,34 +11,41 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @Order(1)
 public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
     @Autowired
     public UserRepositoryAuthenticationProvider authenticationProvider;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-        http.antMatcher("/api/**");
-
-        /*http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
-
-        // URLs that need authentication to access to it
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/books/").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").hasRole("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/books/**").hasRole("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN");
-
-        // Other URLs can be accessed without authentication
-        http.authorizeRequests().anyRequest().permitAll();
-
-        // Disable CSRF protection (it is difficult to implement in REST APIs)
-        http.csrf().disable();
-
-        // Use Http Basic Authentication
-        http.httpBasic();
-
-        // Do not redirect when logout
-        http.logout().logoutSuccessHandler((rq, rs, a) -> {	});*/
-    }
+    
+	@Override
+	protected void configure(HttpSecurity http) throws Exception{
+		
+		configureUrlAuthorization(http);
+		
+		http.csrf().disable();
+		
+		http.httpBasic();
+		
+		http.logout().logoutSuccessHandler((rq, rs, a) ->{
+			
+		});
+		
+	}
+    
+	private void configureUrlAuthorization(HttpSecurity http) throws Exception{
+		
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/user/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/subjects/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/degrees/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/created/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/created/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/modalAdmin/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/modalAdmin/**").hasRole("ADMIN");
+		
+		
+		
+	}
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
