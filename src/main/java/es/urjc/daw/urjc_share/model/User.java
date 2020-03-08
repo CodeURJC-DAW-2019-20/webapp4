@@ -15,25 +15,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @JsonView({BasicView.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class})
     private String name;
-    @JsonView({BasicView.class})
     private String passwordHash;
-    @JsonView({BasicView.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class})
     private String degree;
-    @JsonView({BasicView.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class})
     private String nickname;
-    @JsonView({BasicView.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class})
     private String email;
-    @JsonView({BasicView.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class})
     private Integer number;
     @JsonView({BasicView.class})
     private boolean image;
-    @JsonView({BasicView.class})
     private float media;
 
     public interface BasicView {}
     public interface BasicViewSubject{}
+    public interface BasicViewUserForNote {}
 
     @JsonView({BasicView.class})
     @OneToMany(mappedBy = "user")
