@@ -303,7 +303,7 @@ The following operations will be preceded by **/users**.
 
   `</id>`
   
-  **Example**: */api/degrees/3*
+  **Example**: */api/users/3*
   
 * Success response:
 
@@ -336,11 +336,11 @@ The following operations will be preceded by **/users**.
 
   `</id/image>`
   
-  **Example**: */api/degrees/40/image*
+  **Example**: */api/users/40/image*
   
 * Success response:
 
-  *Imagen*
+  **Imagen**
  
   Code: 200 OK
   
@@ -405,4 +405,116 @@ The following operations will be preceded by **/users**.
 
 ### PUT
 
+#### Assign the image to a user
+
+* URL:
+
+  `<id/image>`
+
+  **Example**: */api/users/40/image*
+
+* Body:
+
+  Users of the API must follow the following steps:
+  
+  1. Change the **Content-Type** of Postman to **multipart/form-data**.
+  2. Select **form-data** in the body.
+  3. Type **imageFile** int the **Key** field, select **File** type and select the image in the **Value** field.
+
+* Success response:
+
+  Code: 200 OK
+
+* Error response:
+
+  Code: 404 NOT FOUND
+
+#### Update an existing user
+
+**You can change the password of the user just by sending it as a string, and the server will encrypt it.**
+
+* URL:
+
+  `</id>`
+
+  **Example**: */api/users/3*
+
+* Body:
+
+  ```
+  {
+      "name": "Juanjo Martínez",
+      "passwordHash": "juanjopass",
+      "degree": "Ingeniería de Materiales",
+      "nickname": "antonio",
+      "email": "antoniogonzalez@gmail",
+      "number": 111111111,
+      "image": true,
+      "media": 0.0,
+      "notes": [],
+      "roles": [
+          "ROLE_USER"
+    ]
+  }
+  ```
+
+* Success response:
+
+  ```
+  {
+      "id": 40,
+      "name": "Juanjo Martínez",
+      "passwordHash": "$2a$10$7J6CeK.zAtIOcEEh4nc/e.QjEHObZJ4wq0FE0rrKcqIF681lQDELW",
+      "degree": "Ingeniería de Materiales",
+      "nickname": "antonio",
+      "email": "antoniogonzalez@gmail",
+      "number": 111111111,
+      "image": true,
+      "media": 0.0,
+      "notes": [],
+      "roles": [
+          "ROLE_USER"
+      ]
+  }
+  ```
+  Code: 200 OK
+
+* Error response:
+
+  Code: 404 NOT FOUND
+
 ### DELETE
+
+#### Delete an existing user
+
+* URL:
+  '</id>' 
+
+  **Example**: */api/users/40*
+
+* Success response:
+
+  ```
+  {
+      "id": 40,
+      "name": "Juanjo Martínez",
+      "passwordHash": "$2a$10$7J6CeK.zAtIOcEEh4nc/e.QjEHObZJ4wq0FE0rrKcqIF681lQDELW",
+      "degree": "Ingeniería de Materiales",
+      "nickname": "antonio",
+      "email": "antoniogonzalez@gmail",
+      "number": 111111111,
+      "image": true,
+      "media": 0.0,
+      "notes": [],
+      "roles": [
+          "ROLE_USER"
+      ]
+  }
+  ```
+
+  Code: 200 OK
+
+* Error response:
+
+  Code: 404 NOT FOUND
+
