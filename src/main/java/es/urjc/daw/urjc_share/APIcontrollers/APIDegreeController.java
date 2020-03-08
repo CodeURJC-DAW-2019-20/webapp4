@@ -47,7 +47,7 @@ public class APIDegreeController {
 
     @JsonView(DegreesView.class)
     @GetMapping("/{id}")
-    public ResponseEntity<Degree>  getDegree(@PathVariable long id, Pageable page){
+    public ResponseEntity<Degree>  getDegree(@PathVariable long id){
         Degree degree = service.findDegreeById(id);
         if(degree != null){
             return new ResponseEntity<>(degree, HttpStatus.OK);
@@ -64,8 +64,6 @@ public class APIDegreeController {
         return degree;
     }
 
-    //Changes in subjects are not saved
-    //It must be done with the subject's URL
     @JsonView(DegreesView.class)
     @PutMapping("/{id}")
     public ResponseEntity<Degree> putDegree(@PathVariable long id, @RequestBody Degree newDegree){

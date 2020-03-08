@@ -8,6 +8,8 @@ import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,9 +24,22 @@ public class SubjectService {
     @Autowired
     private NoteRepository noteRepository;
 
-    public List<Subject> getSubject(String name){
+    public Page<Subject> getSubject(Pageable page){
 
-        return subjectRepository.findAllByName(name);
+        return subjectRepository.findAll(page);
+    }
+
+    public Page<Subject> getSubject(String name, Pageable page){
+
+        return subjectRepository.findAllByName(name, page);
+    }
+
+    public Subject getSubject(long id){
+        return subjectRepository.findById(id);
+    }
+
+    public Page<Subject> getSubjects(Degree degree, Pageable page){
+        return subjectRepository.findAllByDegree(degree,page);
     }
 
     public void saveSubject(Subject subject){
@@ -37,9 +52,7 @@ public class SubjectService {
 
     public Subject deleteSubject(Subject subject){
         List<Note> notes = noteRepository.findAllBySubject(subject);
-        for (Note note : notes){
-            noteRepository.delete(note);
-        }
+        noteRepository.deleteInBatch(notes);
         subjectRepository.delete(subject);
         return subject;
     }

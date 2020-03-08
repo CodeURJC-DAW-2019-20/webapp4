@@ -10,21 +10,22 @@ public class Subject {
 
 	public interface BasicViewDegree {}
 	public interface BasicViewSubject {}
+	public interface BasicViewUser{}
 
-	@JsonView({BasicViewDegree.class, BasicViewSubject.class})
+	@JsonView({BasicViewDegree.class, BasicViewSubject.class, BasicViewUser.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@JsonView({BasicViewDegree.class, BasicViewSubject.class})
+	@JsonView({BasicViewDegree.class, BasicViewSubject.class, BasicViewUser.class})
 	private String name;
 
 	@ManyToOne
-	@JsonView(BasicViewSubject.class)
+	@JsonView({BasicViewSubject.class, BasicViewUser.class})
 	private Degree degree;
 
-    @OneToMany(mappedBy="subject")
-	@JsonView(BasicViewSubject.class)
+    @OneToMany(mappedBy="subject", fetch=FetchType.EAGER)
+	@JsonView({BasicViewSubject.class, BasicViewUser.class})
 	private List<Note> notes=new ArrayList<>() ;
     
 	

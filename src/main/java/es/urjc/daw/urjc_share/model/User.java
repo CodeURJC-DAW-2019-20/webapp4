@@ -5,24 +5,37 @@ import java.util.Arrays;
 import java.util.List;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
 
+    @JsonView({BasicView.class})
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    @JsonView({BasicView.class})
     private String name;
-    private String passwordHash; 
+    @JsonView({BasicView.class})
+    private String passwordHash;
+    @JsonView({BasicView.class})
     private String degree;
+    @JsonView({BasicView.class})
     private String nickname;
+    @JsonView({BasicView.class})
     private String email;
+    @JsonView({BasicView.class})
     private Integer number;
+    @JsonView({BasicView.class})
     private boolean image;
+    @JsonView({BasicView.class})
     private float media;
-    
+
+    public interface BasicView {}
+    public interface BasicViewSubject{}
+
+    @JsonView({BasicView.class})
     @OneToMany(mappedBy = "user")
     private List<Note> notes = new ArrayList<>();
     
