@@ -64,8 +64,6 @@ public class APIDegreeController {
         return degree;
     }
 
-    //Changes in subjects are not saved
-    //It must be done with the subject's URL
     @JsonView(DegreesView.class)
     @PutMapping("/{id}")
     public ResponseEntity<Degree> putDegree(@PathVariable long id, @RequestBody Degree newDegree){

@@ -10,10 +10,10 @@ import javax.persistence.*;
 @Entity
 public class Note {
     public interface BasicViewSubject {}
-
+    public interface BasicViewUser{}
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonView(BasicViewSubject.class)
+    @JsonView({BasicViewSubject.class, BasicViewUser.class})
 	private long id;
 
     public long getId() {
@@ -24,13 +24,15 @@ public class Note {
         this.id = id;
     }
 
-    @JsonView(BasicViewSubject.class)
+    @JsonView({BasicViewSubject.class, BasicViewUser.class})
     private String name;
     private String professor;
-    
+
+    @JsonView({BasicViewSubject.class, BasicViewUser.class})
     @ManyToOne
     private Subject subject;
-    
+
+    @JsonView({BasicViewSubject.class, BasicViewUser.class})
     @OneToMany(mappedBy = "note")
     private List<Score> scores = new ArrayList<>();
     

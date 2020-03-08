@@ -1,7 +1,10 @@
 package es.urjc.daw.urjc_share.APIcontrollers;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.daw.urjc_share.data.UserRepository;
+import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
+import es.urjc.daw.urjc_share.model.Subject;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UserService;
@@ -29,16 +32,19 @@ public class APIUserController {
     private ImageService imageService;
     private AtomicLong lastId = new AtomicLong();
 
+    interface UsersView extends User.BasicView, Note.BasicViewUser {
+    }
+    @JsonView(UsersView.class)
     @GetMapping("")
     public ResponseEntity<List<User>> getUsers(Pageable page) {
         Page<User> usersPage = userService.getUsers(page);
-        if(!usersPage.isEmpty()){
+        if (!usersPage.isEmpty()) {
             return new ResponseEntity<>(usersPage.getContent(), HttpStatus.OK);
-        }else{
+        } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
-
+    @JsonView(UsersView.class)
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> newUser(@RequestBody User user) throws IOException {
@@ -47,20 +53,20 @@ public class APIUserController {
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
+    @JsonView(UsersView.class)
     @PutMapping("/{id}/image")
-    public ResponseEntity<User> putImage(@PathVariable long id, @RequestParam MultipartFile imagenFile) throws IOException {
+    public ResponseEntity<User> putImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
         if (user.isPresent()) {
             user.get().setImage(true);
             userRepository.save(user.get());
-            imageService.saveImage("users", user.get().getId(), imagenFile);
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            imageService.saveImage("users", user.get().getId(), imageFile);
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @JsonView(UsersView.class)
     @PutMapping("/{id}")
     public ResponseEntity<User> putUser(@PathVariable long id, @RequestBody User userUpdated) {
         User user = userService.getUser(id);
@@ -71,7 +77,7 @@ public class APIUserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @JsonView(UsersView.class)
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable long id) {
         User user = userService.getUser(id);
@@ -81,7 +87,7 @@ public class APIUserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @JsonView(UsersView.class)
     @GetMapping("/{id}/image")
     public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
@@ -96,7 +102,7 @@ public class APIUserController {
         }
     }
 
-
+    @JsonView(UsersView.class)
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id) {
         User user = userService.getUser(id);
