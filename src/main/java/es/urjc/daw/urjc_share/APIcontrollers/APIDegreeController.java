@@ -47,7 +47,7 @@ public class APIDegreeController {
 
     @JsonView(DegreesView.class)
     @GetMapping("/{id}")
-    public ResponseEntity<Degree>  getDegree(@PathVariable long id, Pageable page){
+    public ResponseEntity<Degree>  getDegree(@PathVariable long id){
         Degree degree = service.findDegreeById(id);
         if(degree != null){
             return new ResponseEntity<>(degree, HttpStatus.OK);

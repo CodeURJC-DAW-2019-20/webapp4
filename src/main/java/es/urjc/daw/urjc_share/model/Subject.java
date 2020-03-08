@@ -23,7 +23,7 @@ public class Subject {
 	@JsonView(BasicViewSubject.class)
 	private Degree degree;
 
-    @OneToMany(mappedBy="subject")
+    @OneToMany(mappedBy="subject", fetch=FetchType.EAGER)
 	@JsonView(BasicViewSubject.class)
 	private List<Note> notes=new ArrayList<>() ;
     
