@@ -13,7 +13,7 @@ public class Degree {
     public interface BasicView {}
     public interface BasicViewSubject{}
 
-    @JsonView(BasicView.class)
+    @JsonView({BasicView.class, BasicViewSubject.class})
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

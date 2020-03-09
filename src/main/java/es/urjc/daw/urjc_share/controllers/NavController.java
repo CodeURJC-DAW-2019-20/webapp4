@@ -43,34 +43,10 @@ public class NavController {
 
 	@GetMapping("/ranking")
 	public String goToRanking(Model model) {
-        List<Note> noteByUser;
-        List<Score> scoreByNote;
-        float auxMedia = 0;
-        int numScores = 0;
+        List<User> listUsers = userService.getSortedUsers();
 		this.configNav(model,"ranking");
-		List <User> listUsers = userService.getUsers();
-        for (User userAux:listUsers){
-            noteByUser = noteRepository.findAllByUser(userAux);
-            for (Note auxNote:noteByUser) {
-                scoreByNote = scoreRepository.findAllByNote(auxNote);
-                for (Score auxScore:scoreByNote) {
-                    auxMedia += auxScore.getScore();
-                }
-                numScores += scoreByNote.size();
-            }
-            if(numScores != 0){
-				userAux.setMedia(auxMedia/numScores);
-			}
-            auxMedia = 0;
-            numScores = 0;
-        }
-        model.addAttribute("users",listUsers);
+		model.addAttribute("users",listUsers);
         this.configNav(model, "ranking");
-		Collections.sort(listUsers, (o1, o2) -> {
-			User u1 = o1;
-			User u2 = o2;
-			return Float.compare(u2.getMedia(), u1.getMedia());
-		});
 		return "ranking";
 	}
 

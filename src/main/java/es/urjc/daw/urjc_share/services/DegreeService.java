@@ -40,6 +40,10 @@ public class DegreeService {
     public List<Degree> findDegreesByName(String name){
         return degreeRepository.findAllByName(name);
     }
+    
+    public Degree findDegreesByID(long id){
+        return degreeRepository.findById(id);
+    }
 
     public void saveDegree(Degree newDegree){
         degreeRepository.save(newDegree);

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.daw.urjc_share.model.*;
 import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.SubjectService;
-import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +21,9 @@ public class APINoteController {
     private NoteService noteService;
     @Autowired
     private SubjectService subjectService;
-    @Autowired
-    private UploadFileService uploadFileService;
 
     private AtomicLong lastId = new AtomicLong();
     interface NotesView extends Note.BasicViewNote, User.BasicViewUserForNote, Score.BasicViewScore, Subject.BasicViewSubjectForNotes, Degree.BasicViewSubject{ }
-    interface ScoreView extends Score.BasicViewScore, User.BasicViewUserForNote{ }
 
     @JsonView(NotesView.class)
     @GetMapping("")
