@@ -663,6 +663,42 @@ The following operations will be preceded by **/notes**, in other case will be  
 * Error response:
 
   Code: 404 NOT FOUND
+  
+#### Show all the notes from a subject
+
+* URL:
+
+  This URL will be different than the others in the note controller, not starting with `/notes`
+  
+	`<subjects/{subjectId}/notes`
+	**Example**: */api/subjects/37/notes
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 52,
+        "name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "scores": [],
+        "user": null,
+        "extension": "txt"
+    }		
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND if the subject doesn't exist or 204 NO CONTENT if there are not notes.
 
 ### POST
 
@@ -716,12 +752,28 @@ The following operations will be preceded by **/notes**, in other case will be  
   
 * Error response:
 
-  If the specified degree  does not exist
-  Code: 500 Internal Server Error
+  If the specified subject  does not exist
+  Code: 404 NOT FOUND
 
 ### PUT
 
+#### Update an existing note
+
+
+
+#### Update a note with a image
+
+
+
 ### DELETE
+
+#### Delete an existing note
+
+* URL:
+
+`</noteId>`
+
+**Example**: */api/notes/
 
 ## USERS operations
 
