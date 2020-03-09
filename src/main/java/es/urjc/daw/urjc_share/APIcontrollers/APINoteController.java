@@ -37,7 +37,7 @@ public class APINoteController {
     }
 
     @JsonView(NotesView.class)
-    @PostMapping("/")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Note> newNote(@RequestBody Note note) {
         Subject subject = subjectService.getSubject(note.getSubject().getId());
@@ -53,7 +53,7 @@ public class APINoteController {
         }
     }
 
-    @PutMapping("/{id}/")
+    @PutMapping("/{id}")
     public ResponseEntity<Note> updateNote(@PathVariable long id, @RequestBody Note noteUpdated) {
         Note note = noteService.getNote(id);
         if (note != null) {

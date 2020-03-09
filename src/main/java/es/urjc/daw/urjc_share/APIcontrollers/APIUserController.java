@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.daw.urjc_share.data.UserRepository;
 import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
+import es.urjc.daw.urjc_share.model.Score;
 import es.urjc.daw.urjc_share.model.Subject;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
+import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
@@ -27,9 +30,10 @@ public class APIUserController {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private ImageService imageService;
+    @Autowired
+    private NoteService noteService;
+    
     private AtomicLong lastId = new AtomicLong();
 
     interface UsersView extends User.BasicView, Note.BasicViewUser {
@@ -116,5 +120,16 @@ public class APIUserController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    
+    @JsonView(UsersView.class)
+    @GetMapping("/ranking")
+    public ResponseEntity<List<User>> showRanking() {
+    	List<User> users = userService.getSortedUsers();
+    	if(!users.isEmpty()) {
+    		return new ResponseEntity<>(users, HttpStatus.OK);
+    	}else {
+    		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    	}
     }
 }
