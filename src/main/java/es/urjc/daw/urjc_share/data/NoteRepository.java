@@ -13,6 +13,7 @@ import es.urjc.daw.urjc_share.model.User;
 
 public interface NoteRepository extends JpaRepository<Note, Long>  {
 	List<Note> findAllBySubject(Subject subject);
+	Page<Note> findAllBySubject(Subject subject, Pageable page);
 	List<Note> findAllByUser(User user);
 	Page<Note> findAllByName(String name, Pageable page);
 	Note findById(long id);

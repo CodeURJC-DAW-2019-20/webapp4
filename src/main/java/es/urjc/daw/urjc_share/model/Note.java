@@ -38,7 +38,7 @@ public class Note {
     @JsonView(BasicViewNote.class)
     private String professor;
 
-    @JsonView({BasicViewSubject.class, BasicViewUser.class, BasicViewNote.class})
+    @JsonView({BasicViewUser.class, BasicViewNote.class})
     @ManyToOne
     private Subject subject;
 

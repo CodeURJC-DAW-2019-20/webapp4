@@ -1,6 +1,8 @@
 package es.urjc.daw.urjc_share.APIcontrollers;
 
 import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.daw.urjc_share.APIcontrollers.APISubjectController.SubjectsView;
 import es.urjc.daw.urjc_share.model.*;
 import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.SubjectService;
@@ -19,7 +21,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/api/notes")
+@RequestMapping("/api")
 public class APINoteController {
     @Autowired
     private NoteService noteService;
@@ -33,7 +35,7 @@ public class APINoteController {
     interface ScoreView extends User.BasicViewUserForNote, Score.BasicViewScore { }
 
     @JsonView(NotesView.class)
-    @GetMapping("")
+    @GetMapping("/notes")
     public ResponseEntity<List<Note>> getNotes(@RequestParam Optional<String> name, Pageable page) {
     	Page<Note> notesPage;
     	if(name.isPresent()){
@@ -55,7 +57,7 @@ public class APINoteController {
     }
 
     @JsonView(NotesView.class)
-    @PostMapping("")
+    @PostMapping("/notes")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Note> newNote(@RequestBody Note note) {
         Subject subject = subjectService.getSubject(note.getSubject().getId());
@@ -70,9 +72,25 @@ public class APINoteController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+    @JsonView(NotesView.class)
+    @GetMapping("subjects/{subjectId}/notes")
+    public ResponseEntity<List<Note>>  getSubjectsFromDegree(@PathVariable long subjectId, Pageable page){
+        Subject subject = subjectService.getSubject(subjectId);
+        if(subject != null){
+            Page<Note> notesPage = noteService.getNotes(subject,page);
+            if(!notesPage.isEmpty()){
+                return new ResponseEntity<>(notesPage.getContent(), HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @JsonView(NotesView.class)
-    @PutMapping("/{id}/file")
+    @PutMapping("/notes/{id}/file")
     public ResponseEntity<Note> putImage(@PathVariable long id, @RequestParam MultipartFile file) throws IOException {
         Note note = noteService.getNote(id);
         if (!noteService.isOwner(note)){
@@ -94,7 +112,7 @@ public class APINoteController {
         }
     }
     @JsonView(NotesView.class)
-    @PutMapping("/{id}")
+    @PutMapping("/notes/{id}")
     public ResponseEntity<Note> updateNote(@PathVariable long id, @RequestBody Note noteUpdated) {
         Note note = noteService.getNote(id);
         if (!noteService.isOwner(note)){
@@ -110,11 +128,11 @@ public class APINoteController {
             noteService.updateNote(id, noteUpdated);
             return new ResponseEntity<>(noteUpdated, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(note, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
     @JsonView(NotesView.class)
-    @GetMapping("/{id}")
+    @GetMapping("/notes/{id}")
     public ResponseEntity<Note> getNote(@PathVariable long id) {
         Note note = noteService.getNote(id);
         if (note != null) {
@@ -124,7 +142,7 @@ public class APINoteController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/notes/{id}")
     public ResponseEntity<Note> borraItem(@PathVariable int id) {
         Note note = noteService.getNote(id);
         if (note != null) {
@@ -139,7 +157,7 @@ public class APINoteController {
     }
 
     @JsonView(ScoreView.class)
-    @PostMapping("/{id}/scores")
+    @PostMapping("/notes/{id}/scores")
     public ResponseEntity<Score> scoreController(@PathVariable int id,@RequestBody Score score) {
     	if(noteService.createScore(id, score)) {
     		return new ResponseEntity<>(score, HttpStatus.OK);

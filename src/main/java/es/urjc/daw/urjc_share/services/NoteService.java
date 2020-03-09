@@ -3,8 +3,10 @@ package es.urjc.daw.urjc_share.services;
 import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.ScoreRepository;
+import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Score;
+import es.urjc.daw.urjc_share.model.Subject;
 import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +42,10 @@ public class NoteService {
     
     public Page<Note> getNotes(String name, Pageable page){
     	return noteRepository.findAllByName(name, page);
+    }
+    
+    public Page<Note> getNotes(Subject subject, Pageable page){
+        return noteRepository.findAllBySubject(subject,page);
     }
 
     public boolean createNote(Note note) {
