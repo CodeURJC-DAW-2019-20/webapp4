@@ -349,6 +349,28 @@ Both services use de same network which are connected by driver:bridge.
 
 ### Álvaro García Velasco
 
+
+#### Commits
+- LoginController                   9934d9151045b216fb66c5a58cb422f75e776e74.
+- restsecurity y websecurity        075df8525ef995a26c67e0c77ae65ee3b3a2a935
+- Login arreglado                   889db88a944fc26d09edbb386418171c88e1afaa.
+- Autentificacion a la hora de crear y borrar grados 58d84f3ed085ca302d89d603b5634a5f9305cd4a.
+- .jar                              dd2c60a3d69a51025aff76dd30c9e7b737995145.
+
+#### Tasks:
+- I implemented the login controller.
+- I implemented the restsecurity and the websecurity.
+- I have controlled the authorization of the functionalities of the different users.
+- I have helped create the dockerfile.
+- I have created the database images for docker.
+
+#### Files:
+- LoginController.
+- RestSecurityConfiguration.
+- UserRepositoryAuthenticationProvider.
+- DockerFile.
+- docker-compose.yalm.
+
 ### Miguel Rodriguez Alvarez
 
 ### David Tejero Bravo
