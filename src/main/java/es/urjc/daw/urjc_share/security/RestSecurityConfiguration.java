@@ -16,22 +16,21 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public UserRepositoryAuthenticationProvider authenticationProvider;
 
 	@Override
-    protected void configure(HttpSecurity http) throws Exception{
-		
+	protected void configure(HttpSecurity http) throws Exception{
+
 		http.antMatcher("/api/**");
-		
+
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
-		
-		
+
+
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").hasRole("ADMIN");
-		
+
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/degrees/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/degrees/**").hasRole("ADMIN");
-		
+
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/subjects/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/subjects/**").hasRole("ADMIN");
-		
+
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/created/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/created/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/modalAdmin/**").hasRole("ADMIN");
@@ -44,7 +43,7 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();
-		
+
 		// Disable CSRF protection (it is difficult to implement in REST APIs)
 		http.csrf().disable();
 
