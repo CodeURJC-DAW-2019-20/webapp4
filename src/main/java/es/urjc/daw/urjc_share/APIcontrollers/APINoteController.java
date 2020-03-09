@@ -84,4 +84,18 @@ public class APINoteController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+    @PostMapping("/{id}/scores")
+    public ResponseEntity<Score> noteController(@PathVariable long id,@RequestBody Score score) {
+    	//User user = currentUser.getEntityUser();
+    	Note note = noteService.getNote(id);
+    	if(note != null) {
+    		score.setId(id);
+    		//score.setUser(user);
+    		//noteService.scoreNote(id, user,score.getScore());
+    		return new ResponseEntity<>(score, HttpStatus.OK);
+    	}else {
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    }
 }
