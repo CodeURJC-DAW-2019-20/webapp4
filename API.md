@@ -18,7 +18,16 @@ All API queries must be preceded by **/api** .
 
 ### Login
 
-### Logout
+You must follow this steps:
+1. Select Authorization tab in Postman.
+2. Choose Bacis Auth in TYPE.
+3. Enter the user and the password in the fields.
+4. Use the API REST.
+
+## Pagination
+
+Some GET queries implements pagination. By default they will return the first page with a size of 20 elements. If you want to change these values you can do it by including in the URL the following query: 
+**?page=`*&size=`***
 
 ## DEGREES operations
 
@@ -27,6 +36,7 @@ The following operations will be preceded by **/degrees**.
 ### GET
 
 #### Show all degrees
+This operation is **pageable**.
 
 * URL:
 
@@ -68,6 +78,7 @@ The following operations will be preceded by **/degrees**.
   Code: 204 NO CONTENT
 
 #### Show degrees filtered by name
+This operation is **pageable**.
 
 * URL:
 
@@ -249,6 +260,7 @@ The following operations will be preceded by **/degrees**.
 The following operations will be preceded by **/subjects**, in other case will be  specified.
 
 #### Show all subjects
+This operation is **pageable**.
 
 * URL:
 
@@ -307,6 +319,7 @@ The following operations will be preceded by **/subjects**, in other case will b
   Code: 204 NO CONTENT
 
 #### Show subjects filtered by name
+This operation is **pageable**.
 
 * URL:
 
@@ -371,6 +384,8 @@ The following operations will be preceded by **/subjects**, in other case will b
   Code: 404 NOT FOUND
 
 #### Show all the subjects from a specific degree
+This operation is **pageable**.
+
 * URL:
 	This URL will be different than the others in the subject controller, not starting with `/subjects`
 	`<degrees/{degreeId}/subjects`
@@ -561,6 +576,7 @@ The following operations will be preceded by **/notes**, in other case will be  
 ### GET
 
 #### Show all notes
+This operation is **pageable**.
 
 * URL:
 
@@ -595,6 +611,7 @@ The following operations will be preceded by **/notes**, in other case will be  
 
 
 #### Show notes filtered by name
+This operation is **pageable**.
 
 * URL:
 
@@ -665,6 +682,7 @@ The following operations will be preceded by **/notes**, in other case will be  
   Code: 404 NOT FOUND
   
 #### Show all the notes from a subject
+This operation is **pageable**.
 
 * URL:
 
@@ -759,11 +777,116 @@ The following operations will be preceded by **/notes**, in other case will be  
 
 #### Update an existing note
 
+* URL:
 
+  `</id>`
+  
+  **Example**: */api/notes/52*
+  
+* Body:
+
+  An existing JSON note with the new values.
+  Before
+  
+  Existing note:
+    ```
+    {
+	"name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+  ```
+  We want to modify it as shown below:
+  
+  ```
+     {
+	"name": "Tema 2",
+        "professor": "Antonio",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+  ```
+  
+  
+* Success response:
+```
+	{
+	"name": "Tema 2",
+        "professor": "Antonio",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+```
+  Code: 200 OK
+ 
+* Error response:
+
+  Code: 
+  	* **403 FORBIDDEN** if the user is not the owner of the note.
+	* **404 NOT FOUND** if the subject or the note does not exist.
 
 #### Update a note with a image
 
+* URL:
 
+  `</noteId/file>`
+  
+  **Example**: */api/notes/52/file*
+  
+* Body:
+
+   Users of the API must follow the following steps:
+  
+  1. Change the **Content-Type** of Postman to **multipart/form-data**.
+  2. Select **form-data** in the body.
+  3. Type **file** int the **Key** field, select **File** type and select the image in the **Value** field
+  
+* Success response:
+```
+	{
+	"name": "Tema 2",
+        "professor": "Antonio",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+```
+  Code: 200 OK
+ 
+* Error response:
+
+  Code: 
+  	* **304 NOT MODIFIED** if the file of note has not been modified
+  	* **401 UNAUTHORIZED** if the user is not the owner of the note.
+	* **404 NOT FOUND** if the note does not exist.
 
 ### DELETE
 
@@ -773,7 +896,31 @@ The following operations will be preceded by **/notes**, in other case will be  
 
 `</noteId>`
 
-**Example**: */api/notes/
+**Example**: */api/notes/50
+
+* Success response:
+```
+	{
+	"name": "Tema 2",
+        "professor": "Antonio",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+```
+  Code: 200 OK
+
+* Error response:
+
+Code: 
+* **403 FORBIDDEN** if the user is not the owner of the note.
+* **404 NOT FOUND** if the note does not exist.
 
 ## USERS operations
 
@@ -782,6 +929,7 @@ The following operations will be preceded by **/users**.
 ### GET
 
 #### Show all degrees
+This operation is **pageable**.
 
 * URL:
 
