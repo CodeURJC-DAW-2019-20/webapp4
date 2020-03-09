@@ -8,6 +8,8 @@ import es.urjc.daw.urjc_share.model.Score;
 import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,9 +30,16 @@ public class NoteService {
     @Autowired
     private UserComponent currentUser;
 
-
-    public List<Note> notes() {
+    public List<Note> getNotes() {
         return noteRepository.findAll();
+    }
+    
+    public Page<Note> getNotes(Pageable page) {
+        return noteRepository.findAll(page);
+    }
+    
+    public Page<Note> getNotes(String name, Pageable page){
+    	return noteRepository.findAllByName(name, page);
     }
 
     public boolean createNote(Note note) {

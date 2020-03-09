@@ -48,7 +48,7 @@ public class NoteController {
 
     @RequestMapping("/notes")
     public String saveNote(Model model) {
-        List<Note> notes = noteService.notes();
+        List<Note> notes = noteService.getNotes();
         model.addAttribute("user", notes);
 
         return "allNotes";
