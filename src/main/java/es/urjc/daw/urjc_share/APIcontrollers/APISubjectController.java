@@ -79,9 +79,8 @@ public class APISubjectController {
     @JsonView(SubjectsView.class)
     @PostMapping("/subjects")
     public ResponseEntity<Subject> postSubject(@RequestBody Subject subject){
-        List<Degree> degrees = degreeService.findDegreesByName(subject.getDegree().getName());
-        if(!degrees.isEmpty()){
-            Degree degree = degrees.get(0);
+        Degree degree = degreeService.findDegreesByID(subject.getDegree().getId());
+        if(degree != null){
             subject.setDegree(degree);
             degree.getSubjects().add(subject);
             subjectService.saveSubject(subject);
