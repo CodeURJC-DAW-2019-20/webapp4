@@ -60,8 +60,9 @@ The following operations will be preceded by **/degrees**.
         "subjects": []
     }
 ]
+```
   Code: 200 OK
-  ```
+
 * Error response:
 
   Code: 204 NO CONTENT
@@ -94,8 +95,8 @@ The following operations will be preceded by **/degrees**.
         ]
     }
 ]
-  Code: 200 OK
   ```
+  Code: 200 OK
   
 * Error response:
 
@@ -127,8 +128,8 @@ The following operations will be preceded by **/degrees**.
     ]
   ]
   
-  Code: 200 OK
   ```
+  Code: 200 OK
   
 * Error response:
 
@@ -296,7 +297,7 @@ The following operations will be preceded by **/subjects**, in other case will b
         },
         "notes": []
     }
-]
+  ]
   ```
   Code: 200 OK
   
@@ -334,7 +335,7 @@ The following operations will be preceded by **/subjects**, in other case will b
             }
         ]
     }
-]
+  ]
   ```
   Code: 200 OK
   
@@ -353,14 +354,14 @@ The following operations will be preceded by **/subjects**, in other case will b
 * Success response:
 
   ```
-{
+  {
     "id": 11,
     "name": "Seguridad informática",
     "degree": {
         "name": "Ingeniería del Software"
     },
     "notes": []
-}
+  }
   ```
   Code: 200 OK
   
@@ -376,34 +377,34 @@ The following operations will be preceded by **/subjects**, in other case will b
 	
 * Success response:
 ```
-[
-    {
-        "id": 10,
-        "name": "Calidad",
-        "degree": {
-            "name": "Ingeniería del Software"
-        },
-        "notes": [
-            {
-                "id": 12,
-                "name": "Tema 1",
-                "scores": [
-                    {}
-                ]
-            }
-        ]
-    },
-    {
-        "id": 11,
-        "name": "Seguridad informática",
-        "degree": {
-            "name": "Ingeniería del Software"
-        },
-        "notes": []
-    }
-]
+	[
+	    {
+		"id": 10,
+		"name": "Calidad",
+		"degree": {
+		    "name": "Ingeniería del Software"
+		},
+		"notes": [
+		    {
+			"id": 12,
+			"name": "Tema 1",
+			"scores": [
+			    {}
+			]
+		    }
+		]
+	    },
+	    {
+		"id": 11,
+		"name": "Seguridad informática",
+		"degree": {
+		    "name": "Ingeniería del Software"
+		},
+		"notes": []
+	    }
+	]
 ```
-	Code: 200 OK
+Code: 200 OK
 * Error response
 	If the specified degree has no subjects on it:
 	Code: 204 No content 
@@ -431,7 +432,7 @@ The following operations will be preceded by **/subjects**, in other case will b
     "degree": {
         "name": "Ingeniería del Software"
     }
-}
+  }
   ```
   
   
@@ -445,7 +446,7 @@ The following operations will be preceded by **/subjects**, in other case will b
         "name": "IngenierÃ­a del Software"
     },
     "notes": []
-}
+  }
   ```
   Code: 200 OK
   
@@ -528,14 +529,14 @@ The following operations will be preceded by **/subjects**, in other case will b
 * Success response:
 
   ```
- {
+  {
     "id": 24,
     "name": "Algoritmos",
     "degree": {
         "name": "Ingeniería del Software"
     },
     "notes": []
-}
+  }
   ```
   Code: 200 OK
  
@@ -571,7 +572,7 @@ The following operations will be preceded by **/users**.
 * Success response:
 
   ```
-[
+  [
 
     {
         "id": 2,
@@ -593,7 +594,7 @@ The following operations will be preceded by **/users**.
         "image": false,
         "notes": []
     }
-]
+  ]
   ```
   Code: 200 OK
   
@@ -612,7 +613,7 @@ The following operations will be preceded by **/users**.
 * Success response:
 
   ```
-{
+  {
     "id": 3,
     "name": "David",
     "degree": "Ingenieria del Software",
@@ -621,7 +622,7 @@ The following operations will be preceded by **/users**.
     "number": 0,
     "image": false,
     "notes": []
-}
+  }
   ```
   Code: 200 OK
   
@@ -689,7 +690,7 @@ The following operations will be preceded by **/users**.
     "number": 123456,
     "image": true,
     "notes": []
-}
+  }
   ```
   Code: 200 OK
   
