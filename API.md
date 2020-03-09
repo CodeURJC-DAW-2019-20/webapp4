@@ -247,6 +247,7 @@ The following operations will be preceded by **/degrees**.
 
 ## SUBJECTS operations
 The following operations will be preceded by **/subjects**, in other case will be  specified.
+
 #### Show all subjects
 
 * URL:
@@ -430,6 +431,7 @@ Code: 200 OK
   {
     "name": "Procesos",
     "degree": {
+    	"id": 36,
         "name": "Ingeniería del Software"
     }
   }
@@ -450,6 +452,8 @@ Code: 200 OK
   ```
   Code: 200 OK
   
+* Error response: 
+
   If the specified degree  does not exist
   Code: 500 Internal Server Error
   
@@ -476,6 +480,7 @@ Code: 200 OK
         "id": 23,
         "name": "Procesos",
         "degree": {
+	    "id": 36,
             "name": "Ingeniería del Software"
         },
         "notes": []
@@ -487,6 +492,7 @@ Code: 200 OK
     {
         "name": "Procesos software",
         "degree": {
+	    "id": 36,
             "name": "Ingeniería del Software"
         },
         "notes": []
@@ -500,6 +506,7 @@ Code: 200 OK
 		"id": 23,
 		"name": "Procesos software",
 		"degree": {
+			"id": 36,
 			"name": "Ingeniería del Software"
 		},
 		"notes": []
@@ -549,9 +556,168 @@ Code: 200 OK
 
 ## NOTES operations
 
+The following operations will be preceded by **/notes**, in other case will be  specified.
+
 ### GET
 
+#### Show all notes
+
+* URL:
+
+  `</>`
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 52,
+        "name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "scores": [],
+        "user": null,
+        "extension": "txt"
+    }
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 204 NO CONTENT
+
+
+#### Show notes filtered by name
+
+* URL:
+
+  `</?name=*>`
+  
+  **Example**: */api/notes?name=Tema+1*
+  
+  Name words must be concatenated by **+**.
+  
+* Success response:
+
+  ```
+  [
+    {
+        "id": 52,
+        "name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "scores": [],
+        "user": null,
+        "extension": "txt"
+    }
+  ]
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
+  
+#### Show a specific note by ID
+
+* URL:
+
+  `</id>`
+  
+  **Example**: */api/notes/52*
+  
+* Success response:
+
+  ```
+  {
+    "id": 52,
+    "name": "Tema 1",
+    "professor": "Garzás",
+    "subject": {
+        "name": "Calidad",
+        "degree": {
+            "id": 36,
+            "name": "Ingeniería del Sofware"
+        }
+    },
+    "scores": [],
+    "user": null,
+    "extension": "txt"
+  }
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  Code: 404 NOT FOUND
+
 ### POST
+
+#### Create a note without the note file
+
+* URL:
+
+  `</>`
+  
+* Body:
+
+  A JSON note.
+  
+  Example:
+  
+  ```
+  {
+        "name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+  ```
+  
+  
+* Success response:
+
+  ```
+  {
+        "name": "Tema 1",
+        "professor": "Garzás",
+        "subject": {
+        	"id": 37,
+            "name": "Calidad",
+            "degree": {
+                "id": 36,
+                "name": "Ingeniería del Sofware"
+            }
+        },
+        "extension": "txt"
+    }
+  ```
+  Code: 200 OK
+  
+* Error response:
+
+  If the specified degree  does not exist
+  Code: 500 Internal Server Error
 
 ### PUT
 
@@ -647,6 +813,91 @@ The following operations will be preceded by **/users**.
 * Error response:
 
   Code: 404 NOT FOUND
+  
+#### Show ranking of users
+
+*URL:
+
+`</ranking>`
+
+* Success response:
+
+```
+[
+    {
+        "id": 1,
+        "name": "paco",
+        "degree": "Matematicas",
+        "nickname": "pacomer",
+        "email": "pacopacon@gmail.com",
+        "number": 56789,
+        "image": true,
+        "notes": [
+            {
+                "id": 51,
+                "name": "prueba",
+                "subject": {},
+                "scores": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Marcos",
+        "degree": "Software",
+        "nickname": "MArcos01",
+        "email": "marcosos@gmail.com",
+        "number": 4567,
+        "image": false,
+        "notes": []
+    },
+    {
+        "id": 3,
+        "name": "David",
+        "degree": "Ingenieria del Software",
+        "nickname": "DavidDaw",
+        "email": "d.tejero.207@alumnos.urjc.es",
+        "number": 0,
+        "image": false,
+        "notes": []
+    },
+    {
+        "id": 4,
+        "name": "Miguel",
+        "degree": "Ingenieria del Software",
+        "nickname": "MiguelDaw",
+        "email": "m.rodrigez@alumnos.urjc.es",
+        "number": 0,
+        "image": false,
+        "notes": []
+    },
+    {
+        "id": 5,
+        "name": "Alex",
+        "degree": "Ingenieria del Software",
+        "nickname": "AlexDaw",
+        "email": "a.domingoc.2017@alumnos.urjc.es",
+        "number": 0,
+        "image": false,
+        "notes": []
+    },
+    {
+        "id": 6,
+        "name": "Diego",
+        "degree": "Ingenieria del Software",
+        "nickname": "DiegoDaw",
+        "email": "d.almansa.2017@alumnos.urjc.es",
+        "number": 0,
+        "image": false,
+        "notes": []
+    }
+]
+```
+Code: 200 OK
+
+* Error response:
+
+Code: 204 NO CONTENT
 
 ### POST
 
