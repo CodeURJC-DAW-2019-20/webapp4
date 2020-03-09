@@ -20,7 +20,8 @@ public class Score {
 	private int score;
 
 	@ManyToOne
-	private User user;
+    @JsonView({BasicViewScore.class})
+    private User user;
 	
 	@ManyToOne
     private Note note;

@@ -67,8 +67,8 @@ public class NoteController {
         return "redirect:/";
     }
     @PostMapping("/notes/{noteID}/addScoreNote")
-    public String noteController(@PathVariable long noteID,@RequestParam int value, Model model) {
-        noteService.scoreNote(noteID, currentUser.getEntityUser(),value);
+    public String noteController(@PathVariable int noteID,@RequestParam int value, Model model) {
+        noteService.createScore(noteID, new Score(value, null, null));
         return "redirect:/notes/"+noteID;
     }
 

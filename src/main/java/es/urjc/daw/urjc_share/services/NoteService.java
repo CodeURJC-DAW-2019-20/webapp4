@@ -1,5 +1,6 @@
 package es.urjc.daw.urjc_share.services;
 
+import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.ScoreRepository;
 import es.urjc.daw.urjc_share.model.Note;
@@ -24,12 +25,16 @@ public class NoteService {
     @Autowired
     private ScoreRepository scoreRepository;
 
+    @Autowired
+    private UserComponent currentUser;
+
 
     public List<Note> notes() {
         return noteRepository.findAll();
     }
 
     public boolean createNote(Note note) {
+        note.setUser(currentUser.getEntityUser());
         noteRepository.saveAndFlush(note);
         return true;
     }
@@ -38,15 +43,35 @@ public class NoteService {
         return noteRepository.findById(id);
     }
 
-    public void deleteNote(long id) {
-        noteRepository.deleteById(id);
+    public boolean deleteNote(Note note) {
+        List<Score> scores = scoreRepository.findAllByNote(note);
+        if (scores.size() > 0) {
+            for (int i = 0; i < scores.size(); i++) {
+                scoreRepository.delete(scores.get(i));
+            }
+        }
+        noteRepository.deleteById(note.getId());
+        return true;
     }
 
     public void updateNote(long id, Note noteUpdated) {
         noteUpdated.setId(id);
         noteRepository.save(noteUpdated);
     }
-    public void scoreNote(long noteID,User user, int value) {
-        scoreRepository.save(new Score(value,user,noteRepository.findById(noteID)));
+
+    public boolean isOwner(Note note) {
+        return note.getUser().getId() == currentUser.getEntityUser().getId();
+    }
+
+    public boolean createScore(int id, Score score) {
+        Note note = noteRepository.findById(id);
+        if (note != null && currentUser.getEntityUser() != null) {
+            score.setNote(note);
+            score.setUser(currentUser.getEntityUser());
+            scoreRepository.saveAndFlush(score);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

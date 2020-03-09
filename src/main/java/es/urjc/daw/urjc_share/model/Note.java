@@ -53,10 +53,11 @@ public class Note {
 
 
     @ManyToOne
-    @JsonView({Note.BasicViewNote.class})
+    @JsonView({BasicViewNote.class})
     private User user;
 
     private String ruta;
+    @JsonView({BasicViewNote.class})
     private String extension;
 
     public Note() {}
