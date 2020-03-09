@@ -19,6 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class APINoteController {
     @Autowired
     private NoteService noteService;
+    @Autowired
     private SubjectService subjectService;
 
     private AtomicLong lastId = new AtomicLong();
@@ -39,10 +40,17 @@ public class APINoteController {
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Note> newNote(@RequestBody Note note) {
-        if (!noteService.createNote(note)) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        Subject subject = subjectService.getSubject(note.getSubject().getId());
+        if(subject != null) {
+            note.setSubject(subject);
+            if (noteService.createNote(note)) {
+                return new ResponseEntity<>(note, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+            }
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(note, HttpStatus.OK);
     }
 
     @PutMapping("/{id}/")
