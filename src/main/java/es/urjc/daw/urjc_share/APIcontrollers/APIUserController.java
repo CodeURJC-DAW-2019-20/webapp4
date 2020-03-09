@@ -63,7 +63,7 @@ public class APIUserController {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
         if (user.isPresent()) {
             user.get().setImage(true);
-            userRepository.save(user.get());
+            userService.saveUser(user.get());
             imageService.saveImage("users", user.get().getId(), imageFile);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {

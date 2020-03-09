@@ -59,6 +59,10 @@ public class UserService {
     public User getUser(long id) {
         return userRepository.findById(id);
     }
+    
+    public void saveUser(User user) {
+    	userRepository.save(user);
+    }
 
     public void deleteUser(long id) {
         userRepository.deleteById(id);
