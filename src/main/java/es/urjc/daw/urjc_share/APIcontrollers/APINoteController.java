@@ -150,7 +150,7 @@ public class APINoteController {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
             noteService.deleteNote(note);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(note, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
