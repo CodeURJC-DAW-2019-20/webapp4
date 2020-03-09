@@ -58,14 +58,14 @@ public class APIUserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
     @JsonView(UsersView.class)
-    @PutMapping("/{id}/image")
-    public ResponseEntity<User> putImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
+    @PostMapping("/{id}/image")
+    public ResponseEntity<User> postImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
         Optional<User> user = Optional.ofNullable(userService.getUser(id));
         if (user.isPresent()) {
             user.get().setImage(true);
             userService.saveUser(user.get());
             imageService.saveImage("users", user.get().getId(), imageFile);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(user.get(),HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
