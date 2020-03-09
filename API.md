@@ -369,7 +369,7 @@ The following operations will be preceded by **/subjects**, in other case will b
 
   Code: 404 NOT FOUND
 
-####Show all the subjects from a specific degree
+#### Show all the subjects from a specific degree
 * URL:
 	This URL will be different than the others in the subject controller, not starting with `/subjects`
 	`<degrees/{degreeId}/subjects`
