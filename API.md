@@ -33,8 +33,7 @@ The following operations will be preceded by **/degrees**.
   `</>`
   
 * Success response:
-
-  ```
+```
  [
     {
         "id": 8,
@@ -61,9 +60,8 @@ The following operations will be preceded by **/degrees**.
         "subjects": []
     }
 ]
-  ```
   Code: 200 OK
-  
+  ```
 * Error response:
 
   Code: 204 NO CONTENT
@@ -79,8 +77,7 @@ The following operations will be preceded by **/degrees**.
   Name words must be concatenated by **+**.
   
 * Success response:
-
-  ```
+```
 [
     {
         "id": 8,
@@ -97,8 +94,8 @@ The following operations will be preceded by **/degrees**.
         ]
     }
 ]
-  ```
   Code: 200 OK
+  ```
   
 * Error response:
 
@@ -113,8 +110,7 @@ The following operations will be preceded by **/degrees**.
   **Example**: */api/degrees/36*
   
 * Success response:
-
-  ```
+```
   [
     {
     "id": 8,
@@ -130,8 +126,9 @@ The following operations will be preceded by **/degrees**.
         }
     ]
   ]
-  ```
+  
   Code: 200 OK
+  ```
   
 * Error response:
 
