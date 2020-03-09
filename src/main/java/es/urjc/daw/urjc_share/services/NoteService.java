@@ -30,7 +30,7 @@ public class NoteService {
     }
 
     public boolean createNote(Note note) {
-
+        noteRepository.saveAndFlush(note);
         return true;
     }
 
