@@ -9,6 +9,7 @@ import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Score;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
+import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,6 @@ public class NoteController {
     @Autowired
     private UserRepository repository;
     @Autowired
-    private ScoreRepository scoreRepository;
-    @Autowired
     private NoteRepository noteRepository;
     @Autowired
     private NavController navController;
@@ -44,10 +43,12 @@ public class NoteController {
 
     @Autowired
     private UploadFileService uploadFileService;
+    @Autowired
+    private NoteService noteService;
 
     @RequestMapping("/notes")
     public String saveNote(Model model) {
-        List<Note> notes = noteRepository.findAll();
+        List<Note> notes = noteService.notes();
         model.addAttribute("user", notes);
 
         return "allNotes";
@@ -56,19 +57,18 @@ public class NoteController {
     @PostMapping("/note_save")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
         note.setUser(currentUser.getEntityUser());
-        noteRepository.save(note);
         if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
             uploadFileService.saveFile(file,note.getId());
         }
         String [] s = file.getOriginalFilename().split("\\.");
         note.setRuta(note.getId()+"."+s[s.length-1]);
         note.setExtension(s[s.length-1]);
-        noteRepository.save(note);
+        noteService.createNote(note);
         return "redirect:/";
     }
     @PostMapping("/notes/{noteID}/addScoreNote")
     public String noteController(@PathVariable long noteID,@RequestParam int value, Model model) {
-            scoreRepository.save(new Score(value,currentUser.getEntityUser(),noteRepository.findById(noteID)));
+        noteService.scoreNote(noteID, currentUser.getEntityUser(),value);
         return "redirect:/notes/"+noteID;
     }
 
