@@ -372,6 +372,25 @@ Both services use de same network which are connected by driver:bridge.
 - docker-compose.yalm.
 
 ### Miguel Rodriguez Alvarez
+#### Commits
+-Crear usuario e imagen API-REST  463466d0d7b6f8ec858a5ebe17565a4fde94528e
+-usuario acabado con API-REST     d7fcc296a9e49f007dde3ca61c9a670b957dfb58
+-User Service API                 3ca5d358175e1e7ff45a77310bb2d11fa580b4d5
+-docker-compose                   cb294d11e2516f7a1a86cec1849f2bb62e97cd47
+
+#### Tasks:
+-I implemented the API User controller
+-I refactored the UserController class creating UserServices
+-I have created the dockerfile
+-I have created the docker-compose
+-I helped with Security.
+
+#### Files:
+- APIUserController
+- UserController
+- UserService
+- Dockerfile
+- docker-compose.yml
 
 ### David Tejero Bravo
 
