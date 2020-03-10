@@ -436,6 +436,29 @@ Both services use de same network which are connected by driver:bridge.
 - API.md
 
 ### Diego Almansa Cantero
+#### Commits
+ 
+ - Api notes controller                           c15bc878387b482687c27421d0555952664aef9a
+ - Service notes                                  6d9339af6cb84e37b82ade831642a6cf841ef7c0
+ - Collection                                     4e18b7fdb42c38916e53f0d3ab4974dfb616bb11
+ - Config security rute path                      670533f9908513163224396eb540fa9bfb4a2061
+ - Config JsonView notes                          23e237f5f5b9ac70ed5a9c5d1a6b268672b994d0
+ #### Tasks
+ 
+ - Create api notes controller
+ - Create service notes.
+ - Created collection postman.
+ - Config auth path rute for role.
+ - Config jsonview notes.
+ 
+ #### Files
+ 
+ - APINoteController.java
+ - NoteService.java
+ - NoteController.java
+ - DAW.postman_collection.json
+ - RestSecurityConfiguration.java
+
 
 
 
