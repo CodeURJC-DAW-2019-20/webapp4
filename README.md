@@ -263,6 +263,7 @@ We've decided to put the model relations in a separated diagram to make it more 
 The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/API.md)
 
 ## Updated class diagrams
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramFase3.png)
 
 ## Instructions for executing the dockerized application
 First, we will need to create a network to communicate our two images, web-service and database-service.
