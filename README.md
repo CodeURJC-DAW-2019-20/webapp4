@@ -397,3 +397,22 @@ Both services use de same network which are connected by driver:bridge.
 ### Diego Almansa Cantero
 
 ### Alejandro Domingo Cornás
+#### Commits
+-APISubjectController and SubjectService added (WIP)  c7cade4a71f2f7b13ed3099cce82c4617163be7c
+-APISubject referencias circulares en el get          d7fcc296a9e49f007dde3ca61c9a670b957dfb58
+-Update API.md                                        d3a4239b583a1713b3bf91e2def98d8bbb66faa3
+-Corrijo error en apidegree                           8afa2bc32066faef3b5b38cab7047b664b8b7cca
+
+#### Tasks:
+-I have created the APISubjectController
+-I have created the SubjectService
+-Documentation and diagrams
+
+
+#### Files:
+- APISubjectController
+- SubjectService
+- Note
+- API.md
+
+
