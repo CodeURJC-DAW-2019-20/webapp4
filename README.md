@@ -288,7 +288,7 @@ COPY pom.xml .
 
 
 RUN chmod +x ./mvnw
-# download the dependency if needed or if the pom file is changed
+# Download the dependency if needed or if the pom file is changed
 RUN ./mvnw dependency:go-offline -B
 
 //We copy all de maven deppendencies of our project to create de image
@@ -373,17 +373,17 @@ Both services use de same network which are connected by driver:bridge.
 
 ### Miguel Rodriguez Alvarez
 #### Commits
--Crear usuario e imagen API-REST  463466d0d7b6f8ec858a5ebe17565a4fde94528e
--usuario acabado con API-REST     d7fcc296a9e49f007dde3ca61c9a670b957dfb58
--User Service API                 3ca5d358175e1e7ff45a77310bb2d11fa580b4d5
--docker-compose                   cb294d11e2516f7a1a86cec1849f2bb62e97cd47
+- Crear usuario e imagen API-REST  463466d0d7b6f8ec858a5ebe17565a4fde94528e
+- usuario acabado con API-REST     d7fcc296a9e49f007dde3ca61c9a670b957dfb58
+- User Service API                 3ca5d358175e1e7ff45a77310bb2d11fa580b4d5
+- docker-compose                   cb294d11e2516f7a1a86cec1849f2bb62e97cd47
 
 #### Tasks:
--I implemented the API User controller
--I refactored the UserController class creating UserServices
--I have created the dockerfile
--I have created the docker-compose
--I helped with Security.
+- I implemented the API User controller
+- I refactored the UserController class creating UserServices
+- I have created the dockerfile
+- I have created the docker-compose
+- I helped with Security.
 
 #### Files:
 - APIUserController
@@ -393,6 +393,27 @@ Both services use de same network which are connected by driver:bridge.
 - docker-compose.yml
 
 ### David Tejero Bravo
+
+#### Commits
+- Funcionalidad API REST para Degrees f2656a7a7f243a1b616e917cece4261031cdda0a
+- Paginación implementada en la búsqueda de degress 51eb15cd753420c253680904645e13e420dab243
+- Paginación implementada en la búsqueda de users f097fa27bb441e55ed043d72dccd750c6b317c10
+- Paginación y API REST de Subjects abc574c72e97e82cceb0078018d2a164c34c1d50
+- Documentación sobre las operaciones de Degree y User df218f8ecd3328750bccf13ed383f82015ef9445
+
+#### Tasks
+- Implement API REST for Degrees.
+- Implement API REST for Subjects.
+- Implement pagination for entities.
+- Create services.
+- Create API.md.
+
+#### Files
+- APIDegreeController
+- DegreeService
+- APISubjectController
+- SubjectService
+- API.md
 
 ### Alejandro Domingo Cornás
 #### Commits
