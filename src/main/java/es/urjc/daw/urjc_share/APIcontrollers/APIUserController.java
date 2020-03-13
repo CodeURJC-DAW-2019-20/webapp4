@@ -52,10 +52,14 @@ public class APIUserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> newUser(@RequestBody User user) throws IOException {
-        if (!userService.createUser(user)) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (!userService.checkUserDispo(user)) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }else {
+            if (!userService.createUser(user)) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity<>(user, HttpStatus.OK);
         }
-        return new ResponseEntity<>(user, HttpStatus.OK);
     }
     @JsonView(UsersView.class)
     @PostMapping("/{id}/image")

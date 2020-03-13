@@ -55,7 +55,9 @@ public class UserService {
 
         return true;
     }
-
+    public boolean checkUserDispo(User user){
+        return userRepository.findByNickname(user.getNickname())==null;
+    }
     public User getUser(long id) {
         return userRepository.findById(id);
     }

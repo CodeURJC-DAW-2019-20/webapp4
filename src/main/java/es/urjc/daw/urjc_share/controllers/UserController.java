@@ -30,16 +30,20 @@ public class UserController {
 
     @PostMapping("/createUser")
     public String newUser(User user, @RequestParam MultipartFile imagenFile) throws IOException {
-        userService.createUser(user);
-        imageService.saveImage("users", user.getId(), imagenFile);
-        return "redirect:/";
+        if (!userService.checkUserDispo(user)) {
+            return "userExistError";
+        } else {
+            userService.createUser(user);
+            imageService.saveImage("users", user.getId(), imagenFile);
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/editProfile")
     public String editProfile(User userUpdated, @RequestParam MultipartFile imagenFile) throws IOException {
         User user = userComponent.getEntityUser();
-        imageService.saveImage("users",user.getId(),imagenFile);
-        userService.editUser(user,userUpdated);
+        imageService.saveImage("users", user.getId(), imagenFile);
+        userService.editUser(user, userUpdated);
         return "redirect:/";
     }
 
