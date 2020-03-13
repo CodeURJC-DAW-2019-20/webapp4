@@ -25,20 +25,21 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
 		
+	
+		
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/degrees/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/degrees/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/degrees/**").hasRole("ADMIN");
 		
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/subjects/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/subjects/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/subjects/**").hasRole("ADMIN");
 		
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/created/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/created/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/modalAdmin/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/modalAdmin/**").hasRole("ADMIN");
 
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/notes/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/notes/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/notes/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/notes/**").hasRole("USER");
+
 
 
 		// Other URLs can be accessed without authentication

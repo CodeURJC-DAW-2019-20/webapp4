@@ -32,8 +32,8 @@ public class DataBaseController implements CommandLineRunner {
 //		userrepository.save(useraux);
 //		userrepository.save(new User("Marcos", "5677", "Software", "MArcos01", "marcosos@gmail.com", 4567, null, false,
 //				"ROLE_USER"));
-//		userrepository.save(new User("David", "passdaw", "Ingenieria del Software", "DavidDaw",
-//				"d.tejero.207@alumnos.urjc.es", 0, null, false, "ROLE_ADMIN"));
+		userrepository.save(new User("David", "passdaw", "Ingenieria del Software", "DavidDaw",
+				"d.tejero.207@alumnos.urjc.es", 0, null, false, "ROLE_ADMIN"));
 //		userrepository.save(new User("Miguel", "passdaw", "Ingenieria del Software", "MiguelDaw",
 //				"m.rodrigez@alumnos.urjc.es", 0, null, false, "ROLE_ADMIN"));
 //		userrepository.save(new User("Alex", "passdaw", "Ingenieria del Software", "AlexDaw",
