@@ -6,6 +6,7 @@ import es.urjc.daw.urjc_share.data.SubjectRepository;
 import es.urjc.daw.urjc_share.model.Degree;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Subject;
+import es.urjc.daw.urjc_share.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
@@ -36,7 +37,9 @@ public class DegreeService {
     public Page<Degree> findDegreesByName(String name, Pageable page){
         return degreeRepository.findAllByName(name, page);
     }
-
+    public boolean checkDegreeDispo(Degree degree){
+        return degreeRepository.findByName(degree.getName())==null;
+    }
     public List<Degree> findDegreesByName(String name){
         return degreeRepository.findAllByName(name);
     }

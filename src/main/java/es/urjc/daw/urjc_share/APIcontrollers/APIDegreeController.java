@@ -58,10 +58,13 @@ public class APIDegreeController {
 
     @JsonView(DegreesView.class)
     @PostMapping("")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Degree postDegree(@RequestBody Degree degree){
-        service.saveDegree(degree);
-        return degree;
+    public ResponseEntity<Degree> postDegree(@RequestBody Degree degree){
+        if(service.checkDegreeDispo(degree)) {
+            service.saveDegree(degree);
+            return new ResponseEntity<>(degree, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
     }
 
     @JsonView(DegreesView.class)

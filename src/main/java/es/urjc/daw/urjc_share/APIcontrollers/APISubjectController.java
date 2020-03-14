@@ -79,16 +79,21 @@ public class APISubjectController {
     @JsonView(SubjectsView.class)
     @PostMapping("/subjects")
     public ResponseEntity<Subject> postSubject(@RequestBody Subject subject){
-        Degree degree = degreeService.findDegreesByID(subject.getDegree().getId());
-        if(degree != null){
-            subject.setDegree(degree);
-            degree.getSubjects().add(subject);
-            subjectService.saveSubject(subject);
-            degreeService.updateDegree(degree);
-            return new ResponseEntity<>(subject, HttpStatus.OK);
+        if(subjectService.checkSubjectDispo(subject)){
+            Degree degree = degreeService.findDegreesByID(subject.getDegree().getId());
+            if(degree != null){
+                subject.setDegree(degree);
+                degree.getSubjects().add(subject);
+                subjectService.saveSubject(subject);
+                degreeService.updateDegree(degree);
+                return new ResponseEntity<>(subject, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
         }else{
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
+
 
     }
 
