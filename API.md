@@ -177,7 +177,13 @@ This operation is **pageable**.
     "subjects": []
   }
   ```
-  Code: 201 Created
+  Code: 200 OK
+  
+  * Error response:
+
+  Code: 409 Conflict
+  
+  If already exists a degree with the specified name
   
 
 ### PUT
@@ -421,12 +427,12 @@ This operation is **pageable**.
 	]
 ```
 Code: 200 OK
-* Error response
-	If the specified degree has no subjects on it:
-	Code: 204 No content 
+* Error response:
+If the specified degree has no subjects on it:
+Code: 204 No content 
 	
-	If the degree id does not exist:
-	Code:404 Not found
+If the degree id does not exist:
+Code:404 Not found
 
 ### POST
 
@@ -460,7 +466,7 @@ Code: 200 OK
     "id": 23,
     "name": "Procesos",
     "degree": {
-        "name": "IngenierÃ­a del Software"
+        "name": "Ingeniería del Software"
     },
     "notes": []
   }
@@ -468,21 +474,21 @@ Code: 200 OK
   Code: 200 OK
   
 * Error response: 
-
-  If the specified degree  does not exist
-  Code: 500 Internal Server Error
+  Code: 500 Internal Server Error.
+  If the specified degree  does not exist.
   
-  
-
+  Code: 409 Conflict.
+  If already exists a degree with the specified name.
+    
 ### PUT
 
-#### Update an existing degree
+#### Update an existing subject
 
 * URL:
 
   `</id>`
   
-  **Example**: */api/degrees/23*
+  **Example**: */api/subject/23*
   
 * Body:
 
@@ -533,7 +539,7 @@ Code: 200 OK
 
   Code: 404 NOT FOUND
   
-  When the id of the degree doesn't exist.
+  When the id of the subject doesn't exist.
   
   Code: 500 Internal server error
   When the body follow an incorrect pattern
