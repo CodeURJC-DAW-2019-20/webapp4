@@ -1,8 +1,6 @@
 package es.urjc.daw.urjc_share.APIcontrollers;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
-import es.urjc.daw.urjc_share.APIcontrollers.APISubjectController.SubjectsView;
 import es.urjc.daw.urjc_share.model.*;
 import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.SubjectService;
@@ -14,11 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/api")
@@ -94,7 +90,7 @@ public class APINoteController {
     public ResponseEntity<Note> putImage(@PathVariable long id, @RequestParam MultipartFile file) throws IOException {
         Note note = noteService.getNote(id);
         if (!noteService.isOwner(note)){
-          return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+          return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         if (note != null) {
             if(!file.isEmpty()) {
@@ -127,7 +123,7 @@ public class APINoteController {
         if (note != null) {
             noteService.updateNote(id, noteUpdated);
             return new ResponseEntity<>(noteUpdated, HttpStatus.OK);
-        } else {
+        } else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

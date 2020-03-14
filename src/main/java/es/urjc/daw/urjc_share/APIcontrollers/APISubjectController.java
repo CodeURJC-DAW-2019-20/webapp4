@@ -113,9 +113,8 @@ public class APISubjectController {
     @PutMapping("/subjects/{id}")
     public ResponseEntity<Subject> putDegree(@PathVariable long id, @RequestBody Subject newSubject){
         if(subjectService.findSubjectById(id) != null){
-            List<Degree> degrees = degreeService.findDegreesByName(newSubject.getDegree().getName());
-            if(!degrees.isEmpty()){
-                Degree degree = degrees.get(0);
+            Degree degree = degreeService.findDegreesByID(newSubject.getDegree().getId());
+            if(degree != null){
                 newSubject.setDegree(degree);
                 newSubject.setId(id);
                 degree.getSubjects().add(newSubject);
