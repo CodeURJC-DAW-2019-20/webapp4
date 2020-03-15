@@ -17,6 +17,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <start-class>es.urjc.daw.urjc_share.UrjcShareApplication</start-class>
     </properties>
 
     <dependencies>
