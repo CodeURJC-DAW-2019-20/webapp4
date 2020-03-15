@@ -49,6 +49,9 @@ public class UserService {
     public boolean createUser(User user) throws IOException {
         user.setRoles(user.getRoles());
         userRepository.save(user);
+        if(user.getRoles().isEmpty()) {
+        	user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
+        }
         if(!user.getRoles().contains("ROLE_ADMIN")) {
         	mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
                 "Hola " + user.getNickname() + "\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
@@ -63,7 +66,7 @@ public class UserService {
     }
     
     public void saveUser(User user) {
-    	userRepository.save(user);
+    	userRepository.saveAndFlush(user);
     }
 
     public void deleteUser(long id) {
