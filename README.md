@@ -320,7 +320,8 @@ networks:
 
  ```
  #### Script:
- En el Scritpt  creamos la red  que vamos a usar, el contenedor para la base de datos y el contenedor para la aplicacion, por ultimo se hace un stop de dichos contenedores para que mas tarde no de error
+
+In the Scritpt we create the network that we are going to use, the container for the database and the container for the application, finally a stop is made of said containers so that later no error
  ```
  #!/bin/bash
 docker network create urjcShare-network 
@@ -334,12 +335,12 @@ docker container stop mysqldb
 
  ```
 ### Steps for use Docker:
-- 1. We run the script
+- We run the script
 ```
 sudo sh create_image.sh
 
 ```
-- 2. We run the docker-compose:
+- We run the docker-compose:
 ```
 sudo docker-compose up
 ```
