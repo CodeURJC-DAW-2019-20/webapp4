@@ -47,15 +47,17 @@ public class UserService {
     }
 
     public boolean createUser(User user) throws IOException {
-        user.setImage(true);
-        user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
+        user.setRoles(user.getRoles());
         userRepository.save(user);
-        mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
+        if(!user.getRoles().contains("ROLE_ADMIN")) {
+        	mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare",
                 "Hola " + user.getNickname() + "\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
-
+        }
         return true;
     }
-
+    public boolean checkUserDispo(User user){
+        return userRepository.findByNickname(user.getNickname())==null;
+    }
     public User getUser(long id) {
         return userRepository.findById(id);
     }

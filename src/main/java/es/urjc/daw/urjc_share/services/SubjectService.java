@@ -45,7 +45,15 @@ public class SubjectService {
     public void saveSubject(Subject subject){
         subjectRepository.save(subject);
     }
-
+    public boolean checkSubjectDispo(Subject subject){
+        List<Subject> lista = subjectRepository.findAllByName(subject.getName());
+        for (Subject sub:lista){
+            if(subject.getName().equals(sub.getName()) && subject.getDegree().getId()==sub.getDegree().getId()){
+                return false;
+            }
+        }
+        return true;
+    }
     public Subject findSubjectById(long id){
         return subjectRepository.findById(id);
     }
