@@ -7,8 +7,6 @@ services:
       - "8443:8443"
     networks:
       - urjcShare-network
-    environment:
-      WAIT_HOSTS: mysql:3306
     depends_on:
       - mysqldb
  
