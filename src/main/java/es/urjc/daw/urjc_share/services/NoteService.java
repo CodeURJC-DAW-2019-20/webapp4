@@ -49,7 +49,6 @@ public class NoteService {
     }
 
     public boolean createNote(Note note) {
-        note.setUser(currentUser.getEntityUser());
         noteRepository.saveAndFlush(note);
         return true;
     }

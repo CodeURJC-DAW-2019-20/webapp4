@@ -125,4 +125,7 @@ public class Note {
     public String getProfessor() {
         return professor;
     }
+    public boolean isFile() {
+        return extension != "";
+    }
 }

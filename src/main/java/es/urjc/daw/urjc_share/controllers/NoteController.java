@@ -57,19 +57,22 @@ public class NoteController {
     @PostMapping("/note_save")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
         note.setUser(currentUser.getEntityUser());
-        if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
-            uploadFileService.saveFile(file,note.getId());
+        noteService.createNote(note);
+        if (!file.isEmpty()) {
+            String[] s = file.getOriginalFilename().split(".");
+            uploadFileService.saveFile("notes", file, note.getId());
         }
-        String [] s = file.getOriginalFilename().split("\\.");
-        note.setRuta(note.getId()+"."+s[s.length-1]);
-        note.setExtension(s[s.length-1]);
+        String[] s = file.getOriginalFilename().split("\\.");
+        note.setRuta("note-" + note.getId() + "." + s[s.length - 1]);
+        note.setExtension(s[s.length - 1]);
         noteService.createNote(note);
         return "redirect:/";
     }
+
     @PostMapping("/notes/{noteID}/addScoreNote")
-    public String noteController(@PathVariable int noteID,@RequestParam int value, Model model) {
+    public String noteController(@PathVariable int noteID, @RequestParam int value, Model model) {
         noteService.createScore(noteID, new Score(value, null, null));
-        return "redirect:/notes/"+noteID;
+        return "redirect:/notes/" + noteID;
     }
 
 
