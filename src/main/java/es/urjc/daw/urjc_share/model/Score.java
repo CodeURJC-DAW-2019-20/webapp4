@@ -1,5 +1,7 @@
 package es.urjc.daw.urjc_share.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,14 +10,17 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Score {
+	public interface BasicViewScore {}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
+	@JsonView({BasicViewScore.class})
 	private int score;
-	
+
 	@ManyToOne
+    @JsonView({BasicViewScore.class})
     private User user;
 	
 	@ManyToOne

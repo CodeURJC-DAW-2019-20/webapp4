@@ -17,4 +17,8 @@ public class UserComponent {
     public void setEntityUser(User entityUser) {
         this.entityUser = entityUser;
     }
+    
+    public boolean isEntityUser() {
+    	return this.entityUser != null;
+    }
 }

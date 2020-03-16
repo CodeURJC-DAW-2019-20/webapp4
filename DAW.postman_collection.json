@@ -290,6 +290,17 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "getFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
 				}
 			],
 			"event": [

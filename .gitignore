@@ -23,3 +23,6 @@
 hs_err_pid*
 *.xml
 .idea/webapp4.iml
+
+### bin ###
+bin/

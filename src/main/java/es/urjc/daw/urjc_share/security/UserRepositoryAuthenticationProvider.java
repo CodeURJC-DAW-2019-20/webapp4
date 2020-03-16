@@ -21,28 +21,40 @@ import es.urjc.daw.urjc_share.model.User;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider{
+	
 	@Autowired
 	private UserRepository userRepository;
+	
     @Autowired
     private UserComponent currentUser;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
+		
 		String nickname = auth.getName();
-		User user = userRepository.findByNickname(auth.getName());
+		String password = (String) auth.getCredentials();
+		
+		User user = userRepository.findByNickname(nickname);
+		
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
-		String password = (String) auth.getCredentials();
+		
+		
 		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
+			
 			throw new BadCredentialsException("Wrong password");
+		}else {
+			
+			currentUser.setEntityUser(user);
+			
+			List<GrantedAuthority> roles = new ArrayList<>();
+			for (String role : user.getRoles()) {
+				roles.add(new SimpleGrantedAuthority(role));
+			}
+			
+			return new UsernamePasswordAuthenticationToken(user.getNickname(), password, roles);
 		}
-		List<GrantedAuthority> roles = new ArrayList<>();
-		for (String role : user.getRoles()) {
-			roles.add(new SimpleGrantedAuthority(role));
-		}
-		currentUser.setEntityUser(user);
-		return new UsernamePasswordAuthenticationToken(user.getNickname(), password, roles);
 	}
 
 	@Override

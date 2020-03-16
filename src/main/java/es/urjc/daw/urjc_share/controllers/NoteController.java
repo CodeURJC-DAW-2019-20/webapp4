@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.controllers;
 
 
+import es.urjc.daw.urjc_share.APIcontrollers.APIUserController;
 import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.ScoreRepository;
@@ -9,19 +10,26 @@ import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.Score;
 import es.urjc.daw.urjc_share.model.User;
 import es.urjc.daw.urjc_share.services.ImageService;
+import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -33,8 +41,6 @@ public class NoteController {
     @Autowired
     private UserRepository repository;
     @Autowired
-    private ScoreRepository scoreRepository;
-    @Autowired
     private NoteRepository noteRepository;
     @Autowired
     private NavController navController;
@@ -44,10 +50,12 @@ public class NoteController {
 
     @Autowired
     private UploadFileService uploadFileService;
+    @Autowired
+    private NoteService noteService;
 
     @RequestMapping("/notes")
     public String saveNote(Model model) {
-        List<Note> notes = noteRepository.findAll();
+        List<Note> notes = noteService.getNotes();
         model.addAttribute("user", notes);
 
         return "allNotes";
@@ -56,21 +64,37 @@ public class NoteController {
     @PostMapping("/note_save")
     public String newNote(Model model, Note note, @RequestParam MultipartFile file) throws IOException {
         note.setUser(currentUser.getEntityUser());
-        noteRepository.save(note);
-        if(!file.isEmpty()){String [] s = file.getOriginalFilename().split(".");
-            uploadFileService.saveFile(file,note.getId());
+        noteService.createNote(note);
+        if (!file.isEmpty()) {
+            String[] s = file.getOriginalFilename().split(".");
+            uploadFileService.saveFile("notes", file, note.getId());
         }
-        String [] s = file.getOriginalFilename().split("\\.");
-        note.setRuta(note.getId()+"."+s[s.length-1]);
-        note.setExtension(s[s.length-1]);
-        noteRepository.save(note);
+        String[] s = file.getOriginalFilename().split("\\.");
+        note.setRuta("note-" + note.getId() + "." + s[s.length - 1]);
+        note.setExtension(s[s.length - 1]);
+        noteService.createNote(note);
         return "redirect:/";
     }
+
     @PostMapping("/notes/{noteID}/addScoreNote")
-    public String noteController(@PathVariable long noteID,@RequestParam int value, Model model) {
-            scoreRepository.save(new Score(value,currentUser.getEntityUser(),noteRepository.findById(noteID)));
-        return "redirect:/notes/"+noteID;
+    public String noteController(@PathVariable int noteID, @RequestParam int value, Model model) {
+        noteService.createScore(noteID, new Score(value, null, null));
+        return "redirect:/notes/" + noteID;
     }
 
+
+    @GetMapping("notes/{id}/file")
+    public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
+        Optional<Note> note = Optional.ofNullable(noteService.getNote(id));
+        if (note.isPresent()) {
+            if (note.get().isFile()) {
+                return this.uploadFileService.createResponseFromImage("notes", id, note.get().getExtension());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

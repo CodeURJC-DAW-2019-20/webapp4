@@ -4,6 +4,8 @@ import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.*;
 import es.urjc.daw.urjc_share.model.*;
 
+import es.urjc.daw.urjc_share.services.DegreeService;
+import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,25 +14,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class NavController {
 	// Repositorys
 	@Autowired
-	private DegreeRepository degreeRepository;
+	private DegreeService degreeService;
 	@Autowired
 	private SubjectRepository subjectRepository;
 	@Autowired
 	private NoteRepository noteRepository;
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private ScoreRepository scoreRepository;
-
+	@Autowired
+	private UserService userService;
 	// Components
 	@Autowired
 	private UserComponent currentUser;
@@ -44,34 +43,10 @@ public class NavController {
 
 	@GetMapping("/ranking")
 	public String goToRanking(Model model) {
-        List<Note> noteByUser;
-        List<Score> scoreByNote;
-        float auxMedia = 0;
-        int numScores = 0;
+        List<User> listUsers = userService.getSortedUsers();
 		this.configNav(model,"ranking");
-		List <User> listUsers = userRepository.findAll();
-        for (User userAux:listUsers){
-            noteByUser = noteRepository.findAllByUser(userAux);
-            for (Note auxNote:noteByUser) {
-                scoreByNote = scoreRepository.findAllByNote(auxNote);
-                for (Score auxScore:scoreByNote) {
-                    auxMedia += auxScore.getScore();
-                }
-                numScores += scoreByNote.size();
-            }
-            if(numScores != 0){
-				userAux.setMedia(auxMedia/numScores);
-			}
-            auxMedia = 0;
-            numScores = 0;
-        }
-        model.addAttribute("users",listUsers);
+		model.addAttribute("users",listUsers);
         this.configNav(model, "ranking");
-		Collections.sort(listUsers, (o1, o2) -> {
-			User u1 = o1;
-			User u2 = o2;
-			return Float.compare(u2.getMedia(), u1.getMedia());
-		});
 		return "ranking";
 	}
 
@@ -108,7 +83,7 @@ public class NavController {
 		model.addAttribute("textTittle", textSearched);
 		configNav(model, "");
 		if (searchType.equals("Degree")) {
-			List<Degree> degrees = degreeRepository.findAllByName(textSearched);
+			List<Degree> degrees = degreeService.findDegreesByName(textSearched);
 			model.addAttribute("degreeSearched", degrees);
 			model.addAttribute("emptyResult", degrees.isEmpty());
 			return "listDegrees";
@@ -123,7 +98,7 @@ public class NavController {
 	@GetMapping("/search/degree/{degreeID}")
 	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
 		configNav(model, "");
-		Degree degree = degreeRepository.findById(degreeID);
+		Degree degree = degreeService.findDegreeById(degreeID);
 		model.addAttribute("textTittle", degree.getName());
 		
 		List<Subject> subjects = subjectRepository.findAllByDegree(degree);
@@ -163,7 +138,7 @@ public class NavController {
 			model.addAttribute("ROLE_USER", userEnty.getRoles().contains("ROLE_USER"));
 			model.addAttribute("ROLE_ANONY", false);
 			if(userEnty.getRoles().contains("ROLE_ADMIN") || userEnty.getRoles().contains("ROLE_USER")){
-				List<Degree> degrees = degreeRepository.findAll();
+				List<Degree> degrees = degreeService.findDegrees();
 				model.addAttribute("alldegrees", degrees);
 				List<Subject> subjects = subjectRepository.findAll();
 				model.addAttribute("allsubjects", subjects);
