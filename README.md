@@ -266,85 +266,83 @@ The API REST documentation is at [API REST DOCUMENTATION](https://github.com/Cod
 ![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramFase3.png)
 
 ## Instructions for executing the dockerized application
-First, we will need to create a network to communicate our two images, web-service and database-service.
-sudo docker network create urjc_share_network
+### First we see the inside of our most important documents:
+#### Dockerfile:
+```
+FROM openjdk:8-alpine
 
-Then, we create our app container with our new network created.
-sudo docker container run --network urjc_share_network --name urjc_share_container -p 8443:8443 -d urjc_share
+COPY ./docker/urjcShare.jar ./urjcShare.jar
 
-In our app files, we will need to modify the application.properties to say to the application the right database we will use.
-spring.datasource.url =jdbc:mysql://mysql-service:3306/urjc_share?useSSL=false
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
-We use mysql version 5.7.
+COPY ./images ./images
 
-The next step is to create our file Dockerfile:
+COPY ./files_users ./files_users
 
-FROM openjdk:8-jdk-alpine as build //This is what jdk version is going to use
+CMD ["java", "-jar", "urjcShare.jar"]
 
-WORKDIR /app
-
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-
-
-RUN chmod +x ./mvnw
-# Download the dependency if needed or if the pom file is changed
-RUN ./mvnw dependency:go-offline -B
-
-//We copy all de maven deppendencies of our project to create de image
-
-COPY src src
-
-RUN ./mvnw package -DskipTests
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
-//With this line we make de .jar file of the application
-
-
-# Production Stage for Spring boot application image
-FROM openjdk:8-jre-alpine as production
-ARG DEPENDENCY=/app/target/dependency
-
-# Copy the dependency application file from build stage artifact
-COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-
-# Run the Spring boot application
-ENTRYPOINT ["java", "-cp", "app:app/lib/*","es.urjc.daw.urjc_share.UrjcShareApplication"]
-//At this point, we say to docker to run the main class of the project and be able to use it.
-
-Also, we need to create a docker-compose.yml file.
-This file will have inside our mysql image and our app image connected by our network.
-This file is look like this:
-
-version: '3.7'
+```
+#### Docker-compose:
+```
+version: "3"
 services:
-  mysql-service:
-    image: mysql:5.7
-    networks:
-      - spring-boot-mysql-network
+  urjcShare:
+    image: davidtb10/urjcshare:latest
     restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=urjc_share
-  web-service:
-    image: urjc_share
     ports:
       - "8443:8443"
     networks:
-      - spring-boot-mysql-network
+      - urjcShare-network
     depends_on:
-      - mysql-service
+      - mysqldb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/urjc_share?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=pass
+ 
+  mysqldb:
+    image: mysql:8
+    restart: on-failure
+    ports:
+      - "5000:3306"
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=pass--execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    networks:
+      - urjcShare-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=urjc_share
+      - MYSQL_USER=root  
+
 networks:
-  spring-boot-mysql-network:
-    driver: bridge
+  urjcShare-network: 
 
-On one hand, with the first service, we make de database-service, with MySQL 5.7 version image and our credentials password=pass and user=root.
-On the other hand, de web-service, we use our image urjc_share and we indicate de port we want to use.
-Both services use de same network which are connected by driver:bridge.
+ ```
+ #### Script:
+ En el Scritpt  creamos la red  que vamos a usar, el contenedor para la base de datos y el contenedor para la aplicacion, por ultimo se hace un stop de dichos contenedores para que mas tarde no de error
+ ```
+ #!/bin/bash
+docker network create urjcShare-network 
 
-## Development environment preparation
+docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=urjc_share -d mysql:8
+
+docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d davidtb10/urjcshare
+
+docker container stop urjcShare
+docker container stop mysqldb
+
+ ```
+### Steps for use Docker:
+- 1. We run the script
+```
+sudo sh create_image.sh
+
+```
+- 2. We run the docker-compose:
+```
+sudo docker-compose up
+```
 
 ## Participation
 
