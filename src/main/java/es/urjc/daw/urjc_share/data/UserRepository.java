@@ -9,7 +9,6 @@ import es.urjc.daw.urjc_share.model.User;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-	List<User> findAllByRoles(List<String> roles);
 	User findByName(String name);
 	User findById(long id);
 	User findByNickname(String nickname);
