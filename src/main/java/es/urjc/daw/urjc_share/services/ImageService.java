@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 @Service
 @Configuration
 public class ImageService implements WebMvcConfigurer {
-    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/images");
+    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 
     private Path createFilePath(long id, Path folder) {
         return folder.resolve("image-" + id + ".jpg");
