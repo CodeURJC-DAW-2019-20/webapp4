@@ -95,8 +95,8 @@ public class APINoteController {
         if (note != null) {
             if(!file.isEmpty()) {
                 String[] s = file.getOriginalFilename().split("\\.");
-                uploadFileService.saveFile(file, note.getId());
-                note.setRuta(note.getId() + "." + s[s.length - 1]);
+                uploadFileService.saveFile( "notes", file, note.getId());
+                note.setRuta("note-" + note.getId() + "." + s[s.length - 1]);
                 note.setExtension(s[s.length - 1]);
                 noteService.createNote(note);
                 return new ResponseEntity<>(note, HttpStatus.OK);
@@ -160,5 +160,20 @@ public class APINoteController {
     	}else {
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	}
+    }
+
+    @JsonView(APIUserController.UsersView.class)
+    @GetMapping("/{id}/image")
+    public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
+        Optional<Note> note = Optional.ofNullable(noteService.getNote(id));
+        if (note.isPresent()) {
+            if (note.get().isFile()) {
+                return this.uploadFileService.createResponseFromImage("files_users", id, note.get().getExtension());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
