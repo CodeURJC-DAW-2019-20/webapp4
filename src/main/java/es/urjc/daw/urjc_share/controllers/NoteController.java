@@ -1,6 +1,7 @@
 package es.urjc.daw.urjc_share.controllers;
 
 
+import es.urjc.daw.urjc_share.APIcontrollers.APIUserController;
 import es.urjc.daw.urjc_share.component.UserComponent;
 import es.urjc.daw.urjc_share.data.NoteRepository;
 import es.urjc.daw.urjc_share.data.ScoreRepository;
@@ -12,17 +13,23 @@ import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.NoteService;
 import es.urjc.daw.urjc_share.services.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -75,5 +82,19 @@ public class NoteController {
         return "redirect:/notes/" + noteID;
     }
 
+
+    @GetMapping("notes/{id}/file")
+    public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
+        Optional<Note> note = Optional.ofNullable(noteService.getNote(id));
+        if (note.isPresent()) {
+            if (note.get().isFile()) {
+                return this.uploadFileService.createResponseFromImage("notes", id, note.get().getExtension());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

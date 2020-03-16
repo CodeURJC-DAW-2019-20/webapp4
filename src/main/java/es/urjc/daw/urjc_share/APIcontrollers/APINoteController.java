@@ -163,12 +163,12 @@ public class APINoteController {
     }
 
     @JsonView(APIUserController.UsersView.class)
-    @GetMapping("/{id}/image")
+    @GetMapping("notes/{id}/file")
     public ResponseEntity<Object> getImageUser(@PathVariable long id) throws IOException {
         Optional<Note> note = Optional.ofNullable(noteService.getNote(id));
         if (note.isPresent()) {
             if (note.get().isFile()) {
-                return this.uploadFileService.createResponseFromImage("files_users", id, note.get().getExtension());
+                return this.uploadFileService.createResponseFromImage("notes", id, note.get().getExtension());
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
