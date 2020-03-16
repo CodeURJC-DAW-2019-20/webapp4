@@ -18,7 +18,7 @@ import java.nio.file.Paths;
 
 @Controller
 public class UploadFileService implements WebMvcConfigurer {
-    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "src/main/resources/static");
+    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "files_users");
 
     private Path createFilePath(long id, Path folder, String extension) {
         return folder.resolve("note-" + id + "." + extension);
@@ -36,16 +36,28 @@ public class UploadFileService implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/notes/**").addResourceLocations("file:" + FILES_FOLDER.toAbsolutePath().toString() + "/");
+        registry.addResourceHandler("/files_users/**").addResourceLocations("file:" + FILES_FOLDER.toAbsolutePath().toString() + "/");
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
 
     public ResponseEntity<Object> createResponseFromImage(String folderName, long id, String extension) throws MalformedURLException {
-
+    	String type="";
+    	
         Path folder = FILES_FOLDER.resolve(folderName);
 
         Resource file = new UrlResource(createFilePath(id, folder, extension).toUri());
 
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "notes/file").body(file);
+        switch(extension) {
+        case "txt":
+        	type = "text/plain";
+        	break;
+        case "pdf":
+        	type = "application/pdf";
+        	break;
+        case "docx":
+        	type ="application/msword";
+        	break;
+        }
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, type).body(file);
     }
 }

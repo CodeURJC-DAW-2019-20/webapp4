@@ -43,7 +43,7 @@ public class ImageService implements WebMvcConfigurer {
         Path folder = FILES_FOLDER.resolve(folderName);
 
         Resource file = new UrlResource(createFilePath(id, folder).toUri());
-
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "users/jpeg").body(file);
+        
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "application/jpeg").body(file);
     }
 }
