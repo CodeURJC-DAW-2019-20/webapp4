@@ -89,7 +89,7 @@ public class UserService {
         List<Score> scoreByNote;
         float auxMedia = 0;
         int numScores = 0;
-		List <User> listUsers = userRepository.findAllByRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
+		List <User> listUsers = userRepository.findAll();
         for (User userAux:listUsers){
             noteByUser = noteRepository.findAllByUser(userAux);
             for (Note auxNote:noteByUser) {
