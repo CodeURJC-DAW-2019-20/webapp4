@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
-import {User} from "./user.model";
+import {User} from "../model/user.model";
 
 @Component({
   selector: 'signUp',
-  templateUrl: './signUp.component.html'
+  templateUrl: '../html/signUp.component.html'
 })
 export class SignUpComponent {
 

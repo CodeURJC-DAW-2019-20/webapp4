@@ -1,10 +1,10 @@
 import {Component} from "@angular/core";
-import {User} from "./user.model";
-import {Note} from "./note.model";
+import {User} from "../model/user.model";
+import {Note} from "../model/note.model";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './profile.component.html',
+  templateUrl: '../html/profile.component.html',
 })
 export class ProfileComponent {
   user:User;

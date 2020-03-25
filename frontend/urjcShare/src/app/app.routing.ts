@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
-import {SignUpComponent} from "./signUp.component";
-import { ProfileComponent} from './profile.component';
+import {SignUpComponent} from "./components/signUp.component";
+import { ProfileComponent} from './components/profile.component';
 
 const appRoutes = [
  { path: 'profile', component: ProfileComponent },
