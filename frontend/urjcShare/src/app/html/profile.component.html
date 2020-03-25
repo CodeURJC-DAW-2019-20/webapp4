@@ -1,21 +1,20 @@
 <html>
 <body class="body bg-light">
+
 <div class="row-1">
   <div class="container emp-profile">
-    <form method="post">
       <div class="row">
         <div class="col-md-4">
           <div class="profile-img">
-            <img src='/images/users/image-{{user.id}}.jpg' alt=""/>
+            <img src='/images/users/image.jpg' alt=""/>
           </div>
         </div>
         <div class="col-md-6">
           <div class="profile-head">
-            <h2>{{user.name}}</h2>
+            <h2>Nombre</h2>
           </div>
         </div>
-        <button class="btn btn-primary" type="button"
-                data-toggle="modal" data-target="#modalEditProfile">Editar mi perfil</button>
+          <button class="btn btn-lg btn-primary" (click)="open()">Editar Perfil</button>
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -24,7 +23,7 @@
             <a href="https://www.urjc.es/">Universidad Rey Juan
               Carlos</a><br/>
             <p>Estudios</p>
-            <a href="">{{user.degree}}</a><br/>
+            <a href=""></a><br/>
           </div>
         </div>
         <div class="col-md-8">
@@ -35,7 +34,7 @@
               <label>Usuario</label>
             </div>
             <div class="col-md-6">
-              <p>{{user.nickname}}</p>
+              <p></p>
             </div>
           </div>
           <div class="row">
@@ -43,7 +42,7 @@
               <label>Nombre</label>
             </div>
             <div class="col-md-6">
-              <p>{{user.name}}</p>
+              <p></p>
             </div>
           </div>
           <div class="row">
@@ -51,7 +50,7 @@
               <label>Correo electrónico</label>
             </div>
             <div class="col-md-6">
-              <p>{{user.email}}</p>
+              <p></p>
             </div>
           </div>
           <div class="row">
@@ -59,13 +58,12 @@
               <label>Teléfono</label>
             </div>
             <div class="col-md-6">
-              <p>{{user.phoneNumber}}</p>
+              <p></p>
             </div>
           </div>
         </div>
 
       </div>
-    </form>
     <h4>Documentos subidos</h4>
     <hr>
     <div id="list-notes">
@@ -73,9 +71,9 @@
         <img class="card-img-profile" src="/img/1.png"
              alt="">
         <div class="card-body">
-          <h4 class="card-title">{{note.name}}</h4>
-          <p class="card-text">{{note.subject}}</p>
-          <p class="card-text">{{note.professor}}</p>
+          <h4 class="card-title"></h4>
+          <p class="card-text"></p>
+          <p class="card-text"></p>
         </div>
         <div class="card-footer">
           <a href="/notes/1" class="btn btn-primary">Ver más</a>

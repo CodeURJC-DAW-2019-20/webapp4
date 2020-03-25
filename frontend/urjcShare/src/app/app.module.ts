@@ -5,16 +5,22 @@ import { routing } from './app.routing';
 import { AppComponent } from './components/app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EditModalComponent } from './components/editModal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,
     routing,
     NgbModule
   ],
+  entryComponents:[
+    EditModalComponent
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title">Editar Perfil</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="modal-body">
+    <div class="container pt-3">
+      <div class="row justify-content-center">
+        <div class="col-12 justify-content-center">
+          <form class="form-signup" action="/editProfile" method="post"
+                enctype="multipart/form-data">
+            <div class="col-photo">
+              <div class="profile-img">
+                <img src='/images/users/image-.jpg' alt=""/>
+                <div class="file btn btn-lg btn-primary">
+                  Change Photo
+                  <input type="file" name="imagenFile"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-label-group">
+              <input type="text" name="nickname" id="inputUser" class="form-control"
+                     placeholder="Usuario" value="">
+              <label for="inputUser">Usuario</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="email" name="email" id="inputEmail" class="form-control"
+                     placeholder="Correo electrónico" value="">
+              <label for="inputEmail">Correo electrónico</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" name="passwordHash" id="inputPassword" class="form-control"
+                     placeholder="Contraseña" value="">
+              <label for="inputPassword">Contraseña</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="text" name="name" id="inputName" value="" class="form-control" placeholder="Nombre">
+              <label for="inputName">Nombre</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="text" name="degree" value="" id="inputDegree" class="form-control"
+                     placeholder="Grado matriculado">
+              <label for="inputDegree">Grado matriculado</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="tel" name="number" value="" id="inputPhoneNumber" class="form-control"
+                     placeholder="Número de teléfono">
+              <label for="inputPhoneNumber">Número de teléfono</label>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>
