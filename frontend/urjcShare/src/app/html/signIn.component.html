@@ -1,0 +1,40 @@
+<html>
+<body class="h-100 bg-light">
+<!-- Login Content -->
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-6 card card-signin justify-content-center">
+      <div class="card-body">
+        <h5 class="card-title text-center text-primary">Iniciar sesión</h5>
+        <form class="form-signin" action="/loginUser" method="post">
+          <div class="form-label-group">
+            <input type="text" name="nickname" id="inputNickname" class="form-control"
+                   placeholder="User" required autofocus> <label
+            for="inputNickname">Usuario</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" name="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required> <label
+            for="inputPassword">Contraseña</label>
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-primary  text-uppercase" type="submit">Iniciar
+              Sesión
+            </button>
+          </div>
+        </form>
+        <hr>
+        <div id="formFooter" class="text-center">
+          <a class="underlineHover" href="#">¿No tienes cuenta?
+            Registrate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
