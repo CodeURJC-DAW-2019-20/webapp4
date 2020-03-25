@@ -1,0 +1,33 @@
+<html>
+<body class="h-100 bg-light">
+
+<!-- List Degrees Content -->
+<div class="container pt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 card card-signup justify-content-center">
+      <div class="card-body">
+        <h5 class="card-title text-center text-primary">Lista de
+          grados encontrados para: {{degreeSearched}}</h5>
+        <!-- List of degrees -->
+
+        <div class="ml-3" id="father">
+          <div class="" id="son">
+            <ul class="list-group list-group-flush" id="list2">
+              <div *ngIf="degrees; else emptyList">
+                <li *ngFor="let degree of degrees" class="border list-group-item rounded"><a
+                  href="" class="w-100 text-decoration-none">
+                  <div id="name">ID: {{degree.id}}</div>
+                  <div id="degree">Grado: {{degree.name}}</div>
+                </a></li>
+              </div>
+              <h3 #emptyList class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
