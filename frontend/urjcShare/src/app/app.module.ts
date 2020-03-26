@@ -6,11 +6,13 @@ import { AppComponent } from './components/app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './components/editModal.component';
+import {ModalAdminComponent} from "./components/modalAdmin.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditModalComponent
+    EditModalComponent,
+    ModalAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,10 +20,12 @@ import { EditModalComponent } from './components/editModal.component';
     NgbModule
   ],
   entryComponents:[
-    EditModalComponent
+    EditModalComponent,
+    ModalAdminComponent
   ],
-
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
