@@ -7,12 +7,14 @@ import { AppComponent } from './components/app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditModalComponent,
     ModalAdminComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
