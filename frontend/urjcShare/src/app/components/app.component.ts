@@ -5,7 +5,7 @@ import {ModalAdminComponent} from "./modalAdmin.component";
 @Component({
   selector: 'app-root',
   templateUrl: '../html/app.component.html',
-  styles: ['#main-view {margin-top: 5em}']
+  styles: ['#main-view {margin: 5em auto}']
 })
 export class AppComponent {
   title = 'urjcShare';

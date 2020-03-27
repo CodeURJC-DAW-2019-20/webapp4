@@ -14,7 +14,7 @@ const appRoutes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'signIn', component: SignInComponent},
   {path: 'degrees', component: DegreeListComponent },
-  {path: 'index', component: IndexComponent},
+  {path: '', component: IndexComponent},
   {path: 'login-error', component: LoginerrorComponent},
   {path: 'error', component: ErrorComponent},
   {path: 'user-error', component: UserExistErrorComponent}

@@ -8,6 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav/nav.component';
+import { NotasComponent } from './components/notas/notas.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavComponent } from './components/nav/nav.component';
     EditModalComponent,
     ModalAdminComponent,
     NavComponent,
+    NotasComponent,
   ],
   imports: [
     BrowserModule,

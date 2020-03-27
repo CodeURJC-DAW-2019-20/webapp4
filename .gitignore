@@ -27,6 +27,9 @@ hs_err_pid*
 
 ### bin ###
 bin/
+### target ###
+target/
 
 backend/target/
 backend/.settings/
+/.idea/sonarlint/
