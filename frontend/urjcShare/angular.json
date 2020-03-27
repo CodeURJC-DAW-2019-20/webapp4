@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "urjcShare"
+    }
+  },
+  "defaultProject": "urjcShare",
+  "cli": {
+    "analytics": "266334fc-c54e-4b7d-b406-693506fd2f93"
+  }
 }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-notas',
-  templateUrl: './notas.component.html',
-  styleUrls: ['./notas.component.css']
+  templateUrl: '../html/notas.component.html',
+  styleUrls: ['../css/notas.component.css']
 })
 export class NotasComponent implements OnInit {
 

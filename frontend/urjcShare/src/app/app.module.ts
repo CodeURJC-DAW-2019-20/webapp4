@@ -7,8 +7,8 @@ import { AppComponent } from './components/app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
-import { NavComponent } from './components/nav/nav.component';
-import { NotasComponent } from './components/notas/notas.component';
+import { NavComponent } from './components/nav.component';
+import { NotasComponent } from './components/notas.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 
 @NgModule({
