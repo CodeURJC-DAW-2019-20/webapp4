@@ -9,6 +9,7 @@ import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav/nav.component';
 import { NotasComponent } from './components/notas/notas.component';
+import { SubjectsComponent } from './components/subjects/subjects.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { NotasComponent } from './components/notas/notas.component';
     ModalAdminComponent,
     NavComponent,
     NotasComponent,
+    SubjectsComponent,
+
   ],
   imports: [
     BrowserModule,
