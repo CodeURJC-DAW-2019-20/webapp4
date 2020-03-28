@@ -1,3 +1,4 @@
+
 export interface User {
   id?: number;
   name: string;
@@ -5,5 +6,6 @@ export interface User {
   degree: string;
   nickname: string;
   email: string;
-  phoneNumber: string;
+  number: string;
+  roles: string[];
 }

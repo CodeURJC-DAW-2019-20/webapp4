@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-title text-center text-primary">Registrarse</h5>
 
-        <form class="form-signup" action="/createUser" method="post" enctype="multipart/form-data">
+        <form class="form-signup">
 
           <div class="profile-img">
             <img src="assets/images/profile.png" alt=""/>
@@ -18,40 +18,40 @@
           </div>
 
           <div class="form-label-group">
-            <input type="text" name="nickname" id="inputUser" class="form-control"
+            <input [(ngModel)]="user.nickname" type="text" name="nickname" id="inputUser" class="form-control"
                    placeholder="Usuario" required autofocus><label
             for="inputUser">Usuario*</label>
           </div>
 
           <div class="form-label-group">
-            <input type="email" name="email" id="inputEmail" class="form-control"
+            <input [(ngModel)]="user.email" type="email" name="email" id="inputEmail" class="form-control"
                    placeholder="Correo electrónico" required autofocus> <label
             for="inputEmail">Correo electrónico*</label>
           </div>
 
           <div class="form-label-group">
-            <input type="password" name="passwordHash" id="inputPassword" class="form-control"
+            <input [(ngModel)]="user.passwordHash" type="password" name="passwordHash" id="inputPassword" class="form-control"
                    placeholder="Contraseña" required autofocus> <label
             for="inputPassword">Contraseña*</label>
           </div>
           <div class="form-label-group">
-            <input type="text" name="name" id="inputName" class="form-control"
+            <input [(ngModel)]="user.name" type="text" name="name" id="inputName" class="form-control"
                    placeholder="Nombre" required autofocus> <label
             for="inputName">Nombre*</label>
           </div>
 
           <div class="form-label-group">
-            <input type="text" name="degree" id="inputDegree" class="form-control"
+            <input [(ngModel)]="user.degree" type="text" name="degree" id="inputDegree" class="form-control"
                    placeholder="Grado matriculado" required autofocus> <label
             for="inputDegree">Grado matriculado*</label>
           </div>
           <div class="form-label-group">
-            <input type="text" name="number" id="inputPhoneNumber" class="form-control"
+            <input [(ngModel)]="user.number" type="text" name="number" id="inputPhoneNumber" class="form-control"
                    placeholder="Número de teléfono" autofocus> <label
             for="inputPhoneNumber">Número de teléfono</label>
           </div>
           <div class="text-center">
-            <button class="btn btn-primary  text-uppercase" type='submit' value='Enviar'>Registrarse</button>
+            <button (click)="save()" class="btn btn-primary  text-uppercase" type='submit' value='Enviar'>Registrarse</button>
           </div>
         </form>
       </div>
