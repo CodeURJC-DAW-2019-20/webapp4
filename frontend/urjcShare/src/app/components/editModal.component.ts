@@ -24,7 +24,7 @@ export class EditModalComponent implements OnInit{
   }
   constructor(private userService: UserService, private router:Router, public activeModal: NgbActiveModal) {}
   editUser(){
-    console.log(this.user)
+    console.log(this.user)//TODO
     this.user.id=28; //This must be currentUser.id tu edit his profile
     this.userService.addUser(this.user).subscribe(
       user => { },
