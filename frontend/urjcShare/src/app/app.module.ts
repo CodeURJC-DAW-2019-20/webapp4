@@ -29,6 +29,16 @@ import { RankingComponent } from './components/ranking.component';
     ModalAdminComponent,
     NavComponent,
     NotasComponent,
+    SignInComponent,
+    SignUpComponent,
+    DegreeListComponent,
+    ErrorComponent,
+    IndexComponent,
+    LoginerrorComponent,
+    ProfileComponent,
+    UserExistErrorComponent,
+    SubjectsComponent,
+    RankingComponent
   ],
   imports: [
     FormsModule,

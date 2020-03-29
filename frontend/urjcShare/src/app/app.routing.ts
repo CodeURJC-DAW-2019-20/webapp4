@@ -20,7 +20,9 @@ const appRoutes = [
   {path: '', component: IndexComponent},
   {path: 'login-error', component: LoginerrorComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'user-error', component: UserExistErrorComponent}
+  {path: 'user-error', component: UserExistErrorComponent},
+  {path: 'ranking', component: RankingComponent},
+  {path: 'subjects', component: SubjectsComponent}
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
