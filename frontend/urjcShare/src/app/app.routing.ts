@@ -8,6 +8,7 @@ import {LoginerrorComponent} from "./components/loginerror.component";
 import {ErrorComponent} from "./components/error.component";
 import {UserExistErrorComponent} from "./components/userExistError.component";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
+import {RankingComponent} from "./components/ranking.component";
 
 
 
@@ -19,8 +20,7 @@ const appRoutes = [
   {path: '', component: IndexComponent},
   {path: 'login-error', component: LoginerrorComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'user-error', component: UserExistErrorComponent},
-  {path: 'subjects', component: SubjectsComponent}
+  {path: 'user-error', component: UserExistErrorComponent}
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);

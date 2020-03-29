@@ -20,6 +20,7 @@ import {LoginerrorComponent} from "./components/loginerror.component";
 import {ProfileComponent} from "./components/profile.component";
 import {UserExistErrorComponent} from "./components/userExistError.component";
 import { SubjectsComponent } from './components/subjects/subjects.component';
+import { RankingComponent } from './components/ranking.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +29,6 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
     ModalAdminComponent,
     NavComponent,
     NotasComponent,
-    SignInComponent,
-    SignUpComponent,
-    DegreeListComponent,
-    ErrorComponent,
-    IndexComponent,
-    LoginerrorComponent,
-    ProfileComponent,
-    UserExistErrorComponent,
-    SubjectsComponent,
   ],
   imports: [
     FormsModule,
