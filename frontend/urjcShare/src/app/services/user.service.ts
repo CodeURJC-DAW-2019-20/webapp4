@@ -25,7 +25,6 @@ export class UserService{
 
   addUser(user: User) {
     return this.httpClient.post(BASE_URL, user).pipe(
-      
       catchError(error => this.handleError(error))
     );
   }

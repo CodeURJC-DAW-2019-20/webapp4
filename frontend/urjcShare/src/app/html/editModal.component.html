@@ -21,42 +21,45 @@
               </div>
             </div>
             <div class="form-label-group">
-              <input type="text" name="nickname" id="inputUser" class="form-control"
+              <input [(ngModel)]="user.nickname" type="text" name="nickname" id="inputUser" class="form-control"
                      placeholder="Usuario" value="">
               <label for="inputUser">Usuario</label>
             </div>
 
             <div class="form-label-group">
-              <input type="email" name="email" id="inputEmail" class="form-control"
+              <input [(ngModel)]="user.email" type="email" name="email" id="inputEmail" class="form-control"
                      placeholder="Correo electrónico" value="">
               <label for="inputEmail">Correo electrónico</label>
             </div>
 
             <div class="form-label-group">
-              <input type="password" name="passwordHash" id="inputPassword" class="form-control"
+              <input [(ngModel)]="user.passwordHash" type="password" name="passwordHash" id="inputPassword"
+                     class="form-control"
                      placeholder="Contraseña" value="">
               <label for="inputPassword">Contraseña</label>
             </div>
 
             <div class="form-label-group">
-              <input type="text" name="name" id="inputName" value="" class="form-control" placeholder="Nombre">
+              <input [(ngModel)]="user.name" type="text" name="name" id="inputName" value="" class="form-control"
+                     placeholder="Nombre">
               <label for="inputName">Nombre</label>
             </div>
 
             <div class="form-label-group">
-              <input type="text" name="degree" value="" id="inputDegree" class="form-control"
+              <input [(ngModel)]="user.degree" type="text" name="degree" value="" id="inputDegree" class="form-control"
                      placeholder="Grado matriculado">
               <label for="inputDegree">Grado matriculado</label>
             </div>
 
             <div class="form-label-group">
-              <input type="tel" name="number" value="" id="inputPhoneNumber" class="form-control"
+              <input [(ngModel)]="user.number" type="tel" name="number" value="" id="inputPhoneNumber"
+                     class="form-control"
                      placeholder="Número de teléfono">
               <label for="inputPhoneNumber">Número de teléfono</label>
             </div>
 
             <div class="text-center">
-              <button class="btn btn-primary" type="submit">Guardar</button>
+              <button (click)="editUser()" class="btn btn-primary" type="submit">Guardar</button>
             </div>
           </form>
 

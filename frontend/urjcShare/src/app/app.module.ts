@@ -35,7 +35,7 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
     IndexComponent,
     LoginerrorComponent,
     ProfileComponent,
-    UserExistErrorComponent
+    UserExistErrorComponent,
     SubjectsComponent,
   ],
   imports: [
