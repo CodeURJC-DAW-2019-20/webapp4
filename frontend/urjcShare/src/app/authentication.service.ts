@@ -26,7 +26,7 @@ export class AuthenticationService {
     console.log(this.logged, " is logged")
     this.user = user;
     console.log(user, " user")
-    // this.admin = user.roles.indexOf('ROLE_ADMIN') !== -1;
+    this.admin = user.roles.indexOf('ROLE_ADMIN') !== -1;
     console.log(this.admin, " is admin")
   }
 
