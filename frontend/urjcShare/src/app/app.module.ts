@@ -5,12 +5,13 @@ import { routing } from './app.routing';
 import { AppComponent } from './components/app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav.component';
-import { NotasComponent } from './components/notas.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NotesComponent } from './components/notes.component';
 import {SignInComponent} from "./components/signIn.component";
 import {SignUpComponent} from "./components/signUp.component";
 import {DegreeListComponent} from "./components/degree-list.component";
@@ -27,7 +28,7 @@ import { RankingComponent } from './components/ranking.component';
     EditModalComponent,
     ModalAdminComponent,
     NavComponent,
-    NotasComponent,
+    NotesComponent,
     SignInComponent,
     SignUpComponent,
     DegreeListComponent,
@@ -45,7 +46,8 @@ import { RankingComponent } from './components/ranking.component';
     BrowserModule,
     routing,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   entryComponents:[
     EditModalComponent,

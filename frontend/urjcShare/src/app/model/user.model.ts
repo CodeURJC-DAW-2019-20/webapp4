@@ -1,3 +1,5 @@
+import {Score} from "./score.model";
+import {Note} from "./note.model";
 
 export interface User {
   id?: number;
@@ -7,6 +9,10 @@ export interface User {
   nickname: string;
   email: string;
   number: string;
+  notes: Note[];
   roles: string[];
   authdata?:string;
+  scores: Score[];
+  media: number;
+  image: boolean;
 }
