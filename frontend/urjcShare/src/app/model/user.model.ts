@@ -8,4 +8,5 @@ export interface User {
   email: string;
   number: string;
   roles: string[];
+  authdata?:string;
 }

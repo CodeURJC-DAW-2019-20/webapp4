@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../model/user.model";
 import {catchError} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 const BASE_URL = 'api/users/';
 
@@ -11,6 +12,9 @@ export class UserService{
 
   constructor(private httpClient: HttpClient) { }
 
+  getAll() {
+    return this.httpClient.get<User[]>(`${environment.apiUrl}/users`);
+  }
   getUsers(): Observable<User[]> {
     return this.httpClient.get(BASE_URL).pipe(
       catchError(error => this.handleError(error))

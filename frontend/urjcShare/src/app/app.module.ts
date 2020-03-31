@@ -9,8 +9,8 @@ import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav.component';
 import { NotasComponent } from './components/notas.component';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SignInComponent} from "./components/signIn.component";
 import {SignUpComponent} from "./components/signUp.component";
 import {DegreeListComponent} from "./components/degree-list.component";
@@ -21,7 +21,6 @@ import {ProfileComponent} from "./components/profile.component";
 import {UserExistErrorComponent} from "./components/userExistError.component";
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { RankingComponent } from './components/ranking.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +41,7 @@ import { RankingComponent } from './components/ranking.component';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     routing,
     NgbModule,
@@ -51,7 +51,9 @@ import { RankingComponent } from './components/ranking.component';
     EditModalComponent,
     ModalAdminComponent
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [
     AppComponent
   ]

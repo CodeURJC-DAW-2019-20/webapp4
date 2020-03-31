@@ -19,7 +19,7 @@ public class Note {
     public interface BasicViewSubject {}
     public interface BasicViewUser{}
     public interface BasicViewNote {}
-
+    public interface UserLogin{}
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView({BasicViewSubject.class, BasicViewUser.class, BasicViewNote.class})

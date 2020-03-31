@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {ModalAdminComponent} from "./modalAdmin.component";
+import {User} from "../model/user.model";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,8 @@ import {ModalAdminComponent} from "./modalAdmin.component";
 export class AppComponent {
   title = 'urjcShare';
   modalOptions: NgbModalOptions;
-
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
   ){
     this.modalOptions = {
       backdrop:'static',

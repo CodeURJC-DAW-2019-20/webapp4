@@ -10,21 +10,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
-
-    @JsonView({BasicView.class})
+	
+	
+    @JsonView({BasicView.class, UserLogin.class})
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String name;
     private String passwordHash;
     @JsonView({BasicView.class, BasicViewUserForNote.class})
     private String degree;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String nickname;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class,  UserLogin.class})
     private String email;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private Integer number;
     @JsonView({BasicView.class})
     private boolean image;
@@ -33,11 +34,13 @@ public class User {
     public interface BasicView {}
     public interface BasicViewSubject{}
     public interface BasicViewUserForNote {}
+    public interface UserLogin{}
 
     @JsonView({BasicView.class})
     @OneToMany(mappedBy = "user")
     private List<Note> notes = new ArrayList<>();
-    
+
+    @JsonView({BasicView.class, UserLogin.class})
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
     

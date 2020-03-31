@@ -21,4 +21,15 @@ public class UserComponent {
     public boolean isEntityUser() {
     	return this.entityUser != null;
     }
+    public User getLoggedUser() {
+		return this.entityUser;
+	}
+
+	public void setLoggedUser(User user) {
+		this.entityUser = user;
+	}
+
+	public boolean isLoggedUser() {
+		return this.entityUser != null;
+	}
 }

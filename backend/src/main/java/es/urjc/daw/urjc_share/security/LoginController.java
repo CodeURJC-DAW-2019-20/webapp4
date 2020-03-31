@@ -10,7 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.daw.urjc_share.component.UserComponent;
+import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
 
 @RestController
@@ -20,30 +23,34 @@ public class LoginController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	interface LoginView extends User.UserLogin {
+    }
 	
+    @JsonView(LoginView.class)
 	@RequestMapping("/api/logIn")
-	public ResponseEntity<User> logIn(){
+	public ResponseEntity<User> logIn() {
 		
-		if(!userComponent.isEntityUser()) {
-			log.info("Usuario no registrado");
+		if (!userComponent.isLoggedUser()) {
+			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}else {
-			User loggedUser = userComponent.getEntityUser();
-			log.info("Registrado como " + loggedUser.getName());
+		} else {
+			User loggedUser = userComponent.getLoggedUser();
+			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
 	}
-	
+
 	@RequestMapping("/api/logOut")
-	public ResponseEntity<Boolean> logOut(HttpSession session){
-		
-		if(!userComponent.isEntityUser()) {
-			log.info("Ningún usuario ha iniciado sesión");
+	public ResponseEntity<Boolean> logOut(HttpSession session) {
+
+		if (!userComponent.isLoggedUser()) {
+			log.info("No user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}else {
+		} else {
 			session.invalidate();
-			log.info("Desconectado");
-			return new ResponseEntity<>(HttpStatus.OK);
+			log.info("Logged out");
+			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
+
 }
