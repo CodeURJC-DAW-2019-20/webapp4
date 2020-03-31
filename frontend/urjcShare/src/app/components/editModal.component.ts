@@ -20,7 +20,12 @@ export class EditModalComponent implements OnInit{
       nickname: ' ',
       email: ' ',
       number: ' ',
-      roles: ["ROLE_USER"]};
+      notes: [],
+      roles: ["ROLE_USER"],
+      scores: [],
+      media: 0,
+      image: false
+    };
   }
   constructor(private userService: UserService, private router:Router, public activeModal: NgbActiveModal) {}
   editUser(){

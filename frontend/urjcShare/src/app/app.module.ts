@@ -5,6 +5,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './components/app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav.component';
@@ -45,7 +46,8 @@ import { RankingComponent } from './components/ranking.component';
     BrowserModule,
     routing,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   entryComponents:[
     EditModalComponent,

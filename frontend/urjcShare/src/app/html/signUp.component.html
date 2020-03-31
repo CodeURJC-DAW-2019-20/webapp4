@@ -3,17 +3,17 @@
 <!-- Sign up Content -->
 <div class="container pt-3">
   <div class="row justify-content-center">
+    <ngx-spinner type="line-scale-party" color="#007bff"></ngx-spinner>
     <div class="col-6 card card-signup justify-content-center">
       <div class="card-body">
         <h5 class="card-title text-center text-primary">Registrarse</h5>
 
         <form class="form-signup">
-
           <div class="profile-img">
             <img src="assets/images/profile.png" alt=""/>
             <div class="file btn btn-lg btn-primary">
               Change Photo
-              <input type="file" name='imagenFile' accept=".jpg, .jpeg"/>
+              <input (change)="changeFile($event.target.files)" type="file" name='imagenFile' accept=".jpg, .jpeg"/>
             </div>
           </div>
 
