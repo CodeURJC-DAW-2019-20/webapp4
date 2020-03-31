@@ -8,7 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './components/editModal.component';
 import {ModalAdminComponent} from "./components/modalAdmin.component";
 import { NavComponent } from './components/nav.component';
-import { NotasComponent } from './components/notas.component';
+import { NotesComponent } from './components/notes.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {SignInComponent} from "./components/signIn.component";
@@ -28,7 +28,7 @@ import { RankingComponent } from './components/ranking.component';
     EditModalComponent,
     ModalAdminComponent,
     NavComponent,
-    NotasComponent,
+    NotesComponent,
     SignInComponent,
     SignUpComponent,
     DegreeListComponent,

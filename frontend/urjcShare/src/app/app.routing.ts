@@ -9,6 +9,7 @@ import {ErrorComponent} from "./components/error.component";
 import {UserExistErrorComponent} from "./components/userExistError.component";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {RankingComponent} from "./components/ranking.component";
+import {NotesComponent} from "./components/notes.component";
 
 
 
@@ -22,7 +23,9 @@ const appRoutes = [
   {path: 'error', component: ErrorComponent},
   {path: 'user-error', component: UserExistErrorComponent},
   {path: 'ranking', component: RankingComponent},
-  {path: 'subjects', component: SubjectsComponent}
+  {path: 'subjects', component: SubjectsComponent},
+  {path: 'note/:id', component: NotesComponent}
+
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
