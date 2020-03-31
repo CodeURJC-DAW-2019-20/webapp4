@@ -4,8 +4,8 @@ import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-notes',
-  templateUrl: '../html/notes.component.html',
-  styleUrls: ['../css/notes.component.css']
+  templateUrl: './notes.component.html',
+  styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
   note

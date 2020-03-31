@@ -2,8 +2,8 @@ import { Component} from '@angular/core';
 
 @Component({
   selector:'index',
-  templateUrl: '../html/index.component.html',
-  styleUrls: ['../css/index.component.css']
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
 

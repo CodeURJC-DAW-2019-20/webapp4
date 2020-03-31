@@ -2,26 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { routing } from './app.routing';
-import { AppComponent } from './components/app.component';
+import { AppComponent } from './components/app/app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { EditModalComponent } from './components/editModal.component';
-import {ModalAdminComponent} from "./components/modalAdmin.component";
-import { NavComponent } from './components/nav.component';
+import { EditModalComponent } from './components/editModal/editModal.component';
+import {ModalAdminComponent} from "./components/modalAdmin/modalAdmin.component";
+import { NavComponent } from './components/nav/nav.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { NotesComponent } from './components/notes.component';
-import {SignInComponent} from "./components/signIn.component";
-import {SignUpComponent} from "./components/signUp.component";
-import {DegreeListComponent} from "./components/degree-list.component";
-import {ErrorComponent} from "./components/error.component";
-import {IndexComponent} from "./components/index.component";
-import {LoginerrorComponent} from "./components/loginerror.component";
-import {ProfileComponent} from "./components/profile.component";
-import {UserExistErrorComponent} from "./components/userExistError.component";
+import { NotesComponent } from './components/notes/notes.component';
+import {SignInComponent} from "./components/signIn/signIn.component";
+import {SignUpComponent} from "./components/signUp/signUp.component";
+import {DegreeListComponent} from "./components/degree/degree-list.component";
+import {ErrorComponent} from "./components/error/error.component";
+import {IndexComponent} from "./components/index/index.component";
+import {LoginerrorComponent} from "./components/loginerror/loginerror.component";
+import {ProfileComponent} from "./components/profile/profile.component";
+import {UserExistErrorComponent} from "./components/userExistError/userExistError.component";
 import { SubjectsComponent } from './components/subjects/subjects.component';
-import { RankingComponent } from './components/ranking.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 @NgModule({
   declarations: [
     AppComponent,

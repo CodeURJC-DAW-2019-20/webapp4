@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
-import {ModalAdminComponent} from "./modalAdmin.component";
-import {User} from "../model/user.model";
+import {ModalAdminComponent} from "../modalAdmin/modalAdmin.component";
+import {User} from "../../model/user.model";
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../html/app.component.html',
+  templateUrl: './app.component.html',
   styles: ['#main-view {margin: 5em auto}']
 })
 export class AppComponent {

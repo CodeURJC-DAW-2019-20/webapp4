@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
-import {Degree} from "../model/degree.model";
+import {Degree} from "../../model/degree.model";
 
 @Component({
   selector: 'degreeList',
-  templateUrl: '../html/degree-list.component.html'
+  templateUrl: './degree-list.component.html'
 })
 export class DegreeListComponent {
 

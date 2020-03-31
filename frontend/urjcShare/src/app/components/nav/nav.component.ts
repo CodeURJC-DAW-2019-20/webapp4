@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ModalAdminComponent} from "./modalAdmin.component";
+import {ModalAdminComponent} from "../modalAdmin/modalAdmin.component";
 import {NgbModal, NgbModalOptions} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-nav',
-  templateUrl: '../html/nav.component.html',
-  styleUrls: ['../css/nav.component.css']
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
   private modalOptions: NgbModalOptions;

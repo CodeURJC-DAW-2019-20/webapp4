@@ -1,10 +1,10 @@
 import { Component} from '@angular/core';
-import {Degree} from "../model/degree.model";
+import {Degree} from "../../model/degree.model";
 
 @Component({
   selector:'ranking',
-  templateUrl: '../html/ranking.component.html',
-  styleUrls: ['../css/ranking.component.css']
+  templateUrl: './ranking.component.html',
+  styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent {
 

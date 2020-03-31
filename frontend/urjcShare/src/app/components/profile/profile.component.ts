@@ -1,13 +1,13 @@
 import {Component} from "@angular/core";
-import {User} from "../model/user.model";
-import {Note} from "../model/note.model";
-import {EditModalComponent} from "./editModal.component";
+import {User} from "../../model/user.model";
+import {Note} from "../../model/note.model";
+import {EditModalComponent} from "../editModal/editModal.component";
 import {NgbModal, NgbModalOptions} from "@ng-bootstrap/ng-bootstrap";
-import {AuthenticationService} from "../authentication.service";
+import {AuthenticationService} from "../../authentication.service";
 
 @Component({
   selector: 'profile',
-  templateUrl: '../html/profile.component.html',
+  templateUrl: './profile.component.html',
   styles: ['.btn { margin-bottom:auto }']
 })
 export class ProfileComponent {

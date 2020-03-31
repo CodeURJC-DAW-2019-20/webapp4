@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'modalAdmin',
-  templateUrl: '../html/modalAdmin.component.html',
+  templateUrl: './modalAdmin.component.html',
 })
 export class ModalAdminComponent {
 
