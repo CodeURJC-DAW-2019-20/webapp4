@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from "./model/user.model";
+import {Observable} from "rxjs";
 
 
 @Injectable({providedIn: 'root'})
@@ -35,7 +35,14 @@ export class AuthenticationService {
     this.logged = false;
     this.admin = false;
   }
-
+  getUser():User{
+    if(localStorage.getItem('currentUser')){
+      this.user = JSON.parse(localStorage.getItem('currentUser'));
+    }else{
+      this.user=null;
+    }
+    return this.user;
+  }
   login(user: string, pass: string) {
 
     let auth = window.btoa(user + ':' + pass);
@@ -59,7 +66,8 @@ export class AuthenticationService {
       }));
   }
 
-  logout() {
+  logOut() {
+    localStorage.removeItem('currentUser');
     this.removeCurrentUser();
   }
 }

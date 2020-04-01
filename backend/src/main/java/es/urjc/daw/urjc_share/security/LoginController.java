@@ -30,11 +30,11 @@ public class LoginController {
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
 		
-		if (!userComponent.isLoggedUser()) {
+		if (!userComponent.isEntityUser()) {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
-			User loggedUser = userComponent.getLoggedUser();
+			User loggedUser = userComponent.getEntityUser();
 			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
@@ -43,7 +43,7 @@ public class LoginController {
 	@RequestMapping("/api/logOut")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
-		if (!userComponent.isLoggedUser()) {
+		if (!userComponent.isEntityUser()) {
 			log.info("No user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
