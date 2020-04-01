@@ -12,7 +12,7 @@ export class SubjectService{
   constructor(private httpClient: HttpClient) { }
 
   getSubjectByDegreeId(id: number | string){
-    return this.httpClient.get('api/degrees/' + id + '/subject').pipe(
+    return this.httpClient.get('api/degrees/' + id + '/subjects').pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Subject[]>;
   }

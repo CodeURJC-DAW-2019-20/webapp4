@@ -22,4 +22,10 @@ export class DegreeService{
     console.error(error);
     return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
+
+  getDegrees(): Observable<Degree[]>{
+    return  this.httpClient.get(BASE_URL).pipe(
+      catchError( error => this.handleError(error))
+    )as Observable<Degree[]>
+  }
 }

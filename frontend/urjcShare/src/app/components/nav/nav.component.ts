@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalAdminComponent} from "../modalAdmin/modalAdmin.component";
 import {NgbModal, NgbModalOptions} from "@ng-bootstrap/ng-bootstrap";
+import {ModalUploadNoteModule} from "../modal-upload-note/modal-upload-note.module";
 
 @Component({
   selector: 'app-nav',
@@ -23,7 +24,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  open() {
+  openAdmin() {
     this.modalService.open(ModalAdminComponent);
+
+  }
+  openUploadNote() {
+    this.modalService.open(ModalUploadNoteModule);
+
   }
 }

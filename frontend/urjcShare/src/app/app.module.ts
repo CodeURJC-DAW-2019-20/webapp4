@@ -22,6 +22,8 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {UserExistErrorComponent} from "./components/userExistError/userExistError.component";
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import {ModalUploadNoteModule} from "./components/modal-upload-note/modal-upload-note.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { RankingComponent } from './components/ranking/ranking.component';
     ProfileComponent,
     UserExistErrorComponent,
     SubjectsComponent,
-    RankingComponent
+    RankingComponent,
+    ModalUploadNoteModule
   ],
   imports: [
     FormsModule,
@@ -51,7 +54,8 @@ import { RankingComponent } from './components/ranking/ranking.component';
   ],
   entryComponents:[
     EditModalComponent,
-    ModalAdminComponent
+    ModalAdminComponent,
+    ModalUploadNoteModule
   ],
   providers: [
 
