@@ -20,11 +20,8 @@ export class SignInComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     // redirect to home if already logged in
-
     if (this.authenticationService.logged) {
-      console.log("quiero borrarte")
-      this.authenticationService.logout();
-      this.router.navigate(['/']);
+      this.authenticationService.logOut();
     }
   }
 
