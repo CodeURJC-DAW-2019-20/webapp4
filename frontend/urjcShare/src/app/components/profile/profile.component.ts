@@ -20,7 +20,7 @@ export class ProfileComponent {
     private modalService: NgbModal,
     private authenticationService: AuthenticationService
   ){
-    this.user=this.authenticationService.user;
+    this.user=this.authenticationService.getUser();
     this.modalOptions = {
       backdrop:'static',
       backdropClass:'customBackdrop'

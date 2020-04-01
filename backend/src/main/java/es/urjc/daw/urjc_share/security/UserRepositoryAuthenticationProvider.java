@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.urjc.daw.urjc_share.component.UserComponent;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,7 +24,7 @@ import es.urjc.daw.urjc_share.model.User;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider{
-	
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -47,6 +50,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		}else {
 			
 			currentUser.setEntityUser(user);
+			log.info("currentUser: ",user.getNickname());
 			
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {
