@@ -5,17 +5,15 @@ import {catchError} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {Degree} from "../model/degree.model";
 
-const BASE_URL = 'api/degrees/';
+const BASE_URL = 'api/degrees';
 
 @Injectable({ providedIn: 'root' })
 export class DegreeService{
 
   constructor(private httpClient: HttpClient) { }
-
-
-  //Enviarle el nombre a la peticion
+  
   getDegreesByName(name: string): Observable<Degree[]> {
-    return this.httpClient.get(BASE_URL).pipe(
+    return this.httpClient.get(BASE_URL + "?name=" + name).pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Degree[]>;
   }
