@@ -45,7 +45,10 @@ export class SignUpComponent implements OnInit {
           error => console.error("Error al guardar la imagen: " + error)
         )
       },
-      error => console.error("Error al crear el usuario: " + error)
+      error => {
+        this.spinner.hide();
+        console.error("Error al crear el usuario: " + error)
+      }
     );
   }
 
