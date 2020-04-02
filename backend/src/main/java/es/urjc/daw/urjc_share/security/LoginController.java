@@ -22,7 +22,7 @@ public class LoginController {
 	
 	@Autowired
 	private UserComponent userComponent;
-	
+	private User logged;
 	interface LoginView extends User.UserLogin {
     }
 	
@@ -34,7 +34,7 @@ public class LoginController {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
-			
+			logged = userComponent.getEntityUser();
 			User loggedUser = userComponent.getEntityUser();
 			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
@@ -44,12 +44,12 @@ public class LoginController {
     @RequestMapping("/api/logOut")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
-		if (!userComponent.isEntityUser()) {
+		if (logged==null) {
 			log.info("No user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
 			session.invalidate();
-			log.info("Logged out");
+			log.info("Logged out as "+ logged.getNickname());
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}

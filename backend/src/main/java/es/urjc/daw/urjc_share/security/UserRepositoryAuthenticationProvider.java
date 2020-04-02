@@ -50,7 +50,6 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		}else {
 
 			userComponent.setEntityUser(user);
-			log.info("nickname: " + userComponent.getEntityUser().getNickname());
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {
