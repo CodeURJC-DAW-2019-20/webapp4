@@ -19,7 +19,7 @@
                  alt=""/>
             <div class="file btn btn-lg btn-primary">
               Examinar
-              <input type="file" name="file"/>
+              <input type="file" name="file" (change)="uploadFile($event)"/>
             </div>
           </div>
           <label>Grado:</label>
@@ -42,7 +42,7 @@
           </div>
           <div class="form-label-group">
             <input type="text" name="name" id="inputName" class="form-control"
-                   placeholder="Nombre" autofocus>
+                   placeholder="Nombre" [(ngModel)]="note.name" autofocus>
             <label for="inputName">Nombre</label>
           </div>
 
@@ -54,11 +54,11 @@
 
           <div class="form-label-group">
             <input type="text" name="professor" id="inputProf" class="form-control"
-                   placeholder="Profesor" autofocus>
+                   placeholder="Profesor" autofocus [(ngModel)]="note.professor">
             <label for="inputProf">Profesor</label>
           </div>
 
-          <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit">
+          <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit" (click)="save()" >
             Subir
           </button>
         </form>
