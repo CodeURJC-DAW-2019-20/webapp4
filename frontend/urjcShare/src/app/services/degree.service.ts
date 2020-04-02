@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {User} from "../model/user.model";
 import {catchError} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {Degree} from "../model/degree.model";
@@ -11,7 +10,19 @@ const BASE_URL = 'api/degrees';
 export class DegreeService{
 
   constructor(private httpClient: HttpClient) { }
-  
+
+  addDegree(degree: Degree): Observable<Degree> {
+    return this.httpClient.post(BASE_URL, degree).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<Degree>;
+  }
+
+  getDegrees(): Observable<Degree[]> {
+    return this.httpClient.get(BASE_URL).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<Degree[]>;
+  }
+
   getDegreesByName(name: string): Observable<Degree[]> {
     return this.httpClient.get(BASE_URL + "?name=" + name).pipe(
       catchError(error => this.handleError(error))
@@ -23,9 +34,4 @@ export class DegreeService{
     return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
 
-  getDegrees(): Observable<Degree[]>{
-    return  this.httpClient.get(BASE_URL).pipe(
-      catchError( error => this.handleError(error))
-    )as Observable<Degree[]>
-  }
 }

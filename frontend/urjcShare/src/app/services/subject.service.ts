@@ -17,7 +17,11 @@ export class SubjectService{
     ) as Observable<Subject[]>;
   }
 
-
+  addSubject(subject: Subject): Observable<Subject> {
+    return this.httpClient.post(BASE_URL, subject).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<Subject>;
+  }
 
 
   private handleError(error: any) {

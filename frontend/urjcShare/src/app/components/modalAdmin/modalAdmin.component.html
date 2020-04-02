@@ -20,10 +20,10 @@
                 <form class="form-signin">
                   <div class="form-group">
                     <label for="textDegree">Grado</label>
-                    <input type="text" class="form-control" id="textDegree" name="name">
+                    <input type="text" [(ngModel)]="degreeNameTab1" class="form-control" id="textDegree" name="name">
                   </div>
                   <div class="text-center">
-                    <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                    <button (click)="saveDegree()" class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
                   </div>
                 </form>
               </div>
@@ -46,16 +46,16 @@
                 <form class="form-signin">
                   <div class="form-group">
                     <label for="degree">Grado</label>
-                    <select id="degree" name="idDegree">
-                      <option value="Magisterio">Magisterio</option>
+                    <select id="degree" [(ngModel)]="degreeNameTab2" name="idDegree">
+                      <option *ngFor="let degree of degrees" [value]="degree.name">{{degree.name}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="textSubject">Asignatura</label>
-                    <input type="text" class="form-control" id="textSubject" name="nameSubject">
+                    <input type="text" [(ngModel)]="subjectName" class="form-control" id="textSubject" name="nameSubject">
                   </div>
                   <div class="text-center">
-                    <button class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                    <button (click)="saveSubject()" class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
                   </div>
                 </form>
               </div>
@@ -72,5 +72,5 @@
 </div>
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
 </div>
