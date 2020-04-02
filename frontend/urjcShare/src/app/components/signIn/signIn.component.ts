@@ -21,7 +21,8 @@ export class SignInComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.logged) {
-      this.authenticationService.logOut();
+      this.authenticationService.removeCurrentUser();
+      this.logout();
     }
   }
 
@@ -58,5 +59,14 @@ export class SignInComponent implements OnInit {
           this.error = error;
           this.loading = false;
         });
+  }
+  logout() {
+    this.authenticationService.logOut().subscribe(
+      (response) => {
+        this.authenticationService.removeCurrentUser();
+        this.router.navigate(['/']);
+      },
+      (error) => console.log('Error when trying to log out: ' + error),
+    );
   }
 }

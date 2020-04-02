@@ -5,15 +5,16 @@ import {AuthenticationService} from "./authentication.service";
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
-  constructor(private authenticationService: AuthenticationService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     // add authorization header with basic auth credentials if available
-    const currentUser = this.authenticationService.currentUserValue;
-    if (currentUser && currentUser.authdata) {
+    let user = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (user && user.authdata) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Basic ${currentUser.authdata}`
+          Authorization: `Basic ${user.authdata}`
         }
       });
     }

@@ -56,7 +56,6 @@ export class AuthenticationService {
       .pipe(map(user => {
 
         if (user) {
-          console.log(user);
           this.user = user;
           this.logged = true;
           user.authdata = auth;
@@ -67,7 +66,6 @@ export class AuthenticationService {
   }
 
   logOut() {
-    localStorage.removeItem('currentUser');
-    this.removeCurrentUser();
+    return this.http.get( '/api/logOut');
   }
 }

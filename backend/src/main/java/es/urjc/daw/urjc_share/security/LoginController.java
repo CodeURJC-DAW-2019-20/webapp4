@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.daw.urjc_share.component.UserComponent;
-import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
 
 @RestController
@@ -23,6 +22,7 @@ public class LoginController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
 	interface LoginView extends User.UserLogin {
     }
 	
@@ -34,13 +34,14 @@ public class LoginController {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
+			
 			User loggedUser = userComponent.getEntityUser();
 			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
 	}
 
-	@RequestMapping("/api/logOut")
+    @RequestMapping("/api/logOut")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
 		if (!userComponent.isEntityUser()) {

@@ -24,12 +24,12 @@ import es.urjc.daw.urjc_share.model.User;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider{
-	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	private UserRepository userRepository;
-	
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+
     @Autowired
-    private UserComponent currentUser;
+    private UserComponent userComponent;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -48,10 +48,10 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			
 			throw new BadCredentialsException("Wrong password");
 		}else {
-			
-			currentUser.setEntityUser(user);
-			log.info("currentUser: ",user.getNickname());
-			
+
+			userComponent.setEntityUser(user);
+			log.info("nickname: " + userComponent.getEntityUser().getNickname());
+
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {
 				roles.add(new SimpleGrantedAuthority(role));
