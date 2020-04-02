@@ -52,8 +52,8 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  changeFile(files: FileList) {
-    this.imageUser = files.item(0);
+  changeFile(event) {
+    this.imageUser = event.target.files[0];
   }
 
 }
