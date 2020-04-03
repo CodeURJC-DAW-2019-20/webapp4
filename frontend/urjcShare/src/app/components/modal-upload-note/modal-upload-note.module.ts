@@ -8,8 +8,6 @@ import {ImageService} from "../../services/image.service";
 import {NotesService} from "../../services/notes.service";
 import {Note} from "../../model/note.model";
 import {Router} from "@angular/router";
-import {User} from "../../model/user.model";
-import {Score} from "../../model/score.model";
 import {AuthenticationService} from "../../authentication.service";
 
 
@@ -21,10 +19,12 @@ import {AuthenticationService} from "../../authentication.service";
 })
 export class ModalUploadNoteModule implements OnInit {
   note: Note;
+  name: string;
+  professor: string;
   listDegrees: Degree[];
   degreeSelected: Degree ;
   listSubjects: Subject[];
-  subjectSelected: Subject;
+  subjectSelected: string;
   fileUser: File;
 
 
@@ -48,14 +48,6 @@ export class ModalUploadNoteModule implements OnInit {
       }
     );
 
-    this.note = {
-    name:'' ,
-    professor: '',
-    subject: this.subjectSelected,
-    user: this.authenticationService.user,
-    scores:[],
-    };
-
   }
 
   loadSubject(degree){
@@ -75,18 +67,33 @@ export class ModalUploadNoteModule implements OnInit {
   }
 
   save() {
-    this.notesService.addNote(this.note).subscribe(
-      note => {
-        this.fileService.uploadFile(this.fileUser, note.id).subscribe(
+    this.subjectService.getSubjectByName(this.subjectSelected).subscribe(
+      subjects =>{
+        this.note = {
+          name:this.name ,
+          professor: this.professor ,
+          subject: subjects[0],
+          user: this.authenticationService.user,
+          scores:[],
+        };
+
+        this.notesService.addNote(this.note).subscribe(
           note => {
-            this.router.navigate(['/']);
+            this.fileService.uploadFile(this.fileUser, note.id).subscribe(
+              note => {
+                this.router.navigate(['/']);
+              },
+              error => console.error("Error al guardar la imagen: " + error)
+            )
           },
-          error => console.error("Error al guardar la imagen: " + error)
-        )
-      },
-      error => {
-        console.error("Error al crear el usuario: " + error)
+          error => {
+            console.error("Error al subir apunte: " + error)
+          }
+        );
       }
     );
+
+
+
   }
 }

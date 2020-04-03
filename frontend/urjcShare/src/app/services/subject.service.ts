@@ -23,6 +23,12 @@ export class SubjectService{
     ) as Observable<Subject>;
   }
 
+  getSubjectByName(name: string):Observable<Subject[]>{
+    return  this.httpClient.get(BASE_URL+ '?name=' + name).pipe(
+      catchError(error=> this.handleError(error))
+    )as Observable<Subject[]>
+
+  }
 
   private handleError(error: any) {
     console.error(error);
