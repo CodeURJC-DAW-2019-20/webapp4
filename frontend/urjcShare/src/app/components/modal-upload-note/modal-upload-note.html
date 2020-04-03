@@ -5,7 +5,6 @@
   </button>
 </div>
 
-
 <div class="modal-body">
   <div class="container pt-3">
     <div class="row justify-content-center">
@@ -15,11 +14,10 @@
         </div>
         <form class="form-signup" action="/note_save" method="post" enctype="multipart/form-data">
           <div class="profile-img">
-            <img src=""
-                 alt=""/>
+            <img src="../../../assets/images/document.png" alt=""/>
             <div class="file btn btn-lg btn-primary">
               Examinar
-              <input type="file" name="file" (change)="uploadFile($event)"/>
+              <input type="file" name="file" (change)="uploadFile($event)" accept=".jpg, .jpeg"/>
             </div>
           </div>
           <label>Grado:</label>
