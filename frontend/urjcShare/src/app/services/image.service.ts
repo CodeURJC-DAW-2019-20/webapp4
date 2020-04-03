@@ -17,7 +17,7 @@ export class ImageService {
 
     formData.append('imageFile', image, image.name);
 
-    return this.httpClient.post(BASE_URL + "/users" + idUser + "/image", formData) as Observable<User>;
+    return this.httpClient.post(BASE_URL + "users/" + idUser + "/image", formData) as Observable<User>;
   }
 
   public uploadFile(file: File, idNote: string): Observable<Note> {
@@ -25,6 +25,6 @@ export class ImageService {
 
     formData.append('file', file, file.name);
 
-    return this.httpClient.post(BASE_URL + "/notes/" + idNote + "/file", formData) as Observable<Note>;
+    return this.httpClient.post(BASE_URL + "notes/" + idNote + "/file", formData) as Observable<Note>;
   }
 }
