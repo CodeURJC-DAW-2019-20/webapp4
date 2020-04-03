@@ -3,7 +3,7 @@ import {User} from "./user.model";
 import {Score} from "./score.model";
 
 export interface Note {
-  id?: string;
+  id?: number;
   name: string;
   professor: string;
   subject: Subject;

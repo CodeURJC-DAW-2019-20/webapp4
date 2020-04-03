@@ -36,13 +36,13 @@
 
             <select id="allsubjects" for="allsubjects" name="subject" [(ngModel)]="subjectSelected" >
 
-              <option [value]="subject" *ngFor="let subject of listSubjects"  >{{subject.name}}</option>
+              <option [value]="subject.name" *ngFor="let subject of listSubjects"  >{{subject.name}}</option>
 
             </select>
           </div>
           <div class="form-label-group">
             <input type="text" name="name" id="inputName" class="form-control"
-                   placeholder="Nombre" [(ngModel)]="note.name" autofocus>
+                   placeholder="Nombre" [(ngModel)]="name" autofocus>
             <label for="inputName">Nombre</label>
           </div>
 
@@ -54,7 +54,7 @@
 
           <div class="form-label-group">
             <input type="text" name="professor" id="inputProf" class="form-control"
-                   placeholder="Profesor" autofocus [(ngModel)]="note.professor">
+                   placeholder="Profesor" autofocus [(ngModel)]="professor">
             <label for="inputProf">Profesor</label>
           </div>
 
