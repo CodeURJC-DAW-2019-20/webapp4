@@ -26,7 +26,7 @@ export class IndexComponent implements OnInit{
     if(this.searchType == "Degree"){
       this.router.navigate(['/degrees'], { queryParams: { textSearched: item } });
     }
-    else {
+    else if(this.searchType == "Subject"){
       this.router.navigate(['/subjects'], { queryParams: { textSearched: item } });
     }
   }
