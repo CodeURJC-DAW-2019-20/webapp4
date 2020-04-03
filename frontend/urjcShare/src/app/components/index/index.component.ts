@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DegreeService} from "../../services/degree.service";
-import {SubjectService} from "../../services/subject.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {by, element} from "protractor";
 
 @Component({
   selector:'index',
