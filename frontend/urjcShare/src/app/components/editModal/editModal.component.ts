@@ -15,6 +15,7 @@ export class EditModalComponent implements OnInit {
   @Output() clickevent = new EventEmitter<boolean>();
   user: User;
   imageUser: File;
+  newImage: any;
 
   ngOnInit(): void {
     this.newImage = new Date().getTime();
@@ -31,22 +32,28 @@ export class EditModalComponent implements OnInit {
   }
 
   editUser() {
-    this.spinner.show();
-    this.userService.updateUser(this.user).subscribe(
-      user => {
-        if (this.imageUser != null) {
-          this.imageService.uploadImage(this.imageUser, this.user.id).subscribe(
-            image => {},
-            error => console.error("Error al guardar la imagen: " + error));
-        }
-        this.spinner.hide();
-        console.log(user);
-        this.authenticationService.setUser(user);
-        this.clickevent.emit(true);
-        this.activeModal.close();
-      },
-      error => console.error('Error creating new user: ' + error)
-    );
+    if (this.user.passwordHash == null) {
+      alert("Escriba una contraseña por favor.");
+    } else {
+      this.spinner.show();
+      this.userService.updateUser(this.user).subscribe(
+        user => {
+          if (this.imageUser != null) {
+            this.imageService.uploadImage(this.imageUser, this.user.id).subscribe(
+              image => {
+              },
+              error => console.error("Error al guardar la imagen: " + error));
+          }
+          this.spinner.hide();
+          console.log(user);
+          this.authenticationService.setUser(user);
+          this.clickevent.emit(true);
+          this.activeModal.close();
+        },
+        error => console.error('Error creating new user: ' + error)
+      );
+    }
+
   }
 
   changeFile(event) {
