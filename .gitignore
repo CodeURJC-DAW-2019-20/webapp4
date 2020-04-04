@@ -33,3 +33,4 @@ target/
 backend/target/
 backend/.settings/
 /.idea/sonarlint/
+backend/.project

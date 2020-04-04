@@ -16,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class, RankingUserView.class})
     private String name;
     private String passwordHash;
     @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
@@ -29,12 +29,14 @@ public class User {
     private Integer number;
     @JsonView({BasicView.class})
     private boolean image;
+    @JsonView({RankingUserView.class})
     private float media;
 
     public interface BasicView {}
     public interface BasicViewSubject{}
     public interface BasicViewUserForNote {}
     public interface UserLogin{}
+    public interface RankingUserView{}
 
     @JsonView({BasicView.class})
     @OneToMany(mappedBy = "user")
@@ -46,6 +48,7 @@ public class User {
     
     @OneToMany(mappedBy = "user")
     private List<Score> scores = new ArrayList<>();
+    
 
     public User() {
 

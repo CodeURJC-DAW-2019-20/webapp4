@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
-import {Degree} from "../../model/degree.model";
+import {User} from "../../model/user.model";
+import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector:'ranking',
@@ -8,6 +10,25 @@ import {Degree} from "../../model/degree.model";
 })
 export class RankingComponent {
 
-  name: string;
-  media: number;
+  user: User;
+  usersLoaded:boolean;
+  sortedUsers: User[];
+
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ){}
+
+  ngOnInit() {
+    this.userService.getRanking().subscribe(users => {
+        this.usersLoaded = true;
+        this.sortedUsers = users
+      },
+      error => {
+        this.usersLoaded = true;
+        console.error("Error al cargar el ranking: " + error)
+      });
+  }
+
+
 }

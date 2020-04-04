@@ -39,8 +39,14 @@ export class UserService{
     ) as Observable<User>;
   }
 
+  getRanking(){
+    return this.httpClient.get<User[]>(`${environment.apiUrl}/users/ranking`);
+  }
+
   private handleError(error: any) {
     console.error(error);
     return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
+
+
 }
