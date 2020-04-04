@@ -13,10 +13,10 @@
                 enctype="multipart/form-data">
             <div class="col-photo">
               <div class="profile-img">
-                <img src='/images/users/image-.jpg' alt=""/>
+                <img src='https://localhost:8443/images/users/image-{{user.id}}.jpg?{{newImage}}' alt=""/>
                 <div class="file btn btn-lg btn-primary">
                   Change Photo
-                  <input type="file" name="imagenFile"/>
+                  <input (change)="changeFile($event)" type="file" name='imagenFile' accept=".jpg, .jpeg"/>
                 </div>
               </div>
             </div>

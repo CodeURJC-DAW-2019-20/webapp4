@@ -43,18 +43,18 @@ export class AuthenticationService {
     }
     return this.user;
   }
+  setUser(user:User){
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.setCurrentUser(user);
+  }
   login(user: string, pass: string) {
-
     let auth = window.btoa(user + ':' + pass);
-
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + auth,
       'X-Requested-With': 'XMLHttpRequest',
     });
-
     return this.http.get<User>('/api/logIn', {headers})
       .pipe(map(user => {
-
         if (user) {
           this.user = user;
           this.logged = true;

@@ -19,7 +19,7 @@ public class User {
     @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String name;
     private String passwordHash;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String degree;
     @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String nickname;

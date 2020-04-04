@@ -49,7 +49,7 @@ public class LoginController {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
 			session.invalidate();
-			log.info("Logged out as "+ logged.getNickname());
+			log.info("Logged out");
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
