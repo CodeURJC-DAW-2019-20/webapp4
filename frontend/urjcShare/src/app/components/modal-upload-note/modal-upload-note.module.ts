@@ -81,6 +81,7 @@ export class ModalUploadNoteModule implements OnInit {
           note => {
             this.fileService.uploadFile(this.fileUser, note.id).subscribe(
               note => {
+                alert('El apunte se ha subido correctamente.');
                 this.router.navigate(['/']);
               },
               error => console.error("Error al guardar la imagen: " + error)
@@ -90,6 +91,7 @@ export class ModalUploadNoteModule implements OnInit {
             console.error("Error al subir apunte: " + error)
           }
         );
+        this.activeModal.close();
       }
     );
 
