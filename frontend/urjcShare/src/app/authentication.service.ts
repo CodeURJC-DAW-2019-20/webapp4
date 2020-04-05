@@ -64,7 +64,6 @@ export class AuthenticationService {
         return user;
       }));
   }
-
   logOut() {
     return this.http.get( '/api/logOut');
   }

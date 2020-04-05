@@ -23,6 +23,7 @@ import {UserExistErrorComponent} from "./components/userExistError/userExistErro
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import {ModalUploadNoteModule} from "./components/modal-upload-note/modal-upload-note.module";
+import { ListNotesComponent } from './components/list-notes/list-notes.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {ModalUploadNoteModule} from "./components/modal-upload-note/modal-upload
     UserExistErrorComponent,
     SubjectsComponent,
     RankingComponent,
-    ModalUploadNoteModule
+    ModalUploadNoteModule,
+    ListNotesComponent
   ],
   imports: [
     FormsModule,
