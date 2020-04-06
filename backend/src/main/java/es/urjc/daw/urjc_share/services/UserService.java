@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Configuration
@@ -110,6 +111,7 @@ public class UserService {
 			User u2 = o2;
 			return Float.compare(u2.getMedia(), u1.getMedia());
 		});
-		return listUsers;
+		//Return 10 first users
+		return listUsers.stream().limit(10).collect(Collectors.toList());
     }
 }
