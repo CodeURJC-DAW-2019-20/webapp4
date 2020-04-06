@@ -27,7 +27,6 @@ const appRoutes = [
   {path: 'subjects', component: SubjectsComponent},
   {path: 'subjects/:id/notes', component: ListNotesComponent},
   {path: 'note/:id', component: NotesComponent},
-
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
