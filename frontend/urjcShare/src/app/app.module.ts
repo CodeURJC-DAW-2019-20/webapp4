@@ -26,7 +26,7 @@ import {ModalUploadNoteModule} from "./components/modal-upload-note/modal-upload
 import {AuthenticationService} from "./authentication.service";
 import {BasicAuthInterceptor} from "./basic-auth.interceptor";
 import {ErrorInterceptor} from "./error.interceptor";
-import {LogOutComponent} from "./components/logOut/logOut.component";
+import {ListNotesComponent} from "./components/list-notes/list-notes.component";
 
 @NgModule({
   declarations: [

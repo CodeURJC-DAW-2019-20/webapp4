@@ -10,7 +10,7 @@ import {UserExistErrorComponent} from "./components/userExistError/userExistErro
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {RankingComponent} from "./components/ranking/ranking.component";
 import {NotesComponent} from "./components/notes/notes.component";
-import {LogOutComponent} from "./components/logOut/logOut.component";
+import {ListNotesComponent} from "./components/list-notes/list-notes.component";
 
 
 
