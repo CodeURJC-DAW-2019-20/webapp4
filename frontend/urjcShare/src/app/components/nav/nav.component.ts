@@ -36,7 +36,6 @@ export class NavComponent implements OnInit {
   }
   openAdmin() {
     this.modalService.open(ModalAdminComponent);
-
   }
   openUploadNote() {
     this.modalService.open(ModalUploadNoteModule);

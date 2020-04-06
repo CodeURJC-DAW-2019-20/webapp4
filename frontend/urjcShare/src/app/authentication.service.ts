@@ -54,12 +54,14 @@ export class AuthenticationService {
     return this.http.get<User>('/api/logIn', {headers})
       .pipe(map(user => {
         if (user) {
+          user.authdata = auth;
           this.setUser(user);
         }
         return user;
       }));
   }
   logOut() {
+
     return this.http.get( '/api/logOut');
   }
 }
