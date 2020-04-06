@@ -25,6 +25,6 @@ export class ImageService {
 
     formData.append('file', file, file.name);
 
-    return this.httpClient.post(BASE_URL + "notes/" + idNote + "/file", formData) as Observable<Note>;
+    return this.httpClient.put(BASE_URL + "notes/" + idNote + "/file", formData) as Observable<Note>;
   }
 }

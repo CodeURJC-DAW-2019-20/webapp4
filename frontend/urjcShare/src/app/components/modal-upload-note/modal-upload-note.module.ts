@@ -67,6 +67,7 @@ export class ModalUploadNoteModule implements OnInit {
   }
 
   save() {
+    console.log(this.authenticationService.getUser());
     this.subjectService.getSubjectByName(this.subjectSelected).subscribe(
       subjects =>{
         this.note = {
@@ -81,15 +82,17 @@ export class ModalUploadNoteModule implements OnInit {
           note => {
             this.fileService.uploadFile(this.fileUser, note.id).subscribe(
               note => {
+                alert('El apunte se ha subido correctamente.');
                 this.router.navigate(['/']);
               },
-              error => console.error("Error al guardar la imagen: " + error)
+              error => console.error("Error al guardar el fichero: " + error)
             )
           },
           error => {
             console.error("Error al subir apunte: " + error)
           }
         );
+        this.activeModal.close();
       }
     );
 

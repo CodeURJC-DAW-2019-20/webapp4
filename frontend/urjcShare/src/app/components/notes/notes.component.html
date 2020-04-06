@@ -1,19 +1,19 @@
 <div class="container pt-3">
   <div class="row justify-content-center">
     <div class="col-12 card card-signup justify-content-center">
-      <div class="card-body">
+      <div *ngIf="note" class="card-body">
         <!--<h5 class="card-title text-center text-primary">{{noteSelected.subject.name}} - {{noteSelected.name}}</h5>-->
-        <h5 class="card-title text-center text-primary">noteSelected.subject.name - ID: {{note.id}}</h5>
+        <h5 class="card-title text-center text-primary">{{note.subject.name}} - ID: {{note.id}}</h5>
 
         <div class="row" id="padre">
           <div class="col-md-12 row">
 
             <div class="col-6">
-              <!--<img src="/img/{{nameImage}}" id="photo1" >-->
-              <img src="" id="photo1" >
+              <img src="https://localhost:8443/img/{{note.extension}}.png" id="photo1" >
+              <!--<img src="" id="photo1" >-->
               <section class='rating-widget'>
                 <!-- Rating Stars Box -->
-                <ngb-rating [(rate)]="currentRate">
+                <ngb-rating [(rate)]="currentRate" (rateChange)="vote()">
                   <ng-template let-fill="fill" let-index="index">
                     <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
                   </ng-template>
@@ -30,7 +30,7 @@
               <li class="list-group-item">Profesor: {{note.professor}}</li>
               <!--<li class="list-group-item">Profesor: noteSelected.professor</li>-->
               <!--<a class="list-group-item" href="" download>Descargar Apuntes</a>-->
-              <a class="list-group-item" href="" download>Descargar Apuntes</a>
+              <a class="list-group-item" href="https://localhost:8443/files_users/notes/{{note.id + '.' + note.extension}}" download>Descargar Apuntes</a>
             </ul>
 
           </div>
@@ -38,13 +38,8 @@
         </div>
 
       </div>
+      <h1 *ngIf="!note">Ese apunte no existe</h1>
     </div>
   </div>
 </div>
-<!--<div class="background" style="-->
-    <!--position: absolute;-->
-    <!--width: 100%;-->
-    <!--height: 100%;-->
-    <!--background-color: aliceblue;-->
-    <!--z-index: -1;-->
-<!--"></div>-->
+

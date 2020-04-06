@@ -44,6 +44,7 @@ export class AuthenticationService {
     return this.user;
   }
   setUser(user:User){
+    this.removeCurrentUser();
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.setCurrentUser(user);
   }
@@ -64,7 +65,6 @@ export class AuthenticationService {
         return user;
       }));
   }
-
   logOut() {
     return this.http.get( '/api/logOut');
   }

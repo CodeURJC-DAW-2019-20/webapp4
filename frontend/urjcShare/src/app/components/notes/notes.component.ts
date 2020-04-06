@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
+import {NotesService} from "../../services/notes.service";
 
 @Component({
   selector: 'app-notes',
@@ -10,22 +11,29 @@ import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 export class NotesComponent implements OnInit {
   note
   currentRate
-  constructor(
-    private route: ActivatedRoute,
-    private config: NgbRatingConfig
-  ) {
+  constructor(private notesService: NotesService,
+              private route: ActivatedRoute,
+              private config: NgbRatingConfig) {
     this.currentRate = 3
     config.max = 5;
-    this.note = {
-      id: '',
-      name: 'Tema 1',
-      professor: 'Garzas',
-      subject: {name:'Lengua'},
-    }
-  }
+    this.note = null
+   }
+
 
   ngOnInit(): void {
-        this.note.id = this.route.snapshot.paramMap.get('id')
+    this.notesService.getNoteByID(this.route.snapshot.paramMap.get('id')).subscribe( note => {
+      console.log(note)
+      this.note = note
+    },error=>{})
+  }
+
+  vote ():void {
+    debugger
+    this.notesService.voteNote(this.note.id, this.currentRate).subscribe( response=> {
+      console.log(response)
+    }, error =>{
+      console.log(error)
+    })
   }
 
 }

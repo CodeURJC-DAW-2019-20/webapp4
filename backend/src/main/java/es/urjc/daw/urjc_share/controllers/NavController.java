@@ -131,10 +131,14 @@ public class NavController {
 	public String selectNote(Model model, @PathVariable long noteID) {
 		configNav(model, "");
 		Note note = noteRepository.findById(noteID);
-		String [] image = note.getRuta().split("\\.");
-		model.addAttribute("nameImage", image[image.length-1]+".png");
-		model.addAttribute("noteSelected", note);
-		return "selectNote";
+		if (note != null) {
+			String [] image = note.getRuta().split("\\.");
+			model.addAttribute("nameImage", image[image.length-1]+".png");
+			model.addAttribute("noteSelected", note);
+			return "selectNote";
+		}else {
+			return null;
+		}
 	}
 
 	// Methos

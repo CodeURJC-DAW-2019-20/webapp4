@@ -6,11 +6,13 @@
         <h5 class="card-title text-center text-primary">Ranking</h5>
         <div class="container" id="ranking">
 
-          <div class="row text-light text-center rounded text-secundario">
-            <div class="col-4 position"><p class="text-dark">Posición </p></div>
-            <div class="col-4"><p class="text-dark">name</p></div> <!-- {{name}} -->
-            <div class="col-4"><p class="text-dark">media</p></div> <!-- {{media}}-->
+          <div  *ngFor="let user of sortedUsers; let i = index" class="row text-light text-center rounded text-secundario">
+            <div class="col-4 position"><p class="text-dark">{{i+1}}. </p></div>
+            <div class="col-4"><p class="text-dark">{{user.name}}</p></div>
+            <div class="col-4"><p class="text-dark">{{user.media}}</p></div>
+
           </div>
+
         </div>
       </div>
     </div>
@@ -26,5 +28,4 @@
     }
   }
 </script>
-
 -->
