@@ -23,11 +23,8 @@ export class AuthenticationService {
 
   private setCurrentUser(user: User) {
     this.logged = true;
-    console.log(this.logged, " is logged")
     this.user = user;
-    console.log(user, " user")
     this.admin = user.roles.indexOf('ROLE_ADMIN') !== -1;
-    console.log(this.admin, " is admin")
   }
 
   removeCurrentUser() {
@@ -57,10 +54,7 @@ export class AuthenticationService {
     return this.http.get<User>('/api/logIn', {headers})
       .pipe(map(user => {
         if (user) {
-          this.user = user;
-          this.logged = true;
-          user.authdata = auth;
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.setUser(user);
         }
         return user;
       }));
