@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
 import {AuthenticationService} from "../../authentication.service";
+import {first} from "rxjs/operators";
 
 
 @Component({ templateUrl: './signIn.component.html' })
@@ -21,8 +21,7 @@ export class SignInComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.logged) {
-      this.authenticationService.removeCurrentUser();
-      this.logout();
+      this.router.navigateByUrl('/')
     }
   }
 
@@ -60,13 +59,5 @@ export class SignInComponent implements OnInit {
           this.loading = false;
         });
   }
-  logout() {
-    this.authenticationService.logOut().subscribe(
-      (response) => {
-        this.authenticationService.removeCurrentUser();
-        this.router.navigate(['/']);
-      },
-      (error) => console.log('Error when trying to log out: ' + error),
-    );
-  }
+
 }

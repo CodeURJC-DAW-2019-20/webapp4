@@ -23,7 +23,10 @@ import {UserExistErrorComponent} from "./components/userExistError/userExistErro
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import {ModalUploadNoteModule} from "./components/modal-upload-note/modal-upload-note.module";
-import { ListNotesComponent } from './components/list-notes/list-notes.component';
+import {AuthenticationService} from "./authentication.service";
+import {BasicAuthInterceptor} from "./basic-auth.interceptor";
+import {ErrorInterceptor} from "./error.interceptor";
+import {LogOutComponent} from "./components/logOut/logOut.component";
 
 @NgModule({
   declarations: [
@@ -59,8 +62,9 @@ import { ListNotesComponent } from './components/list-notes/list-notes.component
     ModalAdminComponent,
     ModalUploadNoteModule
   ],
-  providers: [
-
+  providers: [AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [
     AppComponent
