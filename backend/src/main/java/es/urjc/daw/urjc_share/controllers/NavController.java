@@ -98,8 +98,10 @@ public class NavController {
 	
 	@GetMapping("/search/degree/{degreeID}/subjectList")
 	public String showListOfSubjects(Model model, @PathVariable long degreeID) {
+		configNav(model, "");
 		Degree degree = degreeService.findDegreeById(degreeID);
 		model.addAttribute("textSearched", degree.getName());
+		
 		Page<Subject> subjects = subjectRepository.findAllByDegree(degree, PageRequest.of(0, 10));
 		model.addAttribute("subjectSearched", subjects.getContent());	
 		model.addAttribute("emptyResult", subjects.isEmpty());
@@ -115,16 +117,24 @@ public class NavController {
 		return "subjectsRequired";
 	}
 
-	@GetMapping("/search/subject/{subjectID}")
-	public String searchNotesFromSubject(Model model, @PathVariable long subjectID) {
+	@GetMapping("/search/subject/{subjectID}/noteList")
+	public String showListOfNotes(Model model, @PathVariable long subjectID) {
 		configNav(model, "");
 		Subject subject = subjectRepository.findById(subjectID);
 		model.addAttribute("textTittle", subject.getName());
 
-		List<Note> notes = noteRepository.findAllBySubject(subject);
-		model.addAttribute("notesSearched", notes);
+		Page<Note> notes = noteRepository.findAllBySubject(subject, PageRequest.of(0, 10));
+		model.addAttribute("notesSearched", notes.getContent());
 		model.addAttribute("emptyResult", notes.isEmpty());
 		return "allNotes";
+	}
+	
+	@GetMapping("/search/subject/{subjectID}/notes")
+	public String searchNotesFromSubject(Model model, @PathVariable long subjectID, Pageable page) {
+		Subject subject = subjectRepository.findById(subjectID);
+		Page<Note> notes = noteRepository.findAllBySubject(subject, page);
+		model.addAttribute("notesSearched", notes.getContent());
+		return "notesRequired";
 	}
 
 	@GetMapping("/notes/{noteID}")
