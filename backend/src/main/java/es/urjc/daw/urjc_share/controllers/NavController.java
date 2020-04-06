@@ -7,14 +7,14 @@ import es.urjc.daw.urjc_share.model.*;
 import es.urjc.daw.urjc_share.services.DegreeService;
 import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -88,23 +88,31 @@ public class NavController {
 			model.addAttribute("emptyResult", degrees.isEmpty());
 			return "listDegrees";
 		} else {
-			List<Subject> subjects = subjectRepository.findAllByName(textSearched);
-			model.addAttribute("subjectSearched", subjects);
+			model.addAttribute("textSearched", textSearched);
+			Page<Subject> subjects = subjectRepository.findAllByName(textSearched, PageRequest.of(0, 10));
+			model.addAttribute("subjectSearched", subjects.getContent());
 			model.addAttribute("emptyResult", subjects.isEmpty());
 			return "listsubjects";
 		}
 	}
-
-	@GetMapping("/search/degree/{degreeID}")
-	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
-		configNav(model, "");
+	
+	@GetMapping("/search/degree/{degreeID}/subjectList")
+	public String showListOfSubjects(Model model, @PathVariable long degreeID) {
 		Degree degree = degreeService.findDegreeById(degreeID);
-		model.addAttribute("textTittle", degree.getName());
-		
-		List<Subject> subjects = subjectRepository.findAllByDegree(degree);
-		model.addAttribute("subjectSearched", subjects);
+		model.addAttribute("textSearched", degree.getName());
+		Page<Subject> subjects = subjectRepository.findAllByDegree(degree, PageRequest.of(0, 10));
+		model.addAttribute("subjectSearched", subjects.getContent());	
 		model.addAttribute("emptyResult", subjects.isEmpty());
 		return "listsubjects";
+	}
+	
+
+	@GetMapping("/search/degree/{degreeID}/subjects")
+	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID, Pageable page) {
+		Degree degree = degreeService.findDegreeById(degreeID);
+		Page<Subject> subjects = subjectRepository.findAllByDegree(degree, page);	
+		model.addAttribute("subjectSearched", subjects.getContent());
+		return "subjectsRequired";
 	}
 
 	@GetMapping("/search/subject/{subjectID}")
