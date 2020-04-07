@@ -28,5 +28,6 @@ const appRoutes = [
   {path: 'subjects/:id/notes', component: ListNotesComponent},
   {path: 'degrees/:id/subjects', component: SubjectsComponent},
   {path: 'note/:id', component: NotesComponent}
+]
 
 export const routing = RouterModule.forRoot(appRoutes);
