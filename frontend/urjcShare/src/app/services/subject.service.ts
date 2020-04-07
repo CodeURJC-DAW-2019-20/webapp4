@@ -12,7 +12,7 @@ export class SubjectService{
   constructor(private httpClient: HttpClient) { }
 
   getSubjectByDegreeId(id: number | string){
-    return this.httpClient.get('api/degrees/' + id + '/subjects').pipe(
+    return this.httpClient.get('api/degrees/' + id + '/allSubjects').pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Subject[]>;
   }
@@ -31,6 +31,13 @@ export class SubjectService{
 
   getSubjectByName(name: string):Observable<Subject[]>{
     return  this.httpClient.get(BASE_URL+ '?name=' + name).pipe(
+      catchError(error=> this.handleError(error))
+    )as Observable<Subject[]>
+
+  }
+
+  getSubjectByNamePaged(name: string, page: number, size: number):Observable<Subject[]>{
+    return  this.httpClient.get(BASE_URL+ '?name=' + name + '&page=' + page + '&size=' + size).pipe(
       catchError(error=> this.handleError(error))
     )as Observable<Subject[]>
 

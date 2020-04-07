@@ -41,6 +41,10 @@ public class SubjectService {
     public Page<Subject> getSubjects(Degree degree, Pageable page){
         return subjectRepository.findAllByDegree(degree,page);
     }
+    
+    public List<Subject> getSubjects(Degree degree){
+        return subjectRepository.findAllByDegree(degree);
+    }
 
     public void saveSubject(Subject subject){
         subjectRepository.save(subject);

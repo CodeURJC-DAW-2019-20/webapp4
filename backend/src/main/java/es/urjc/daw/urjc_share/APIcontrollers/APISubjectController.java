@@ -74,6 +74,22 @@ public class APISubjectController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+    @JsonView(SubjectsView.class)
+    @GetMapping("degrees/{degreeId}/allSubjects")
+    public ResponseEntity<List<Subject>>  getAllSubjectsFromDegree(@PathVariable long degreeId){
+        Degree degree = degreeService.findDegreeById(degreeId);
+        if(degree != null){
+            List<Subject> subjects = subjectService.getSubjects(degree);
+            if(!subjects.isEmpty()){
+                return new ResponseEntity<>(subjects, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     @JsonView(SubjectsView.class)

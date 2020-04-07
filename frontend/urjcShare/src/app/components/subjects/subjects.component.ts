@@ -19,7 +19,7 @@ export class SubjectsComponent {
   subjectLoaded: boolean;
   subject: Subject;
   degree: Degree;
-  page: number = 0;
+  page: number;
   size:number = 10;
   lastPageLoaded: boolean;
 
@@ -31,14 +31,19 @@ export class SubjectsComponent {
   }
 
   ngOnInit() {
+    this.page = 0;
     this.subjectLoaded = false;
     this.textSearched = this.activatedRoute.snapshot.queryParams['textSearched'];
     this.previousComponent = this.activatedRoute.snapshot.queryParams['previousComponent'];
+
     if (this.previousComponent == 'index') {
-      this.subjectService.getSubjectByName(this.textSearched).subscribe(
+      this.subjectService.getSubjectByNamePaged(this.textSearched, this.page, this.size).subscribe(
         subject => {
+
+          this.subjects = subject;
+          this.page++;
+          this.checkIfLastPageBySubject();
           this.subjectLoaded = true;
-          this.subjects = subject
         },
         error => {
           this.subjectLoaded = true;
@@ -52,12 +57,13 @@ export class SubjectsComponent {
           this.subjectService.getSubjectByDegreeIdPaged(this.degree.id, this.page, this.size).subscribe(
             subjects => {
               this.subjects = subjects;
-              this.subjectLoaded = true;
               this.page++;
-              this.checkIfLastPage();
+              this.checkIfLastPageByDegree();
+              this.subjectLoaded = true;
             },
             error => {
-              console.error("Error al cargar la asignatura" + error)
+              this.subjectLoaded = true;
+              console.error("Error al cargar la asignatura" + error);
             }
           );
         },
@@ -71,23 +77,47 @@ export class SubjectsComponent {
   }
 
   loadSubjects() {
-    this.spinner.show().then(
+    //this.spinner.show();
+    if(this.previousComponent == 'index'){
+      this.subjectService.getSubjectByNamePaged(this.textSearched, this.page, this.size).subscribe(
+        subjects => {
+          this.subjects = this.subjects.concat(subjects);
+          this.page++;
+          this.checkIfLastPageBySubject();
+          //this.spinner.hide();
+        }
+      );
+    }else{
+      this.subjectService.getSubjectByDegreeIdPaged(this.degree.id, this.page, this.size).subscribe(
+        subjects => {
+          this.subjects = this.subjects.concat(subjects);
+          this.page++;
+          console.log(this.lastPageLoaded);
 
-    );
-    this.subjectService.getSubjectByDegreeIdPaged(this.degree.id, this.page, this.size).subscribe(
-      subjects => {
-        this.subjects = this.subjects.concat(subjects);
-        this.page++;
-        this.checkIfLastPage();
-        this.spinner.hide();
+          this.checkIfLastPageByDegree();
+          console.log('Resultado: ' + this.lastPageLoaded);
+          //this.spinner.hide();
+        }
+      );
+    }
+  }
+
+  //Check if the last page of subjects has been loaded
+  checkIfLastPageByDegree(){
+    this.subjectService.getSubjectByDegreeId(this.degree.id).subscribe(
+      allSubjects => {
+        debugger
+        this.lastPageLoaded = this.subjects[this.subjects.length-1].id == allSubjects[allSubjects.length-1].id;
+        console.log('Resultado: ' + this.lastPageLoaded);
       }
     );
   }
 
-  checkIfLastPage(){
-    this.subjectService.getSubjectByDegreeIdPaged(this.degree.id, this.page, this.size).subscribe(
+  //Check if the last page of subjects has been loaded
+  checkIfLastPageBySubject(){
+    this.subjectService.getSubjectByName(this.textSearched).subscribe(
       subjects => {
-        this.lastPageLoaded = subjects == null;
+        this.lastPageLoaded = this.subjects[this.subjects.length-1].id == subjects[subjects.length-1].id;
       }
     );
   }
