@@ -15,7 +15,7 @@
               <div *ngIf="degreesLoaded">
                 <div *ngIf="degrees">
                   <li *ngFor="let degree of degrees" class="border list-group-item rounded">
-                    <a [routerLink]="['/degrees', degree.id]" class="w-100 text-decoration-none">
+                    <a [routerLink]="['/degrees',degree.id, 'subjects']" [queryParams]=" { textSearched: degree.name, previousComponent: 'degreeComponent' }" class="w-100 text-decoration-none">
                     <div id="name">ID: {{degree.id}}</div>
                     <div id="degree">Grado: {{degree.name}}</div>
                   </a></li>

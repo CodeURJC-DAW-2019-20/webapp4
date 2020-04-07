@@ -24,6 +24,7 @@ const appRoutes = [
   {path: 'user-error', component: UserExistErrorComponent},
   {path: 'ranking', component: RankingComponent},
   {path: 'subjects', component: SubjectsComponent},
+  {path: 'degrees/:id/subjects', component: SubjectsComponent},
   {path: 'note/:id', component: NotesComponent}
 
 ]

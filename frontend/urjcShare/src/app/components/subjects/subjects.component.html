@@ -3,23 +3,27 @@
     <div class="col-12 card card-signup justify-content-center">
       <div class="card-body">
         <h5 class="card-title text-center text-primary">Lista de
-          asignaturas encontradas para: <!--{{textTittle}}--></h5>
+          asignaturas encontradas para: {{textSearched}}</h5>
 
         <!-- List of subjects -->
         <div class="ml-3" id="father">
           <div class="" id="son">
             <ul class="list-group list-group-flush" id="list2">
-             <!-- {{#emptyResult}}-->
-              <h3 class="text-center">No se ha encontrado ninguna asignatura que corresponda.</h3>
-             <!-- {{/emptyResult}}
-              {{^emptyResult}}
-              {{#subjectSearched}}-->
-              <li class="border list-group-item rounded"><a href="/search/subject" class="w-100 text-decoration-none">
-                <div id="name">Asignatura:<!-- {{name}}--></div>
-                <div id="degree">Grado: <!--{{degree.name}}--></div>
-              </a></li>
-              <!--{{/subjectSearched}}
-              {{/emptyResult}}-->
+             <div *ngIf="!subjectLoaded">
+              <h3 class="text-center">Procesando...</h3>
+             </div>
+              <div *ngIf="subjectLoaded">
+                <div *ngIf="subjects">
+                  <li  *ngFor="let subject of subjects" class="border list-group-item rounded">
+                    <a [routerLink]="['/subject', subject.id]"  class="w-100 text-decoration-none">
+                    <div id="name">Asignatura:{{subject.name}}</div>
+                    <div id="degree">Grado: {{subject.degree.name}}</div>
+                    </a></li>
+                </div>
+                <div *ngIf="!subjects">
+                  <h3 class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
