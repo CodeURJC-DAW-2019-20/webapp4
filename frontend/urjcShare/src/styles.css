@@ -35,7 +35,13 @@ body {
   right: 0;
   top: 0;
 }
-
+#list-notes{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
@@ -60,7 +66,12 @@ body {
   font-weight: 300;
   font-size: 2rem;
 }
-
+.card-img-profile{
+  width: 176px;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+  margin: 3px auto;
+}
 .card-signup .card-body {
   padding: 2rem;
 }

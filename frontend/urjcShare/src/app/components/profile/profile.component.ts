@@ -5,6 +5,8 @@ import {EditModalComponent} from "../editModal/editModal.component";
 import {NgbModal, NgbModalOptions} from "@ng-bootstrap/ng-bootstrap";
 import {AuthenticationService} from "../../authentication.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'profile',
@@ -20,15 +22,22 @@ export class ProfileComponent implements OnInit{
   constructor(
     private router: Router,
     private modalService: NgbModal,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userService:UserService
   ) {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
     }
-
+    this.userService.getUser(1).subscribe(
+      user=>{
+        this.notes=user.notes;
+      }
+    )
   }
-
+  goToNote(idNote:number){
+    this.router.navigateByUrl(environment.apiUrl+"notes/"+idNote);
+  }
   refreshUser() {
     this.newImage = new Date().getTime();
     this.user = this.authenticationService.getUser();
@@ -37,7 +46,6 @@ export class ProfileComponent implements OnInit{
   open() {
     const modalRef = this.modalService.open(EditModalComponent);
     modalRef.componentInstance.clickevent.subscribe((wfsd: boolean) => {
-      console.log(wfsd)
       this.refreshUser();
     })
   }

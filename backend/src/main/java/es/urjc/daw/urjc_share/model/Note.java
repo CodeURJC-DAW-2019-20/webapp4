@@ -35,7 +35,7 @@ public class Note {
 
     @JsonView({BasicViewSubject.class, BasicViewUser.class, BasicViewNote.class})
     private String name;
-    @JsonView(BasicViewNote.class)
+    @JsonView({BasicViewNote.class, BasicViewUser.class})
     private String professor;
 
     @JsonView({BasicViewUser.class, BasicViewNote.class})
@@ -57,7 +57,7 @@ public class Note {
     private User user;
 
     private String ruta;
-    @JsonView({BasicViewNote.class})
+    @JsonView({BasicViewNote.class, BasicViewUser.class})
     private String extension;
 
     public Note() {}

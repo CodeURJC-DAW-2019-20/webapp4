@@ -9,5 +9,5 @@ export interface Note {
   subject: Subject;
   user: User;
   scores: Score[];
-
+  extension:string;
 }

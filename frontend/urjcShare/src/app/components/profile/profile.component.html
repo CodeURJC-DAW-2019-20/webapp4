@@ -65,15 +65,14 @@
     <hr>
     <div id="list-notes">
       <div class="card" *ngFor="let note of notes">
-        <img class="card-img-profile" src="/img/1.png"
+        <img class="card-img-profile" src="../../../assets/images/{{note.extension}}.png"
              alt="">
         <div class="card-body">
-          <h4 class="card-title"></h4>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
+          <h4 class="card-title">{{note.name}}</h4>
+          <p class="card-text">{{note.professor}}</p>
         </div>
         <div class="card-footer">
-          <a href="/notes/1" class="btn btn-primary">Ver más</a>
+          <a (click)="goToNote(note.id)" class="btn btn-primary">Ver más</a>
         </div>
       </div>
     </div>
