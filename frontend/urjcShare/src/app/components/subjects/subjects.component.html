@@ -19,6 +19,10 @@
                     <div id="name">Asignatura:{{subject.name}}</div>
                     <div id="degree">Grado: {{subject.degree.name}}</div>
                     </a></li>
+                  <br>
+                  <div *ngIf="!lastPageLoaded" class="col text-center">
+                    <button id="buttonload" class="btn btn-primary" (click)="loadSubjects()">Más resultados</button>
+                  </div>
                 </div>
                 <div *ngIf="!subjects">
                   <h3 class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
@@ -27,6 +31,7 @@
             </ul>
           </div>
         </div>
+        <ngx-spinner type="line-scale-party" color="#007bff"></ngx-spinner>
       </div>
     </div>
   </div>

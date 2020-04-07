@@ -17,6 +17,12 @@ export class SubjectService{
     ) as Observable<Subject[]>;
   }
 
+  getSubjectByDegreeIdPaged(id: number | string, page: number, size: number){
+    return this.httpClient.get('api/degrees/' + id + '/subjects?page=' + page + '&size=' + size).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<Subject[]>;
+  }
+
   addSubject(subject: Subject): Observable<Subject> {
     return this.httpClient.post(BASE_URL, subject).pipe(
       catchError(error => this.handleError(error))
