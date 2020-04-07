@@ -76,6 +76,7 @@ export class ModalUploadNoteModule implements OnInit {
           subject: subjects[0],
           user: this.authenticationService.user,
           scores:[],
+          extension:''
         };
 
         this.notesService.addNote(this.note).subscribe(
