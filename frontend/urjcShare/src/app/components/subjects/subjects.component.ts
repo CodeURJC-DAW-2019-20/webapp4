@@ -77,14 +77,14 @@ export class SubjectsComponent {
   }
 
   loadSubjects() {
-    //this.spinner.show();
+    this.spinner.show();
     if(this.previousComponent == 'index'){
       this.subjectService.getSubjectByNamePaged(this.textSearched, this.page, this.size).subscribe(
         subjects => {
           this.subjects = this.subjects.concat(subjects);
           this.page++;
           this.checkIfLastPageBySubject();
-          //this.spinner.hide();
+          this.spinner.hide();
         }
       );
     }else{
@@ -92,11 +92,8 @@ export class SubjectsComponent {
         subjects => {
           this.subjects = this.subjects.concat(subjects);
           this.page++;
-          console.log(this.lastPageLoaded);
-
           this.checkIfLastPageByDegree();
-          console.log('Resultado: ' + this.lastPageLoaded);
-          //this.spinner.hide();
+          this.spinner.hide();
         }
       );
     }
