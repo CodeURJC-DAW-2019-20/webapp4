@@ -2,7 +2,8 @@
 
 <head>
 <!-- Custom styles for this template -->
-<link href="../css/allNotes.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/loadPagedNotes.js"></script>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -12,8 +13,6 @@
 
 <title>URJC.share</title>
 
-<link href="css/allNotes.css" rel="stylesheet" type="text/css"
-	media="screen">
 </head>
 
 
@@ -32,37 +31,38 @@
 
 					<div class="ml-3" id="father">
 						<div class="" id="son">
+							{{#emptyResult}} 
+								<h3 class="text-center">No se ha encontrado ningún apunte.</h3>
+							{{/emptyResult}}
+						
+							{{^emptyResult}}
 							<ul class="list-group list-group-flush" id="list2">
-								{{#emptyResult}} 
-									<h3 class="text-center">No se ha encontrado ningún apunte.</h3>
-								{{/emptyResult}}
-								{{^emptyResult}}
-									{{#notesSearched}}
+								{{#notesSearched}}
 									<li class="border list-group-item rounded"><a href="/notes/{{id}}" class="w-100 text-decoration-none">
-											<div id="name">Nombre: {{name}}</div>
-											<div id="subject">Asignatura: {{subject.name}}</div>
-											<div id="professor">Profesor: {{professor}}</div>
+										<div id="name">Nombre: {{name}}</div>
+										<div id="subject">Asignatura: {{subject.name}}</div>
+										<div id="professor">Profesor: {{professor}}</div>
 									</a></li> 
-									{{/notesSearched}}
-								{{/emptyResult}}
+								{{/notesSearched}}
 							</ul>
+							{{/emptyResult}}
 						</div>
+					</div>
+					
+					<div id="spinner" class="col text-center w-25 h-25">
+						<img class="img-fluid" src="/img/spinner.gif" alt="Loading..." />
+					</div>
+					
+					<br>
+					
+					<div class="col text-center">
+						<button id="buttonload" class="btn btn-primary">Más resultados</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 
-
-	<!-- Footer -->
-	<footer class="py-3 bg-dark fixed-bottom">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; URJC.share
-				2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 </body>
 

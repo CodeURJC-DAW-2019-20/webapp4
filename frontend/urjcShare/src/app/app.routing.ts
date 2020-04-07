@@ -10,6 +10,7 @@ import {UserExistErrorComponent} from "./components/userExistError/userExistErro
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {RankingComponent} from "./components/ranking/ranking.component";
 import {NotesComponent} from "./components/notes/notes.component";
+import {ListNotesComponent} from "./components/list-notes/list-notes.component";
 
 
 
@@ -24,9 +25,8 @@ const appRoutes = [
   {path: 'user-error', component: UserExistErrorComponent},
   {path: 'ranking', component: RankingComponent},
   {path: 'subjects', component: SubjectsComponent},
+  {path: 'subjects/:id/notes', component: ListNotesComponent},
   {path: 'degrees/:id/subjects', component: SubjectsComponent},
   {path: 'note/:id', component: NotesComponent}
-
-]
 
 export const routing = RouterModule.forRoot(appRoutes);

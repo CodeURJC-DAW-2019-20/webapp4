@@ -67,6 +67,7 @@ export class ModalUploadNoteModule implements OnInit {
   }
 
   save() {
+    console.log(this.authenticationService.getUser());
     this.subjectService.getSubjectByName(this.subjectSelected).subscribe(
       subjects =>{
         this.note = {

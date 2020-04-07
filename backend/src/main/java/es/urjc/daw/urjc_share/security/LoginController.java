@@ -44,7 +44,7 @@ public class LoginController {
     @RequestMapping("/api/logOut")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
-		if (logged==null) {
+		if (userComponent.getEntityUser()==null) {
 			log.info("No user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
