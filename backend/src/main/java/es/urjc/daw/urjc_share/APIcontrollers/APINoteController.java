@@ -84,6 +84,22 @@ public class APINoteController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+    @JsonView(NotesView.class)
+    @GetMapping("subjects/{subjectId}/allNotes")
+    public ResponseEntity<List<Note>>  getSubjectsFromDegree(@PathVariable long subjectId){
+        Subject subject = subjectService.getSubject(subjectId);
+        if(subject != null){
+            List<Note> notesPage = noteService.getNotes(subject);
+            if(!notesPage.isEmpty()){
+                return new ResponseEntity<>(notesPage, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @JsonView(NotesView.class)
     @PutMapping("/notes/{id}/file")

@@ -15,7 +15,7 @@
               <div *ngIf="subjectLoaded">
                 <div *ngIf="subjects">
                   <li  *ngFor="let subject of subjects" class="border list-group-item rounded">
-                    <a [routerLink]="['/subject', subject.id]"  class="w-100 text-decoration-none">
+                    <a [routerLink]="['/subjects',subject.id, 'notes']" [queryParams]=" { subject: subject.name }"  class="w-100 text-decoration-none">
                     <div id="name">Asignatura:{{subject.name}}</div>
                     <div id="degree">Grado: {{subject.degree.name}}</div>
                     </a></li>

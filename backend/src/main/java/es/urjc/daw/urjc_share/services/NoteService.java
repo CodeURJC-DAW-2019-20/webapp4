@@ -47,6 +47,10 @@ public class NoteService {
     public Page<Note> getNotes(Subject subject, Pageable page){
         return noteRepository.findAllBySubject(subject,page);
     }
+    
+    public List<Note> getNotes(Subject subject){
+        return noteRepository.findAllBySubject(subject);
+    }
 
     public boolean createNote(Note note) {
     	note.setUser(currentUser.getEntityUser());
