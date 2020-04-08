@@ -40,11 +40,19 @@ export class AuthenticationService {
     }
     return this.user;
   }
-  setUser(user:User){
+  setUser(user:User, auth:any){
     this.removeCurrentUser();
+    user.authdata = auth;
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.setCurrentUser(user);
   }
+  updateHeaders(user:User, auth:any):HttpHeaders{
+    return new HttpHeaders({
+      Authorization: 'Basic ' + auth,
+      'X-Requested-With': 'XMLHttpRequest',
+    });
+  }
+
   login(user: string, pass: string) {
     let auth = window.btoa(user + ':' + pass);
     const headers = new HttpHeaders({
@@ -54,8 +62,7 @@ export class AuthenticationService {
     return this.http.get<User>('/api/logIn', {headers})
       .pipe(map(user => {
         if (user) {
-          user.authdata = auth;
-          this.setUser(user);
+          this.setUser(user,auth);
         }
         return user;
       }));

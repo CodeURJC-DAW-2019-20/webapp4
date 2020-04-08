@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../model/user.model";
 import {catchError} from "rxjs/operators";
 import {Observable} from "rxjs";
@@ -33,8 +33,8 @@ export class UserService{
     ) as Observable<User>;
   }
 
-  updateUser(user: User): Observable<User> {
-    return this.httpClient.put(BASE_URL + "/" + user.id, user).pipe(
+  updateUser(user: User, headers:HttpHeaders): Observable<User> {
+    return this.httpClient.put(BASE_URL + "/" + user.id, user, {headers}).pipe(
       catchError(error => this.handleError(error))
     ) as Observable<User>;
   }

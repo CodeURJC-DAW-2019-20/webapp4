@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../authentication.service";
 import {ImageService} from "../../services/image.service";
 import {NgxSpinnerService} from "ngx-spinner";
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-modal',
@@ -31,24 +32,24 @@ export class EditModalComponent implements OnInit {
     private spinner: NgxSpinnerService) {
   }
 
-  editUser() {
+  editUser(userForm:User) {
+    let auth = window.btoa(userForm.nickname + ':' + userForm.passwordHash);
     if (this.user.passwordHash == null) {
       alert("Escriba una contraseña por favor.");
     } else {
       this.spinner.show();
-      this.userService.updateUser(this.user).subscribe(
-        user => {
+      this.userService.updateUser(userForm,this.authenticationService.updateHeaders(userForm,auth)).subscribe(
+        newUser => {
           if (this.imageUser != null) {
-            this.imageService.uploadImage(this.imageUser, this.user.id).subscribe(
-              image => {
-              },
+            this.imageService.uploadImage(this.imageUser, userForm.id).subscribe(
+              image => {},
               error => console.error("Error al guardar la imagen: " + error));
           }
           this.spinner.hide();
-          console.log(user);
-          this.authenticationService.setUser(user);
+          this.authenticationService.setUser(newUser,auth);
           this.clickevent.emit(true);
           this.activeModal.close();
+          alert("El perfil se ha modificado correctamente.")
         },
         error => console.error('Error creating new user: ' + error)
       );

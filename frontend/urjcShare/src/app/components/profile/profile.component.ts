@@ -29,11 +29,7 @@ export class ProfileComponent implements OnInit{
       backdrop: 'static',
       backdropClass: 'customBackdrop'
     }
-    this.userService.getUser(1).subscribe(
-      user=>{
-        this.notes=user.notes;
-      }
-    )
+
   }
   goToNote(idNote:number){
     this.router.navigateByUrl(environment.apiUrl+"notes/"+idNote);
@@ -52,7 +48,14 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.newImage = new Date().getTime();
-    this.user = this.authenticationService.getUser();
+    if(this.authenticationService.logged){
+      this.user = this.authenticationService.getUser();
+      this.userService.getUser(this.user.id).subscribe(
+        user=>{
+          this.notes=user.notes;
+        }
+      )
+    }
   }
 
 }
