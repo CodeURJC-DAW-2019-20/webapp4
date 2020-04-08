@@ -20,7 +20,7 @@
                 </ngb-rating>
               </section>
               <!--<a class="btn btn-primary btn-lg" href="/files_users/notes/{{noteSelected.ruta}}" id="boton1" download>Descargar Apuntes</a>							-->
-              <a class="btn btn-primary btn-lg" href="" id="boton1" download>Descargar Apuntes</a>
+              <a class="btn btn-primary btn-lg" href="https://localhost:8443/files_users/notes/note-{{note.id}}.{{note.extension}}" id="boton1" download>Descargar Apuntes</a>
             </div>
             <ul class="list-group list-group-flush" id="list1">
               <li class="list-group-item">Título: {{note.name}}</li>
@@ -30,7 +30,6 @@
               <li class="list-group-item">Profesor: {{note.professor}}</li>
               <!--<li class="list-group-item">Profesor: noteSelected.professor</li>-->
               <!--<a class="list-group-item" href="" download>Descargar Apuntes</a>-->
-              <a class="list-group-item" href="https://localhost:8443/files_users/notes/{{note.id + '.' + note.extension}}" download>Descargar Apuntes</a>
             </ul>
 
           </div>
