@@ -28,7 +28,6 @@ export class NotesComponent implements OnInit {
   }
 
   vote ():void {
-    debugger
     this.notesService.voteNote(this.note.id, this.currentRate).subscribe( response=> {
       console.log(response)
     }, error =>{
