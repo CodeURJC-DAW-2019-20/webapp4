@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit{
 
   }
   goToNote(idNote:number){
-    this.router.navigateByUrl(environment.apiUrl+"notes/"+idNote);
+    this.router.navigateByUrl("note/"+idNote);
   }
   refreshUser() {
     this.newImage = new Date().getTime();
