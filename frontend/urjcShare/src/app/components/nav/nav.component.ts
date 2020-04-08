@@ -12,7 +12,6 @@ import {Router} from "@angular/router";
 })
 export class NavComponent implements OnInit {
   private modalOptions: NgbModalOptions;
-  isLogin: boolean;
 
   constructor(    private modalService: NgbModal, private authenticationService:AuthenticationService,private router:Router) {
     this.modalOptions = {
@@ -20,7 +19,6 @@ export class NavComponent implements OnInit {
       backdropClass:'customBackdrop',
       centered: true
     };
-    this.isLogin = true;
   }
 
   ngOnInit(): void {
@@ -40,5 +38,11 @@ export class NavComponent implements OnInit {
   openUploadNote() {
     this.modalService.open(ModalUploadNoteModule);
 
+  }
+  get loggin() {
+    return this.authenticationService.getUser()
+  }
+  get admin() {
+    return this.authenticationService.isAdmin()
   }
 }

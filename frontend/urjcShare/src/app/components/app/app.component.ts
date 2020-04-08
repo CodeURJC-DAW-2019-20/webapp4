@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {ModalAdminComponent} from "../modalAdmin/modalAdmin.component";
 import {ModalUploadNoteModule} from "../modal-upload-note/modal-upload-note.module";
 import {User} from "../../model/user.model";
+import {AuthenticationService} from "../../authentication.service";
 
 
 
@@ -11,11 +12,12 @@ import {User} from "../../model/user.model";
   templateUrl: './app.component.html',
   styles: ['#main-view {margin: 5em auto}']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'urjcShare';
   modalOptions: NgbModalOptions;
   constructor(
     private modalService: NgbModal,
+    private authenticationService:AuthenticationService
   ){
     this.modalOptions = {
       backdrop:'static',
@@ -24,10 +26,14 @@ export class AppComponent {
     }
   }
 
+
+  ngOnInit(): void {
+    this.authenticationService.removeCurrentUser();
+  }
+
   open() {
     this.modalService.open(ModalAdminComponent);
   }
-
   openUploadNote(){
     this.modalService.open(ModalUploadNoteModule);
   }

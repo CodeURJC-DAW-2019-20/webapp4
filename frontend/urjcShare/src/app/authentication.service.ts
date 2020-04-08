@@ -24,7 +24,7 @@ export class AuthenticationService {
   private setCurrentUser(user: User) {
     this.logged = true;
     this.user = user;
-    this.admin = user.roles.indexOf('ROLE_ADMIN') !== -1;
+    this.admin = user.roles.filter( aux => aux === 'ROLE_ADMIN').length > 0
   }
 
   removeCurrentUser() {
@@ -36,7 +36,7 @@ export class AuthenticationService {
     if(localStorage.getItem('currentUser')){
       this.user = JSON.parse(localStorage.getItem('currentUser'));
     }else{
-      this.user=null;
+      this.user = null;
     }
     return this.user;
   }
@@ -70,5 +70,8 @@ export class AuthenticationService {
   logOut() {
 
     return this.http.get( '/api/logOut');
+  }
+  isAdmin() {
+    return this.admin
   }
 }
