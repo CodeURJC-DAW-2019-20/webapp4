@@ -103,9 +103,7 @@ export class SubjectsComponent {
   checkIfLastPageByDegree(){
     this.subjectService.getSubjectByDegreeId(this.degree.id).subscribe(
       allSubjects => {
-        debugger
-        this.lastPageLoaded = this.subjects[this.subjects.length-1].id == allSubjects[allSubjects.length-1].id;
-        console.log('Resultado: ' + this.lastPageLoaded);
+        this.lastPageLoaded = allSubjects == null || this.subjects[this.subjects.length-1].id == allSubjects[allSubjects.length-1].id;
       }
     );
   }
@@ -114,7 +112,7 @@ export class SubjectsComponent {
   checkIfLastPageBySubject(){
     this.subjectService.getSubjectByName(this.textSearched).subscribe(
       subjects => {
-        this.lastPageLoaded = this.subjects[this.subjects.length-1].id == subjects[subjects.length-1].id;
+        this.lastPageLoaded = subjects == null || this.subjects[this.subjects.length-1].id == subjects[subjects.length-1].id;
       }
     );
   }
