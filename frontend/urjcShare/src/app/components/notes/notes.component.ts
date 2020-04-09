@@ -9,8 +9,9 @@ import {NotesService} from "../../services/notes.service";
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-  note
-  currentRate
+  noteLoaded: boolean;
+  note;
+  currentRate;
   constructor(private notesService: NotesService,
               private route: ActivatedRoute,
               private config: NgbRatingConfig) {
@@ -21,10 +22,12 @@ export class NotesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.noteLoaded = false;
     this.notesService.getNoteByID(this.route.snapshot.paramMap.get('id')).subscribe( note => {
-      console.log(note)
-      this.note = note
-    },error=>{})
+      console.log(note);
+      this.note = note;
+      this.noteLoaded = true;
+    },error=>{this.noteLoaded = true;})
   }
 
   vote ():void {

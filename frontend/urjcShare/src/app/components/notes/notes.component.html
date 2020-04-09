@@ -1,43 +1,50 @@
 <div class="container pt-3">
   <div class="row justify-content-center">
     <div class="col-12 card card-signup justify-content-center">
-      <div *ngIf="note" class="card-body">
-        <!--<h5 class="card-title text-center text-primary">{{noteSelected.subject.name}} - {{noteSelected.name}}</h5>-->
-        <h5 class="card-title text-center text-primary">{{note.subject.name}} - ID: {{note.id}}</h5>
+      <div *ngIf="!noteLoaded">
+        <h3 class="text-center">Procesando...</h3>
+      </div>
+      <div *ngIf="noteLoaded">
+        <div *ngIf="note" class="card-body">
+          <!--<h5 class="card-title text-center text-primary">{{noteSelected.subject.name}} - {{noteSelected.name}}</h5>-->
+          <h5 class="card-title text-center text-primary">{{note.subject.name}} - ID: {{note.id}}</h5>
 
-        <div class="row" id="padre">
-          <div class="col-md-12 row">
+          <div class="row" id="padre">
+            <div class="col-md-12 row">
 
-            <div class="col-6">
-              <img src="https://localhost:8443/img/{{note.extension}}.png" id="photo1" >
-              <!--<img src="" id="photo1" >-->
-              <section class='rating-widget'>
-                <!-- Rating Stars Box -->
-                <ngb-rating [(rate)]="currentRate" (rateChange)="vote()">
-                  <ng-template let-fill="fill" let-index="index">
-                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
-                  </ng-template>
-                </ngb-rating>
-              </section>
-              <!--<a class="btn btn-primary btn-lg" href="/files_users/notes/{{noteSelected.ruta}}" id="boton1" download>Descargar Apuntes</a>							-->
-              <a class="btn btn-primary btn-lg" href="https://localhost:8443/files_users/notes/note-{{note.id}}.{{note.extension}}" id="boton1" download>Descargar Apuntes</a>
+              <div class="col-6">
+                <img src="https://localhost:8443/img/{{note.extension}}.png" id="photo1">
+                <!--<img src="" id="photo1" >-->
+                <section class='rating-widget'>
+                  <!-- Rating Stars Box -->
+                  <ngb-rating [(rate)]="currentRate" (rateChange)="vote()">
+                    <ng-template let-fill="fill" let-index="index">
+                      <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                    </ng-template>
+                  </ngb-rating>
+                </section>
+                <!--<a class="btn btn-primary btn-lg" href="/files_users/notes/{{noteSelected.ruta}}" id="boton1" download>Descargar Apuntes</a>							-->
+                <a class="btn btn-primary btn-lg"
+                   href="https://localhost:8443/files_users/notes/note-{{note.id}}.{{note.extension}}" id="boton1"
+                   download>Descargar Apuntes</a>
+              </div>
+              <ul class="list-group list-group-flush" id="list1">
+                <li class="list-group-item">Título: {{note.name}}</li>
+                <!--<li class="list-group-item">Título: noteSelected.name</li>-->
+                <li class="list-group-item">Asignatura: {{note.subject.name}}</li>
+                <!--<li class="list-group-item">Asignatura: noteSelected.subject.name</li>-->
+                <li class="list-group-item">Profesor: {{note.professor}}</li>
+                <!--<li class="list-group-item">Profesor: noteSelected.professor</li>-->
+                <!--<a class="list-group-item" href="" download>Descargar Apuntes</a>-->
+              </ul>
+
             </div>
-            <ul class="list-group list-group-flush" id="list1">
-              <li class="list-group-item">Título: {{note.name}}</li>
-              <!--<li class="list-group-item">Título: noteSelected.name</li>-->
-              <li class="list-group-item">Asignatura: {{note.subject.name}}</li>
-              <!--<li class="list-group-item">Asignatura: noteSelected.subject.name</li>-->
-              <li class="list-group-item">Profesor: {{note.professor}}</li>
-              <!--<li class="list-group-item">Profesor: noteSelected.professor</li>-->
-              <!--<a class="list-group-item" href="" download>Descargar Apuntes</a>-->
-            </ul>
 
           </div>
 
         </div>
-
+        <h1 *ngIf="!note">Ese apunte no existe</h1>
       </div>
-      <h1 *ngIf="!note">Ese apunte no existe</h1>
     </div>
   </div>
 </div>
