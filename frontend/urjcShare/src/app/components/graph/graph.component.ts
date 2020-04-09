@@ -9,11 +9,17 @@ import {Note} from "../../model/note.model";
   selector: 'graph',
   templateUrl: './graph.component.html'
 })
-export class GraphComponent{
-  constructor(){}
+export class GraphComponent implements OnInit{
+  constructor(
+    private userService:UserService,
+    private authenticationService:AuthenticationService
+
+  ) {
+  }
+
   title = 'Grafico de Valoraciones de Apuntes';
-  notes:Note[];
-  user:User;
+  notes: Note[];
+  user: User;
   view: any[] = [600, 400];
 
   // options for the chart
@@ -28,22 +34,35 @@ export class GraphComponent{
   colorScheme = {
     domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
   };
-  onSelect(event){
+
+  onSelect(event) {
     console.log(event);
   }
-  createGraph(notes:Note[]){
+
+  createGraph(notes: Note[]) {
     for (let note of notes) {
-      this.data.push({name: note.name, value:5});
+      this.data.push({name: note.name, value: 5});
     }
-    console.log(this.data)
-    this.data=[...this.data];
+    this.data = [...this.data]
     console.log(this.data)
   }
-  get dataNote(){
+  ngOnInit(): void {
+    this.user = this.authenticationService.getUser();
+    this.userService.getUser(this.user.id).subscribe(
+      user => {
+        for (let not of user.notes) {
+          this.data.push({name:not.name, value: 3});
+        }
+      }
+    )
+
+    this.data=[...this.data];
+  }
+
+  get dataNote() {
     return this.data
   }
-  // data goes here
-  public data=[
 
-  ]
+  // data goes here
+  public data = []
 }

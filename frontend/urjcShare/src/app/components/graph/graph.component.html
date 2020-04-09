@@ -10,7 +10,7 @@
           Vertical Bar Chart
         </h4>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="data.length!=0">
         <ngx-charts-bar-vertical
           [view]="view"
           [scheme]="colorScheme"

@@ -58,8 +58,6 @@ export class ProfileComponent implements OnInit {
       this.userService.getUser(this.user.id).subscribe(
         user => {
           this.notes = user.notes;
-          this.graph=new GraphComponent();
-          this.graph.createGraph(this.notes);
         }
       )
     }
