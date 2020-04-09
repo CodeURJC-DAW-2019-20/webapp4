@@ -27,6 +27,9 @@ import {AuthenticationService} from "./authentication.service";
 import {BasicAuthInterceptor} from "./basic-auth.interceptor";
 import {ErrorInterceptor} from "./error.interceptor";
 import {ListNotesComponent} from "./components/list-notes/list-notes.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {GraphComponent} from "./components/graph/graph.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import {ListNotesComponent} from "./components/list-notes/list-notes.component";
     SubjectsComponent,
     RankingComponent,
     ModalUploadNoteModule,
-    ListNotesComponent
+    ListNotesComponent,
+    GraphComponent
   ],
   imports: [
     FormsModule,
@@ -55,7 +59,9 @@ import {ListNotesComponent} from "./components/list-notes/list-notes.component";
     routing,
     NgbModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   entryComponents:[
     EditModalComponent,

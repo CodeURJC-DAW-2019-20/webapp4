@@ -127,4 +127,15 @@ public class APIUserController {
     		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     	}
     }
+    @JsonView(RankingView.class)
+    @GetMapping("/{id}/grafic")
+    public ResponseEntity<String> getNotesGrafic(@PathVariable long id) {
+    	String response = userService.getNotesGrafic(id);
+    	if(response != null) {
+    		return new ResponseEntity<>(response, HttpStatus.OK);
+    	}else {
+    		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    	}
+    }
+
 }

@@ -7,23 +7,26 @@ import {AuthenticationService} from "../../authentication.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {environment} from "../../../environments/environment";
+import {GraphComponent} from "../graph/graph.component";
+import {NotesService} from "../../services/notes.service";
 
 @Component({
   selector: 'profile',
   templateUrl: './profile.component.html',
   styles: ['.btn { margin-bottom:auto }']
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
   user: User;
   notes: Note[];
   newImage: any;
   modalOptions: NgbModalOptions;
+  graph: GraphComponent
 
   constructor(
     private router: Router,
     private modalService: NgbModal,
     private authenticationService: AuthenticationService,
-    private userService:UserService
+    private userService: UserService,
   ) {
     this.modalOptions = {
       backdrop: 'static',
@@ -31,9 +34,11 @@ export class ProfileComponent implements OnInit{
     }
 
   }
-  goToNote(idNote:number){
-    this.router.navigateByUrl("note/"+idNote);
+
+  goToNote(idNote: number) {
+    this.router.navigateByUrl("note/" + idNote);
   }
+
   refreshUser() {
     this.newImage = new Date().getTime();
     this.user = this.authenticationService.getUser();
@@ -48,11 +53,11 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.newImage = new Date().getTime();
-    if(this.authenticationService.logged){
+    if (this.authenticationService.logged) {
       this.user = this.authenticationService.getUser();
       this.userService.getUser(this.user.id).subscribe(
-        user=>{
-          this.notes=user.notes;
+        user => {
+          this.notes = user.notes;
         }
       )
     }
