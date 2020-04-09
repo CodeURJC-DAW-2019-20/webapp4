@@ -37,13 +37,18 @@ export class SignUpComponent implements OnInit {
     this.spinner.show();
     this.userService.addUser(this.user).subscribe(
       user => {
-        this.imageService.uploadImage(this.imageUser, user.id).subscribe(
-          user => {
-            this.spinner.hide();
-            this.router.navigate(['/']);
-          },
-          error => console.error("Error al guardar la imagen: " + error)
-        )
+        if(this.imageUser != null){
+          this.imageService.uploadImage(this.imageUser, user.id).subscribe(
+            user => {
+              this.spinner.hide();
+              this.router.navigate(['/']);
+            },
+            error => console.error("Error al guardar la imagen: " + error)
+          )
+        }else{
+          this.spinner.hide();
+          this.router.navigate(['/']);
+        }
       },
       error => {
         this.spinner.hide();
