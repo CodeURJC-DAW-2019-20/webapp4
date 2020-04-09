@@ -11,6 +11,7 @@ import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {RankingComponent} from "./components/ranking/ranking.component";
 import {NotesComponent} from "./components/notes/notes.component";
 import {ListNotesComponent} from "./components/list-notes/list-notes.component";
+import {GraphComponent} from "./components/graph/graph.component";
 
 
 
@@ -27,7 +28,8 @@ const appRoutes = [
   {path: 'subjects', component: SubjectsComponent},
   {path: 'subjects/:id/notes', component: ListNotesComponent},
   {path: 'degrees/:id/subjects', component: SubjectsComponent},
-  {path: 'note/:id', component: NotesComponent}
+  {path: 'note/:id', component: NotesComponent},
+  {path: 'graph', component:GraphComponent}
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
