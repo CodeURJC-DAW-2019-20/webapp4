@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 import {NotesService} from "../../services/notes.service";
+import {AuthenticationService} from "../../authentication.service";
 
 @Component({
   selector: 'app-notes',
@@ -14,7 +15,8 @@ export class NotesComponent implements OnInit {
   currentRate;
   constructor(private notesService: NotesService,
               private route: ActivatedRoute,
-              private config: NgbRatingConfig) {
+              private config: NgbRatingConfig,
+              private authenticationService:AuthenticationService) {
     this.currentRate = 3
     config.max = 5;
     this.note = null
@@ -36,6 +38,9 @@ export class NotesComponent implements OnInit {
     }, error =>{
       console.log(error)
     })
+  }
+  get login() {
+    return this.authenticationService.logged
   }
 
 }

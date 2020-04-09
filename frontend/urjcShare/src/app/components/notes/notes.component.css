@@ -5,3 +5,10 @@
 .filled {
   color: #1e90ff;
 }
+.note-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  height: 24em;
+  place-content: space-between;
+}
