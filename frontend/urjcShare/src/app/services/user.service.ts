@@ -27,6 +27,12 @@ export class UserService{
     ) as Observable<User>;
   }
 
+  getGraficNotesUser(id: number | string): Observable<string> {
+    return this.httpClient.get(BASE_URL + "/" + id + "/grafic").pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<string>;
+  }
+
   addUser(user: User): Observable<User> {
     return this.httpClient.post(BASE_URL, user).pipe(
       catchError(error => this.handleError(error))

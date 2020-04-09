@@ -47,16 +47,13 @@ export class GraphComponent implements OnInit{
     console.log(this.data)
   }
   ngOnInit(): void {
+    this.data = []
     this.user = this.authenticationService.getUser();
-    this.userService.getUser(this.user.id).subscribe(
-      user => {
-        for (let not of user.notes) {
-          this.data.push({name:not.name, value: 3});
-        }
+    this.userService.getGraficNotesUser(this.user.id).subscribe(
+      notesGraf => {
+        this.data = notesGraf.slice(0,4);
       }
     )
-
-    this.data=[...this.data];
   }
 
   get dataNote() {
@@ -64,5 +61,5 @@ export class GraphComponent implements OnInit{
   }
 
   // data goes here
-  public data = []
+  public data:any
 }
