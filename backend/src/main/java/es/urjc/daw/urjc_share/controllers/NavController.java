@@ -52,6 +52,7 @@ public class NavController {
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
+		model.addAttribute("id",currentUser.getEntityUser().getId());
 		model.addAttribute("user",currentUser.getEntityUser());
 		model.addAttribute("notesUser", noteRepository.findAllByUser(currentUser.getEntityUser()));
 
