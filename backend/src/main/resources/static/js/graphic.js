@@ -1,14 +1,12 @@
 window.onload = function () {
     var id = document.body.getAttribute('idUser')
-    $('#spinner').show();
+   
     $.ajax({
         type: "GET",
         url: "https://localhost:8443/api/users/" + id + "/grafic",
         success: function (data) {
         	var objData = JSON.parse(data);
         	objData = convertData(objData);
-        	debugger
-        	
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 exportEnabled: true,
@@ -28,10 +26,10 @@ window.onload = function () {
                 }]
             });
             chart.render();
-            $('#spinner').hide();
+            
         },
         error: function (data) {
-            ('#spinner').hide();
+            
         }
     });
     
