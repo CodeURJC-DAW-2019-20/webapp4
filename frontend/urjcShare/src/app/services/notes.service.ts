@@ -5,8 +5,8 @@ import {HttpClient} from "@angular/common/http";
 import {Note} from "../model/note.model";
 
 
-const BASE_URL = 'api/notes/';
-const BASE_URL_SUB = 'api/subjects/';
+const BASE_URL = '/api/notes/';
+const BASE_URL_SUB = '/api/subjects/';
 
 @Injectable({providedIn: 'root'})
 export class NotesService {
