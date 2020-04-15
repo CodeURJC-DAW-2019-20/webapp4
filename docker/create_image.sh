@@ -12,4 +12,6 @@ docker run --rm -v ${PWD}/backend:/backend -w /backend maven:alpine mvn package
 
 docker image build -t crusasul/urjcshare -f docker/Dockerfile .
 
+docker login
+
 docker push crusasul/urjcshare
