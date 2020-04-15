@@ -10,6 +10,6 @@ cd ../..
 
 docker run --rm -v ${PWD}/backend:/backend -w /backend maven:alpine mvn package
 
-docker image build -t davidtb10/urjcshare -f docker/Dockerfile .
+docker image build -t crusasul/urjcshare -f docker/Dockerfile .
 
-docker push davidtb10/urjcshare
+docker push crusasul/urjcshare
