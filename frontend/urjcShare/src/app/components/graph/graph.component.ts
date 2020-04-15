@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {NotesService} from "../../services/notes.service";
 import {AuthenticationService} from "../../authentication.service";
 import {User} from "../../model/user.model";
 import {Note} from "../../model/note.model";
@@ -17,7 +16,7 @@ export class GraphComponent implements OnInit{
   ) {
   }
 
-  title = 'Grafico de Valoraciones de Apuntes';
+  title = 'Gráfico de valoraciones de apuntes';
   notes: Note[];
   user: User;
   view: any[] = [600, 400];

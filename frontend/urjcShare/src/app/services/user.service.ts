@@ -3,9 +3,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../model/user.model";
 import {catchError} from "rxjs/operators";
 import {Observable} from "rxjs";
-import {environment} from "../../environments/environment";
 
-const BASE_URL = 'api/users';
+const BASE_URL = '/api/users';
 
 @Injectable({ providedIn: 'root' })
 export class UserService{
@@ -13,7 +12,7 @@ export class UserService{
   constructor(private httpClient: HttpClient) { }
 
   getAll() {
-    return this.httpClient.get<User[]>(`${environment.apiUrl}/users`);
+    return this.httpClient.get<User[]>(BASE_URL);
   }
   getUsers(): Observable<User[]> {
     return this.httpClient.get(BASE_URL).pipe(
@@ -46,7 +45,7 @@ export class UserService{
   }
 
   getRanking(){
-    return this.httpClient.get<User[]>(`${environment.apiUrl}/users/ranking`);
+    return this.httpClient.get<User[]>(BASE_URL + `/ranking`);
   }
 
   private handleError(error: any) {

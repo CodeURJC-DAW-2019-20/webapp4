@@ -4,7 +4,7 @@ import {catchError} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Subject} from "../model/subject.model";
 
-const BASE_URL = 'api/subjects';
+const BASE_URL = '/api/subjects';
 
 @Injectable({ providedIn: 'root' })
 export class SubjectService{
@@ -12,13 +12,13 @@ export class SubjectService{
   constructor(private httpClient: HttpClient) { }
 
   getSubjectByDegreeId(id: number | string){
-    return this.httpClient.get('api/degrees/' + id + '/allSubjects').pipe(
+    return this.httpClient.get('/api/degrees/' + id + '/allSubjects').pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Subject[]>;
   }
 
   getSubjectByDegreeIdPaged(id: number | string, page: number, size: number){
-    return this.httpClient.get('api/degrees/' + id + '/subjects?page=' + page + '&size=' + size).pipe(
+    return this.httpClient.get('/api/degrees/' + id + '/subjects?page=' + page + '&size=' + size).pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Subject[]>;
   }

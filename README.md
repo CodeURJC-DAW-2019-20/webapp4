@@ -266,83 +266,30 @@ The API REST documentation is at [API REST DOCUMENTATION](https://github.com/Cod
 ![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramFase3.png)
 
 ## Instructions for executing the dockerized application
-### First we see the inside of our most important documents:
-#### Dockerfile:
-```
-FROM openjdk:8-alpine
 
-COPY ./docker/urjcShare.jar ./urjcShare.jar
-
-COPY ./images ./images
-
-COPY ./files_users ./files_users
-
-CMD ["java", "-jar", "urjcShare.jar"]
-
-```
-#### Docker-compose:
-```
-version: "3"
-services:
-  urjcShare:
-    image: davidtb10/urjcshare:latest
-    restart: always
-    ports:
-      - "8443:8443"
-    networks:
-      - urjcShare-network
-    depends_on:
-      - mysqldb
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/urjc_share?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=pass
- 
-  mysqldb:
-    image: mysql:8
-    restart: on-failure
-    ports:
-      - "5000:3306"
-    healthcheck:
-      test: "/usr/bin/mysql --user=root --password=pass--execute \"SHOW DATABASES;\""
-      interval: 2s
-      timeout: 20s
-      retries: 10
-    networks:
-      - urjcShare-network
-    environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=urjc_share
-      - MYSQL_USER=root  
-
-networks:
-  urjcShare-network: 
-
- ```
- #### Script:
-
-In the Scritpt we create the network that we are going to use, the container for the database and the container for the application, finally a stop is made of said containers so that later no error
- ```
- #!/bin/bash
-docker network create urjcShare-network 
-
-docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=urjc_share -d mysql:8
-
-docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d davidtb10/urjcshare
-
-docker container stop urjcShare
-docker container stop mysqldb
-
- ```
-### Steps for use Docker:
-- We run the script
+- Create the app image if it is not already uploaded to Docker Hub
 ```
 sudo sh create_image.sh
+```
 
+- Create the network
 ```
-- We run the docker-compose:
+docker network create urjcShare-network
 ```
-sudo docker-compose up
+
+- Create de database container
+```
+docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=urjc_share -d mysql:8
+```
+
+- Create the app container
+```
+docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d crusasul/urjcshare
+```
+
+- Run the app with docker-compose:
+```
+docker-compose up
 ```
 
 ## Participation

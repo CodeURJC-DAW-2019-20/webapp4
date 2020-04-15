@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 import {User} from "../model/user.model";
 import {Note} from "../model/note.model";
 
-const BASE_URL = 'api/';
+const BASE_URL = '/api/';
 
 @Injectable({ providedIn: 'root' })
 export class ImageService {

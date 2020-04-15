@@ -30,6 +30,7 @@ import {ListNotesComponent} from "./components/list-notes/list-notes.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {GraphComponent} from "./components/graph/graph.component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {GraphComponent} from "./components/graph/graph.component";
   providers: [AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [
     AppComponent

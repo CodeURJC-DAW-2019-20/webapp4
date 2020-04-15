@@ -60,6 +60,8 @@ export class ProfileComponent implements OnInit {
           this.notes = user.notes;
         }
       )
+    }else{
+      this.router.navigateByUrl("/error");
     }
   }
 
