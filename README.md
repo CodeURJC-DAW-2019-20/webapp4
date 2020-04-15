@@ -284,7 +284,7 @@ docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PA
 
 - Create the app container
 ```
-docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d davidtb10/urjcshare
+docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d crusasul/urjcshare
 ```
 
 - Run the app with docker-compose:
