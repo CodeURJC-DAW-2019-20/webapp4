@@ -1,7 +1,7 @@
 version: "3"
 services:
   urjcShare:
-    image: davidtb10/urjcshare:latest
+    image: crusasul/urjcshare:latest
     restart: always
     ports:
       - "8443:8443"
