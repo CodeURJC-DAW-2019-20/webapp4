@@ -4,6 +4,8 @@ cd ../frontend/urjcShare
 
 docker run --rm --name front-container -v ${PWD}:/urjcShare -w /urjcShare node:latest /bin/bash -c "npm install; npm run build"
 
+mkdir ../../backend/src/main/resources/static/new
+
 cp -R dist/urjcShare/* ../../backend/src/main/resources/static/new
 
 cd ../..
