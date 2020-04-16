@@ -405,6 +405,13 @@ docker-compose up
  - DAW.postman_collection.json
  - RestSecurityConfiguration.java
 
+# Fase 4
 
+## Instructions for executing the dockerized application
 
+## Updated class diagrams
+
+## Participation
+
+## Video demo
 
