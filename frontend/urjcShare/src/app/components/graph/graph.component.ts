@@ -50,7 +50,7 @@ export class GraphComponent implements OnInit{
     this.user = this.authenticationService.getUser();
     this.userService.getGraficNotesUser(this.user.id).subscribe(
       notesGraf => {
-        this.data = notesGraf.slice(0,4);
+        this.data = notesGraf;
       }
     )
   }
