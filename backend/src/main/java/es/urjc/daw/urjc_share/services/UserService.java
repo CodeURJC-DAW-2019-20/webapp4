@@ -54,10 +54,10 @@ public class UserService {
 
 	public boolean createUser(User user) throws IOException {
 		user.setRoles(user.getRoles());
-		userRepository.save(user);
-		if (user.getRoles().isEmpty()) {
+		if (user.getRoles() == null) {
 			user.setRoles(new ArrayList<>(Arrays.asList("ROLE_USER")));
 		}
+		userRepository.save(user);
 		if (!user.getRoles().contains("ROLE_ADMIN")) {
 			mailSender.sendEmail(user.getEmail(), "Bienvenido a URJCshare", "Hola " + user.getNickname()
 					+ "\nBienvenido a la página para compartir apuntes de URJC! Es un placer tenerte con nosotros");
