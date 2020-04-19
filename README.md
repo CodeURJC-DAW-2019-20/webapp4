@@ -55,57 +55,57 @@ Users will obtain a score obtained from the average of the scores of their notes
 ## Capturas de pantalla
 
 ### Home page
-![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/inicio.jpeg)
+![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/inicio.jpeg)
 A first look of our web where the guests users can search in order to look if a note from a specific subject is available.
 Users can search for a specific degree, which will show all subjects of that degree, or a specific subject.
 
 ### Register page
-![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/sign%20up.jpeg)
+![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/sign%20up.jpeg)
 Page for the sign up of the new users.
 
 ### Login page
-![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/login.jpeg)
+![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/login.jpeg)
 Page for the sign in of previously registered users.
 
 ### Subject list page
-![Subject list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20asignaturas.jpeg)
+![Subject list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/lista%20asignaturas.jpeg)
 This page will show a list with the subjects resulting from the search. Selecting a subject will show all the existing notes of that subject.
 
 ### Notes List page
-![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20apuntes.jpeg)
+![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/lista%20apuntes.jpeg)
 In this page, after a search, topic relative notes will be shown in a list. Selecting a note will show the info about that note.
 
 ### Note selected page
-![Note selected page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/apuntes%20seleccionado.jpeg)
+![Note selected page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/apuntes%20seleccionado.jpeg)
 This page will show all the info about the selected note, and loged users will be capable of downloading it.
 
 ### Profile page
-![Profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/perfil.jpeg)
+![Profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/perfil.jpeg)
 This page will show all the info about a loged user, including the notes he has uploaded, and there will be a button to allow him to modify that info.
 
 ### Edit profile page
-![Edit profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/editar%20perfil.jpeg)
+![Edit profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/editar%20perfil.jpeg)
 This page will alow the users to modify their profiles.
 
 ### Upload notes page
-![Upload notes page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/subir%20apuntes.jpeg)
+![Upload notes page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/subir%20apuntes.jpeg)
 At this page loged users will be able to select a file and fill the form in order to upload the note to the platform.
 
 ### Admin page
-![Admin page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/admin.jpg)
+![Admin page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/admin.jpg)
 Admin users will use this page with the purpose of creating new degrees and subjects for the platform, that will be available for the users of the platform.
 
 ### Ranking page
-![Ranking page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/ranking.png)
+![Ranking page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/ranking.png)
 This page will show a sorted list of the users with the highest scores of the platform.
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/Diagramanavegacion.jpg)
 
 # Fase 2
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DiagramadeNavegacionFase2.jpg)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/DiagramadeNavegacionFase2.jpg)
 
 ## Development instructions
 ### Code repository
@@ -122,11 +122,11 @@ Once you did all those steps, you can run the project with springboot running co
 The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
 
 ## Database diagrams
-![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model1.png)
+![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/model1.png)
 
 ## Class diagrams and templates
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramaClasesDAW.jpg)
-![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramaClasesDAW.jpg)
+![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramModel.png)
 
 We've decided to put the model relations in a separated diagram to make it more clear
 
@@ -260,10 +260,10 @@ We've decided to put the model relations in a separated diagram to make it more 
 
 ## API REST Documentation
 
-The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/API.md)
+The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/API.md)
 
 ## Updated class diagrams
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramFase3.png)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramFase3.png)
 
 ## Instructions for executing the dockerized application
 
