@@ -442,6 +442,27 @@ The unique change is that the script create_image will use a container with **no
 - subjects.component.ts
 - create_image.sh
 
+### Álvaro García Velasco
+
+#### Commits
+- Correccion de HTML y creacion de páginas de asignaturas 56cd16ae9b4982ce331e41972192a8c179695b99
+- Subject Service 3c1f2367a5b76eda1ab48db83c9429d2d0071e65
+- Modal de subir apuntes sin funcionalidad 915a68673bae1c5fdc32b608b9b29929d1b900a6
+- Funcionalidad de subir apunte hecha f3340f2047058945aa81992907f938761b006502
+- Listado de asignaturas hecho. 75f74494d2fdbd42bc9343d7fe9b255b26505c2e                           
+
+#### Tasks:
+- I have designed the login and the subject page
+- I have done in front the function of upload point
+- I have done in front the function of listing the subjects
+- I have participated in the creation of the login
+
+#### Files:
+- Subjecs.service
+- approuting
+- subjects.component
+- modal-upload-note
+- note.service
 
 ## Video demo
 
