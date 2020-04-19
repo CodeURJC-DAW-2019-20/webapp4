@@ -509,4 +509,4 @@ The unique change is that the script create_image will use a container with **no
 - ranking.component.html
 - user.service.ts
 ## Video demo
-You can take a look at the features of our applcation working on Angular in this video!: [Video demo](https://youtu.be/tD7f_ZxotBY)
+You can take a look at the features of our applcation working on Angular in this video!: [![Video demo](https://img.youtube.com/vi/tD7f_ZxotBY/0.jpg)](https://www.youtube.com/watch?v=tD7f_ZxotBY)
