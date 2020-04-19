@@ -414,9 +414,34 @@ The unique change is that the script create_image will use a container with **no
 
 ## Updated class diagrams
 
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagrama fase 4.jpeg)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagrama%20fase%204.jpeg)
 
 ## Participation
+
+### David Tejero Bravo
+
+#### Commits
+- Registro completo con imágenes de usuario 47848c126d4537d0bcc9d26833064d4cf5379975
+- Funcionamiento del listado de grados 6db306ae142554afff24e8c02e58c06195bfe3da
+- Implementación del modal de administración cc9739e265928888a6f145b65f98c91b8b586229
+- Paginación de asignaturas en front con angular 6368a6bf3e25f903a707a449acfcb1e11bf62f8d
+- Frontend dockerizado f0e29b1481b839a1bfcfbee98537521a405138b2
+
+
+#### Tasks
+- Implement sign up with Angular.
+- Implement degrees list with Angular.
+- Implement admin modal with Angular.
+- Implement pagination in subjects and notes.
+- Change docker to add Angular frontend.
+
+#### Files
+- signUp.component.ts
+- degree-list.component.ts
+- modalAdmin.component.ts
+- subjects.component.ts
+- create_image.sh
+
 
 ## Video demo
 
