@@ -10,39 +10,45 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
-
-    @JsonView({BasicView.class})
+	
+	
+    @JsonView({BasicView.class, UserLogin.class})
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class, RankingUserView.class})
     private String name;
     private String passwordHash;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String degree;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private String nickname;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class,  UserLogin.class})
     private String email;
-    @JsonView({BasicView.class, BasicViewUserForNote.class})
+    @JsonView({BasicView.class, BasicViewUserForNote.class, UserLogin.class})
     private Integer number;
     @JsonView({BasicView.class})
     private boolean image;
+    @JsonView({RankingUserView.class})
     private float media;
 
     public interface BasicView {}
     public interface BasicViewSubject{}
     public interface BasicViewUserForNote {}
+    public interface UserLogin{}
+    public interface RankingUserView{}
 
     @JsonView({BasicView.class})
     @OneToMany(mappedBy = "user")
     private List<Note> notes = new ArrayList<>();
-    
+
+    @JsonView({BasicView.class, UserLogin.class})
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
     
     @OneToMany(mappedBy = "user")
     private List<Score> scores = new ArrayList<>();
+    
 
     public User() {
 

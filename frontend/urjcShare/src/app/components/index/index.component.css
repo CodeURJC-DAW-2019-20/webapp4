@@ -1,0 +1,20 @@
+.mainCont{
+  text-align: center;
+}
+
+#cajita{
+  margin-left: 30px;
+  display: flex;
+  flex-direction:column;
+}
+
+#textoHead{
+  text-align: center;
+}
+
+
+.showrow{
+  display: flex;
+  flex-direction: row;
+}
+

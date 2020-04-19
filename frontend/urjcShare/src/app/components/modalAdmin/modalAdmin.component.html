@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h4 class="modal-title">Administración</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div class="modal-body">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Grado</a>
+      <ng-template ngbNavContent>
+
+        <div class="container pt-3">
+          <div class="row justify-content-center">
+            <div class="col-12 justify-content-center">
+              <div class="card-body">
+                <h5 class="card-title text-center text-primary">Añadir grado</h5>
+                <form class="form-signin">
+                  <div class="form-group">
+                    <label for="textDegree">Grado</label>
+                    <input type="text" [(ngModel)]="degreeNameTab1" class="form-control" id="textDegree" name="name">
+                  </div>
+                  <div class="text-center">
+                    <button (click)="saveDegree()" class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Asignatura</a>
+      <ng-template ngbNavContent>
+
+        <div class="container pt-3">
+          <div class="row justify-content-center">
+            <div class="col-12 justify-content-center">
+              <div class="card-body">
+                <h5 class="card-title text-center text-primary">Añadir asignatura</h5>
+                <form class="form-signin">
+                  <div class="form-group">
+                    <label for="degree">Grado</label>
+                    <select id="degree" [(ngModel)]="degreeNameTab2" name="idDegree">
+                      <option *ngFor="let degree of degrees" [value]="degree.name">{{degree.name}}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="textSubject">Asignatura</label>
+                    <input type="text" [(ngModel)]="subjectName" class="form-control" id="textSubject" name="nameSubject">
+                  </div>
+                  <div class="text-center">
+                    <button (click)="saveSubject()" class="btn btn-primary  text-uppercase" type="submit">Añadir</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>

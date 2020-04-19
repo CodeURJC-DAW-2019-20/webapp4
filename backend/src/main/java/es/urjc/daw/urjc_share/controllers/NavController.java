@@ -7,14 +7,14 @@ import es.urjc.daw.urjc_share.model.*;
 import es.urjc.daw.urjc_share.services.DegreeService;
 import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -52,6 +52,7 @@ public class NavController {
 
 	@GetMapping("/profile")
 	public String goToMyProfile(Model model) {
+		model.addAttribute("id",currentUser.getEntityUser().getId());
 		model.addAttribute("user",currentUser.getEntityUser());
 		model.addAttribute("notesUser", noteRepository.findAllByUser(currentUser.getEntityUser()));
 
@@ -88,45 +89,67 @@ public class NavController {
 			model.addAttribute("emptyResult", degrees.isEmpty());
 			return "listDegrees";
 		} else {
-			List<Subject> subjects = subjectRepository.findAllByName(textSearched);
-			model.addAttribute("subjectSearched", subjects);
+			model.addAttribute("textSearched", textSearched);
+			Page<Subject> subjects = subjectRepository.findAllByName(textSearched, PageRequest.of(0, 10));
+			model.addAttribute("subjectSearched", subjects.getContent());
 			model.addAttribute("emptyResult", subjects.isEmpty());
 			return "listsubjects";
 		}
 	}
-
-	@GetMapping("/search/degree/{degreeID}")
-	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID) {
+	
+	@GetMapping("/search/degree/{degreeID}/subjectList")
+	public String showListOfSubjects(Model model, @PathVariable long degreeID) {
 		configNav(model, "");
 		Degree degree = degreeService.findDegreeById(degreeID);
-		model.addAttribute("textTittle", degree.getName());
+		model.addAttribute("textSearched", degree.getName());
 		
-		List<Subject> subjects = subjectRepository.findAllByDegree(degree);
-		model.addAttribute("subjectSearched", subjects);
+		Page<Subject> subjects = subjectRepository.findAllByDegree(degree, PageRequest.of(0, 10));
+		model.addAttribute("subjectSearched", subjects.getContent());	
 		model.addAttribute("emptyResult", subjects.isEmpty());
 		return "listsubjects";
 	}
+	
 
-	@GetMapping("/search/subject/{subjectID}")
-	public String searchNotesFromSubject(Model model, @PathVariable long subjectID) {
+	@GetMapping("/search/degree/{degreeID}/subjects")
+	public String searchSubjectsFromDegree(Model model, @PathVariable long degreeID, Pageable page) {
+		Degree degree = degreeService.findDegreeById(degreeID);
+		Page<Subject> subjects = subjectRepository.findAllByDegree(degree, page);	
+		model.addAttribute("subjectSearched", subjects.getContent());
+		return "subjectsRequired";
+	}
+
+	@GetMapping("/search/subject/{subjectID}/noteList")
+	public String showListOfNotes(Model model, @PathVariable long subjectID) {
 		configNav(model, "");
 		Subject subject = subjectRepository.findById(subjectID);
 		model.addAttribute("textTittle", subject.getName());
 
-		List<Note> notes = noteRepository.findAllBySubject(subject);
-		model.addAttribute("notesSearched", notes);
+		Page<Note> notes = noteRepository.findAllBySubject(subject, PageRequest.of(0, 10));
+		model.addAttribute("notesSearched", notes.getContent());
 		model.addAttribute("emptyResult", notes.isEmpty());
 		return "allNotes";
+	}
+	
+	@GetMapping("/search/subject/{subjectID}/notes")
+	public String searchNotesFromSubject(Model model, @PathVariable long subjectID, Pageable page) {
+		Subject subject = subjectRepository.findById(subjectID);
+		Page<Note> notes = noteRepository.findAllBySubject(subject, page);
+		model.addAttribute("notesSearched", notes.getContent());
+		return "notesRequired";
 	}
 
 	@GetMapping("/notes/{noteID}")
 	public String selectNote(Model model, @PathVariable long noteID) {
 		configNav(model, "");
 		Note note = noteRepository.findById(noteID);
-		String [] image = note.getRuta().split("\\.");
-		model.addAttribute("nameImage", image[image.length-1]+".png");
-		model.addAttribute("noteSelected", note);
-		return "selectNote";
+		if (note != null) {
+			String [] image = note.getRuta().split("\\.");
+			model.addAttribute("nameImage", image[image.length-1]+".png");
+			model.addAttribute("noteSelected", note);
+			return "selectNote";
+		}else {
+			return null;
+		}
 	}
 
 	// Methos

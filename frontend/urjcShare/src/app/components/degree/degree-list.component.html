@@ -1,0 +1,34 @@
+<div class="container pt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 card card-signup justify-content-center">
+      <div class="card-body">
+        <h5 class="card-title text-center text-primary">Lista de
+          grados encontrados para: {{degreeSearched}}</h5>
+        <!-- List of degrees -->
+
+        <div class="ml-3" id="father">
+          <div class="" id="son">
+            <ul class="list-group list-group-flush" id="list2">
+              <div *ngIf="!degreesLoaded">
+                <h3 class="text-center">Procesando...</h3>
+              </div>
+              <div *ngIf="degreesLoaded">
+                <div *ngIf="degrees">
+                  <li *ngFor="let degree of degrees" class="border list-group-item rounded">
+                    <a [routerLink]="['/degrees',degree.id, 'subjects']" [queryParams]=" { textSearched: degree.name, previousComponent: 'degreeComponent' }" class="w-100 text-decoration-none">
+                    <div id="name">ID: {{degree.id}}</div>
+                    <div id="degree">Grado: {{degree.name}}</div>
+                  </a></li>
+                </div>
+                <div *ngIf="!degrees">
+                  <h3 class="text-center">No se ha encontrado ningún grado que corresponda.</h3>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

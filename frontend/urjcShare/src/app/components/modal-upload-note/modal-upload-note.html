@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h4 class="modal-title">Subir Apunte</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="container pt-3">
+    <div class="row justify-content-center">
+      <div class="col-12 justify-content-center">
+        <div class="col-photo">
+
+        </div>
+        <form class="form-signup" action="/note_save" method="post" enctype="multipart/form-data">
+          <div class="profile-img">
+            <img src="https://localhost:8443/img/vector-documents-icon.webp" alt=""/>
+            <div class="file btn btn-lg btn-primary">
+              Examinar
+              <input type="file" name="file" (change)="uploadFile($event)" />
+            </div>
+          </div>
+          <label>Grado:</label>
+          <div class="form-label-group">
+
+            <select id="alldegrees" for="alldegrees" name="degree" (ngModelChange)="loadSubject($event)" [(ngModel)]="degreeSelected">
+
+              <option [ngValue]="degree" *ngFor="let degree of listDegrees ">{{degree.name}}</option>
+
+            </select>
+          </div>
+          <label>Asignatura:</label>
+          <div class="form-label-group">
+
+            <select id="allsubjects" for="allsubjects" name="subject" [(ngModel)]="subjectSelected" >
+
+              <option [value]="subject.name" *ngFor="let subject of listSubjects"  >{{subject.name}}</option>
+
+            </select>
+          </div>
+          <div class="form-label-group">
+            <input type="text" name="name" id="inputName" class="form-control"
+                   placeholder="Nombre" [(ngModel)]="name" autofocus>
+            <label for="inputName">Nombre</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" id="inputTag" class="form-control" placeholder="Etiqueta">
+            <label for="inputTag">Etiqueta</label>
+
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" name="professor" id="inputProf" class="form-control"
+                   placeholder="Profesor" autofocus [(ngModel)]="professor">
+            <label for="inputProf">Profesor</label>
+          </div>
+
+          <button class="btn btn-primary btn-block text-uppercase" href="/notes" type="submit" (click)="save()" >
+            Subir
+          </button>
+        </form>
+        <hr>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

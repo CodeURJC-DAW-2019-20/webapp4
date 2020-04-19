@@ -1,0 +1,38 @@
+<div class="container pt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 card card-signup justify-content-center">
+      <div class="card-body">
+        <h5 class="card-title text-center text-primary">Lista de
+          asignaturas encontradas para: {{textSearched}}</h5>
+
+        <!-- List of subjects -->
+        <div class="ml-3" id="father">
+          <div class="" id="son">
+            <ul class="list-group list-group-flush" id="list2">
+             <div *ngIf="!subjectLoaded">
+              <h3 class="text-center">Procesando...</h3>
+             </div>
+              <div *ngIf="subjectLoaded">
+                <div *ngIf="subjects">
+                  <li  *ngFor="let subject of subjects" class="border list-group-item rounded">
+                    <a [routerLink]="['/subjects',subject.id, 'notes']" [queryParams]=" { subject: subject.name }"  class="w-100 text-decoration-none">
+                    <div id="name">Asignatura:{{subject.name}}</div>
+                    <div id="degree">Grado: {{subject.degree.name}}</div>
+                    </a></li>
+                  <br>
+                  <div *ngIf="!lastPageLoaded" class="col text-center">
+                    <button id="buttonload" class="btn btn-primary" (click)="loadSubjects()">Más resultados</button>
+                  </div>
+                </div>
+                <div *ngIf="!subjects">
+                  <h3 class="text-center">No se ha encontrado ninguna asignatura que corresponda.</h3>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <ngx-spinner type="line-scale-party" color="#007bff"></ngx-spinner>
+      </div>
+    </div>
+  </div>
+</div>

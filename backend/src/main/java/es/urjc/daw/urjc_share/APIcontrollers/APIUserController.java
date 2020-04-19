@@ -3,6 +3,7 @@ package es.urjc.daw.urjc_share.APIcontrollers;
 import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.daw.urjc_share.model.Note;
 import es.urjc.daw.urjc_share.model.User;
+import es.urjc.daw.urjc_share.model.User.RankingUserView;
 import es.urjc.daw.urjc_share.services.ImageService;
 import es.urjc.daw.urjc_share.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class APIUserController {
     private ImageService imageService;
 
     interface UsersView extends User.BasicView, Note.BasicViewUser {
+    }
+    interface RankingView extends RankingUserView {
     }
     @JsonView(UsersView.class)
     @GetMapping("")
@@ -114,7 +117,7 @@ public class APIUserController {
         }
     }
     
-    @JsonView(UsersView.class)
+    @JsonView(RankingView.class)
     @GetMapping("/ranking")
     public ResponseEntity<List<User>> showRanking() {
     	List<User> users = userService.getSortedUsers();
@@ -124,4 +127,15 @@ public class APIUserController {
     		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     	}
     }
+    @JsonView(RankingView.class)
+    @GetMapping("/{id}/grafic")
+    public ResponseEntity<String> getNotesGrafic(@PathVariable long id) {
+    	String response = userService.getNotesGrafic(id);
+    	if(response != null) {
+    		return new ResponseEntity<>(response, HttpStatus.OK);
+    	}else {
+    		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    	}
+    }
+
 }

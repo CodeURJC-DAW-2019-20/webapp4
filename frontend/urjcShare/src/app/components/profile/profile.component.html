@@ -1,0 +1,84 @@
+<div class="row-1">
+  <div class="container emp-profile">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img src='https://localhost:8443/images/users/image-{{user.id}}.jpg?{{newImage}}' alt=""/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h2>{{user.name}}</h2>
+          </div>
+        </div>
+          <button class="btn btn-lg btn-primary" (click)="open()">Editar Perfil</button>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+            <p>Universidad</p>
+            <a href="https://www.urjc.es/">Universidad Rey Juan
+              Carlos</a><br/>
+            <p>Estudios</p>
+            <a href="">{{user.degree}}</a><br/>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4>Sobre mi</h4>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Usuario</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{user.nickname}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Nombre</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{user.name}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Correo electrónico</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{user.email}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Teléfono</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{user.number}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <h4>Documentos subidos</h4>
+    <hr>
+    <div id="list-notes">
+      <div class="card" *ngFor="let note of notes">
+        <img class="card-img-profile" src="https://localhost:8443/img/{{note.extension}}.png"
+             alt="">
+        <div class="card-body">
+          <h4 class="card-title">{{note.name}}</h4>
+          <p class="card-text">{{note.professor}}</p>
+        </div>
+        <div class="card-footer">
+          <a (click)="goToNote(note.id)" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <graph></graph>
+    </div>
+  </div>
+</div>
+

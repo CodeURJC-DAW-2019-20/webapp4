@@ -55,57 +55,57 @@ Users will obtain a score obtained from the average of the scores of their notes
 ## Capturas de pantalla
 
 ### Home page
-![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/inicio.jpeg)
+![Home page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/inicio.jpeg)
 A first look of our web where the guests users can search in order to look if a note from a specific subject is available.
 Users can search for a specific degree, which will show all subjects of that degree, or a specific subject.
 
 ### Register page
-![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/sign%20up.jpeg)
+![Sign up page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/sign%20up.jpeg)
 Page for the sign up of the new users.
 
 ### Login page
-![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/login.jpeg)
+![Login page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/login.jpeg)
 Page for the sign in of previously registered users.
 
 ### Subject list page
-![Subject list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20asignaturas.jpeg)
+![Subject list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/lista%20asignaturas.jpeg)
 This page will show a list with the subjects resulting from the search. Selecting a subject will show all the existing notes of that subject.
 
 ### Notes List page
-![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/lista%20apuntes.jpeg)
+![Notes list](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/lista%20apuntes.jpeg)
 In this page, after a search, topic relative notes will be shown in a list. Selecting a note will show the info about that note.
 
 ### Note selected page
-![Note selected page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/apuntes%20seleccionado.jpeg)
+![Note selected page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/apuntes%20seleccionado.jpeg)
 This page will show all the info about the selected note, and loged users will be capable of downloading it.
 
 ### Profile page
-![Profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/perfil.jpeg)
+![Profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/perfil.jpeg)
 This page will show all the info about a loged user, including the notes he has uploaded, and there will be a button to allow him to modify that info.
 
 ### Edit profile page
-![Edit profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/editar%20perfil.jpeg)
+![Edit profile page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/editar%20perfil.jpeg)
 This page will alow the users to modify their profiles.
 
 ### Upload notes page
-![Upload notes page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/subir%20apuntes.jpeg)
+![Upload notes page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/subir%20apuntes.jpeg)
 At this page loged users will be able to select a file and fill the form in order to upload the note to the platform.
 
 ### Admin page
-![Admin page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/admin.jpg)
+![Admin page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/admin.jpg)
 Admin users will use this page with the purpose of creating new degrees and subjects for the platform, that will be available for the users of the platform.
 
 ### Ranking page
-![Ranking page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/ranking.png)
+![Ranking page](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/ranking.png)
 This page will show a sorted list of the users with the highest scores of the platform.
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/Diagramanavegacion.jpg)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/Diagramanavegacion.jpg)
 
 # Fase 2
 
 ## Navigation diagram
-![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/DiagramadeNavegacionFase2.jpg)
+![Navigation diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/DiagramadeNavegacionFase2.jpg)
 
 ## Development instructions
 ### Code repository
@@ -122,11 +122,11 @@ Once you did all those steps, you can run the project with springboot running co
 The port used to run this app is 8443, so to have access you will need to type on your explorer the route "https://localhost:8443".
 
 ## Database diagrams
-![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/model1.png)
+![Database diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/model1.png)
 
 ## Class diagrams and templates
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramaClasesDAW.jpg)
-![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramModel.png)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramaClasesDAW.jpg)
+![Model diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramModel.png)
 
 We've decided to put the model relations in a separated diagram to make it more clear
 
@@ -260,89 +260,36 @@ We've decided to put the model relations in a separated diagram to make it more 
 
 ## API REST Documentation
 
-The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/API.md)
+The API REST documentation is at [API REST DOCUMENTATION](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/API.md)
 
 ## Updated class diagrams
-![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/master/src/images/diagramFase3.png)
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagramFase3.png)
 
 ## Instructions for executing the dockerized application
-### First we see the inside of our most important documents:
-#### Dockerfile:
-```
-FROM openjdk:8-alpine
 
-COPY ./docker/urjcShare.jar ./urjcShare.jar
-
-COPY ./images ./images
-
-COPY ./files_users ./files_users
-
-CMD ["java", "-jar", "urjcShare.jar"]
-
-```
-#### Docker-compose:
-```
-version: "3"
-services:
-  urjcShare:
-    image: davidtb10/urjcshare:latest
-    restart: always
-    ports:
-      - "8443:8443"
-    networks:
-      - urjcShare-network
-    depends_on:
-      - mysqldb
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/urjc_share?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=pass
- 
-  mysqldb:
-    image: mysql:8
-    restart: on-failure
-    ports:
-      - "5000:3306"
-    healthcheck:
-      test: "/usr/bin/mysql --user=root --password=pass--execute \"SHOW DATABASES;\""
-      interval: 2s
-      timeout: 20s
-      retries: 10
-    networks:
-      - urjcShare-network
-    environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=urjc_share
-      - MYSQL_USER=root  
-
-networks:
-  urjcShare-network: 
-
- ```
- #### Script:
-
-In the Scritpt we create the network that we are going to use, the container for the database and the container for the application, finally a stop is made of said containers so that later no error
- ```
- #!/bin/bash
-docker network create urjcShare-network 
-
-docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=urjc_share -d mysql:8
-
-docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d davidtb10/urjcshare
-
-docker container stop urjcShare
-docker container stop mysqldb
-
- ```
-### Steps for use Docker:
-- We run the script
+- Create the app image if it is not already uploaded to Docker Hub
 ```
 sudo sh create_image.sh
+```
 
+- Create the network
 ```
-- We run the docker-compose:
+docker network create urjcShare-network
 ```
-sudo docker-compose up
+
+- Create de database container
+```
+docker container run --name mysqldb --network urjcShare-network -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=urjc_share -d mysql:8
+```
+
+- Create the app container
+```
+docker container run --network urjcShare-network --name urjcShare -p 8443:8443 -d crusasul/urjcshare
+```
+
+- Run the app with docker-compose:
+```
+docker-compose up
 ```
 
 ## Participation
@@ -458,6 +405,130 @@ sudo docker-compose up
  - DAW.postman_collection.json
  - RestSecurityConfiguration.java
 
+# Fase 4
+
+## Instructions for executing the dockerized application
+
+The instructions are the same as in the previous **phase 3**.
+The unique change is that the script create_image will use a container with **nodejs** for the **Angular frontend**.
+
+## Updated class diagrams
+
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagrama%20fase%204.jpeg)
+
+## Participation
+
+### David Tejero Bravo
+
+#### Commits
+- Registro completo con imágenes de usuario 47848c126d4537d0bcc9d26833064d4cf5379975
+- Funcionamiento del listado de grados 6db306ae142554afff24e8c02e58c06195bfe3da
+- Implementación del modal de administración cc9739e265928888a6f145b65f98c91b8b586229
+- Paginación de asignaturas en front con angular 6368a6bf3e25f903a707a449acfcb1e11bf62f8d
+- Frontend dockerizado f0e29b1481b839a1bfcfbee98537521a405138b2
 
 
+#### Tasks
+- Implement sign up with Angular.
+- Implement degrees list with Angular.
+- Implement admin modal with Angular.
+- Implement pagination in subjects and notes.
+- Change docker to add Angular frontend.
 
+#### Files
+- signUp.component.ts
+- degree-list.component.ts
+- modalAdmin.component.ts
+- subjects.component.ts
+- create_image.sh
+
+### Álvaro García Velasco
+
+#### Commits
+- Correccion de HTML y creacion de páginas de asignaturas 56cd16ae9b4982ce331e41972192a8c179695b99
+- Subject Service 3c1f2367a5b76eda1ab48db83c9429d2d0071e65
+- Modal de subir apuntes sin funcionalidad 915a68673bae1c5fdc32b608b9b29929d1b900a6
+- Funcionalidad de subir apunte hecha f3340f2047058945aa81992907f938761b006502
+- Listado de asignaturas hecho. 75f74494d2fdbd42bc9343d7fe9b255b26505c2e                           
+
+#### Tasks:
+- I have designed the login and the subject page
+- I have done in front the function of upload point
+- I have done in front the function of listing the subjects
+- I have participated in the creation of the login
+
+#### Files:
+- Subjecs.service
+- approuting
+- subjects.component
+- modal-upload-note
+- note.service
+
+### Miguel Rdoríguez Álvarez
+
+#### Commits
+- grafico 89180690ee5c5823b2bd1e93250dd6951ff89659
+- Modificar usuario 
+- logout casi casi 360300fc45df810917bb0e245ff72c60a4b0afe8
+- modificar usuario funciona 108f66039ee710da6c7770d8f74dec8837afc0eb
+- login finito b3707cde988ce8cb66654b42addd0b45d917ae25
+
+#### Tasks:
+- I have created the user profile page with angular
+- I have done the angular graphic in frontend
+- I have participated in the creatin of login
+- I have done the logout function
+- I have implemented the Edit Profile User function
+
+#### Files:
+- EditModalComponent
+- user.service
+- signin.component
+- graph.component
+- profile.component
+
+### Alejandro Domingo Cornás
+
+#### Commits
+- index component c847a993d5f7b5e95684439cb37ef5ac45dc0225
+- ranking component 5ae176abe4005ec0bd242884b3d56a5db29c61df
+- index working e0560f7246daa1eefbe0107d231dbb2d5ecbb79d
+- ranking working f0786daa219a8e4a25f892b3ef934030bd2e1224
+
+#### Tasks:
+- I have made the index page using angular
+- I have made the ranking page using angular
+- I have created a user service to provide data to the ranking
+- I have made the angular components diagram
+- I have recorded the video sample
+
+#### Files:
+- index.component.ts
+- ranking.component.ts
+- index.component.html
+- ranking.component.html
+- user.service.ts
+### Diego Almansa Cantero
+
+#### Commits
+- List notes components - services notes list - note rate, download and img extension 65b5f3e6f329b523e8c9f9e047d212079385769a
+- nav component 2c8db282bb6fb25fbd2c4b8b2925446284351c87
+- note component b0370c23684b096da2af1eb0961d06b19a94db92
+- use register in config nav 240d3dba4c0e0baf52ecaca0e780ad393e1d3ae8
+- service grafic c0d6a8eac0d922d2b5ad29646574e9f1f9c584a7
+
+#### Tasks:
+- I have made the nav component and add in app component
+- I have made the list of notes and their services
+- I have made note component and their services
+- I have configurate register in nav component
+- Create controller on back for chart
+
+#### Files:
+- notes.component.ts
+- nav.component.ts
+- list-notes.component.html
+- notes.service.html
+- UserService.java
+## Video demo
+You can take a look at the features of our applcation working on Angular in this video!: [![Video demo](https://img.youtube.com/vi/tD7f_ZxotBY/0.jpg)](https://www.youtube.com/watch?v=tD7f_ZxotBY)

@@ -1,0 +1,34 @@
+<div class="container pt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 card card-signup justify-content-center">
+      <div class="card-body">
+        <h5 class="card-title text-center text-primary">Lista de apuntes encontrados:</h5>
+        <!-- List of notes -->
+
+        <div class="ml-3" id="father">
+          <div class="" id="son">
+            <div *ngIf="!notesLoaded">
+              <h3 class="text-center">Procesando...</h3>
+            </div>
+            <div *ngIf="notesLoaded">
+              <h3 *ngIf="!listNotes" class="text-center">No se ha encontrado ningún apunte.</h3>
+              <ul *ngIf="listNotes" class="list-group list-group-flush" id="list2">
+                <li *ngFor="let note of listNotes" class="border list-group-item rounded">
+                  <a [routerLink]="['/note',note.id]" class="w-100 text-decoration-none">
+                    <div id="name">Nombre: {{note.name}}</div>
+                    <div id="subject">Asignatura: {{note.subject.name}}</div>
+                    <div id="professor">Profesor: {{note.professor}}</div>
+                  </a>
+                </li>
+              </ul>
+              <br>
+              <div *ngIf="!lastPageLoaded" class="col text-center">
+                <button id="buttonload" class="btn btn-primary" (click)="loadNotes()">Más resultados</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
