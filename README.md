@@ -409,7 +409,12 @@ docker-compose up
 
 ## Instructions for executing the dockerized application
 
+The instructions are the same as in the previous **phase 3**.
+The unique change is that the script create_image will use a container with **nodejs** for the **Angular frontend**.
+
 ## Updated class diagrams
+
+![Class diagram](https://github.com/CodeURJC-DAW-2019-20/webapp4/blob/Fusion/images/diagrama fase 4.jpeg)
 
 ## Participation
 
