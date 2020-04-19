@@ -464,5 +464,29 @@ The unique change is that the script create_image will use a container with **no
 - modal-upload-note
 - note.service
 
+### Miguel Rdoríguez Álvarez
+
+#### Commits
+- grafico 89180690ee5c5823b2bd1e93250dd6951ff89659
+- Modificar usuario 
+- logout casi casi 360300fc45df810917bb0e245ff72c60a4b0afe8
+- modificar usuario funciona 108f66039ee710da6c7770d8f74dec8837afc0eb
+- login finito b3707cde988ce8cb66654b42addd0b45d917ae25
+
+#### Tasks:
+- I have created the user profile page with angular
+- I have done the angular graphic in frontend
+- I have participated in the creatin of login
+- I have done the logout function
+- I have implemented the Edit Profile User function
+
+#### Files:
+- EditModalComponent
+- user.service
+- signin.component
+- graph.component
+- profile.component
+
+
 ## Video demo
 
