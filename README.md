@@ -508,5 +508,27 @@ The unique change is that the script create_image will use a container with **no
 - index.component.html
 - ranking.component.html
 - user.service.ts
+### Diego Almansa Cantero
+
+#### Commits
+- List notes components - services notes list - note rate, download and img extension 65b5f3e6f329b523e8c9f9e047d212079385769a
+- nav component 2c8db282bb6fb25fbd2c4b8b2925446284351c87
+- note component b0370c23684b096da2af1eb0961d06b19a94db92
+- use register in config nav 240d3dba4c0e0baf52ecaca0e780ad393e1d3ae8
+- service grafic c0d6a8eac0d922d2b5ad29646574e9f1f9c584a7
+
+#### Tasks:
+- I have made the nav component and add in app component
+- I have made the list of notes and their services
+- I have made note component and their services
+- I have configurate register in nav component
+- Create controller on back for chart
+
+#### Files:
+- notes.component.ts
+- nav.component.ts
+- list-notes.component.html
+- notes.service.html
+- UserService.java
 ## Video demo
 You can take a look at the features of our applcation working on Angular in this video!: [![Video demo](https://img.youtube.com/vi/tD7f_ZxotBY/0.jpg)](https://www.youtube.com/watch?v=tD7f_ZxotBY)
