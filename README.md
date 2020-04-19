@@ -487,6 +487,26 @@ The unique change is that the script create_image will use a container with **no
 - graph.component
 - profile.component
 
+### Alejandro Domingo Cornás
 
+#### Commits
+- index component c847a993d5f7b5e95684439cb37ef5ac45dc0225
+- ranking component 5ae176abe4005ec0bd242884b3d56a5db29c61df
+- index working e0560f7246daa1eefbe0107d231dbb2d5ecbb79d
+- ranking working f0786daa219a8e4a25f892b3ef934030bd2e1224
+
+#### Tasks:
+- I have made the index page using angular
+- I have made the ranking page using angular
+- I have created a user service to provide data to the ranking
+- I have made the angular components diagram
+- I have recorded the video sample
+
+#### Files:
+- index.component.ts
+- ranking.component.ts
+- index.component.html
+- ranking.component.html
+- user.service.ts
 ## Video demo
-
+You can take a look at the features of our applcation working on Angular in this video!: [Video demo](https://youtu.be/tD7f_ZxotBY)
